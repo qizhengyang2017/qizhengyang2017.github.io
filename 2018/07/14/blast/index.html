@@ -115,7 +115,7 @@
 <meta property="og:site_name" content="ZhengYang Qi">
 <meta property="og:description" content="BLAST finds regions of similarity between biological sequences. The program compares nucleotide or protein sequences to sequence databases and calculates the statistical significance.  处理文本12345678910">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-08-07T03:46:03.785Z">
+<meta property="og:updated_time" content="2018-08-17T11:07:01.224Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Basic Local Alignment Search Tool">
 <meta name="twitter:description" content="BLAST finds regions of similarity between biological sequences. The program compares nucleotide or protein sequences to sequence databases and calculates the statistical significance.  处理文本12345678910">
@@ -347,7 +347,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-08-07 11:46:03" itemprop="dateModified" datetime="2018-08-07T11:46:03+08:00">2018-08-07</time>
+                <time title="Modified: 2018-08-17 19:07:01" itemprop="dateModified" datetime="2018-08-17T19:07:01+08:00">2018-08-17</time>
               
             
           </span>
@@ -381,7 +381,7 @@
 
       
         <p><strong>BLAST</strong> finds regions of similarity between biological sequences. The program compares nucleotide or protein sequences to sequence databases and calculates the statistical significance. </p>
-<h2 id="处理文本"><a href="#处理文本" class="headerlink" title="处理文本"></a>处理文本</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 行尾追加换行符，有的序列行尾有换行符，有的没有</span></span><br><span class="line"><span class="keyword">for</span> dir <span class="keyword">in</span> $(ls ~/blast/<span class="built_in">test</span>/sequence); <span class="keyword">do</span> <span class="built_in">echo</span> &gt;&gt; <span class="variable">$dir</span>; <span class="keyword">done</span></span><br><span class="line"><span class="comment"># 行首添加一行，截取文件名"_"之前的部分，给序列命名</span></span><br><span class="line"><span class="keyword">for</span> dir <span class="keyword">in</span> $(ls ~/blast/<span class="built_in">test</span>/sequence); <span class="keyword">do</span> sed -i <span class="string">"1i&gt;<span class="variable">$&#123;dir%%_*&#125;</span>"</span> <span class="variable">$dir</span>; <span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者直接用</span></span><br><span class="line"><span class="keyword">for</span> dir <span class="keyword">in</span> `ls`; <span class="keyword">do</span> <span class="built_in">echo</span> &gt;&gt; <span class="variable">$dir</span>; sed -i <span class="string">"1i&gt;<span class="variable">$&#123;dir%%_*&#125;</span>"</span> <span class="variable">$dir</span>; <span class="keyword">done</span></span><br><span class="line"><span class="comment"># 将fasta文件合并成一个</span></span><br><span class="line">cat * &gt; sequence.fa</span><br><span class="line"><span class="comment"># 去除空行，因为一开始统一都添加了换行符，所以会有空行的情况。但序列最后的空行不影响比对</span></span><br><span class="line">grep -v <span class="string">'^$'</span> sequence.fa &gt; sequence1.fa</span><br></pre></td></tr></table></figure>
+<h2 id="处理文本"><a href="#处理文本" class="headerlink" title="处理文本"></a>处理文本</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 行尾追加换行符，有的序列行尾有换行符，有的没有</span></span><br><span class="line"><span class="keyword">for</span> dir <span class="keyword">in</span> $(ls ~/blast/<span class="built_in">test</span>/sequence); <span class="keyword">do</span> <span class="built_in">echo</span> &gt;&gt; <span class="variable">$dir</span>; <span class="keyword">done</span></span><br><span class="line"><span class="comment"># 行首添加一行，截取文件名"_"之前的部分，给序列命名</span></span><br><span class="line"><span class="keyword">for</span> dir <span class="keyword">in</span> $(ls ~/blast/<span class="built_in">test</span>/sequence); <span class="keyword">do</span> sed -i <span class="string">"1i&gt;<span class="variable">$&#123;dir%%_*&#125;</span>"</span> <span class="variable">$dir</span>; <span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者直接用</span></span><br><span class="line"><span class="keyword">for</span> dir <span class="keyword">in</span> `ls`; <span class="keyword">do</span> <span class="built_in">echo</span> &gt;&gt; <span class="variable">$dir</span>; sed -i <span class="string">"1i&gt;<span class="variable">$&#123;dir%%_*&#125;</span>"</span> <span class="variable">$dir</span>; <span class="keyword">done</span></span><br><span class="line"><span class="comment"># 将fasta文件合并成一个</span></span><br><span class="line">cat * &gt; sequence.fa</span><br><span class="line"><span class="comment"># 去除空行，因为一开始统一都添加了换行符，所以会有空行的情况。但序列最后的空行不影响比对</span></span><br><span class="line">grep -v <span class="string">'^$'</span> sequence.fa &gt; sequence1.fa</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2018/8/17</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> `ls`; <span class="keyword">do</span> t=` <span class="built_in">echo</span> <span class="variable">$i</span> | cut -d <span class="string">"_"</span> -f 1,2`; sed <span class="string">"1i&gt;<span class="variable">$t</span>"</span> -i <span class="variable">$i</span>; <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
 <h2 id="blastn"><a href="#blastn" class="headerlink" title="blastn"></a>blastn</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 建立比对数据库</span></span><br><span class="line">makeblastdb -<span class="keyword">in</span> csi.gene.fa -dbtype nucl</span><br><span class="line"><span class="comment"># 比对</span></span><br><span class="line">blastn -query sequence.fa -db csi.gene.fa -out output.txt -evalue 10 -outfmt 7</span><br></pre></td></tr></table></figure>
       
     </div>
@@ -419,7 +419,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/07/14/《非洲的青山》是一部非虚构作品/" rel="prev" title="《非洲的青山》">
+              <a href="/2018/07/14/《非洲的青山》/" rel="prev" title="《非洲的青山》">
                 《非洲的青山》 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -491,7 +491,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-count">21</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
