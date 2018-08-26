@@ -108,17 +108,17 @@
 
 
 
-  <meta name="description" content="BLAST finds regions of similarity between biological sequences. The program compares nucleotide or protein sequences to sequence databases and calculates the statistical significance.  处理文本12345678910">
+  <meta name="description" content="BLAST finds regions of similarity between biological sequences. The program compares nucleotide or protein sequences to sequence databases and calculates the statistical significance.  处理文本 1234567891">
 <meta property="og:type" content="article">
 <meta property="og:title" content="本地BLAST">
 <meta property="og:url" content="http://yoursite.com/2018/07/14/本地BLAST/index.html">
 <meta property="og:site_name" content="ZhengYang Qi">
-<meta property="og:description" content="BLAST finds regions of similarity between biological sequences. The program compares nucleotide or protein sequences to sequence databases and calculates the statistical significance.  处理文本12345678910">
+<meta property="og:description" content="BLAST finds regions of similarity between biological sequences. The program compares nucleotide or protein sequences to sequence databases and calculates the statistical significance.  处理文本 1234567891">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-08-25T13:39:42.142Z">
+<meta property="og:updated_time" content="2018-08-26T06:54:24.186Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="本地BLAST">
-<meta name="twitter:description" content="BLAST finds regions of similarity between biological sequences. The program compares nucleotide or protein sequences to sequence databases and calculates the statistical significance.  处理文本12345678910">
+<meta name="twitter:description" content="BLAST finds regions of similarity between biological sequences. The program compares nucleotide or protein sequences to sequence databases and calculates the statistical significance.  处理文本 1234567891">
 
 
 
@@ -222,6 +222,14 @@
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
   </li>
         
         
@@ -347,7 +355,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-08-25 21:39:42" itemprop="dateModified" datetime="2018-08-25T21:39:42+08:00">2018-08-25</time>
+                <time title="Modified: 2018-08-26 14:54:24" itemprop="dateModified" datetime="2018-08-26T14:54:24+08:00">2018-08-26</time>
               
             
           </span>
@@ -380,9 +388,11 @@
       
 
       
-        <p><strong>BLAST</strong> finds regions of similarity between biological sequences. The program compares nucleotide or protein sequences to sequence databases and calculates the statistical significance. </p>
-<h2 id="处理文本"><a href="#处理文本" class="headerlink" title="处理文本"></a>处理文本</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 行尾追加换行符，有的序列行尾有换行符，有的没有</span></span><br><span class="line"><span class="keyword">for</span> dir <span class="keyword">in</span> $(ls ~/blast/<span class="built_in">test</span>/sequence); <span class="keyword">do</span> <span class="built_in">echo</span> &gt;&gt; <span class="variable">$dir</span>; <span class="keyword">done</span></span><br><span class="line"><span class="comment"># 行首添加一行，截取文件名"_"之前的部分，给序列命名</span></span><br><span class="line"><span class="keyword">for</span> dir <span class="keyword">in</span> $(ls ~/blast/<span class="built_in">test</span>/sequence); <span class="keyword">do</span> sed -i <span class="string">"1i&gt;<span class="variable">$&#123;dir%%_*&#125;</span>"</span> <span class="variable">$dir</span>; <span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者直接用</span></span><br><span class="line"><span class="keyword">for</span> dir <span class="keyword">in</span> `ls`; <span class="keyword">do</span> <span class="built_in">echo</span> &gt;&gt; <span class="variable">$dir</span>; sed -i <span class="string">"1i&gt;<span class="variable">$&#123;dir%%_*&#125;</span>"</span> <span class="variable">$dir</span>; <span class="keyword">done</span></span><br><span class="line"><span class="comment"># 将fasta文件合并成一个</span></span><br><span class="line">cat * &gt; sequence.fa</span><br><span class="line"><span class="comment"># 去除空行，因为一开始统一都添加了换行符，所以会有空行的情况。但序列最后的空行不影响比对</span></span><br><span class="line">grep -v <span class="string">'^$'</span> sequence.fa &gt; sequence1.fa</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2018/8/17</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> `ls`; <span class="keyword">do</span> t=` <span class="built_in">echo</span> <span class="variable">$i</span> | cut -d <span class="string">"_"</span> -f 1,2`; sed <span class="string">"1i&gt;<span class="variable">$t</span>"</span> -i <span class="variable">$i</span>; <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
-<h2 id="blastn"><a href="#blastn" class="headerlink" title="blastn"></a>blastn</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 建立比对数据库</span></span><br><span class="line">makeblastdb -<span class="keyword">in</span> csi.gene.fa -dbtype nucl</span><br><span class="line"><span class="comment"># 比对</span></span><br><span class="line">blastn -query sequence.fa -db csi.gene.fa -out output.txt -evalue 10 -outfmt 7</span><br></pre></td></tr></table></figure>
+        <p>BLAST finds regions of similarity between biological sequences. The program compares nucleotide or protein sequences to sequence databases and calculates the statistical significance. </p>
+<p><strong>处理文本</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 行尾追加换行符，有的序列行尾有换行符，有的没有</span></span><br><span class="line"><span class="keyword">for</span> dir <span class="keyword">in</span> $(ls ~/blast/<span class="built_in">test</span>/sequence); <span class="keyword">do</span> <span class="built_in">echo</span> &gt;&gt; <span class="variable">$dir</span>; <span class="keyword">done</span></span><br><span class="line"><span class="comment"># 行首添加一行，截取文件名"_"之前的部分，给序列命名</span></span><br><span class="line"><span class="keyword">for</span> dir <span class="keyword">in</span> $(ls ~/blast/<span class="built_in">test</span>/sequence); <span class="keyword">do</span> sed -i <span class="string">"1i&gt;<span class="variable">$&#123;dir%%_*&#125;</span>"</span> <span class="variable">$dir</span>; <span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者直接用</span></span><br><span class="line"><span class="keyword">for</span> dir <span class="keyword">in</span> `ls`; <span class="keyword">do</span> <span class="built_in">echo</span> &gt;&gt; <span class="variable">$dir</span>; sed -i <span class="string">"1i&gt;<span class="variable">$&#123;dir%%_*&#125;</span>"</span> <span class="variable">$dir</span>; <span class="keyword">done</span></span><br><span class="line"><span class="comment"># 将fasta文件合并成一个</span></span><br><span class="line">cat * &gt; sequence.fa</span><br><span class="line"><span class="comment"># 去除空行，因为一开始统一都添加了换行符，所以会有空行的情况。但序列最后的空行不影响比对</span></span><br><span class="line">grep -v <span class="string">'^$'</span> sequence.fa &gt; sequence1.fa</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2018/8/17</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> `ls`; <span class="keyword">do</span> t=` <span class="built_in">echo</span> <span class="variable">$i</span> | cut -d <span class="string">"_"</span> -f 1,2`; sed <span class="string">"1i&gt;<span class="variable">$t</span>"</span> -i <span class="variable">$i</span>; <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<p><strong>blastn</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 建立比对数据库</span></span><br><span class="line">makeblastdb -<span class="keyword">in</span> csi.gene.fa -dbtype nucl</span><br><span class="line"><span class="comment"># 比对</span></span><br><span class="line">blastn -query sequence.fa -db csi.gene.fa -out output.txt -evalue 10 -outfmt 7</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -466,17 +476,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -534,22 +535,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#处理文本"><span class="nav-number">1.</span> <span class="nav-text">处理文本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#blastn"><span class="nav-number">2.</span> <span class="nav-text">blastn</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
