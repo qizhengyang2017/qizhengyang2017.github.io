@@ -324,6 +324,319 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/14/本地BLAST/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZhengYang Qi">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/14/本地BLAST/" itemprop="url">
+                  本地BLAST
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-07-14 08:28:13" itemprop="dateCreated datePublished" datetime="2018-07-14T08:28:13+08:00">2018-07-14</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-08-26 14:54:24" itemprop="dateModified" datetime="2018-08-26T14:54:24+08:00">2018-08-26</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>BLAST finds regions of similarity between biological sequences. The program compares nucleotide or protein sequences to sequence databases and calculates the statistical significance. </p>
+<p><strong>处理文本</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 行尾追加换行符，有的序列行尾有换行符，有的没有</span></span><br><span class="line"><span class="keyword">for</span> dir <span class="keyword">in</span> $(ls ~/blast/<span class="built_in">test</span>/sequence); <span class="keyword">do</span> <span class="built_in">echo</span> &gt;&gt; <span class="variable">$dir</span>; <span class="keyword">done</span></span><br><span class="line"><span class="comment"># 行首添加一行，截取文件名"_"之前的部分，给序列命名</span></span><br><span class="line"><span class="keyword">for</span> dir <span class="keyword">in</span> $(ls ~/blast/<span class="built_in">test</span>/sequence); <span class="keyword">do</span> sed -i <span class="string">"1i&gt;<span class="variable">$&#123;dir%%_*&#125;</span>"</span> <span class="variable">$dir</span>; <span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者直接用</span></span><br><span class="line"><span class="keyword">for</span> dir <span class="keyword">in</span> `ls`; <span class="keyword">do</span> <span class="built_in">echo</span> &gt;&gt; <span class="variable">$dir</span>; sed -i <span class="string">"1i&gt;<span class="variable">$&#123;dir%%_*&#125;</span>"</span> <span class="variable">$dir</span>; <span class="keyword">done</span></span><br><span class="line"><span class="comment"># 将fasta文件合并成一个</span></span><br><span class="line">cat * &gt; sequence.fa</span><br><span class="line"><span class="comment"># 去除空行，因为一开始统一都添加了换行符，所以会有空行的情况。但序列最后的空行不影响比对</span></span><br><span class="line">grep -v <span class="string">'^$'</span> sequence.fa &gt; sequence1.fa</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2018/8/17</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> `ls`; <span class="keyword">do</span> t=` <span class="built_in">echo</span> <span class="variable">$i</span> | cut -d <span class="string">"_"</span> -f 1,2`; sed <span class="string">"1i&gt;<span class="variable">$t</span>"</span> -i <span class="variable">$i</span>; <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<p><strong>blastn</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 建立比对数据库</span></span><br><span class="line">makeblastdb -<span class="keyword">in</span> csi.gene.fa -dbtype nucl</span><br><span class="line"><span class="comment"># 比对</span></span><br><span class="line">blastn -query sequence.fa -db csi.gene.fa -out output.txt -evalue 10 -outfmt 7</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/13/hexo主题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZhengYang Qi">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/13/hexo主题/" itemprop="url">
+                  hexo主题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-07-13 21:48:11" itemprop="dateCreated datePublished" datetime="2018-07-13T21:48:11+08:00">2018-07-13</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-08-26 14:56:46" itemprop="dateModified" datetime="2018-08-26T14:56:46+08:00">2018-08-26</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">NexT</a>应该是最受欢迎的主题，但我目前用的是<em>very-simple</em>。</p>
+<p><a href="https://xdlrt.github.io/2016/02/18/2016-02-18/" target="_blank" rel="noopener">文章推送代码</a></p>
+<blockquote>
+<p>hexo clean 清理库里的一些目录<br>hexo g  生成<br>hexo s  本地查看<br>hexo d  发布</p>
+</blockquote>
+<p>后面两步可合并 hexo d -g</p>
+<p>连接Github与本地<a href="https://zhuanlan.zhihu.com/p/35668237" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/35668237</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/13/海明威晚年受病痛折磨/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -423,7 +736,7 @@
         
           
             <p>《非洲的青山》第三章，关于贝尔蒙特的注释信息中写道，“他是海明威的好朋友，曾出现在海明威的小说《死在午后》、《太阳照常升起》中。晚年受病痛折磨，和海明威一样，饮弹自尽。”</p>
-<h4 id="小说的第三章的后半部是我和妻子的对话"><a href="#小说的第三章的后半部是我和妻子的对话" class="headerlink" title="小说的第三章的后半部是我和妻子的对话"></a>小说的第三章的后半部是我和妻子的对话</h4><p>“你不觉得老爹很英俊吗？”<br>“不觉得。”我说，“挂眼皮才英俊。”<br>“挂眼皮那是漂亮。但你真的不认为老爹英俊吗？”<br>…<br>“但你真的不认为他英俊吗？”<br>“不认为。”</p>
+<h4 id="小说的第三章的后半部是我和妻子的对话"><a href="#小说的第三章的后半部是我和妻子的对话" class="headerlink" title="小说的第三章的后半部是我和妻子的对话"></a>小说的第三章的后半部是我和妻子的对话</h4><p>“你不觉得老爹很英俊吗？”<br>“不觉得。”我说，“挂眼皮才英俊。”<br>“挂眼皮那是漂亮。但你真的不认为老爹英俊吗？”<br>...<br>“但你真的不认为他英俊吗？”<br>“不认为。”</p>
 <h4 id="第四章摘录"><a href="#第四章摘录" class="headerlink" title="第四章摘录"></a>第四章摘录</h4><p>P.O.M从一个行囊里拿出几本书，和老爹一起看了起来，</p>
 <p>我想起托尔斯泰，想到战争的经历对一个作家而言是多么有益。战争是重大的主题之一，当然也是最难进行真实描写的主题之一。</p>
 <p>雨天交通拥堵时在湿滑的沥青路和鹅卵石路上骑车的感觉。</p>
@@ -512,7 +825,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
