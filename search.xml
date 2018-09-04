@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[code-1]]></title>
+    <url>%2F2018%2F09%2F04%2Fcode-1%2F</url>
+    <content type="text"><![CDATA[Python处理文本123456提取文件中特定列with open("s717-2_CHH.filter.txt") as f: for line in f: list = line.rstrip().split() with open("s717-2_CHH.txt", "a+") as out: out.write('%s\t%s\t%s\n'%(list[1], list[2], list[2])) 123增加一行sed -i &apos;1i chrom\tchromStart\tchromEnd&apos; output1.txt #上一行sed -i &apos;1a chrom\tchromStart\tchromEnd&apos; output1.txt #下一行]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[符号]]></title>
+    <url>%2F2018%2F09%2F03%2F%E7%AC%A6%E5%8F%B7%2F</url>
+    <content type="text"><![CDATA[现在我用的默认的渲染器marked。没有在_config.yml进行配置 It’syo - meyo-meyo – me我 – 你我-你我–你我 – 你我—-你我——你我————你]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[Sep-3]]></title>
     <url>%2F2018%2F09%2F03%2FSep-3%2F</url>
     <content type="text"><![CDATA[“当您使用〖发送至Kindle〗电子邮箱发送个人文件时，您的文件会自动保存到Kindle图书馆中。”如果禁用，则我发送至Kindle电子邮箱的文件不会出现在Kindle图书馆中。 我删除了某条记录之后，发现这条记录里有我想了解的信息。 我打算将smartypants改回true。改之前再试一试，我能在editplus上打出中文破折号（一个全角字符）。 实验结果，会渲染成占两个全角字符的破折号，不能加空格。 我不打算将smartypants改为true了。 我打算删掉Runaway Baby。理由：太长。 紧接着数据，即使在中文输入状态下，点还是半角的点，不是句号。]]></content>
@@ -26,14 +36,9 @@
     <content type="text"><![CDATA[摘要：越来越多的证据表明自闭症谱系障碍（ASD）中基因与环境之间存在复杂的相互作用，包括染色质基因中罕见的从头突变，例如Rett综合征中的methyl-CpG结合蛋白2（MECP2)。基因组序列、基因途径和DNA甲基化的全基因组研究为ASD提供了有价值的机制见解。 词汇： autism spectrum disorder:自闭症谱系障碍 加入spectrum代表自闭症本身的多元性。1 CpG islands: CpG密度极高的区域(&lt; 1 kb)。 Gene body: 基因组上从转录起始位点到终止位点的一段区域。]]></content>
   </entry>
   <entry>
-    <title><![CDATA[课题思考与讨论第一篇]]></title>
-    <url>%2F2018%2F08%2F25%2F%E8%AF%BE%E9%A2%98%E6%80%9D%E8%80%83%E4%B8%8E%E8%AE%A8%E8%AE%BA%E7%AC%AC%E4%B8%80%E7%AF%87%2F</url>
-    <content type="text"><![CDATA[我比较了几个基因在不同系之间的甲基化水平的差异，区段包括了基因上下游2KB，这几个基因虽然表达量有差异，但是没有明显的甲基化差异。]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[she - from Ed Sheeran]]></title>
     <url>%2F2018%2F08%2F25%2Fshe-from-Ed-Sheeran%2F</url>
-    <content type="text"><![CDATA[一首歌的歌词，来自Ed Sheeran Patience, my enemyAnd loving&#39;s my friendIt&#39;s harder to leaveWith my heart on my sleeveThan to stay and just pretendOh, she knows me so wellOh, she knows me like I know myself]]></content>
+    <content type="text"><![CDATA[一首歌的歌词，来自Ed Sheeran Patience, my enemyAnd loving’s my friendIt’s harder to leaveWith my heart on my sleeveThan to stay and just pretendOh, she knows me so wellOh, she knows me like I know myself]]></content>
   </entry>
   <entry>
     <title><![CDATA[Aug-25]]></title>
@@ -48,15 +53,10 @@
   <entry>
     <title><![CDATA[anaconda创建不同的运行环境]]></title>
     <url>%2F2018%2F07%2F21%2Fanaconda%E5%88%9B%E5%BB%BA%E4%B8%8D%E5%90%8C%E7%9A%84%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%2F</url>
-    <content type="text"><![CDATA[CPC依赖biopython。 服务器上的python版本太低。运行pip install biopython报错。这种情况下安装Anaconda,并使用conda创建了一个python=2.7.9的虚拟环境，conda create -n py2 python=2.7.9。 预测lncRNA:perl LncRNA_Finder_2.0.pl -i test.fa -k housekeeping.fa -s smallRNA.fa -o jc_test -t 1]]></content>
+    <content type="text"><![CDATA[CPC依赖biopython。 服务器上的python版本太低。运行 pip install biopython 报错。这种情况下安装Anaconda，并使用conda创建了一个python=2.7.9的虚拟环境。123conda create -n py2 python=2.7.9 #createsource activate py2 #activatesource deactivate #deactivate 预测lncRNA:1perl LncRNA_Finder_2.0.pl -i test.fa -k housekeeping.fa -s smallRNA.fa -o jc_test -t 1]]></content>
       <tags>
         <tag>linux</tag>
       </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Here is New York]]></title>
-    <url>%2F2018%2F07%2F17%2FHere-is-New-York%2F</url>
-    <content type="text"><![CDATA[这篇东西一开始是我在看Here is New York时摘录的，essay of E. B. White，写于1948年夏季。 Ed sheeran写了一首歌，也叫New York。 In New York, It&#39;s just reached the morning, and you&#39;re still in my arms. 大体来说，有三个纽约。一个属于土生土长的男男女女，他们眼中，纽约从来如此，它的规模，它的喧嚣都是天生的，避也避不开。一个属于通勤者，他们像成群涌入的蝗虫，白天吞噬它，晚上又出来。一个属于生在他乡，到此来寻求什么的人。在这三个动荡的城市中，最伟大者是最后一个——纽约成为终极的目的地，成为一个目标。正是这第三个城市，造就了纽约的敏感，它的诗意，它对艺术的执着，连同它无可比拟的种种辉煌。 通勤者使它如潮涨潮落般生生不息，本地人给它的稳定和连续性，移居者才点燃了它的激情。意大利来的农夫，在穷街陋巷开一间小杂货店，密西西比河岸小镇来的姑娘，只为逃避邻人的流言蜚语，中西部玉米地带来的小伙子，提箱里塞一部手稿，心里充满忧伤，无论是谁都没有区别：每个人都像初恋一样，心情激荡地拥抱纽约，每个人都以探险者的好奇目光打量纽约。 There are roughly three New Yorks. There is, first, the New York of the man or woman who was born here, who takes the city for granted and accepts its size and its turbulence as natural and inevitable. Second, there is the New York of the commuter--the city that is devoured by locusts each day and spat out each night. Third, there is the New York of the person who was born somewhere else and came to New York in quest of something. Of these three trembling cities the greatest is the last--the city of final destination, the city that is a goal. It is this third city that accounts for New York&#39;s high-strung disposition, its poetical deportment, its dedication to the arts, and its incomparable achievements. Commuters give the city its tidal restlessness, natives give it solidity and continuity, but the settlers give it passion. And whether it is a garmer arriving from Italy to set up a small grocery store in a slum, or a young girl arriving from a small town in Mississippi to escape the indignity of being observed by her neighbors, or a boy arriving from the Corn Belt with a manuscript in his suitcase and a pain in his heart, it makes no difference: each embraces New York with the intense excitement of first love, each absorbs New York with the fresh eyes of an adventurer.]]></content>
   </entry>
   <entry>
     <title><![CDATA[《非洲的青山》]]></title>
@@ -66,16 +66,16 @@
   <entry>
     <title><![CDATA[本地BLAST]]></title>
     <url>%2F2018%2F07%2F14%2F%E6%9C%AC%E5%9C%B0BLAST%2F</url>
-    <content type="text"><![CDATA[BLAST finds regions of similarity between biological sequences. The program compares nucleotide or protein sequences to sequence databases and calculates the statistical significance. 处理文本 1234567891011121314# 行尾追加换行符，有的序列行尾有换行符，有的没有for dir in $(ls ~/blast/test/sequence); do echo &gt;&gt; $dir; done# 行首添加一行，截取文件名"_"之前的部分，给序列命名for dir in $(ls ~/blast/test/sequence); do sed -i "1i&gt;$&#123;dir%%_*&#125;" $dir; done# 或者直接用for dir in `ls`; do echo &gt;&gt; $dir; sed -i "1i&gt;$&#123;dir%%_*&#125;" $dir; done# 将fasta文件合并成一个cat * &gt; sequence.fa# 去除空行，因为一开始统一都添加了换行符，所以会有空行的情况。但序列最后的空行不影响比对grep -v '^$' sequence.fa &gt; sequence1.fa# 2018/8/17for i in `ls`; do t=` echo $i | cut -d "_" -f 1,2`; sed "1i&gt;$t" -i $i; done blastn 1234# 建立比对数据库makeblastdb -in csi.gene.fa -dbtype nucl# 比对blastn -query sequence.fa -db csi.gene.fa -out output.txt -evalue 10 -outfmt 7]]></content>
+    <content type="text"><![CDATA[123456# 文档末尾换行，行首添加"&gt;XX"for dir in `ls`; do echo &gt;&gt; $dir; sed -i "1i&gt;$&#123;dir%%_*&#125;" $dir; done# 合并，去除空行cat * &gt; tmp.fa &amp;&amp; grep -v '^$' tmp.fa &gt; seq.fa &amp;&amp; rm tmp.fa# 2018/8/17for i in `ls`; do t=` echo $i | cut -d "_" -f 1,2`; sed "1i&gt;$t" -i $i; done 12makeblastdb -in csi.gene.fa -dbtype nuclblastn -query sequence.fa -db csi.gene.fa -out output.txt -evalue 10 -outfmt 7 添加注释用vlookup函数。]]></content>
   </entry>
   <entry>
-    <title><![CDATA[hexo主题]]></title>
-    <url>%2F2018%2F07%2F13%2Fhexo%E4%B8%BB%E9%A2%98%2F</url>
-    <content type="text"><![CDATA[NexT应该是最受欢迎的主题，但我目前用的是very-simple。 文章推送代码 hexo clean 清理库里的一些目录hexo g 生成hexo s 本地查看hexo d 发布 后面两步可合并 hexo d -g 连接Github与本地https://zhuanlan.zhihu.com/p/35668237]]></content>
+    <title><![CDATA[hexo]]></title>
+    <url>%2F2018%2F07%2F13%2Fhexo%2F</url>
+    <content type="text"><![CDATA[NexT教程12345hexo clean hexo g hexo s hexo d # 后面两步可合并 hexo d -g 连接Github与本地]]></content>
   </entry>
   <entry>
-    <title><![CDATA[海明威晚年受病痛折磨]]></title>
-    <url>%2F2018%2F07%2F13%2F%E6%B5%B7%E6%98%8E%E5%A8%81%E6%99%9A%E5%B9%B4%E5%8F%97%E7%97%85%E7%97%9B%E6%8A%98%E7%A3%A8%2F</url>
-    <content type="text"><![CDATA[《非洲的青山》第三章，关于贝尔蒙特的注释信息中写道，“他是海明威的好朋友，曾出现在海明威的小说《死在午后》、《太阳照常升起》中。晚年受病痛折磨，和海明威一样，饮弹自尽。” 小说的第三章的后半部是我和妻子的对话“你不觉得老爹很英俊吗？”“不觉得。”我说，“挂眼皮才英俊。”“挂眼皮那是漂亮。但你真的不认为老爹英俊吗？”...“但你真的不认为他英俊吗？”“不认为。” 第四章摘录P.O.M从一个行囊里拿出几本书，和老爹一起看了起来， 我想起托尔斯泰，想到战争的经历对一个作家而言是多么有益。战争是重大的主题之一，当然也是最难进行真实描写的主题之一。 雨天交通拥堵时在湿滑的沥青路和鹅卵石路上骑车的感觉。]]></content>
+    <title><![CDATA[《非洲的青山》摘录]]></title>
+    <url>%2F2018%2F07%2F13%2F%E3%80%8A%E9%9D%9E%E6%B4%B2%E7%9A%84%E9%9D%92%E5%B1%B1%E3%80%8B%E6%91%98%E5%BD%95%2F</url>
+    <content type="text"><![CDATA[《非洲的青山》第三章，关于贝尔蒙特的注释信息中写道，“他是海明威的好朋友，曾出现在海明威的小说《死在午后》、《太阳照常升起》中。晚年受病痛折磨，和海明威一样，饮弹自尽。” 小说的第三章的后半部是我和妻子的对话 “你不觉得老爹很英俊吗？”“不觉得。”我说，“挂眼皮才英俊。”“挂眼皮那是漂亮。但你真的不认为老爹英俊吗？”……“但你真的不认为他英俊吗？”“不认为。” 第四章 P.O.M从一个行囊里拿出几本书，和老爹一起看了起来， 我想起托尔斯泰，想到战争的经历对一个作家而言是多么有益。战争是重大的主题之一，当然也是最难进行真实描写的主题之一。 雨天交通拥堵时在湿滑的沥青路和鹅卵石路上骑车的感觉。]]></content>
   </entry>
 </search>

@@ -324,7 +324,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/17/Here-is-New-York/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/21/anaconda创建不同的运行环境/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -343,8 +343,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/17/Here-is-New-York/" itemprop="url">
-                  Here is New York
+                <a class="post-title-link" href="/2018/07/21/anaconda创建不同的运行环境/" itemprop="url">
+                  anaconda创建不同的运行环境
                 </a>
               
             
@@ -370,7 +370,7 @@
                 
               
 
-              <time title="Created: 2018-07-17 18:33:40" itemprop="dateCreated datePublished" datetime="2018-07-17T18:33:40+08:00">2018-07-17</time>
+              <time title="Created: 2018-07-21 00:00:00" itemprop="dateCreated datePublished" datetime="2018-07-21T00:00:00+08:00">2018-07-21</time>
             
 
             
@@ -387,7 +387,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-08-27 23:13:59" itemprop="dateModified" datetime="2018-08-27T23:13:59+08:00">2018-08-27</time>
+                <time title="Modified: 2018-09-04 17:15:51" itemprop="dateModified" datetime="2018-09-04T17:15:51+08:00">2018-09-04</time>
               
             
           </span>
@@ -422,11 +422,9 @@
       
         
           
-            <p>这篇东西一开始是我在看<em>Here is New York</em>时摘录的，essay of E. B. White，写于1948年夏季。 Ed sheeran写了一首歌，也叫<em>New York</em>。 In New York, It&#39;s just reached the morning, and you&#39;re still in my arms.</p>
-<p>   大体来说，有三个纽约。一个属于土生土长的男男女女，他们眼中，纽约从来如此，它的规模，它的喧嚣都是天生的，避也避不开。一个属于通勤者，他们像成群涌入的蝗虫，白天吞噬它，晚上又出来。一个属于生在他乡，到此来寻求什么的人。在这三个动荡的城市中，最伟大者是最后一个——纽约成为终极的目的地，成为一个目标。正是这第三个城市，造就了纽约的敏感，它的诗意，它对艺术的执着，连同它无可比拟的种种辉煌。</p>
-<p>通勤者使它如潮涨潮落般生生不息，本地人给它的稳定和连续性，移居者才点燃了它的激情。意大利来的农夫，在穷街陋巷开一间小杂货店，密西西比河岸小镇来的姑娘，只为逃避邻人的流言蜚语，中西部玉米地带来的小伙子，提箱里塞一部手稿，心里充满忧伤，无论是谁都没有区别：每个人都像初恋一样，心情激荡地拥抱纽约，每个人都以探险者的好奇目光打量纽约。</p>
-<p>There are roughly three New Yorks. There is, first, the New York of the man or woman who was born here, who takes the city for granted and accepts its size and its turbulence as natural and inevitable. Second, there is the New York of the commuter--the city that is devoured by locusts each day and spat out each night. Third, there is the New York of the person who was born somewhere else and came to New York in quest of something. Of these three trembling cities the greatest is the last--the city of final destination, the city that is a goal. It is this third city that accounts for New York&#39;s high-strung disposition, its poetical deportment, its dedication to the arts, and its incomparable achievements. </p>
-<p>Commuters give the city its tidal restlessness, natives give it solidity and continuity, but the settlers give it passion. And whether it is a garmer arriving from Italy to set up a small grocery store in a slum, or a young girl arriving from a small town in Mississippi to escape the indignity of being observed by her neighbors, or a boy arriving from the Corn Belt with a manuscript in his suitcase and a pain in his heart, it makes no difference: each embraces New York with the intense excitement of first love, each absorbs New York with the fresh eyes of an adventurer.</p>
+            <p>CPC依赖biopython。</p>
+<p>服务器上的python版本太低。运行 pip install biopython 报错。这种情况下安装Anaconda，并使用conda创建了一个python=2.7.9的虚拟环境。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda create -n py2 python=2.7.9    #create</span><br><span class="line">source activate py2                 #activate</span><br><span class="line">source deactivate                   #deactivate</span><br></pre></td></tr></table></figure></p>
+<p>预测lncRNA:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">perl LncRNA_Finder_2.0.pl -i test.fa -k housekeeping.fa -s smallRNA.fa -o jc_test -t 1</span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -699,7 +697,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-08-26 14:54:24" itemprop="dateModified" datetime="2018-08-26T14:54:24+08:00">2018-08-26</time>
+                <time title="Modified: 2018-09-04 17:48:36" itemprop="dateModified" datetime="2018-09-04T17:48:36+08:00">2018-09-04</time>
               
             
           </span>
@@ -734,11 +732,10 @@
       
         
           
-            <p>BLAST finds regions of similarity between biological sequences. The program compares nucleotide or protein sequences to sequence databases and calculates the statistical significance. </p>
-<p><strong>处理文本</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 行尾追加换行符，有的序列行尾有换行符，有的没有</span></span><br><span class="line"><span class="keyword">for</span> dir <span class="keyword">in</span> $(ls ~/blast/<span class="built_in">test</span>/sequence); <span class="keyword">do</span> <span class="built_in">echo</span> &gt;&gt; <span class="variable">$dir</span>; <span class="keyword">done</span></span><br><span class="line"><span class="comment"># 行首添加一行，截取文件名"_"之前的部分，给序列命名</span></span><br><span class="line"><span class="keyword">for</span> dir <span class="keyword">in</span> $(ls ~/blast/<span class="built_in">test</span>/sequence); <span class="keyword">do</span> sed -i <span class="string">"1i&gt;<span class="variable">$&#123;dir%%_*&#125;</span>"</span> <span class="variable">$dir</span>; <span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者直接用</span></span><br><span class="line"><span class="keyword">for</span> dir <span class="keyword">in</span> `ls`; <span class="keyword">do</span> <span class="built_in">echo</span> &gt;&gt; <span class="variable">$dir</span>; sed -i <span class="string">"1i&gt;<span class="variable">$&#123;dir%%_*&#125;</span>"</span> <span class="variable">$dir</span>; <span class="keyword">done</span></span><br><span class="line"><span class="comment"># 将fasta文件合并成一个</span></span><br><span class="line">cat * &gt; sequence.fa</span><br><span class="line"><span class="comment"># 去除空行，因为一开始统一都添加了换行符，所以会有空行的情况。但序列最后的空行不影响比对</span></span><br><span class="line">grep -v <span class="string">'^$'</span> sequence.fa &gt; sequence1.fa</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2018/8/17</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> `ls`; <span class="keyword">do</span> t=` <span class="built_in">echo</span> <span class="variable">$i</span> | cut -d <span class="string">"_"</span> -f 1,2`; sed <span class="string">"1i&gt;<span class="variable">$t</span>"</span> -i <span class="variable">$i</span>; <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
-<p><strong>blastn</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 建立比对数据库</span></span><br><span class="line">makeblastdb -<span class="keyword">in</span> csi.gene.fa -dbtype nucl</span><br><span class="line"><span class="comment"># 比对</span></span><br><span class="line">blastn -query sequence.fa -db csi.gene.fa -out output.txt -evalue 10 -outfmt 7</span><br></pre></td></tr></table></figure>
+            <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 文档末尾换行，行首添加"&gt;XX"</span></span><br><span class="line"><span class="keyword">for</span> dir <span class="keyword">in</span> `ls`; <span class="keyword">do</span> <span class="built_in">echo</span> &gt;&gt; <span class="variable">$dir</span>; sed -i <span class="string">"1i&gt;<span class="variable">$&#123;dir%%_*&#125;</span>"</span> <span class="variable">$dir</span>; <span class="keyword">done</span></span><br><span class="line"><span class="comment"># 合并，去除空行</span></span><br><span class="line">cat * &gt; tmp.fa &amp;&amp; grep -v <span class="string">'^$'</span> tmp.fa &gt; seq.fa &amp;&amp; rm tmp.fa</span><br><span class="line"><span class="comment"># 2018/8/17</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> `ls`; <span class="keyword">do</span> t=` <span class="built_in">echo</span> <span class="variable">$i</span> | cut -d <span class="string">"_"</span> -f 1,2`; sed <span class="string">"1i&gt;<span class="variable">$t</span>"</span> -i <span class="variable">$i</span>; <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">makeblastdb -<span class="keyword">in</span> csi.gene.fa -dbtype nucl</span><br><span class="line">blastn -query sequence.fa -db csi.gene.fa -out output.txt -evalue 10 -outfmt 7</span><br></pre></td></tr></table></figure>
+<p>添加注释用vlookup函数。</p>
+
           
         
       
@@ -791,7 +788,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/13/hexo主题/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/13/hexo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -810,8 +807,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/13/hexo主题/" itemprop="url">
-                  hexo主题
+                <a class="post-title-link" href="/2018/07/13/hexo/" itemprop="url">
+                  hexo
                 </a>
               
             
@@ -854,7 +851,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-08-26 14:56:46" itemprop="dateModified" datetime="2018-08-26T14:56:46+08:00">2018-08-26</time>
+                <time title="Modified: 2018-09-04 17:31:51" itemprop="dateModified" datetime="2018-09-04T17:31:51+08:00">2018-09-04</time>
               
             
           </span>
@@ -889,13 +886,8 @@
       
         
           
-            <p><a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">NexT</a>应该是最受欢迎的主题，但我目前用的是<em>very-simple</em>。</p>
-<p><a href="https://xdlrt.github.io/2016/02/18/2016-02-18/" target="_blank" rel="noopener">文章推送代码</a></p>
-<blockquote>
-<p>hexo clean 清理库里的一些目录<br>hexo g  生成<br>hexo s  本地查看<br>hexo d  发布</p>
-</blockquote>
-<p>后面两步可合并 hexo d -g</p>
-<p>连接Github与本地<a href="https://zhuanlan.zhihu.com/p/35668237" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/35668237</a></p>
+            <p><a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">NexT</a><br><a href="https://xdlrt.github.io/2016/02/18/2016-02-18/" target="_blank" rel="noopener">教程</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo clean </span><br><span class="line">hexo g  </span><br><span class="line">hexo s  </span><br><span class="line">hexo d </span><br><span class="line"># 后面两步可合并 hexo d -g</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://zhuanlan.zhihu.com/p/35668237" target="_blank" rel="noopener">连接Github与本地</a></p>
 
           
         
@@ -949,7 +941,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/13/海明威晚年受病痛折磨/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/13/《非洲的青山》摘录/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -968,8 +960,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/13/海明威晚年受病痛折磨/" itemprop="url">
-                  海明威晚年受病痛折磨
+                <a class="post-title-link" href="/2018/07/13/《非洲的青山》摘录/" itemprop="url">
+                  《非洲的青山》摘录
                 </a>
               
             
@@ -1012,7 +1004,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-08-26 14:55:39" itemprop="dateModified" datetime="2018-08-26T14:55:39+08:00">2018-08-26</time>
+                <time title="Modified: 2018-09-04 17:37:10" itemprop="dateModified" datetime="2018-09-04T17:37:10+08:00">2018-09-04</time>
               
             
           </span>
@@ -1048,10 +1040,16 @@
         
           
             <p>《非洲的青山》第三章，关于贝尔蒙特的注释信息中写道，“他是海明威的好朋友，曾出现在海明威的小说《死在午后》、《太阳照常升起》中。晚年受病痛折磨，和海明威一样，饮弹自尽。”</p>
-<h4 id="小说的第三章的后半部是我和妻子的对话"><a href="#小说的第三章的后半部是我和妻子的对话" class="headerlink" title="小说的第三章的后半部是我和妻子的对话"></a>小说的第三章的后半部是我和妻子的对话</h4><p>“你不觉得老爹很英俊吗？”<br>“不觉得。”我说，“挂眼皮才英俊。”<br>“挂眼皮那是漂亮。但你真的不认为老爹英俊吗？”<br>...<br>“但你真的不认为他英俊吗？”<br>“不认为。”</p>
-<h4 id="第四章摘录"><a href="#第四章摘录" class="headerlink" title="第四章摘录"></a>第四章摘录</h4><p>P.O.M从一个行囊里拿出几本书，和老爹一起看了起来，</p>
-<p>我想起托尔斯泰，想到战争的经历对一个作家而言是多么有益。战争是重大的主题之一，当然也是最难进行真实描写的主题之一。</p>
-<p>雨天交通拥堵时在湿滑的沥青路和鹅卵石路上骑车的感觉。</p>
+<p>小说的第三章的后半部是我和妻子的对话</p>
+<blockquote>
+<p>“你不觉得老爹很英俊吗？”<br>“不觉得。”我说，“挂眼皮才英俊。”<br>“挂眼皮那是漂亮。但你真的不认为老爹英俊吗？”<br>……<br>“但你真的不认为他英俊吗？”<br>“不认为。”</p>
+</blockquote>
+<p>第四章</p>
+<ul>
+<li>P.O.M从一个行囊里拿出几本书，和老爹一起看了起来，</li>
+<li>我想起托尔斯泰，想到战争的经历对一个作家而言是多么有益。战争是重大的主题之一，当然也是最难进行真实描写的主题之一。</li>
+<li>雨天交通拥堵时在湿滑的沥青路和鹅卵石路上骑车的感觉。</li>
+</ul>
 
           
         
