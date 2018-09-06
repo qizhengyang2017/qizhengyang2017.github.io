@@ -108,17 +108,17 @@
 
 
 
-  <meta name="description" content="123456# 文档末尾换行，行首添加&quot;&amp;gt;XX&quot;for dir in `ls`; do echo &amp;gt;&amp;gt; $dir; sed -i &quot;1i&amp;gt;$&amp;#123;dir%%_*&amp;#125;&quot; $dir; done# 合并，去除空行cat * &amp;gt; tmp.fa &amp;amp;&amp;amp; grep -v &apos;^$&apos; tmp.fa &amp;gt; seq.fa &amp;amp;&amp;amp; rm tmp">
+  <meta name="description" content="12345678# 文档末尾换行，行首添加&quot;&amp;gt;XX&quot;for dir in `ls`; do echo &amp;gt;&amp;gt; $dir; sed -i &quot;1i&amp;gt;$&amp;#123;dir%%_*&amp;#125;&quot; $dir; done# 合并，去除空行cat * &amp;gt; tmp.fa &amp;amp;&amp;amp; grep -v &apos;^$&apos; tmp.fa &amp;gt; seq.fa &amp;amp;&amp;amp; rm t">
 <meta property="og:type" content="article">
 <meta property="og:title" content="本地BLAST">
 <meta property="og:url" content="http://yoursite.com/2018/07/14/本地BLAST/index.html">
 <meta property="og:site_name" content="ZhengYang Qi">
-<meta property="og:description" content="123456# 文档末尾换行，行首添加&quot;&amp;gt;XX&quot;for dir in `ls`; do echo &amp;gt;&amp;gt; $dir; sed -i &quot;1i&amp;gt;$&amp;#123;dir%%_*&amp;#125;&quot; $dir; done# 合并，去除空行cat * &amp;gt; tmp.fa &amp;amp;&amp;amp; grep -v &apos;^$&apos; tmp.fa &amp;gt; seq.fa &amp;amp;&amp;amp; rm tmp">
+<meta property="og:description" content="12345678# 文档末尾换行，行首添加&quot;&amp;gt;XX&quot;for dir in `ls`; do echo &amp;gt;&amp;gt; $dir; sed -i &quot;1i&amp;gt;$&amp;#123;dir%%_*&amp;#125;&quot; $dir; done# 合并，去除空行cat * &amp;gt; tmp.fa &amp;amp;&amp;amp; grep -v &apos;^$&apos; tmp.fa &amp;gt; seq.fa &amp;amp;&amp;amp; rm t">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-09-04T09:48:36.707Z">
+<meta property="og:updated_time" content="2018-09-04T15:38:52.295Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="本地BLAST">
-<meta name="twitter:description" content="123456# 文档末尾换行，行首添加&quot;&amp;gt;XX&quot;for dir in `ls`; do echo &amp;gt;&amp;gt; $dir; sed -i &quot;1i&amp;gt;$&amp;#123;dir%%_*&amp;#125;&quot; $dir; done# 合并，去除空行cat * &amp;gt; tmp.fa &amp;amp;&amp;amp; grep -v &apos;^$&apos; tmp.fa &amp;gt; seq.fa &amp;amp;&amp;amp; rm tmp">
+<meta name="twitter:description" content="12345678# 文档末尾换行，行首添加&quot;&amp;gt;XX&quot;for dir in `ls`; do echo &amp;gt;&amp;gt; $dir; sed -i &quot;1i&amp;gt;$&amp;#123;dir%%_*&amp;#125;&quot; $dir; done# 合并，去除空行cat * &amp;gt; tmp.fa &amp;amp;&amp;amp; grep -v &apos;^$&apos; tmp.fa &amp;gt; seq.fa &amp;amp;&amp;amp; rm t">
 
 
 
@@ -386,7 +386,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-09-04 17:48:36" itemprop="dateModified" datetime="2018-09-04T17:48:36+08:00">2018-09-04</time>
+                <time title="Modified: 2018-09-04 23:38:52" itemprop="dateModified" datetime="2018-09-04T23:38:52+08:00">2018-09-04</time>
               
             
           </span>
@@ -419,8 +419,8 @@
       
 
       
-        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 文档末尾换行，行首添加"&gt;XX"</span></span><br><span class="line"><span class="keyword">for</span> dir <span class="keyword">in</span> `ls`; <span class="keyword">do</span> <span class="built_in">echo</span> &gt;&gt; <span class="variable">$dir</span>; sed -i <span class="string">"1i&gt;<span class="variable">$&#123;dir%%_*&#125;</span>"</span> <span class="variable">$dir</span>; <span class="keyword">done</span></span><br><span class="line"><span class="comment"># 合并，去除空行</span></span><br><span class="line">cat * &gt; tmp.fa &amp;&amp; grep -v <span class="string">'^$'</span> tmp.fa &gt; seq.fa &amp;&amp; rm tmp.fa</span><br><span class="line"><span class="comment"># 2018/8/17</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> `ls`; <span class="keyword">do</span> t=` <span class="built_in">echo</span> <span class="variable">$i</span> | cut -d <span class="string">"_"</span> -f 1,2`; sed <span class="string">"1i&gt;<span class="variable">$t</span>"</span> -i <span class="variable">$i</span>; <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">makeblastdb -<span class="keyword">in</span> csi.gene.fa -dbtype nucl</span><br><span class="line">blastn -query sequence.fa -db csi.gene.fa -out output.txt -evalue 10 -outfmt 7</span><br></pre></td></tr></table></figure>
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 文档末尾换行，行首添加"&gt;XX"</span></span><br><span class="line"><span class="keyword">for</span> dir <span class="keyword">in</span> `ls`; <span class="keyword">do</span> <span class="built_in">echo</span> &gt;&gt; <span class="variable">$dir</span>; sed -i <span class="string">"1i&gt;<span class="variable">$&#123;dir%%_*&#125;</span>"</span> <span class="variable">$dir</span>; <span class="keyword">done</span></span><br><span class="line"><span class="comment"># 合并，去除空行</span></span><br><span class="line">cat * &gt; tmp.fa &amp;&amp; grep -v <span class="string">'^$'</span> tmp.fa &gt; seq.fa &amp;&amp; rm tmp.fa</span><br><span class="line"><span class="comment"># 2018/8/17</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> `ls`; <span class="keyword">do</span> t=` <span class="built_in">echo</span> <span class="variable">$i</span> | cut -d <span class="string">"_"</span> -f 1,2`; sed <span class="string">"1i&gt;<span class="variable">$t</span>"</span> -i <span class="variable">$i</span>; <span class="keyword">done</span></span><br><span class="line"><span class="comment"># 2018/9/4</span></span><br><span class="line">grep <span class="string">'^$'</span> seq.fa | wc -l  <span class="comment"># 查看文件是否有空行</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">makeblastdb -<span class="keyword">in</span> csi.gene.fa -dbtype nucl</span><br><span class="line">blastn -query seq.fa -db csi.gene.fa -out output.txt -evalue 10 -outfmt 7</span><br></pre></td></tr></table></figure>
 <p>添加注释用vlookup函数。</p>
 
       
@@ -522,7 +522,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">17</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -539,7 +539,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">1</span>
+                      
+                    
+                    <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Sep-5]]></title>
+    <url>%2F2018%2F09%2F05%2FSep-5%2F</url>
+    <content type="text"><![CDATA[批量修改文件名1for files in `ls`; do mv $files &quot;MCK&quot;$files; done 1du -sh foo # 查看目录大小 我将文件夹加了MCK前缀，gtf文件也加了MCK前缀。]]></content>
+      <tags>
+        <tag>linux</tag>
+        <tag>任务</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[windows blast+]]></title>
+    <url>%2F2018%2F09%2F04%2Fwindows-blast%2B%2F</url>
+    <content type="text"><![CDATA[下载网址ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/双击exe文件即可，安装程序会自动设置环境变量。blastn -version 查看版本信息]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[Bash 逻辑组合]]></title>
     <url>%2F2018%2F09%2F04%2FBash-%E9%80%BB%E8%BE%91%E7%BB%84%E5%90%88%2F</url>
     <content type="text"><![CDATA[command1 &amp;&amp; command2 前者执行成功执行后者command1 &amp;&amp; command2 前者执行失败执行后者]]></content>
   </entry>
   <entry>
-    <title><![CDATA[code-1]]></title>
-    <url>%2F2018%2F09%2F04%2Fcode-1%2F</url>
-    <content type="text"><![CDATA[Python处理文本123456提取文件中特定列with open("s717-2_CHH.filter.txt") as f: for line in f: list = line.rstrip().split() with open("s717-2_CHH.txt", "a+") as out: out.write('%s\t%s\t%s\n'%(list[1], list[2], list[2])) 123增加一行sed -i &apos;1i chrom\tchromStart\tchromEnd&apos; output1.txt #上一行sed -i &apos;1a chrom\tchromStart\tchromEnd&apos; output1.txt #下一行]]></content>
+    <title><![CDATA[Python 文件读写]]></title>
+    <url>%2F2018%2F09%2F04%2FPython-%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99%2F</url>
+    <content type="text"><![CDATA[Python处理文本123456提取文件中特定列with open("s717-2_CHH.filter.txt") as f: for line in f: list = line.rstrip().split() with open("s717-2_CHH.txt", "a") as out: out.write('%s\t%s\t%s\n'%(list[1], list[2], list[2])) 123增加一行sed -i &apos;1i chrom\tchromStart\tchromEnd&apos; output1.txt #上一行sed -i &apos;1a chrom\tchromStart\tchromEnd&apos; output1.txt #下一行]]></content>
   </entry>
   <entry>
     <title><![CDATA[Sep-3]]></title>
@@ -66,7 +80,7 @@
   <entry>
     <title><![CDATA[本地BLAST]]></title>
     <url>%2F2018%2F07%2F14%2F%E6%9C%AC%E5%9C%B0BLAST%2F</url>
-    <content type="text"><![CDATA[123456# 文档末尾换行，行首添加"&gt;XX"for dir in `ls`; do echo &gt;&gt; $dir; sed -i "1i&gt;$&#123;dir%%_*&#125;" $dir; done# 合并，去除空行cat * &gt; tmp.fa &amp;&amp; grep -v '^$' tmp.fa &gt; seq.fa &amp;&amp; rm tmp.fa# 2018/8/17for i in `ls`; do t=` echo $i | cut -d "_" -f 1,2`; sed "1i&gt;$t" -i $i; done 12makeblastdb -in csi.gene.fa -dbtype nuclblastn -query sequence.fa -db csi.gene.fa -out output.txt -evalue 10 -outfmt 7 添加注释用vlookup函数。]]></content>
+    <content type="text"><![CDATA[12345678# 文档末尾换行，行首添加"&gt;XX"for dir in `ls`; do echo &gt;&gt; $dir; sed -i "1i&gt;$&#123;dir%%_*&#125;" $dir; done# 合并，去除空行cat * &gt; tmp.fa &amp;&amp; grep -v '^$' tmp.fa &gt; seq.fa &amp;&amp; rm tmp.fa# 2018/8/17for i in `ls`; do t=` echo $i | cut -d "_" -f 1,2`; sed "1i&gt;$t" -i $i; done# 2018/9/4grep '^$' seq.fa | wc -l # 查看文件是否有空行 12makeblastdb -in csi.gene.fa -dbtype nuclblastn -query seq.fa -db csi.gene.fa -out output.txt -evalue 10 -outfmt 7 添加注释用vlookup函数。]]></content>
   </entry>
   <entry>
     <title><![CDATA[hexo]]></title>
