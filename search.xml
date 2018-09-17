@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[常用Linux命令]]></title>
+    <url>%2F2018%2F09%2F13%2F%E5%B8%B8%E7%94%A8Linux%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[free -g # 内存ls -lhdf -h #磁盘]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[热图]]></title>
+    <url>%2F2018%2F09%2F13%2F%E7%83%AD%E5%9B%BE%2F</url>
+    <content type="text"><![CDATA[又一次义务劳动1234567891011121314library(gplots)data &lt;- read.csv("121.csv",header = T)heat_data &lt;- as.matrix(data[,2:length(data)])library(showtext)setEPS()postscript("moxq1.eps", width = 15, height = 7)showtext_begin()# cexRow cexCol调labelheatmap.2(heat_data,col = greenred, trace = "none", density.info = "none", key.ylab = '', key.xlab = '', labRow = as.character(data[,1]) , scale = 'column', dendrogram = 'both', keysize = 1.0, srtRow = 315,cexRow = 0.8,srtCol=35,cexCol=0.8)showtext_end()dev.off() 之后用Adobe Illustrator CC 2018]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[顶级风险投资机构的日常]]></title>
+    <url>%2F2018%2F09%2F12%2F%E9%A1%B6%E7%BA%A7%E9%A3%8E%E9%99%A9%E6%8A%95%E8%B5%84%E6%9C%BA%E6%9E%84%E7%9A%84%E6%97%A5%E5%B8%B8%2F</url>
+    <content type="text"><![CDATA[对冲基金 一万多家VC 钱市场上有的是股权投资 二级市场投资发现项目、找到项目研究 出差]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[由Id提取Seq]]></title>
+    <url>%2F2018%2F09%2F10%2F%E7%94%B1Id%E6%8F%90%E5%8F%96Seq%2F</url>
+    <content type="text"><![CDATA[今天没午睡，没午睡，没有睡意。无法确定的印象如同海上漂浮的物体。为什么会惧怕它下沉？无法与现有的知识体系（日常经验）/行为方式/想象建立起联系。Transfer IDs by BLAST Job ID: 761094389 字符串反转 正则表达式（没有实质性的了解） 异常处理 字典，键重复，值为最后一个1234567891011121314151617181920212223242526272829303132333435363738#!/usr/bin/env python# -*- coding: utf-8 -*-"""Created on Mon Sep 10 20:03:51 2018description: 提取指定ID的序列"""import sysUSAGE = "\nusage: python %s sequences.fasta id_list out.fasta\n" % sys.argv[0]if len(sys.argv) != 4: print(USAGE) sys.exit()def parseFasta(filename): fas = &#123;&#125; id = None with open(filename, 'r') as fh: for line in fh: if line[0] == '&gt;': header = line[1:].rstrip() # 反转，设置最大分割，再反转 id = header[::-1].split(".",1)[1][::-1] fas[id] = [] else: fas[id].append(line.rstrip()) for id, seq in fas.items(): fas[id] = ''.join(seq) return fasfas = parseFasta(sys.argv[1])IDs = open(sys.argv[2], 'r')OUT = open(sys.argv[3], 'w')for line in IDs: id = line.rstrip("\n") try: OUT.write("&gt;" + id + "\n" + fas[id] + "\n") except KeyError: print("Warning: can't find gene: " + id) IDs.close()OUT.close() 用法：python extract_seqs_by_ids.py csi.peptide.fa id_list.txt out.fa 感谢]]></content>
+      <tags>
+        <tag>bioinfo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[PPT 快捷键]]></title>
+    <url>%2F2018%2F09%2F06%2FPPT-%E5%BF%AB%E6%8D%B7%E9%94%AE%2F</url>
+    <content type="text"><![CDATA[1、快速复制幻灯片或者图片文字选中复制对象 –→ Ctrl+D 2、垂直、水平方向移动图片文字选中移动对象 –→ 按住Shift 3、快速复制并移动图片文字选中复制对象 –→ 按住Ctrl + 按住鼠标左键进行拖动 参考线又是可以灵活移动的 4、绘制正方形正圆正三角形等选择图形工具 –→ 按住Shift –→ 拖动鼠标加上Ctrl，可以以鼠标为中心绘制图形； 5、等比例放大缩小图片选中操作对象 –→ 按住Shift –→ 拖动图片四个顶点处的控点也可以加上Ctrl，以图片为中心等比列放大缩小； 6、关于线段的伸长缩小选中对象 –→ 按住Shift –→ 拖动控点可以避免伸缩线段时更改线段的角度问题； 7、微调图片文字位置不知道大家有没有发现，平时在拖动对象时，都是一跳一跳的，很难很精准的把他们放在一个合适的位置上，解决办法：选中对象 –→ 按住Alt –→ 鼠标拖动同样在绘制图形或者放大缩小图片时也可按住Alt微调； 8、键盘调整图片大小位置（微调图片位置）选中对象 –→ 按住Ctrl –→ 上下左右方向键（微调图片大小）选中对象 –→ 按住Ctrl+Shift –→ 上下左右方向键（微调图片角度）选中对象 –→ 按住Ctrl+Alt –→ 左右方向键 9、图形文字组合选中对象 –→ Ctrl+G 10、解除组合选中对象 –→ Ctrl+Shift+G]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[Sep-5]]></title>
     <url>%2F2018%2F09%2F05%2FSep-5%2F</url>
     <content type="text"><![CDATA[批量修改文件名1for files in `ls`; do mv $files &quot;MCK&quot;$files; done 1du -sh foo # 查看目录大小 我将文件夹加了MCK前缀，gtf文件也加了MCK前缀。]]></content>
