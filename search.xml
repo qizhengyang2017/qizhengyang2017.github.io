@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[R富集泡泡图]]></title>
+    <url>%2F2018%2F09%2F17%2FR%E5%AF%8C%E9%9B%86%E6%B3%A1%E6%B3%A1%E5%9B%BE%2F</url>
+    <content type="text"><![CDATA[1234567891011121314151617181920212223242526df&lt;-read.csv("GoTerm.csv",header = T)colnames(df)[1]&lt;-"Description"df$GeneRatio&lt;-df$Number.in.input.list/df$Number.in.BG.Refdf$GeneRatio&lt;-df$Number.in.input.list/df$Number.in.BG.Refsortdf&lt;-df[order(df$GeneRatio),]sortdf$Description&lt;-factor(sortdf$Description,levels = sortdf$Description)library(ggplot2)pl&lt;-ggplot(sortdf,aes(GeneRatio,Description, colour=p.value))+#横坐标、纵坐标、颜色代表p-value geom_point(aes(size=Number.in.input.list))+#圆点的大小代表组内基因数 scale_color_gradientn(colours=c("red","yellow"))+#可以自己改颜色 #圆点的大小代表Number of significant genes scale_size_continuous(range = c(2,8.2))+#圆点的大小范围 scale_x_continuous(limits = c(0.04,0.21))+#设置x轴范围 theme_bw(15)+#背景变成白色 ylab("")+ theme(legend.position=c(1,0),legend.justification = c(1,0), legend.title=element_text(size=14), legend.text=element_text(size=9),legend.box = "horizontal")+#legend画在右下角 #下面两行让legend融入图 theme(legend.background = element_blank())+#移除legend整体的边框 theme(legend.key = element_blank())#移除legend每个项目周围的边框pl## Rstudio保存 width=1100 higth=800 svg]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[从blastp中提取同源的拟南芥AT号]]></title>
+    <url>%2F2018%2F09%2F17%2F%E4%BB%8Eblastp%E4%B8%AD%E6%8F%90%E5%8F%96%E5%90%8C%E6%BA%90%E7%9A%84%E6%8B%9F%E5%8D%97%E8%8A%A5AT%E5%8F%B7%2F</url>
+    <content type="text"><![CDATA[1234567891011121314151617181920212223242526272829303132#!/usr/bin/env python# -*- coding: utf-8 -*-"""Created on Mon Sep 17 15:53:15 2018description: csi to AT"""import sysUSAGE = "\nusage: python %s sequences.fasta id_list out.fasta\n" % sys.argv[0]if len(sys.argv) != 4: print(USAGE) sys.exit()def parseBlastp(filename): csi_at = &#123;&#125; with open(filename, 'r') as fh: for line in fh: query = line.split()[1][::-1].split(".",1)[1][::-1] at = line.split()[5][6:] csi_at[query] = at return csi_atcsi_at = parseBlastp(sys.argv[1])IDs = open(sys.argv[2], 'r')OUT = open(sys.argv[3], 'w')for line in IDs: id = line.rstrip("\n") try: OUT.write(id + "\t" + csi_at[id] + "\n") except KeyError: print("Warning: can't find gene: " + id) IDs.close()OUT.close()]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[常用Linux命令]]></title>
     <url>%2F2018%2F09%2F13%2F%E5%B8%B8%E7%94%A8Linux%E5%91%BD%E4%BB%A4%2F</url>
     <content type="text"><![CDATA[free -g # 内存ls -lhdf -h #磁盘]]></content>
