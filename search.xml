@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[blast自动化]]></title>
+    <url>%2F2018%2F09%2F20%2Fblast%E8%87%AA%E5%8A%A8%E5%8C%96%2F</url>
+    <content type="text"><![CDATA[1234567891011121314151617181920212223242526272829303132333435363738394041424344#!/usr/bin/env python# -*- coding: utf-8 -*-"""Created on Thu Sep 20 20:49:38 2018description:"""#%%生成gene-annotation文件#anno = &#123;&#125;#with open('csi.gene.annotation.txt','r') as lines:# for line in lines:# line = line.split('\t')# id = line[0][::-1].split('.',1)[1][::-1] + '\t'# anno[id] = line[1]# # with open('csi.gene.annotation.output.txt','a') as output:# for id, annot in anno.items():# output.write(id + annot)#%%import sysdef produceDict(filename): annot = &#123;&#125; with open(filename,'r') as f: for line in f: line = line.strip().split('\t') id = line[0] annot[id] = line[1] return annotannot = produceDict(sys.argv[1])IDs = open(sys.argv[2],'r')OUT = open(sys.argv[3],'w')# 此处不能反斜杠换行，否则会有空格OUT.write('query\tsubject\tdescription\t% identity\talignment length\tmismatches\tgap opens\tq. start\tq. end\ts. start\ts. end\tevalue\tbit score\n')for line in IDs: if line.startswith('#'): continue line = line.strip().split('\t',2) id = line[1] try: OUT.write(line[0] + '\t' + id + '\t' + annot[id] + '\t' +line[2]+ '\n') except KeyError: OUT.write(line[0] + '\t' + id + '\t' + '' + '\t' +line[2]+ '\n') print("warning: can't find gene: " + id)IDs.close()OUT.close() 用法： python annot.py csi.gene.annotation.output.txt feng.txt final.txt]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[TAIR ID to entrez ID]]></title>
+    <url>%2F2018%2F09%2F20%2FTAIR-ID-to-entrez-ID%2F</url>
+    <content type="text"><![CDATA[David gene ID conversion]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[today]]></title>
+    <url>%2F2018%2F09%2F19%2Ftoday%2F</url>
+    <content type="text"><![CDATA[reference gene list的选择 网络图讲故事 谷歌搜索”big data AND visualization” 探索单个主体的关联网络 查找关键角色这是我想要做的 划清敌友界限 探索关联网络的变化 揭示隐藏的关系]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[R富集泡泡图]]></title>
     <url>%2F2018%2F09%2F17%2FR%E5%AF%8C%E9%9B%86%E6%B3%A1%E6%B3%A1%E5%9B%BE%2F</url>
-    <content type="text"><![CDATA[1234567891011121314151617181920212223242526df&lt;-read.csv("GoTerm.csv",header = T)colnames(df)[1]&lt;-"Description"df$GeneRatio&lt;-df$Number.in.input.list/df$Number.in.BG.Refdf$GeneRatio&lt;-df$Number.in.input.list/df$Number.in.BG.Refsortdf&lt;-df[order(df$GeneRatio),]sortdf$Description&lt;-factor(sortdf$Description,levels = sortdf$Description)library(ggplot2)pl&lt;-ggplot(sortdf,aes(GeneRatio,Description, colour=p.value))+#横坐标、纵坐标、颜色代表p-value geom_point(aes(size=Number.in.input.list))+#圆点的大小代表组内基因数 scale_color_gradientn(colours=c("red","yellow"))+#可以自己改颜色 #圆点的大小代表Number of significant genes scale_size_continuous(range = c(2,8.2))+#圆点的大小范围 scale_x_continuous(limits = c(0.04,0.21))+#设置x轴范围 theme_bw(15)+#背景变成白色 ylab("")+ theme(legend.position=c(1,0),legend.justification = c(1,0), legend.title=element_text(size=14), legend.text=element_text(size=9),legend.box = "horizontal")+#legend画在右下角 #下面两行让legend融入图 theme(legend.background = element_blank())+#移除legend整体的边框 theme(legend.key = element_blank())#移除legend每个项目周围的边框pl## Rstudio保存 width=1100 higth=800 svg]]></content>
+    <content type="text"><![CDATA[12345678910111213141516171819202122232425df&lt;-read.csv("GoTerm.csv",header = T)colnames(df)[1]&lt;-"Description"df$GeneRatio&lt;-df$Number.in.input.list/df$Number.in.BG.Refsortdf&lt;-df[order(df$GeneRatio),]sortdf$Description&lt;-factor(sortdf$Description,levels = sortdf$Description)library(ggplot2)pl&lt;-ggplot(sortdf,aes(GeneRatio,Description, colour=p.value))+#横坐标、纵坐标、颜色代表p-value geom_point(aes(size=Number.in.input.list))+#圆点的大小代表组内基因数 scale_color_gradientn(colours=c("red","yellow"))+#可以自己改颜色 #圆点的大小代表Number of significant genes scale_size_continuous(range = c(2,8.2))+#圆点的大小范围 scale_x_continuous(limits = c(0.04,0.21))+#设置x轴范围 theme_bw(15)+#背景变成白色 ylab("")+ theme(legend.position=c(1,0),legend.justification = c(1,0), legend.title=element_text(size=14), legend.text=element_text(size=9),legend.box = "horizontal")+#legend画在右下角 #下面两行让legend融入图 theme(legend.background = element_blank())+#移除legend整体的边框 theme(legend.key = element_blank())#移除legend每个项目周围的边框pl## Rstudio保存 width=1100 higth=800 svg]]></content>
   </entry>
   <entry>
     <title><![CDATA[从blastp中提取同源的拟南芥AT号]]></title>

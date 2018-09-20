@@ -108,17 +108,17 @@
 
 
 
-  <meta name="description" content="1234567891011121314151617181920212223242526df&amp;lt;-read.csv(&quot;GoTerm.csv&quot;,header = T)colnames(df)[1]&amp;lt;-&quot;Description&quot;df$GeneRatio&amp;lt;-df$Number.in.input.list/df$Number.in.BG.Refdf$GeneRatio&amp;lt;-df$Numb">
+  <meta name="description" content="12345678910111213141516171819202122232425df&amp;lt;-read.csv(&quot;GoTerm.csv&quot;,header = T)colnames(df)[1]&amp;lt;-&quot;Description&quot;df$GeneRatio&amp;lt;-df$Number.in.input.list/df$Number.in.BG.Refsortdf&amp;lt;-df[order(df$Gen">
 <meta property="og:type" content="article">
 <meta property="og:title" content="R富集泡泡图">
 <meta property="og:url" content="http://yoursite.com/2018/09/17/R富集泡泡图/index.html">
 <meta property="og:site_name" content="ZhengYang Qi">
-<meta property="og:description" content="1234567891011121314151617181920212223242526df&amp;lt;-read.csv(&quot;GoTerm.csv&quot;,header = T)colnames(df)[1]&amp;lt;-&quot;Description&quot;df$GeneRatio&amp;lt;-df$Number.in.input.list/df$Number.in.BG.Refdf$GeneRatio&amp;lt;-df$Numb">
+<meta property="og:description" content="12345678910111213141516171819202122232425df&amp;lt;-read.csv(&quot;GoTerm.csv&quot;,header = T)colnames(df)[1]&amp;lt;-&quot;Description&quot;df$GeneRatio&amp;lt;-df$Number.in.input.list/df$Number.in.BG.Refsortdf&amp;lt;-df[order(df$Gen">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-09-17T15:02:40.739Z">
+<meta property="og:updated_time" content="2018-09-17T15:05:31.994Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="R富集泡泡图">
-<meta name="twitter:description" content="1234567891011121314151617181920212223242526df&amp;lt;-read.csv(&quot;GoTerm.csv&quot;,header = T)colnames(df)[1]&amp;lt;-&quot;Description&quot;df$GeneRatio&amp;lt;-df$Number.in.input.list/df$Number.in.BG.Refdf$GeneRatio&amp;lt;-df$Numb">
+<meta name="twitter:description" content="12345678910111213141516171819202122232425df&amp;lt;-read.csv(&quot;GoTerm.csv&quot;,header = T)colnames(df)[1]&amp;lt;-&quot;Description&quot;df$GeneRatio&amp;lt;-df$Number.in.input.list/df$Number.in.BG.Refsortdf&amp;lt;-df[order(df$Gen">
 
 
 
@@ -369,7 +369,7 @@
                 
               
 
-              <time title="Created: 2018-09-17 23:02:13 / Modified: 23:02:40" itemprop="dateCreated datePublished" datetime="2018-09-17T23:02:13+08:00">2018-09-17</time>
+              <time title="Created: 2018-09-17 23:02:13 / Modified: 23:05:31" itemprop="dateCreated datePublished" datetime="2018-09-17T23:02:13+08:00">2018-09-17</time>
             
 
             
@@ -407,7 +407,7 @@
       
 
       
-        <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">df&lt;-read.csv(<span class="string">"GoTerm.csv"</span>,header = <span class="literal">T</span>)</span><br><span class="line">colnames(df)[<span class="number">1</span>]&lt;-<span class="string">"Description"</span></span><br><span class="line">df$GeneRatio&lt;-df$Number.in.input.list/df$Number.in.BG.Ref</span><br><span class="line">df$GeneRatio&lt;-df$Number.in.input.list/df$Number.in.BG.Ref</span><br><span class="line">sortdf&lt;-df[order(df$GeneRatio),]</span><br><span class="line">sortdf$Description&lt;-factor(sortdf$Description,levels = sortdf$Description)</span><br><span class="line"></span><br><span class="line"><span class="keyword">library</span>(ggplot2)</span><br><span class="line"></span><br><span class="line">pl&lt;-ggplot(sortdf,aes(GeneRatio,Description,</span><br><span class="line">                      colour=p.value))+<span class="comment">#横坐标、纵坐标、颜色代表p-value</span></span><br><span class="line">  geom_point(aes(size=Number.in.input.list))+<span class="comment">#圆点的大小代表组内基因数</span></span><br><span class="line">  scale_color_gradientn(colours=c(<span class="string">"red"</span>,<span class="string">"yellow"</span>))+<span class="comment">#可以自己改颜色</span></span><br><span class="line">  <span class="comment">#圆点的大小代表Number of significant genes</span></span><br><span class="line">  scale_size_continuous(range = c(<span class="number">2</span>,<span class="number">8.2</span>))+<span class="comment">#圆点的大小范围</span></span><br><span class="line">  scale_x_continuous(limits = c(<span class="number">0.04</span>,<span class="number">0.21</span>))+<span class="comment">#设置x轴范围</span></span><br><span class="line">  theme_bw(<span class="number">15</span>)+<span class="comment">#背景变成白色</span></span><br><span class="line">  ylab(<span class="string">""</span>)+</span><br><span class="line">  theme(legend.position=c(<span class="number">1</span>,<span class="number">0</span>),legend.justification = c(<span class="number">1</span>,<span class="number">0</span>),</span><br><span class="line">        legend.title=element_text(size=<span class="number">14</span>), </span><br><span class="line">        legend.text=element_text(size=<span class="number">9</span>),legend.box = <span class="string">"horizontal"</span>)+<span class="comment">#legend画在右下角</span></span><br><span class="line">  <span class="comment">#下面两行让legend融入图</span></span><br><span class="line">  theme(legend.background = element_blank())+<span class="comment">#移除legend整体的边框</span></span><br><span class="line">  theme(legend.key = element_blank())<span class="comment">#移除legend每个项目周围的边框</span></span><br><span class="line">pl</span><br><span class="line"><span class="comment">## Rstudio保存 width=1100 higth=800 svg</span></span><br></pre></td></tr></table></figure>
+        <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">df&lt;-read.csv(<span class="string">"GoTerm.csv"</span>,header = <span class="literal">T</span>)</span><br><span class="line">colnames(df)[<span class="number">1</span>]&lt;-<span class="string">"Description"</span></span><br><span class="line">df$GeneRatio&lt;-df$Number.in.input.list/df$Number.in.BG.Ref</span><br><span class="line">sortdf&lt;-df[order(df$GeneRatio),]</span><br><span class="line">sortdf$Description&lt;-factor(sortdf$Description,levels = sortdf$Description)</span><br><span class="line"></span><br><span class="line"><span class="keyword">library</span>(ggplot2)</span><br><span class="line"></span><br><span class="line">pl&lt;-ggplot(sortdf,aes(GeneRatio,Description,</span><br><span class="line">                      colour=p.value))+<span class="comment">#横坐标、纵坐标、颜色代表p-value</span></span><br><span class="line">  geom_point(aes(size=Number.in.input.list))+<span class="comment">#圆点的大小代表组内基因数</span></span><br><span class="line">  scale_color_gradientn(colours=c(<span class="string">"red"</span>,<span class="string">"yellow"</span>))+<span class="comment">#可以自己改颜色</span></span><br><span class="line">  <span class="comment">#圆点的大小代表Number of significant genes</span></span><br><span class="line">  scale_size_continuous(range = c(<span class="number">2</span>,<span class="number">8.2</span>))+<span class="comment">#圆点的大小范围</span></span><br><span class="line">  scale_x_continuous(limits = c(<span class="number">0.04</span>,<span class="number">0.21</span>))+<span class="comment">#设置x轴范围</span></span><br><span class="line">  theme_bw(<span class="number">15</span>)+<span class="comment">#背景变成白色</span></span><br><span class="line">  ylab(<span class="string">""</span>)+</span><br><span class="line">  theme(legend.position=c(<span class="number">1</span>,<span class="number">0</span>),legend.justification = c(<span class="number">1</span>,<span class="number">0</span>),</span><br><span class="line">        legend.title=element_text(size=<span class="number">14</span>), </span><br><span class="line">        legend.text=element_text(size=<span class="number">9</span>),legend.box = <span class="string">"horizontal"</span>)+<span class="comment">#legend画在右下角</span></span><br><span class="line">  <span class="comment">#下面两行让legend融入图</span></span><br><span class="line">  theme(legend.background = element_blank())+<span class="comment">#移除legend整体的边框</span></span><br><span class="line">  theme(legend.key = element_blank())<span class="comment">#移除legend每个项目周围的边框</span></span><br><span class="line">pl</span><br><span class="line"><span class="comment">## Rstudio保存 width=1100 higth=800 svg</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -444,6 +444,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/19/today/" rel="prev" title="today">
+                today <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -504,7 +508,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-count">27</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
