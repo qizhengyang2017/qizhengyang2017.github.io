@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[blast操作命令]]></title>
+    <url>%2F2018%2F09%2F21%2Fblast%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[文档末尾换行，行首添加”&gt;XX”for dir in ls; do echo &gt;&gt; $dir; sed -i “1i&gt;${dir%%_*}” $dir; done 合并，去除空行cat * &gt; tmp.fa &amp;&amp; grep -v ‘^$’ tmp.fa &gt; seq.fa &amp;&amp; rm tmp.fa blastn -query seq.fa -db csi.gene.fa -out results_final_0921.txt -evalue 10 -outfmt 7 python annot.py csi.gene.annotation.output.txt results_final_0921.txt blast_results_final_0921.txt]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[blast自动化]]></title>
     <url>%2F2018%2F09%2F20%2Fblast%E8%87%AA%E5%8A%A8%E5%8C%96%2F</url>
     <content type="text"><![CDATA[1234567891011121314151617181920212223242526272829303132333435363738394041424344#!/usr/bin/env python# -*- coding: utf-8 -*-"""Created on Thu Sep 20 20:49:38 2018description:"""#%%生成gene-annotation文件#anno = &#123;&#125;#with open('csi.gene.annotation.txt','r') as lines:# for line in lines:# line = line.split('\t')# id = line[0][::-1].split('.',1)[1][::-1] + '\t'# anno[id] = line[1]# # with open('csi.gene.annotation.output.txt','a') as output:# for id, annot in anno.items():# output.write(id + annot)#%%import sysdef produceDict(filename): annot = &#123;&#125; with open(filename,'r') as f: for line in f: line = line.strip().split('\t') id = line[0] annot[id] = line[1] return annotannot = produceDict(sys.argv[1])IDs = open(sys.argv[2],'r')OUT = open(sys.argv[3],'w')# 此处不能反斜杠换行，否则会有空格OUT.write('query\tsubject\tdescription\t% identity\talignment length\tmismatches\tgap opens\tq. start\tq. end\ts. start\ts. end\tevalue\tbit score\n')for line in IDs: if line.startswith('#'): continue line = line.strip().split('\t',2) id = line[1] try: OUT.write(line[0] + '\t' + id + '\t' + annot[id] + '\t' +line[2]+ '\n') except KeyError: OUT.write(line[0] + '\t' + id + '\t' + '' + '\t' +line[2]+ '\n') print("warning: can't find gene: " + id)IDs.close()OUT.close() 用法： python annot.py csi.gene.annotation.output.txt feng.txt final.txt]]></content>
