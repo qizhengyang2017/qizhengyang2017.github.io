@@ -324,7 +324,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/21/blast操作命令/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/27/代码整理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -343,8 +343,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/21/blast操作命令/" itemprop="url">
-                  blast操作命令
+                <a class="post-title-link" href="/2018/09/27/代码整理/" itemprop="url">
+                  代码整理
                 </a>
               
             
@@ -370,7 +370,7 @@
                 
               
 
-              <time title="Created: 2018-09-21 10:12:41 / Modified: 11:27:45" itemprop="dateCreated datePublished" datetime="2018-09-21T10:12:41+08:00">2018-09-21</time>
+              <time title="Created: 2018-09-27 20:56:10 / Modified: 23:00:25" itemprop="dateCreated datePublished" datetime="2018-09-27T20:56:10+08:00">2018-09-27</time>
             
 
             
@@ -410,10 +410,13 @@
       
         
           
-            <h1 id="文档末尾换行，行首添加”-gt-XX”"><a href="#文档末尾换行，行首添加”-gt-XX”" class="headerlink" title="文档末尾换行，行首添加”&gt;XX”"></a>文档末尾换行，行首添加”&gt;XX”</h1><p>for dir in <code>ls</code>; do echo &gt;&gt; $dir; sed -i “1i&gt;${dir%%_*}” $dir; done</p>
-<h1 id="合并，去除空行"><a href="#合并，去除空行" class="headerlink" title="合并，去除空行"></a>合并，去除空行</h1><p>cat * &gt; tmp.fa &amp;&amp; grep -v ‘^$’ tmp.fa &gt; seq.fa &amp;&amp; rm tmp.fa</p>
-<p>blastn -query seq.fa -db csi.gene.fa -out results_final_0921.txt -evalue 10 -outfmt 7</p>
-<p>python annot.py csi.gene.annotation.output.txt results_final_0921.txt blast_results_final_0921.txt</p>
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">## 后台运行</span><br><span class="line">nohup command &gt; myout.file 2&gt;&amp;1 &amp;</span><br><span class="line">## sam to bam</span><br><span class="line">nohup samtools view -bS -o s717-1.bam s717-1.clean_h2_t0_bismark_bt2_pe.sorted.sam &gt; s717-1.out 2&gt;&amp;1 &amp;</span><br><span class="line">samtools sort test.bam  -o sorted.test.bam</span><br><span class="line">## 删除行</span><br><span class="line">sed -i &apos;27427009d&apos; s717-1.clean_h2_t0_bismark_bt2_pe.sorted.sam    # -i 直接修改</span><br><span class="line">## 显示行</span><br><span class="line">sed -n &apos;27427009p&apos; s717-1.clean_h2_t0_bismark_bt2_pe.sorted.sam</span><br><span class="line">## samtools 建索引</span><br><span class="line">samtools index $i</span><br><span class="line">## samtools 建bam测试文件</span><br><span class="line">samtools view s185-1.clean_h2_t0_bismark_bt2_pe.sorted.bam | head -n1000 &gt; test.bam</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">## 查文件grep 正则表达式</span><br><span class="line">ll | grep &apos;.*\.[o,e][0-9][0-9]*&apos;    # [o,e]+数字</span><br></pre></td></tr></table></figure>
+<p>chmod 755 file.R<br>./file.R                  #这种方式下，把file.R改为file.sh或file …，在Ubuntu下都能运行</p>
+<p>如果你用 python xxoo.py 来运行，那么写不写都没关系，如果要用 ./xxoo.py 那么就必须加这行，这行被称为 shebang, 用来为脚本语言指定解释器.<br>通常认为用 #!/usr/bin/env python 要比 #!/usr/bin/python 更好，因为 python 解释器有时并不安装在默认路径，例如在 virtualenv 中。</p>
+<blockquote>
+<p>getwd()<br>[1] “/home02/qizhengyang/methSAM”<br>dir()<br> [1] “185sort.e797100”<br> [2] “bam”<br> [3] “myplot.jpeg”              </p>
+</blockquote>
 
           
         

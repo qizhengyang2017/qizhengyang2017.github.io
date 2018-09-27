@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[blast操作命令]]></title>
-    <url>%2F2018%2F09%2F21%2Fblast%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4%2F</url>
-    <content type="text"><![CDATA[文档末尾换行，行首添加”&gt;XX”for dir in ls; do echo &gt;&gt; $dir; sed -i “1i&gt;${dir%%_*}” $dir; done 合并，去除空行cat * &gt; tmp.fa &amp;&amp; grep -v ‘^$’ tmp.fa &gt; seq.fa &amp;&amp; rm tmp.fa blastn -query seq.fa -db csi.gene.fa -out results_final_0921.txt -evalue 10 -outfmt 7 python annot.py csi.gene.annotation.output.txt results_final_0921.txt blast_results_final_0921.txt]]></content>
+    <title><![CDATA[代码整理]]></title>
+    <url>%2F2018%2F09%2F27%2F%E4%BB%A3%E7%A0%81%E6%95%B4%E7%90%86%2F</url>
+    <content type="text"><![CDATA[12345678910111213## 后台运行nohup command &gt; myout.file 2&gt;&amp;1 &amp;## sam to bamnohup samtools view -bS -o s717-1.bam s717-1.clean_h2_t0_bismark_bt2_pe.sorted.sam &gt; s717-1.out 2&gt;&amp;1 &amp;samtools sort test.bam -o sorted.test.bam## 删除行sed -i &apos;27427009d&apos; s717-1.clean_h2_t0_bismark_bt2_pe.sorted.sam # -i 直接修改## 显示行sed -n &apos;27427009p&apos; s717-1.clean_h2_t0_bismark_bt2_pe.sorted.sam## samtools 建索引samtools index $i## samtools 建bam测试文件samtools view s185-1.clean_h2_t0_bismark_bt2_pe.sorted.bam | head -n1000 &gt; test.bam 12## 查文件grep 正则表达式ll | grep &apos;.*\.[o,e][0-9][0-9]*&apos; # [o,e]+数字 chmod 755 file.R./file.R #这种方式下，把file.R改为file.sh或file …，在Ubuntu下都能运行 如果你用 python xxoo.py 来运行，那么写不写都没关系，如果要用 ./xxoo.py 那么就必须加这行，这行被称为 shebang, 用来为脚本语言指定解释器.通常认为用 #!/usr/bin/env python 要比 #!/usr/bin/python 更好，因为 python 解释器有时并不安装在默认路径，例如在 virtualenv 中。 getwd()[1] “/home02/qizhengyang/methSAM”dir() [1] “185sort.e797100” [2] “bam” [3] “myplot.jpeg”]]></content>
   </entry>
   <entry>
     <title><![CDATA[blast自动化]]></title>
