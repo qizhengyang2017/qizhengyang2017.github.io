@@ -324,6 +324,284 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/23/简单的格式转换，try语句的使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZhengYang Qi">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/23/简单的格式转换，try语句的使用/" itemprop="url">
+                  简单的格式转换，try语句的使用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-10-23 09:55:25 / Modified: 10:03:14" itemprop="dateCreated datePublished" datetime="2018-10-23T09:55:25+08:00">2018-10-23</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python</span><br><span class="line"># coding: utf-8</span><br><span class="line"># qizhengyang 20181022</span><br><span class="line"># 将格式调成methykit支持的格式</span><br><span class="line"></span><br><span class="line">file = open(&quot;mc.file.txt&quot;,&quot;w&quot;)</span><br><span class="line">file.write(&apos;chrBase&apos;+&apos;\t&apos;+&apos;chr&apos;+&apos;\t&apos;+&apos;base&apos;+&apos;\t&apos;+&apos;Strand&apos;+&apos;\t&apos;+&apos;coverage&apos;+&apos;\t&apos;+&apos;freqC&apos;+&apos;\t&apos;+&apos;\t&apos;&apos;freqT&apos;+&apos;\n&apos;)</span><br><span class="line">with open(&quot;test.txt&quot;) as mclines:</span><br><span class="line">    mcfile = [[],[],[],[],[],[],[]]</span><br><span class="line">    for mcline in mclines:</span><br><span class="line">        #print(mclines)</span><br><span class="line">        mcline = mcline.strip().split()</span><br><span class="line">        if mcline[2] == &apos;+&apos;:</span><br><span class="line">            mcline[2] = &apos;F&apos;</span><br><span class="line">        else:</span><br><span class="line">            mcline[2] = &apos;R&apos;</span><br><span class="line">        mcfile[0] = mcline[0]+&apos;.&apos;+mcline[1]</span><br><span class="line">        mcfile[1] = mcline[0]</span><br><span class="line">        mcfile[2] = mcline[1]</span><br><span class="line">        mcfile[3] = mcline[2]</span><br><span class="line">        mcfile[4] = int(mcline[3]) + int(mcline[4])</span><br><span class="line">        try:</span><br><span class="line">            mcfile[5] = round((int(mcline[3]) / mcfile[4])*100,2)</span><br><span class="line">        except:</span><br><span class="line">            mcfile[5] = 0.00</span><br><span class="line">        try:</span><br><span class="line">            mcfile[6] = round((int(mcline[4]) / mcfile[4])*100,2)</span><br><span class="line">        except:</span><br><span class="line">            mcfile[6] = 0.00</span><br><span class="line">        file.write(mcfile[0]+&apos;\t&apos;+mcfile[1]+&apos;\t&apos;+mcfile[2]+&apos;\t&apos;+mcfile[3]+&apos;\t&apos;+str(mcfile[4])+&apos;\t&apos;+str(mcfile[5])+&apos;\t&apos;+str(mcfile[6])+&apos;\n&apos;)</span><br><span class="line">file.close()</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">#bismark_methylation_extractor输出格式</span><br><span class="line">#scaffold_1      10      +       0       0       CG      CGC</span><br><span class="line">#scaffold_1      11      -       0       0       CG      CGC</span><br><span class="line">#scaffold_1      14      +       0       0       CG      CGA</span><br><span class="line">#scaffold_1      15      -       4       0       CG      CGG</span><br><span class="line">#scaffold_1      21      +       1       0       CG      CGT</span><br><span class="line">#scaffold_1      22      -       5       0       CG      CGA</span><br><span class="line">#scaffold_1      42      +       42      5       CG      CGG</span><br><span class="line">#scaffold_1      43      -       65      5       CG      CGC</span><br><span class="line"></span><br><span class="line">#methykit supporting format</span><br><span class="line">#chrBase	chr	base	Strand	coverage	freqC		freqT</span><br><span class="line">#scaffold_1.10	scaffold_1	10	F	0	0.0	0.0</span><br><span class="line">#scaffold_1.11	scaffold_1	11	R	0	0.0	0.0</span><br><span class="line">#scaffold_1.14	scaffold_1	14	F	0	0.0	0.0</span><br><span class="line">#scaffold_1.15	scaffold_1	15	R	4	100.0	0.0</span><br><span class="line">#scaffold_1.21	scaffold_1	21	F	1	100.0	0.0</span><br><span class="line">#scaffold_1.22	scaffold_1	22	R	5	100.0	0.0</span><br><span class="line">#scaffold_1.42	scaffold_1	42	F	47	89.36	10.64</span><br><span class="line">#scaffold_1.43	scaffold_1	43	R	70	92.86	7.14</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/23/对甲基化位点进行排序/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZhengYang Qi">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/23/对甲基化位点进行排序/" itemprop="url">
+                  对甲基化位点进行排序
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-10-23 09:54:00 / Modified: 09:56:05" itemprop="dateCreated datePublished" datetime="2018-10-23T09:54:00+08:00">2018-10-23</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python</span><br><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line"># qizhengyang 20181023</span><br><span class="line"># 对甲基化位点信息的文件按位点大小进行排序</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">with open(&apos;test.txt&apos;) as lines:</span><br><span class="line">    F_sorting = []</span><br><span class="line">    R_sorting = []</span><br><span class="line">    all_sorting = []</span><br><span class="line">    for line in lines:</span><br><span class="line">        line = line.strip().split()</span><br><span class="line">        line[2] = int(line[2])</span><br><span class="line">        line = tuple(line)</span><br><span class="line">        if line[3] == &apos;F&apos;:</span><br><span class="line">            F_sorting.append(line)</span><br><span class="line">        else:</span><br><span class="line">            R_sorting.append(line)</span><br><span class="line">    F_sorted = sorted(F_sorting, key=lambda s: s[2])</span><br><span class="line">    R_sorted = sorted(R_sorting, key=lambda s: s[2])</span><br><span class="line">    all_sorted = F_sorted + R_sorted</span><br><span class="line">file_sorted = open(&apos;file_sorted.txt&apos;,&apos;w&apos;)</span><br><span class="line">for line in all_sorted:</span><br><span class="line">    line = line[0] + &apos;\t&apos;+ line[1] + &apos;\t&apos;+ str(line[2]) + &apos;\t&apos;+ line[3] + &apos;\t&apos;+ line[4] + &apos;\t&apos; + line[5] + &apos;\t&apos; + line[6] + &apos;\n&apos;</span><br><span class="line">    file_sorted.write(line)</span><br><span class="line">file_sorted.close()</span><br><span class="line"></span><br><span class="line"># 结果如下</span><br><span class="line"># chr1.528    chr1    528 F   4   50.00   50.00</span><br><span class="line"># chr1.702    chr1    702 F   8   100.00  0.00</span><br><span class="line"># chr1.733    chr1    733 F   7   85.71   14.29</span><br><span class="line"># chr1.755    chr1    755 F   3   100.00  0.00</span><br><span class="line"># chr1.958    chr1    958 F   10  100.00  0.00</span><br><span class="line"># chr1.1111   chr1    1111    F   7   85.71   14.29</span><br><span class="line"># chr1.1207   chr1    1207    F   8   100.00  0.00</span><br><span class="line"># chr1.1294   chr1    1294    F   7   100.00  0.00</span><br><span class="line"># chr1.1333   chr1    1333    F   9   77.78   22.22</span><br><span class="line"># chr1.1569   chr1    1569    F   3   100.00  0.00</span><br><span class="line"># chr1.1629   chr1    1629    F   5   100.00  0.00</span><br><span class="line"># chr1.1668   chr1    1668    F   5   100.00  0.00</span><br><span class="line"># chr1.1671   chr1    1671    F   6   66.67   33.33</span><br><span class="line"># chr1.1695   chr1    1695    F   3   100.00  0.00</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/18/10-18-10-20中期检查PPT内容/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1453,294 +1731,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/20/TAIR-ID-to-entrez-ID/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZhengYang Qi">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/20/TAIR-ID-to-entrez-ID/" itemprop="url">
-                  TAIR ID to entrez ID
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-09-20 15:52:31 / Modified: 20:42:03" itemprop="dateCreated datePublished" datetime="2018-09-20T15:52:31+08:00">2018-09-20</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>David gene ID conversion</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/19/today/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZhengYang Qi">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/19/today/" itemprop="url">
-                  today
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-09-19 20:11:10 / Modified: 20:20:19" itemprop="dateCreated datePublished" datetime="2018-09-19T20:11:10+08:00">2018-09-19</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>reference gene list的选择</p>
-<p>网络图讲故事 <a href="https://www.google.com/search?hl=zh-CN&amp;tbm=isch&amp;source=hp&amp;biw=1366&amp;bih=626&amp;ei=XTqiW_fINauu0gKb3IOACw&amp;q=big+data+AND+visualization&amp;oq=big+data+AND+visualization&amp;gs_l=img.3..0i24k1.2422.12773.0.12993.26.16.0.10.10.0.563.2192.2-5j1j0j1.7.0....0...1ac.1j4.64.img..9.16.2001.0..0j0i30k1j0i19k1.0.rGZn0a4-ATE" title="谷歌图片" target="_blank" rel="noopener">谷歌搜索”big data AND visualization”</a></p>
-<ul>
-<li>探索单个主体的关联网络</li>
-<li>查找关键角色<br>这是我想要做的</li>
-<li>划清敌友界限</li>
-<li>探索关联网络的变化</li>
-<li>揭示隐藏的关系</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1788,7 +1778,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">34</span>
+                    <span class="site-state-item-count">36</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
