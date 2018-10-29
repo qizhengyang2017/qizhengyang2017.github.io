@@ -324,6 +324,200 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/28/R拆分文文件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeremy17">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/28/R拆分文文件/" itemprop="url">
+                  R拆分文文件
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-10-28 17:19:14 / Modified: 17:30:38" itemprop="dateCreated datePublished" datetime="2018-10-28T17:19:14+08:00">2018-10-28</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>帮师姐做的，文件格式是：</p>
+<table>
+<thead>
+<tr>
+<th>sample</th>
+<th>freqC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>aa</td>
+<td>100</td>
+</tr>
+<tr>
+<td>aa</td>
+<td>23.4</td>
+</tr>
+<tr>
+<td>..</td>
+<td>..</td>
+</tr>
+<tr>
+<td>bb</td>
+<td>56</td>
+</tr>
+<tr>
+<td>bb</td>
+<td>12</td>
+</tr>
+</tbody>
+</table>
+<p>本来是打算做成下面的格式：</p>
+<table>
+<thead>
+<tr>
+<th>aa</th>
+<th>bb</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>23</td>
+<td>45</td>
+</tr>
+<tr>
+<td>34</td>
+<td>32</td>
+</tr>
+<tr>
+<td>..</td>
+<td>..</td>
+</tr>
+</tbody>
+</table>
+<p>但是发现数据不等长，最终就只是拆分了文件</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># =======CHG</span></span><br><span class="line">test&lt;-read.table(<span class="string">"CHG_methunit_cov3_merged.DMC.txt"</span>,header = <span class="literal">T</span>)</span><br><span class="line">names&lt;-as.character(unique(test[,<span class="number">1</span>]))  <span class="comment">#必须将因子转化成字符，不然assign函数报错</span></span><br><span class="line">names</span><br><span class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">1</span>:length(names)) &#123;</span><br><span class="line">  a&lt;-subset(test,test[,<span class="number">1</span>] == names[i],select=c(freqC))</span><br><span class="line">  </span><br><span class="line">  assign(names[i],a) <span class="comment">#字符串转变量</span></span><br><span class="line">  df.now &lt;- get(names[i]) <span class="comment">#获取变量</span></span><br><span class="line">  write.table(df.now, file = paste(<span class="string">"CHG_"</span>, names[i], <span class="string">".txt"</span>,sep=<span class="string">""</span>),sep=<span class="string">'\t'</span>,row.names = <span class="literal">F</span>)</span><br><span class="line">&#125;</span><br><span class="line">rm(list=ls())</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/24/十月倒数第二个星期三总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1589,152 +1783,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/27/代码整理/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeremy17">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/27/代码整理/" itemprop="url">
-                  代码整理
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-09-27 20:56:10 / Modified: 23:00:25" itemprop="dateCreated datePublished" datetime="2018-09-27T20:56:10+08:00">2018-09-27</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">## 后台运行</span><br><span class="line">nohup command &gt; myout.file 2&gt;&amp;1 &amp;</span><br><span class="line">## sam to bam</span><br><span class="line">nohup samtools view -bS -o s717-1.bam s717-1.clean_h2_t0_bismark_bt2_pe.sorted.sam &gt; s717-1.out 2&gt;&amp;1 &amp;</span><br><span class="line">samtools sort test.bam  -o sorted.test.bam</span><br><span class="line">## 删除行</span><br><span class="line">sed -i &apos;27427009d&apos; s717-1.clean_h2_t0_bismark_bt2_pe.sorted.sam    # -i 直接修改</span><br><span class="line">## 显示行</span><br><span class="line">sed -n &apos;27427009p&apos; s717-1.clean_h2_t0_bismark_bt2_pe.sorted.sam</span><br><span class="line">## samtools 建索引</span><br><span class="line">samtools index $i</span><br><span class="line">## samtools 建bam测试文件</span><br><span class="line">samtools view s185-1.clean_h2_t0_bismark_bt2_pe.sorted.bam | head -n1000 &gt; test.bam</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">## 查文件grep 正则表达式</span><br><span class="line">ll | grep &apos;.*\.[o,e][0-9][0-9]*&apos;    # [o,e]+数字</span><br></pre></td></tr></table></figure>
-<p>chmod 755 file.R<br>./file.R                  #这种方式下，把file.R改为file.sh或file …，在Ubuntu下都能运行</p>
-<p>如果你用 python xxoo.py 来运行，那么写不写都没关系，如果要用 ./xxoo.py 那么就必须加这行，这行被称为 shebang, 用来为脚本语言指定解释器.<br>通常认为用 #!/usr/bin/env python 要比 #!/usr/bin/python 更好，因为 python 解释器有时并不安装在默认路径，例如在 virtualenv 中。</p>
-<blockquote>
-<p>getwd()<br>[1] “/home02/qizhengyang/methSAM”<br>dir()<br> [1] “185sort.e797100”<br> [2] “bam”<br> [3] “myplot.jpeg”              </p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1782,7 +1830,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">37</span>
+                    <span class="site-state-item-count">38</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1805,7 +1853,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">4</span>
+                      
+                    
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

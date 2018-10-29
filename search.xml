@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[R拆分文文件]]></title>
+    <url>%2F2018%2F10%2F28%2FR%E6%8B%86%E5%88%86%E6%96%87%E6%96%87%E4%BB%B6%2F</url>
+    <content type="text"><![CDATA[帮师姐做的，文件格式是： sample freqC aa 100 aa 23.4 .. .. bb 56 bb 12 本来是打算做成下面的格式： aa bb 23 45 34 32 .. .. 但是发现数据不等长，最终就只是拆分了文件 123456789101112# =======CHGtest&lt;-read.table("CHG_methunit_cov3_merged.DMC.txt",header = T)names&lt;-as.character(unique(test[,1])) #必须将因子转化成字符，不然assign函数报错namesfor (i in 1:length(names)) &#123; a&lt;-subset(test,test[,1] == names[i],select=c(freqC)) assign(names[i],a) #字符串转变量 df.now &lt;- get(names[i]) #获取变量 write.table(df.now, file = paste("CHG_", names[i], ".txt",sep=""),sep='\t',row.names = F)&#125;rm(list=ls())]]></content>
+      <tags>
+        <tag>R</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[十月倒数第二个星期三总结]]></title>
     <url>%2F2018%2F10%2F24%2F%E5%8D%81%E6%9C%88%E5%80%92%E6%95%B0%E7%AC%AC%E4%BA%8C%E4%B8%AA%E6%98%9F%E6%9C%9F%E4%B8%89%E6%80%BB%E7%BB%93%2F</url>
     <content type="text"><![CDATA[抄一篇文章 What does Stack Overflow want to be when it grows up? I sometimes get asked by regular people in the actual real world what it is that I do for a living, and here’s my 15 second answer: We build a sort of Wikipedia website for computer programmers to post questions and answers. It’s called Stack Overflow. As of last month, it’s been 10 years since Joel Spolsky and I started Stack Overflow. I currently do other stuff now, and I have since 2012, but if I will be know for anything when I’m dead, clearly it is going to be good Stack Overflow. Here’s where I’d normally segue into a bunch of rah-rah stuff about how great Stack Overflow is, and thus how implicitly great I am by association for being a founder, and all.]]></content>

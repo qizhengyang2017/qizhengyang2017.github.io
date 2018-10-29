@@ -108,21 +108,25 @@
 
 
 
-  <meta property="og:type" content="article">
-<meta property="og:title" content="林书豪">
-<meta property="og:url" content="http://yoursite.com/2018/10/04/林书豪/index.html">
+  <meta name="description" content="帮师姐做的，文件格式是：    sample freqC     aa 100   aa 23.4   .. ..   bb 56   bb 12    本来是打算做成下面的格式：    aa bb     23 45   34 32   .. ..    但是发现数据不等长，最终就只是拆分了文件 123456789101112# =======CHGtest&amp;lt;-read.table(&quot;CH">
+<meta name="keywords" content="R">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R拆分文文件">
+<meta property="og:url" content="http://yoursite.com/2018/10/28/R拆分文文件/index.html">
 <meta property="og:site_name" content="Jeremy17">
+<meta property="og:description" content="帮师姐做的，文件格式是：    sample freqC     aa 100   aa 23.4   .. ..   bb 56   bb 12    本来是打算做成下面的格式：    aa bb     23 45   34 32   .. ..    但是发现数据不等长，最终就只是拆分了文件 123456789101112# =======CHGtest&amp;lt;-read.table(&quot;CH">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-10-04T03:46:49.871Z">
+<meta property="og:updated_time" content="2018-10-28T09:30:38.308Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="林书豪">
+<meta name="twitter:title" content="R拆分文文件">
+<meta name="twitter:description" content="帮师姐做的，文件格式是：    sample freqC     aa 100   aa 23.4   .. ..   bb 56   bb 12    本来是打算做成下面的格式：    aa bb     23 45   34 32   .. ..    但是发现数据不等长，最终就只是拆分了文件 123456789101112# =======CHGtest&amp;lt;-read.table(&quot;CH">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/04/林书豪/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/10/28/R拆分文文件/"/>
 
 
 
@@ -132,7 +136,7 @@
   };
 </script>
 
-  <title>林书豪 | Jeremy17</title>
+  <title>R拆分文文件 | Jeremy17</title>
   
 
 
@@ -324,7 +328,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/04/林书豪/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/28/R拆分文文件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -341,7 +345,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">林书豪
+          <h1 class="post-title" itemprop="name headline">R拆分文文件
               
             
           </h1>
@@ -366,9 +370,13 @@
                 
               
 
-              <time title="Created: 2018-10-04 11:46:49" itemprop="dateCreated datePublished" datetime="2018-10-04T11:46:49+08:00">2018-10-04</time>
+              <time title="Created: 2018-10-28 17:19:14 / Modified: 17:30:38" itemprop="dateCreated datePublished" datetime="2018-10-28T17:19:14+08:00">2018-10-28</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -400,7 +408,62 @@
       
 
       
-        
+        <p>帮师姐做的，文件格式是：</p>
+<table>
+<thead>
+<tr>
+<th>sample</th>
+<th>freqC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>aa</td>
+<td>100</td>
+</tr>
+<tr>
+<td>aa</td>
+<td>23.4</td>
+</tr>
+<tr>
+<td>..</td>
+<td>..</td>
+</tr>
+<tr>
+<td>bb</td>
+<td>56</td>
+</tr>
+<tr>
+<td>bb</td>
+<td>12</td>
+</tr>
+</tbody>
+</table>
+<p>本来是打算做成下面的格式：</p>
+<table>
+<thead>
+<tr>
+<th>aa</th>
+<th>bb</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>23</td>
+<td>45</td>
+</tr>
+<tr>
+<td>34</td>
+<td>32</td>
+</tr>
+<tr>
+<td>..</td>
+<td>..</td>
+</tr>
+</tbody>
+</table>
+<p>但是发现数据不等长，最终就只是拆分了文件</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># =======CHG</span></span><br><span class="line">test&lt;-read.table(<span class="string">"CHG_methunit_cov3_merged.DMC.txt"</span>,header = <span class="literal">T</span>)</span><br><span class="line">names&lt;-as.character(unique(test[,<span class="number">1</span>]))  <span class="comment">#必须将因子转化成字符，不然assign函数报错</span></span><br><span class="line">names</span><br><span class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">1</span>:length(names)) &#123;</span><br><span class="line">  a&lt;-subset(test,test[,<span class="number">1</span>] == names[i],select=c(freqC))</span><br><span class="line">  </span><br><span class="line">  assign(names[i],a) <span class="comment">#字符串转变量</span></span><br><span class="line">  df.now &lt;- get(names[i]) <span class="comment">#获取变量</span></span><br><span class="line">  write.table(df.now, file = paste(<span class="string">"CHG_"</span>, names[i], <span class="string">".txt"</span>,sep=<span class="string">""</span>),sep=<span class="string">'\t'</span>,row.names = <span class="literal">F</span>)</span><br><span class="line">&#125;</span><br><span class="line">rm(list=ls())</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -418,6 +481,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/R/" rel="tag"># R</a>
+          
+        </div>
+      
 
       
       
@@ -427,8 +496,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/27/代码整理/" rel="next" title="代码整理">
-                <i class="fa fa-chevron-left"></i> 代码整理
+              <a href="/2018/10/24/十月倒数第二个星期三总结/" rel="next" title="十月倒数第二个星期三总结">
+                <i class="fa fa-chevron-left"></i> 十月倒数第二个星期三总结
               </a>
             
           </div>
@@ -436,10 +505,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/06/根据gff3文件提取序列/" rel="prev" title="根据gff3文件提取序列">
-                根据gff3文件提取序列 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
