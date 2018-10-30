@@ -324,6 +324,155 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/10/由Id提取Seq/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeremy17">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/10/由Id提取Seq/" itemprop="url">
+                  由Id提取Seq
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-09-10 22:52:42 / Modified: 23:11:48" itemprop="dateCreated datePublished" datetime="2018-09-10T22:52:42+08:00">2018-09-10</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>今天没午睡，没午睡，没有睡意。<br>无法确定的印象如同海上漂浮的物体。为什么会惧怕它下沉？无法与现有的知识体系（日常经验）/行为方式/想象建立起联系。<br>Transfer IDs by BLAST Job ID: 761094389</p>
+<ul>
+<li>字符串反转</li>
+<li>正则表达式（没有实质性的了解）</li>
+<li>异常处理</li>
+<li>字典，键重复，值为最后一个<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">Created on Mon Sep 10 20:03:51 2018</span></span><br><span class="line"><span class="string">description: 提取指定ID的序列</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">USAGE = <span class="string">"\nusage: python  %s sequences.fasta id_list out.fasta\n"</span> % sys.argv[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">if</span> len(sys.argv) != <span class="number">4</span>:</span><br><span class="line">    print(USAGE)</span><br><span class="line">    sys.exit()</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">parseFasta</span><span class="params">(filename)</span>:</span></span><br><span class="line">    fas = &#123;&#125;</span><br><span class="line">    id = <span class="keyword">None</span></span><br><span class="line">    <span class="keyword">with</span> open(filename, <span class="string">'r'</span>) <span class="keyword">as</span> fh:</span><br><span class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> fh:</span><br><span class="line">            <span class="keyword">if</span> line[<span class="number">0</span>] == <span class="string">'&gt;'</span>:</span><br><span class="line">                header = line[<span class="number">1</span>:].rstrip()</span><br><span class="line">		<span class="comment"># 反转，设置最大分割，再反转</span></span><br><span class="line">                id = header[::<span class="number">-1</span>].split(<span class="string">"."</span>,<span class="number">1</span>)[<span class="number">1</span>][::<span class="number">-1</span>]</span><br><span class="line">                fas[id] = []</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                fas[id].append(line.rstrip())</span><br><span class="line">        <span class="keyword">for</span> id, seq <span class="keyword">in</span> fas.items():</span><br><span class="line">            fas[id] = <span class="string">''</span>.join(seq)</span><br><span class="line">    <span class="keyword">return</span> fas</span><br><span class="line">fas = parseFasta(sys.argv[<span class="number">1</span>])</span><br><span class="line">IDs = open(sys.argv[<span class="number">2</span>], <span class="string">'r'</span>)</span><br><span class="line">OUT = open(sys.argv[<span class="number">3</span>], <span class="string">'w'</span>)</span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> IDs:</span><br><span class="line">    id = line.rstrip(<span class="string">"\n"</span>)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        OUT.write(<span class="string">"&gt;"</span> + id + <span class="string">"\n"</span> + fas[id] + <span class="string">"\n"</span>)</span><br><span class="line">    <span class="keyword">except</span> KeyError:</span><br><span class="line">        print(<span class="string">"Warning: can't find gene: "</span> + id) </span><br><span class="line">IDs.close()</span><br><span class="line">OUT.close()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>用法：python extract_seqs_by_ids.py csi.peptide.fa id_list.txt out.fa</p>
+<p><a href="https://hui-liu.github.io/blog/%E6%89%B9%E9%87%8F%E6%8F%90%E5%8F%96%E5%BA%8F%E5%88%97%E5%B0%8F%E7%A8%8B%E5%BA%8F/" target="_blank" rel="noopener">感谢</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/06/PPT-快捷键/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1625,165 +1774,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/26/DNA甲基化与自闭症/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeremy17">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/26/DNA甲基化与自闭症/" itemprop="url">
-                  DNA甲基化与自闭症
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-08-26 20:56:48" itemprop="dateCreated datePublished" datetime="2018-08-26T20:56:48+08:00">2018-08-26</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2018-08-27 23:13:10" itemprop="dateModified" datetime="2018-08-27T23:13:10+08:00">2018-08-27</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>摘要：<br>越来越多的证据表明自闭症谱系障碍（ASD）中基因与环境之间存在复杂的相互作用，包括染色质基因中罕见的从头突变，例如Rett综合征中的methyl-CpG结合蛋白2（MECP2)。基因组序列、基因途径和DNA甲基化的全基因组研究为ASD提供了有价值的机制见解。</p>
-<p>词汇：</p>
-<ul>
-<li>autism spectrum disorder:自闭症谱系障碍 加入spectrum代表自闭症本身的多元性。<a href="https://pansci.asia/archives/73026/" title="自闭症" target="_blank" rel="noopener">1</a></li>
-<li>CpG islands: CpG密度极高的区域(&lt; 1 kb)。</li>
-<li>Gene body: 基因组上从转录起始位点到终止位点的一段区域。</li>
-</ul>
-<p><img src="/images/2016-Nat Rev Neurosc-The landscape of DNA meth-3.jpg" alt=""></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1831,7 +1821,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">38</span>
+                    <span class="site-state-item-count">39</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1856,7 +1846,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

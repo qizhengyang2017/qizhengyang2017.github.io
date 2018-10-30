@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[trimmatic使用]]></title>
+    <url>%2F2018%2F10%2F30%2Ftrimmatic%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[更改了一下之前的trimmatic脚本12345678910111213#PBS -N trim#PBS -l nodes=2:ppn=10#PBS -q highho=/home02/qizhengyang/rna_work_place/rna_datacd $hodir=$ho/trim_resultfor i in *R1.fq.gzdo java -jar ~/softwares/Trimmomatic-0.38/trimmomatic-0.38.jar PE -threads 20 -phred33 \ $i $&#123;i/R1/R2&#125; -baseout $&#123;i/_R1/&#125; ILLUMINACLIP:/home02/qizhengyang/softwares/Trimmomatic-0.38/adapters/TruSeq3-PE.fa:2:30:10 LEADING:3 \ TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36done [qizhengyang@node1 rna_data]$ i=”abd”[qizhengyang@node1 rna_data]$ echo $icde [qizhengyang@node1 rna_data]$ echo ${i}cdeabdcde[qizhengyang@node1 rna_data]$ echo $i”cde”abdcde]]></content>
+      <tags>
+        <tag>Linux</tag>
+        <tag>软件</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[R拆分文文件]]></title>
     <url>%2F2018%2F10%2F28%2FR%E6%8B%86%E5%88%86%E6%96%87%E6%96%87%E4%BB%B6%2F</url>
     <content type="text"><![CDATA[帮师姐做的，文件格式是： sample freqC aa 100 aa 23.4 .. .. bb 56 bb 12 本来是打算做成下面的格式： aa bb 23 45 34 32 .. .. 但是发现数据不等长，最终就只是拆分了文件 123456789101112# =======CHGtest&lt;-read.table("CHG_methunit_cov3_merged.DMC.txt",header = T)names&lt;-as.character(unique(test[,1])) #必须将因子转化成字符，不然assign函数报错namesfor (i in 1:length(names)) &#123; a&lt;-subset(test,test[,1] == names[i],select=c(freqC)) assign(names[i],a) #字符串转变量 df.now &lt;- get(names[i]) #获取变量 write.table(df.now, file = paste("CHG_", names[i], ".txt",sep=""),sep='\t',row.names = F)&#125;rm(list=ls())]]></content>
