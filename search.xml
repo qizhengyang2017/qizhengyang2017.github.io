@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[我写的第一个脚本]]></title>
+    <url>%2F2018%2F10%2F31%2F%E6%88%91%E5%86%99%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E8%84%9A%E6%9C%AC%2F</url>
+    <content type="text"><![CDATA[整理文件夹的时候，发现了2018年三月份写的一个脚本，作用是根据基因ID提取序列 123456789101112131415161718192021222324252627# use gene Id to extract sequenceout = []geneId = input('please input gene ID, seprate in space: ')path = input('please input file path: ')genelist = geneId.split()for gene in genelist: f=open(path) for line in f.readlines(): if line[0] == '&gt;': i = 0 if gene in line: out.append(line) i = 1 else: if i == 1: out.append(line) f.close()outfile=open('result.fa','w+')for line in out: outfile.write(line)outfile.close() # caculate running timeimport timeitstart = timeit.default_timer() stop = timeit.default_timer()print(stop - start)]]></content>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[集群上更新R并安装methylKit]]></title>
     <url>%2F2018%2F10%2F31%2F%E9%9B%86%E7%BE%A4%E4%B8%8A%E5%AE%89%E8%A3%85R%2F</url>
     <content type="text"><![CDATA[普通用户在集群上安装R主要的教程里面有一些需要注意的，安装bzip，要加入一个 -fPIC 到 CFLAG 。（在 Makefile中CFLAG=-fPIC -Wall -Winline -O2 -g…）在R安装configure之前需要注意设置环境变量123LD_LIBRARY_PATH=/home02/qizhengyang/packages/libexport CFLAGS="-I/home02/qizhengyang/packages/include"export LDFLAGS="-L/home02/qizhengyang/packages/lib" R安装完成之后123export R_HOME=$HOME/packages/Rexport R_LIBS=$HOME/packages/R/lib64/libraryexport PATH="$R_HOME/bin":$PATH 最后 source ~/.bashrc 装methyKit也是坑一堆。我下了autoconf-2.69，libxml2-2.7.2。源码安装。./configure –prefix=/home02/qizhengyang/packages]]></content>
@@ -42,7 +50,7 @@
   <entry>
     <title><![CDATA[对甲基化位点进行排序]]></title>
     <url>%2F2018%2F10%2F23%2F%E5%AF%B9%E7%94%B2%E5%9F%BA%E5%8C%96%E4%BD%8D%E7%82%B9%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F%2F</url>
-    <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930313233343536373839404142#!/usr/bin/python# -*- coding: utf-8 -*-# qizhengyang 20181023# 对甲基化位点信息的文件按位点大小进行排序with open('test.txt') as lines: F_sorting = [] R_sorting = [] all_sorting = [] for line in lines: line = line.strip().split() line[2] = int(line[2]) line = tuple(line) if line[3] == 'F': F_sorting.append(line) else: R_sorting.append(line) F_sorted = sorted(F_sorting, key=lambda s: s[2]) R_sorted = sorted(R_sorting, key=lambda s: s[2]) all_sorted = F_sorted + R_sortedfile_sorted = open('file_sorted.txt','w')for line in all_sorted: line = line[0] + '\t'+ line[1] + '\t'+ str(line[2]) + '\t'+ line[3] + '\t'+ line[4] + '\t' + line[5] + '\t' + line[6] + '\n' file_sorted.write(line)file_sorted.close()# 结果如下# chr1.528 chr1 528 F 4 50.00 50.00# chr1.702 chr1 702 F 8 100.00 0.00# chr1.733 chr1 733 F 7 85.71 14.29# chr1.755 chr1 755 F 3 100.00 0.00# chr1.958 chr1 958 F 10 100.00 0.00# chr1.1111 chr1 1111 F 7 85.71 14.29# chr1.1207 chr1 1207 F 8 100.00 0.00# chr1.1294 chr1 1294 F 7 100.00 0.00# chr1.1333 chr1 1333 F 9 77.78 22.22# chr1.1569 chr1 1569 F 3 100.00 0.00# chr1.1629 chr1 1629 F 5 100.00 0.00# chr1.1668 chr1 1668 F 5 100.00 0.00# chr1.1671 chr1 1671 F 6 66.67 33.33# chr1.1695 chr1 1695 F 3 100.00 0.00]]></content>
+    <content type="text"><![CDATA[对mC文件分正负链，按位点进行排序。 123456789101112131415161718192021222324252627282930313233343536373839404142#!/usr/bin/python# -*- coding: utf-8 -*-# qizhengyang 20181023# 对甲基化位点信息的文件按位点大小进行排序with open('test.txt') as lines: F_sorting = [] R_sorting = [] all_sorting = [] for line in lines: line = line.strip().split() line[2] = int(line[2]) line = tuple(line) if line[3] == 'F': F_sorting.append(line) else: R_sorting.append(line) F_sorted = sorted(F_sorting, key=lambda s: s[2]) R_sorted = sorted(R_sorting, key=lambda s: s[2]) all_sorted = F_sorted + R_sortedfile_sorted = open('file_sorted.txt','w')for line in all_sorted: line = line[0] + '\t'+ line[1] + '\t'+ str(line[2]) + '\t'+ line[3] + '\t'+ line[4] + '\t' + line[5] + '\t' + line[6] + '\n' file_sorted.write(line)file_sorted.close()# 结果如下# chr1.528 chr1 528 F 4 50.00 50.00# chr1.702 chr1 702 F 8 100.00 0.00# chr1.733 chr1 733 F 7 85.71 14.29# chr1.755 chr1 755 F 3 100.00 0.00# chr1.958 chr1 958 F 10 100.00 0.00# chr1.1111 chr1 1111 F 7 85.71 14.29# chr1.1207 chr1 1207 F 8 100.00 0.00# chr1.1294 chr1 1294 F 7 100.00 0.00# chr1.1333 chr1 1333 F 9 77.78 22.22# chr1.1569 chr1 1569 F 3 100.00 0.00# chr1.1629 chr1 1629 F 5 100.00 0.00# chr1.1668 chr1 1668 F 5 100.00 0.00# chr1.1671 chr1 1671 F 6 66.67 33.33# chr1.1695 chr1 1695 F 3 100.00 0.00]]></content>
       <tags>
         <tag>python</tag>
       </tags>
