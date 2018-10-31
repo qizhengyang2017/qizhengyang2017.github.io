@@ -324,6 +324,148 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/31/集群上安装R/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeremy17">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/31/集群上安装R/" itemprop="url">
+                  集群上安装R
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-10-31 09:54:17 / Modified: 10:09:54" itemprop="dateCreated datePublished" datetime="2018-10-31T09:54:17+08:00">2018-10-31</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>普通用户在集群上安装R<br><a href="https://blog.csdn.net/s_gy_zetrov/article/details/83117288?tdsourcetag=s_pctim_aiomsg" target="_blank" rel="noopener">主要的教程</a><br>里面有一些需要注意的，<br>安装bzip，<strong>要加入一个 -fPIC 到 CFLAG</strong> 。（在 Makefile中CFLAG=-fPIC -Wall -Winline -O2 -g…）<br>在R安装configure之前需要注意设置环境变量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LD_LIBRARY_PATH=/home02/qizhengyang/packages/lib</span><br><span class="line"><span class="built_in">export</span> CFLAGS=<span class="string">"-I/home02/qizhengyang/packages/include"</span></span><br><span class="line"><span class="built_in">export</span> LDFLAGS=<span class="string">"-L/home02/qizhengyang/packages/lib"</span></span><br></pre></td></tr></table></figure></p>
+<p>R安装完成之后<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> R_HOME=<span class="variable">$HOME</span>/packages/R</span><br><span class="line"><span class="built_in">export</span> R_LIBS=<span class="variable">$HOME</span>/packages/R/lib64/library</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">"<span class="variable">$R_HOME</span>/bin"</span>:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure></p>
+<p>最后 source ~/.bashrc</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/30/trimmatic使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -370,7 +512,7 @@
                 
               
 
-              <time title="Created: 2018-10-30 09:04:01 / Modified: 09:08:51" itemprop="dateCreated datePublished" datetime="2018-10-30T09:04:01+08:00">2018-10-30</time>
+              <time title="Created: 2018-10-30 09:04:01 / Modified: 18:16:14" itemprop="dateCreated datePublished" datetime="2018-10-30T09:04:01+08:00">2018-10-30</time>
             
 
             
@@ -409,12 +551,14 @@
 
       
         
-          
-            <p>更改了一下之前的trimmatic脚本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#PBS -N trim</span><br><span class="line">#PBS -l nodes=2:ppn=10</span><br><span class="line">#PBS -q high</span><br><span class="line"></span><br><span class="line">ho=/home02/qizhengyang/rna_work_place/rna_data</span><br><span class="line">cd $ho</span><br><span class="line">dir=$ho/trim_result</span><br><span class="line">for i in *R1.fq.gz</span><br><span class="line">do</span><br><span class="line">  java -jar ~/softwares/Trimmomatic-0.38/trimmomatic-0.38.jar PE -threads 20 -phred33 \</span><br><span class="line">  $i $&#123;i/R1/R2&#125; -baseout $&#123;i/_R1/&#125; ILLUMINACLIP:/home02/qizhengyang/softwares/Trimmomatic-0.38/adapters/TruSeq3-PE.fa:2:30:10 LEADING:3 \</span><br><span class="line">  TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36</span><br><span class="line">done</span><br></pre></td></tr></table></figure></p>
-<p>[qizhengyang@node1 rna_data]$ i=”abd”<br>[qizhengyang@node1 rna_data]$ echo $icde</p>
-<p>[qizhengyang@node1 rna_data]$ echo ${i}cde<br>abdcde<br>[qizhengyang@node1 rna_data]$ echo $i”cde”<br>abdcde</p>
-
-          
+          <p>更改了一下之前的trimmatic脚本<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/30/trimmatic使用/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -512,12 +656,24 @@
                 
               
 
-              <time title="Created: 2018-10-28 17:19:14 / Modified: 17:30:38" itemprop="dateCreated datePublished" datetime="2018-10-28T17:19:14+08:00">2018-10-28</time>
+              <time title="Created: 2018-10-28 17:19:14" itemprop="dateCreated datePublished" datetime="2018-10-28T17:19:14+08:00">2018-10-28</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-10-31 10:15:36" itemprop="dateModified" datetime="2018-10-31T10:15:36+08:00">2018-10-31</time>
               
             
           </span>
@@ -551,64 +707,14 @@
 
       
         
-          
-            <p>帮师姐做的，文件格式是：</p>
-<table>
-<thead>
-<tr>
-<th>sample</th>
-<th>freqC</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>aa</td>
-<td>100</td>
-</tr>
-<tr>
-<td>aa</td>
-<td>23.4</td>
-</tr>
-<tr>
-<td>..</td>
-<td>..</td>
-</tr>
-<tr>
-<td>bb</td>
-<td>56</td>
-</tr>
-<tr>
-<td>bb</td>
-<td>12</td>
-</tr>
-</tbody>
-</table>
-<p>本来是打算做成下面的格式：</p>
-<table>
-<thead>
-<tr>
-<th>aa</th>
-<th>bb</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>23</td>
-<td>45</td>
-</tr>
-<tr>
-<td>34</td>
-<td>32</td>
-</tr>
-<tr>
-<td>..</td>
-<td>..</td>
-</tr>
-</tbody>
-</table>
-<p>但是发现数据不等长，最终就只是拆分了文件</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># =======CHG</span></span><br><span class="line">test&lt;-read.table(<span class="string">"CHG_methunit_cov3_merged.DMC.txt"</span>,header = <span class="literal">T</span>)</span><br><span class="line">names&lt;-as.character(unique(test[,<span class="number">1</span>]))  <span class="comment">#必须将因子转化成字符，不然assign函数报错</span></span><br><span class="line">names</span><br><span class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">1</span>:length(names)) &#123;</span><br><span class="line">  a&lt;-subset(test,test[,<span class="number">1</span>] == names[i],select=c(freqC))</span><br><span class="line">  </span><br><span class="line">  assign(names[i],a) <span class="comment">#字符串转变量</span></span><br><span class="line">  df.now &lt;- get(names[i]) <span class="comment">#获取变量</span></span><br><span class="line">  write.table(df.now, file = paste(<span class="string">"CHG_"</span>, names[i], <span class="string">".txt"</span>,sep=<span class="string">""</span>),sep=<span class="string">'\t'</span>,row.names = <span class="literal">F</span>)</span><br><span class="line">&#125;</span><br><span class="line">rm(list=ls())</span><br></pre></td></tr></table></figure>
-          
+          <p>文件格式是<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/28/R拆分文文件/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -990,12 +1096,24 @@
                 
               
 
-              <time title="Created: 2018-10-23 09:54:00 / Modified: 16:48:38" itemprop="dateCreated datePublished" datetime="2018-10-23T09:54:00+08:00">2018-10-23</time>
+              <time title="Created: 2018-10-23 09:54:00" itemprop="dateCreated datePublished" datetime="2018-10-23T09:54:00+08:00">2018-10-23</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-10-30 18:13:03" itemprop="dateModified" datetime="2018-10-30T18:13:03+08:00">2018-10-30</time>
               
             
           </span>
@@ -1030,7 +1148,7 @@
       
         
           
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python</span><br><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line"># qizhengyang 20181023</span><br><span class="line"># 对甲基化位点信息的文件按位点大小进行排序</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">with open(&apos;test.txt&apos;) as lines:</span><br><span class="line">    F_sorting = []</span><br><span class="line">    R_sorting = []</span><br><span class="line">    all_sorting = []</span><br><span class="line">    for line in lines:</span><br><span class="line">        line = line.strip().split()</span><br><span class="line">        line[2] = int(line[2])</span><br><span class="line">        line = tuple(line)</span><br><span class="line">        if line[3] == &apos;F&apos;:</span><br><span class="line">            F_sorting.append(line)</span><br><span class="line">        else:</span><br><span class="line">            R_sorting.append(line)</span><br><span class="line">    F_sorted = sorted(F_sorting, key=lambda s: s[2])</span><br><span class="line">    R_sorted = sorted(R_sorting, key=lambda s: s[2])</span><br><span class="line">    all_sorted = F_sorted + R_sorted</span><br><span class="line">file_sorted = open(&apos;file_sorted.txt&apos;,&apos;w&apos;)</span><br><span class="line">for line in all_sorted:</span><br><span class="line">    line = line[0] + &apos;\t&apos;+ line[1] + &apos;\t&apos;+ str(line[2]) + &apos;\t&apos;+ line[3] + &apos;\t&apos;+ line[4] + &apos;\t&apos; + line[5] + &apos;\t&apos; + line[6] + &apos;\n&apos;</span><br><span class="line">    file_sorted.write(line)</span><br><span class="line">file_sorted.close()</span><br><span class="line"></span><br><span class="line"># 结果如下</span><br><span class="line"># chr1.528    chr1    528 F   4   50.00   50.00</span><br><span class="line"># chr1.702    chr1    702 F   8   100.00  0.00</span><br><span class="line"># chr1.733    chr1    733 F   7   85.71   14.29</span><br><span class="line"># chr1.755    chr1    755 F   3   100.00  0.00</span><br><span class="line"># chr1.958    chr1    958 F   10  100.00  0.00</span><br><span class="line"># chr1.1111   chr1    1111    F   7   85.71   14.29</span><br><span class="line"># chr1.1207   chr1    1207    F   8   100.00  0.00</span><br><span class="line"># chr1.1294   chr1    1294    F   7   100.00  0.00</span><br><span class="line"># chr1.1333   chr1    1333    F   9   77.78   22.22</span><br><span class="line"># chr1.1569   chr1    1569    F   3   100.00  0.00</span><br><span class="line"># chr1.1629   chr1    1629    F   5   100.00  0.00</span><br><span class="line"># chr1.1668   chr1    1668    F   5   100.00  0.00</span><br><span class="line"># chr1.1671   chr1    1671    F   6   66.67   33.33</span><br><span class="line"># chr1.1695   chr1    1695    F   3   100.00  0.00</span><br></pre></td></tr></table></figure>
+            <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># qizhengyang 20181023</span></span><br><span class="line"><span class="comment"># 对甲基化位点信息的文件按位点大小进行排序</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'test.txt'</span>) <span class="keyword">as</span> lines:</span><br><span class="line">    F_sorting = []</span><br><span class="line">    R_sorting = []</span><br><span class="line">    all_sorting = []</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> lines:</span><br><span class="line">        line = line.strip().split()</span><br><span class="line">        line[<span class="number">2</span>] = int(line[<span class="number">2</span>])</span><br><span class="line">        line = tuple(line)</span><br><span class="line">        <span class="keyword">if</span> line[<span class="number">3</span>] == <span class="string">'F'</span>:</span><br><span class="line">            F_sorting.append(line)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            R_sorting.append(line)</span><br><span class="line">    F_sorted = sorted(F_sorting, key=<span class="keyword">lambda</span> s: s[<span class="number">2</span>])</span><br><span class="line">    R_sorted = sorted(R_sorting, key=<span class="keyword">lambda</span> s: s[<span class="number">2</span>])</span><br><span class="line">    all_sorted = F_sorted + R_sorted</span><br><span class="line">file_sorted = open(<span class="string">'file_sorted.txt'</span>,<span class="string">'w'</span>)</span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> all_sorted:</span><br><span class="line">    line = line[<span class="number">0</span>] + <span class="string">'\t'</span>+ line[<span class="number">1</span>] + <span class="string">'\t'</span>+ str(line[<span class="number">2</span>]) + <span class="string">'\t'</span>+ line[<span class="number">3</span>] + <span class="string">'\t'</span>+ line[<span class="number">4</span>] + <span class="string">'\t'</span> + line[<span class="number">5</span>] + <span class="string">'\t'</span> + line[<span class="number">6</span>] + <span class="string">'\n'</span></span><br><span class="line">    file_sorted.write(line)</span><br><span class="line">file_sorted.close()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果如下</span></span><br><span class="line"><span class="comment"># chr1.528    chr1    528 F   4   50.00   50.00</span></span><br><span class="line"><span class="comment"># chr1.702    chr1    702 F   8   100.00  0.00</span></span><br><span class="line"><span class="comment"># chr1.733    chr1    733 F   7   85.71   14.29</span></span><br><span class="line"><span class="comment"># chr1.755    chr1    755 F   3   100.00  0.00</span></span><br><span class="line"><span class="comment"># chr1.958    chr1    958 F   10  100.00  0.00</span></span><br><span class="line"><span class="comment"># chr1.1111   chr1    1111    F   7   85.71   14.29</span></span><br><span class="line"><span class="comment"># chr1.1207   chr1    1207    F   8   100.00  0.00</span></span><br><span class="line"><span class="comment"># chr1.1294   chr1    1294    F   7   100.00  0.00</span></span><br><span class="line"><span class="comment"># chr1.1333   chr1    1333    F   9   77.78   22.22</span></span><br><span class="line"><span class="comment"># chr1.1569   chr1    1569    F   3   100.00  0.00</span></span><br><span class="line"><span class="comment"># chr1.1629   chr1    1629    F   5   100.00  0.00</span></span><br><span class="line"><span class="comment"># chr1.1668   chr1    1668    F   5   100.00  0.00</span></span><br><span class="line"><span class="comment"># chr1.1671   chr1    1671    F   6   66.67   33.33</span></span><br><span class="line"><span class="comment"># chr1.1695   chr1    1695    F   3   100.00  0.00</span></span><br></pre></td></tr></table></figure>
           
         
       
@@ -1641,155 +1759,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/06/根据gff3文件提取序列/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeremy17">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/06/根据gff3文件提取序列/" itemprop="url">
-                  根据gff3文件提取序列
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-10-06 16:06:16 / Modified: 16:26:50" itemprop="dateCreated datePublished" datetime="2018-10-06T16:06:16+08:00">2018-10-06</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>思路：</p>
-<ul>
-<li>一条染色体作为一条字符串</li>
-<li>gff3文件中有位置信息和正负链信息</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># created on 2018/10/6, Qizhengyang</span></span><br><span class="line"><span class="comment"># 处理gff3文件，提取出ID，位置信息等</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 建立type = gene的gff3文件</span></span><br><span class="line">gene = open(<span class="string">'gene.gff'</span>,<span class="string">'w'</span>)</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'csi.gene.models.gff3'</span>,<span class="string">'r'</span>) <span class="keyword">as</span> lines:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> lines:</span><br><span class="line">        line = line.strip().split(<span class="string">'\t'</span>,<span class="number">3</span>)</span><br><span class="line">        <span class="keyword">if</span> line[<span class="number">2</span>] == <span class="string">'gene'</span>:</span><br><span class="line">            line1 = line[<span class="number">0</span>] + <span class="string">'\t'</span> + line[<span class="number">1</span>] + <span class="string">'\t'</span> + line[<span class="number">2</span>] + <span class="string">'\t'</span> +  line[<span class="number">3</span>] +<span class="string">'\n'</span></span><br><span class="line">            gene.write(line1)</span><br><span class="line">gene.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## 每条染色体单独成一个文件 shell</span></span><br><span class="line"><span class="comment"># sed -n '2,480014p' csi.chromosome.fa &gt; chr1.txt</span></span><br><span class="line"><span class="comment"># sed -n '480016,993966p' csi.chromosome.fa &gt; chr2.txt</span></span><br><span class="line"><span class="comment"># sed -n '993968,1472535p' csi.chromosome.fa &gt; chr3.txt</span></span><br><span class="line"><span class="comment"># sed -n '1472537,1805088p' csi.chromosome.fa &gt; chr4.txt</span></span><br><span class="line"><span class="comment"># sed -n '1805090,2407524p' csi.chromosome.fa &gt; chr5.txt</span></span><br><span class="line"><span class="comment"># sed -n '2407526,2760518p' csi.chromosome.fa &gt; chr6.txt</span></span><br><span class="line"><span class="comment"># sed -n '2760520,3297270p' csi.chromosome.fa &gt; chr7.txt</span></span><br><span class="line"><span class="comment"># sed -n '3297272,3675785p' csi.chromosome.fa &gt; chr8.txt</span></span><br><span class="line"><span class="comment"># sed -n '3675787,3983299p' csi.chromosome.fa &gt; chr9.txt</span></span><br><span class="line"><span class="comment"># sed -n '3983301,$p' csi.chromosome.fa &gt; chrUn.txt</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## 修改位置信息，提取出ID，修改格式</span></span><br><span class="line">genePosition = open(<span class="string">'genePosition'</span>,<span class="string">'w'</span>)</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'gene.gff'</span>,<span class="string">'r'</span>) <span class="keyword">as</span> lines:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> lines:</span><br><span class="line">        line = line.strip().split()</span><br><span class="line">        line[<span class="number">3</span>] = str(int(line[<span class="number">3</span>]) - <span class="number">2000</span>)</span><br><span class="line">        line[<span class="number">4</span>] = str(int(line[<span class="number">4</span>]) + <span class="number">2000</span>)</span><br><span class="line">        a = re.search(<span class="string">r'ID=(.*);'</span>,line[<span class="number">8</span>])    </span><br><span class="line">        line[<span class="number">8</span>] = a.group()[<span class="number">3</span>:len(a.group())<span class="number">-1</span>]   </span><br><span class="line">        line1 = line[<span class="number">8</span>] + <span class="string">'\t'</span> + line[<span class="number">6</span>] + <span class="string">'\t'</span> + line[<span class="number">3</span>] + <span class="string">'\t'</span> + line[<span class="number">4</span>] + <span class="string">'\n'</span></span><br><span class="line">        genePosition.write(line1)</span><br><span class="line">genePosition.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## 定义一个函数，求每条染色体的序列</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">chromesome</span><span class="params">(filename)</span>:</span></span><br><span class="line">    chr = <span class="string">''</span></span><br><span class="line">    <span class="keyword">with</span> open(filename,<span class="string">'r'</span>) <span class="keyword">as</span> lines:</span><br><span class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> lines:</span><br><span class="line">            line = line.strip()</span><br><span class="line">            chr += line</span><br><span class="line">    <span class="keyword">return</span> chr</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">chr1 = chromesome(<span class="string">"chr1.txt"</span>)</span><br><span class="line">chr2 = chromesome(<span class="string">"chr2.txt"</span>)</span><br><span class="line">chr3 = chromesome(<span class="string">"chr3.txt"</span>)</span><br><span class="line">chr4 = chromesome(<span class="string">"chr4.txt"</span>)</span><br><span class="line">chr5 = chromesome(<span class="string">"chr5.txt"</span>)</span><br><span class="line">chr6 = chromesome(<span class="string">"chr6.txt"</span>)</span><br><span class="line">chr7 = chromesome(<span class="string">"chr7.txt"</span>)</span><br><span class="line">chr8 = chromesome(<span class="string">"chr8.txt"</span>)</span><br><span class="line">chr9 = chromesome(<span class="string">"chr9.txt"</span>)</span><br><span class="line">chrUn = chromesome(<span class="string">"chrUn.txt"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">## ipython下 %run seq.py运行 </span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## 正负分开               </span></span><br><span class="line"></span><br><span class="line">F = open(<span class="string">"F.txt"</span>,<span class="string">"w"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'genePosition.txt'</span>,<span class="string">'r'</span>) <span class="keyword">as</span> lines:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> lines:</span><br><span class="line">        line = line.strip().split()</span><br><span class="line">        <span class="keyword">if</span> line[<span class="number">2</span>] == <span class="string">'+'</span>:</span><br><span class="line">            F.write(line[<span class="number">0</span>] + <span class="string">'\t'</span> + line[<span class="number">1</span>] + <span class="string">'\t'</span> + line[<span class="number">2</span>] + <span class="string">'\t'</span> + line[<span class="number">3</span>] + <span class="string">'\n'</span>)</span><br><span class="line">            </span><br><span class="line"></span><br><span class="line">F.close()</span><br><span class="line"></span><br><span class="line">R = open(<span class="string">"R.txt"</span>,<span class="string">"w"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'genePosition.txt'</span>,<span class="string">'r'</span>) <span class="keyword">as</span> lines:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> lines:</span><br><span class="line">        line = line.strip().split()</span><br><span class="line">        <span class="keyword">if</span> line[<span class="number">2</span>] == <span class="string">'-'</span>:</span><br><span class="line">            R.write(line[<span class="number">0</span>] + <span class="string">'\t'</span> + line[<span class="number">1</span>] + <span class="string">'\t'</span> + line[<span class="number">2</span>] + <span class="string">'\t'</span> + line[<span class="number">3</span>] + <span class="string">'\n'</span>)</span><br><span class="line">            </span><br><span class="line">            </span><br><span class="line"></span><br><span class="line">R.close()</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># created on 2018/10/6, Qizhengyang</span></span><br><span class="line"><span class="comment"># 根据gff3文件提取序列，反义链</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">seqF = open(<span class="string">'seqR.txt'</span>,<span class="string">'w'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'R.txt'</span>,<span class="string">'r'</span>) <span class="keyword">as</span> lines:</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">chromesome</span><span class="params">(filename)</span>:</span></span><br><span class="line">        chr = <span class="string">''</span></span><br><span class="line">        <span class="keyword">with</span> open(filename,<span class="string">'r'</span>) <span class="keyword">as</span> lines:</span><br><span class="line">            <span class="keyword">for</span> line <span class="keyword">in</span> lines:</span><br><span class="line">                line = line.strip()</span><br><span class="line">                chr += line</span><br><span class="line">        <span class="keyword">return</span> chr</span><br><span class="line"></span><br><span class="line">    chr1 = chromesome(<span class="string">"chr1.txt"</span>)</span><br><span class="line">    chr2 = chromesome(<span class="string">"chr2.txt"</span>)</span><br><span class="line">    chr3 = chromesome(<span class="string">"chr3.txt"</span>)</span><br><span class="line">    chr4 = chromesome(<span class="string">"chr4.txt"</span>)</span><br><span class="line">    chr5 = chromesome(<span class="string">"chr5.txt"</span>)</span><br><span class="line">    chr6 = chromesome(<span class="string">"chr6.txt"</span>)</span><br><span class="line">    chr7 = chromesome(<span class="string">"chr7.txt"</span>)</span><br><span class="line">    chr8 = chromesome(<span class="string">"chr8.txt"</span>)</span><br><span class="line">    chr9 = chromesome(<span class="string">"chr9.txt"</span>)</span><br><span class="line">    chrUn = chromesome(<span class="string">"chrUn.txt"</span>)</span><br><span class="line"><span class="comment"># 碱基互补配对</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reverse_complement</span><span class="params">(seq)</span>:</span></span><br><span class="line">        ntComplement = &#123;<span class="string">'A'</span>:<span class="string">'T'</span>, <span class="string">'C'</span>:<span class="string">'G'</span>, <span class="string">'T'</span>:<span class="string">'A'</span>, <span class="string">'G'</span>:<span class="string">'C'</span>, <span class="string">'N'</span>:<span class="string">'N'</span>&#125;</span><br><span class="line">        revSeqList = list(seq)</span><br><span class="line">        revComSeqList = [ntComplement[k] <span class="keyword">for</span> k <span class="keyword">in</span> revSeqList]</span><br><span class="line">        revComSeq = <span class="string">''</span>.join(revComSeqList)</span><br><span class="line">        <span class="keyword">return</span> revComSeq</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> lines:</span><br><span class="line">        line = line.strip().split()</span><br><span class="line">        <span class="keyword">if</span> line[<span class="number">0</span>] == <span class="string">'chr1'</span>:</span><br><span class="line">            start = int(line[<span class="number">3</span>]) - <span class="number">1</span></span><br><span class="line">            end = int(line[<span class="number">4</span>]) <span class="number">-1</span></span><br><span class="line">            sequence = chr1[start:(end + <span class="number">1</span>)][::<span class="number">-1</span>]</span><br><span class="line">            revComSeq = reverse_complement(sequence)</span><br><span class="line">            seqF.write(<span class="string">'&gt;'</span> + line[<span class="number">1</span>] + <span class="string">'\t'</span> + line[<span class="number">2</span>] + <span class="string">'\n'</span> + revComSeq + <span class="string">'\n'</span>)</span><br><span class="line">        <span class="keyword">elif</span> line[<span class="number">0</span>] == <span class="string">'chr2'</span>:</span><br><span class="line">            start = int(line[<span class="number">3</span>]) - <span class="number">1</span></span><br><span class="line">            end = int(line[<span class="number">4</span>]) <span class="number">-1</span></span><br><span class="line">            sequence = chr2[start:(end + <span class="number">1</span>)]</span><br><span class="line">            revComSeq = reverse_complement(sequence)</span><br><span class="line">            seqF.write(<span class="string">'&gt;'</span> + line[<span class="number">1</span>] + <span class="string">'\t'</span> + line[<span class="number">2</span>] + <span class="string">'\n'</span> + revComSeq + <span class="string">'\n'</span>)</span><br><span class="line">        <span class="keyword">elif</span> line[<span class="number">0</span>] == <span class="string">'chr3'</span>:</span><br><span class="line">            start = int(line[<span class="number">3</span>]) - <span class="number">1</span></span><br><span class="line">            end = int(line[<span class="number">4</span>]) <span class="number">-1</span></span><br><span class="line">            sequence = chr3[start:(end + <span class="number">1</span>)]</span><br><span class="line">            revComSeq = reverse_complement(sequence)</span><br><span class="line">            seqF.write(<span class="string">'&gt;'</span> + line[<span class="number">1</span>] + <span class="string">'\t'</span> + line[<span class="number">2</span>] + <span class="string">'\n'</span> + revComSeq + <span class="string">'\n'</span>)</span><br><span class="line">        <span class="keyword">elif</span> line[<span class="number">0</span>] == <span class="string">'chr4'</span>:</span><br><span class="line">            start = int(line[<span class="number">3</span>]) - <span class="number">1</span></span><br><span class="line">            end = int(line[<span class="number">4</span>]) <span class="number">-1</span></span><br><span class="line">            sequence = chr4[start:(end + <span class="number">1</span>)]</span><br><span class="line">            revComSeq = reverse_complement(sequence)</span><br><span class="line">            seqF.write(<span class="string">'&gt;'</span> + line[<span class="number">1</span>] + <span class="string">'\t'</span> + line[<span class="number">2</span>] + <span class="string">'\n'</span> + revComSeq + <span class="string">'\n'</span>)</span><br><span class="line">        <span class="keyword">elif</span> line[<span class="number">0</span>] == <span class="string">'chr5'</span>:</span><br><span class="line">            start = int(line[<span class="number">3</span>]) - <span class="number">1</span></span><br><span class="line">            end = int(line[<span class="number">4</span>]) <span class="number">-1</span></span><br><span class="line">            sequence = chr5[start:(end + <span class="number">1</span>)]</span><br><span class="line">            revComSeq = reverse_complement(sequence)</span><br><span class="line">            seqF.write(<span class="string">'&gt;'</span> + line[<span class="number">1</span>] + <span class="string">'\t'</span> + line[<span class="number">2</span>] + <span class="string">'\n'</span> + revComSeq + <span class="string">'\n'</span>)</span><br><span class="line">        <span class="keyword">elif</span> line[<span class="number">0</span>] == <span class="string">'chr6'</span>:</span><br><span class="line">            start = int(line[<span class="number">3</span>]) - <span class="number">1</span></span><br><span class="line">            end = int(line[<span class="number">4</span>]) <span class="number">-1</span></span><br><span class="line">            sequence = chr6[start:(end + <span class="number">1</span>)]</span><br><span class="line">            revComSeq = reverse_complement(sequence)</span><br><span class="line">            seqF.write(<span class="string">'&gt;'</span> + line[<span class="number">1</span>] + <span class="string">'\t'</span> + line[<span class="number">2</span>] + <span class="string">'\n'</span> + revComSeq + <span class="string">'\n'</span>)</span><br><span class="line">        <span class="keyword">elif</span> line[<span class="number">0</span>] == <span class="string">'chr7'</span>:</span><br><span class="line">            start = int(line[<span class="number">3</span>]) - <span class="number">1</span></span><br><span class="line">            end = int(line[<span class="number">4</span>]) <span class="number">-1</span></span><br><span class="line">            sequence = chr7[start:(end + <span class="number">1</span>)]</span><br><span class="line">            revComSeq = reverse_complement(sequence)</span><br><span class="line">            seqF.write(<span class="string">'&gt;'</span> + line[<span class="number">1</span>] + <span class="string">'\t'</span> + line[<span class="number">2</span>] + <span class="string">'\n'</span> + revComSeq + <span class="string">'\n'</span>)</span><br><span class="line">        <span class="keyword">elif</span> line[<span class="number">0</span>] == <span class="string">'chr8'</span>:</span><br><span class="line">            start = int(line[<span class="number">3</span>]) - <span class="number">1</span></span><br><span class="line">            end = int(line[<span class="number">4</span>]) <span class="number">-1</span></span><br><span class="line">            sequence = chr8[start:(end + <span class="number">1</span>)]</span><br><span class="line">            revComSeq = reverse_complement(sequence)</span><br><span class="line">            seqF.write(<span class="string">'&gt;'</span> + line[<span class="number">1</span>] + <span class="string">'\t'</span> + line[<span class="number">2</span>] + <span class="string">'\n'</span> + revComSeq + <span class="string">'\n'</span>)</span><br><span class="line">        <span class="keyword">elif</span> line[<span class="number">0</span>] == <span class="string">'chr9'</span>:</span><br><span class="line">            start = int(line[<span class="number">3</span>]) - <span class="number">1</span></span><br><span class="line">            end = int(line[<span class="number">4</span>]) <span class="number">-1</span></span><br><span class="line">            sequence = chr9[start:(end + <span class="number">1</span>)]</span><br><span class="line">            revComSeq = reverse_complement(sequence)</span><br><span class="line">            seqF.write(<span class="string">'&gt;'</span> + line[<span class="number">1</span>] + <span class="string">'\t'</span> + line[<span class="number">2</span>] + <span class="string">'\n'</span> + revComSeq + <span class="string">'\n'</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            start = int(line[<span class="number">3</span>]) - <span class="number">1</span></span><br><span class="line">            end = int(line[<span class="number">4</span>]) <span class="number">-1</span></span><br><span class="line">            sequence = chrUn[start:(end + <span class="number">1</span>)]</span><br><span class="line">            revComSeq = reverse_complement(sequence)</span><br><span class="line">            seqF.write(<span class="string">'&gt;'</span> + line[<span class="number">1</span>] + <span class="string">'\t'</span> + line[<span class="number">2</span>] + <span class="string">'\n'</span> + revComSeq + <span class="string">'\n'</span>)</span><br><span class="line">seqF.close()</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># created on 2018/10/6, Qizhengyang</span></span><br><span class="line"><span class="comment"># 根据gff3文件提取序列，正义链</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">seqF = open(<span class="string">'seqF.txt'</span>,<span class="string">'w'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'F.txt'</span>,<span class="string">'r'</span>) <span class="keyword">as</span> lines:</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">chromesome</span><span class="params">(filename)</span>:</span></span><br><span class="line">        chr = <span class="string">''</span></span><br><span class="line">        <span class="keyword">with</span> open(filename,<span class="string">'r'</span>) <span class="keyword">as</span> lines:</span><br><span class="line">            <span class="keyword">for</span> line <span class="keyword">in</span> lines:</span><br><span class="line">                line = line.strip()</span><br><span class="line">                chr += line</span><br><span class="line">        <span class="keyword">return</span> chr</span><br><span class="line"></span><br><span class="line">    chr1 = chromesome(<span class="string">"chr1.txt"</span>)</span><br><span class="line">    chr2 = chromesome(<span class="string">"chr2.txt"</span>)</span><br><span class="line">    chr3 = chromesome(<span class="string">"chr3.txt"</span>)</span><br><span class="line">    chr4 = chromesome(<span class="string">"chr4.txt"</span>)</span><br><span class="line">    chr5 = chromesome(<span class="string">"chr5.txt"</span>)</span><br><span class="line">    chr6 = chromesome(<span class="string">"chr6.txt"</span>)</span><br><span class="line">    chr7 = chromesome(<span class="string">"chr7.txt"</span>)</span><br><span class="line">    chr8 = chromesome(<span class="string">"chr8.txt"</span>)</span><br><span class="line">    chr9 = chromesome(<span class="string">"chr9.txt"</span>)</span><br><span class="line">    chrUn = chromesome(<span class="string">"chrUn.txt"</span>)</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> lines:</span><br><span class="line">        line = line.strip().split()</span><br><span class="line">        <span class="keyword">if</span> line[<span class="number">0</span>] == <span class="string">'chr1'</span>:</span><br><span class="line">            start = int(line[<span class="number">3</span>]) - <span class="number">1</span></span><br><span class="line">            end = int(line[<span class="number">4</span>]) <span class="number">-1</span></span><br><span class="line">            sequence = chr1[start:(end + <span class="number">1</span>)]</span><br><span class="line">            seqF.write(<span class="string">'&gt;'</span> + line[<span class="number">1</span>] + <span class="string">'\t'</span> + line[<span class="number">2</span>] + <span class="string">'\n'</span> + sequence + <span class="string">'\n'</span>)</span><br><span class="line">        <span class="keyword">elif</span> line[<span class="number">0</span>] == <span class="string">'chr2'</span>:</span><br><span class="line">            start = int(line[<span class="number">3</span>]) - <span class="number">1</span></span><br><span class="line">            end = int(line[<span class="number">4</span>]) <span class="number">-1</span></span><br><span class="line">            sequence = chr2[start:(end + <span class="number">1</span>)]</span><br><span class="line">            seqF.write(<span class="string">'&gt;'</span> + line[<span class="number">1</span>] + <span class="string">'\t'</span> + line[<span class="number">2</span>] + <span class="string">'\n'</span> + sequence + <span class="string">'\n'</span>)</span><br><span class="line">        <span class="keyword">elif</span> line[<span class="number">0</span>] == <span class="string">'chr3'</span>:</span><br><span class="line">            start = int(line[<span class="number">3</span>]) - <span class="number">1</span></span><br><span class="line">            end = int(line[<span class="number">4</span>]) <span class="number">-1</span></span><br><span class="line">            sequence = chr3[start:(end + <span class="number">1</span>)]</span><br><span class="line">            seqF.write(<span class="string">'&gt;'</span> + line[<span class="number">1</span>] + <span class="string">'\t'</span> + line[<span class="number">2</span>] + <span class="string">'\n'</span> + sequence + <span class="string">'\n'</span>)</span><br><span class="line">        <span class="keyword">elif</span> line[<span class="number">0</span>] == <span class="string">'chr4'</span>:</span><br><span class="line">            start = int(line[<span class="number">3</span>]) - <span class="number">1</span></span><br><span class="line">            end = int(line[<span class="number">4</span>]) <span class="number">-1</span></span><br><span class="line">            sequence = chr4[start:(end + <span class="number">1</span>)]</span><br><span class="line">            seqF.write(<span class="string">'&gt;'</span> + line[<span class="number">1</span>] + <span class="string">'\t'</span> + line[<span class="number">2</span>] + <span class="string">'\n'</span> + sequence + <span class="string">'\n'</span>)</span><br><span class="line">        <span class="keyword">elif</span> line[<span class="number">0</span>] == <span class="string">'chr5'</span>:</span><br><span class="line">            start = int(line[<span class="number">3</span>]) - <span class="number">1</span></span><br><span class="line">            end = int(line[<span class="number">4</span>]) <span class="number">-1</span></span><br><span class="line">            sequence = chr5[start:(end + <span class="number">1</span>)]</span><br><span class="line">            seqF.write(<span class="string">'&gt;'</span> + line[<span class="number">1</span>] + <span class="string">'\t'</span> + line[<span class="number">2</span>] + <span class="string">'\n'</span> + sequence + <span class="string">'\n'</span>)</span><br><span class="line">        <span class="keyword">elif</span> line[<span class="number">0</span>] == <span class="string">'chr6'</span>:</span><br><span class="line">            start = int(line[<span class="number">3</span>]) - <span class="number">1</span></span><br><span class="line">            end = int(line[<span class="number">4</span>]) <span class="number">-1</span></span><br><span class="line">            sequence = chr6[start:(end + <span class="number">1</span>)]</span><br><span class="line">            seqF.write(<span class="string">'&gt;'</span> + line[<span class="number">1</span>] + <span class="string">'\t'</span> + line[<span class="number">2</span>] + <span class="string">'\n'</span> + sequence + <span class="string">'\n'</span>)</span><br><span class="line">        <span class="keyword">elif</span> line[<span class="number">0</span>] == <span class="string">'chr7'</span>:</span><br><span class="line">            start = int(line[<span class="number">3</span>]) - <span class="number">1</span></span><br><span class="line">            end = int(line[<span class="number">4</span>]) <span class="number">-1</span></span><br><span class="line">            sequence = chr7[start:(end + <span class="number">1</span>)]</span><br><span class="line">            seqF.write(<span class="string">'&gt;'</span> + line[<span class="number">1</span>] + <span class="string">'\t'</span> + line[<span class="number">2</span>] + <span class="string">'\n'</span> + sequence + <span class="string">'\n'</span>)</span><br><span class="line">        <span class="keyword">elif</span> line[<span class="number">0</span>] == <span class="string">'chr8'</span>:</span><br><span class="line">            start = int(line[<span class="number">3</span>]) - <span class="number">1</span></span><br><span class="line">            end = int(line[<span class="number">4</span>]) <span class="number">-1</span></span><br><span class="line">            sequence = chr8[start:(end + <span class="number">1</span>)]</span><br><span class="line">            seqF.write(<span class="string">'&gt;'</span> + line[<span class="number">1</span>] + <span class="string">'\t'</span> + line[<span class="number">2</span>] + <span class="string">'\n'</span> + sequence + <span class="string">'\n'</span>)</span><br><span class="line">        <span class="keyword">elif</span> line[<span class="number">0</span>] == <span class="string">'chr9'</span>:</span><br><span class="line">            start = int(line[<span class="number">3</span>]) - <span class="number">1</span></span><br><span class="line">            end = int(line[<span class="number">4</span>]) <span class="number">-1</span></span><br><span class="line">            sequence = chr9[start:(end + <span class="number">1</span>)]</span><br><span class="line">            seqF.write(<span class="string">'&gt;'</span> + line[<span class="number">1</span>] + <span class="string">'\t'</span> + line[<span class="number">2</span>] + <span class="string">'\n'</span> + sequence + <span class="string">'\n'</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            start = int(line[<span class="number">3</span>]) - <span class="number">1</span></span><br><span class="line">            end = int(line[<span class="number">4</span>]) <span class="number">-1</span></span><br><span class="line">            sequence = chrUn[start:(end + <span class="number">1</span>)]</span><br><span class="line">            seqF.write(<span class="string">'&gt;'</span> + line[<span class="number">1</span>] + <span class="string">'\t'</span> + line[<span class="number">2</span>] + <span class="string">'\n'</span> + sequence + <span class="string">'\n'</span>)</span><br><span class="line">seqF.close()</span><br></pre></td></tr></table></figure>
-<p>ipython 运行命令 %run R.py</p>
-<p>cat seqF.txt seqR.txt &gt; all_gene.fa<br>grep ‘30058,30062p’ all_gene.fa<br>tar czf all_gene.fa.tar.gz all_gene.fa</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1837,7 +1806,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-count">40</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

@@ -108,24 +108,25 @@
 
 
 
-  <meta name="description" content="12345678910111213141516171819202122232425df&amp;lt;-read.csv(&quot;GoTerm.csv&quot;,header = T)colnames(df)[1]&amp;lt;-&quot;Description&quot;df$GeneRatio&amp;lt;-df$Number.in.input.list/df$Number.in.BG.Refsortdf&amp;lt;-df[order(df$Gen">
+  <meta name="description" content="普通用户在集群上安装R主要的教程里面有一些需要注意的，安装bzip，要加入一个 -fPIC 到 CFLAG 。（在 Makefile中CFLAG=-fPIC -Wall -Winline -O2 -g…）在R安装configure之前需要注意设置环境变量123LD_LIBRARY_PATH=/home02/qizhengyang/packages/libexport CFLAGS=&quot;-I/home">
+<meta name="keywords" content="R,Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="R富集泡泡图">
-<meta property="og:url" content="http://yoursite.com/2018/09/17/R富集泡泡图/index.html">
+<meta property="og:title" content="集群上安装R">
+<meta property="og:url" content="http://yoursite.com/2018/10/31/集群上安装R/index.html">
 <meta property="og:site_name" content="Jeremy17">
-<meta property="og:description" content="12345678910111213141516171819202122232425df&amp;lt;-read.csv(&quot;GoTerm.csv&quot;,header = T)colnames(df)[1]&amp;lt;-&quot;Description&quot;df$GeneRatio&amp;lt;-df$Number.in.input.list/df$Number.in.BG.Refsortdf&amp;lt;-df[order(df$Gen">
+<meta property="og:description" content="普通用户在集群上安装R主要的教程里面有一些需要注意的，安装bzip，要加入一个 -fPIC 到 CFLAG 。（在 Makefile中CFLAG=-fPIC -Wall -Winline -O2 -g…）在R安装configure之前需要注意设置环境变量123LD_LIBRARY_PATH=/home02/qizhengyang/packages/libexport CFLAGS=&quot;-I/home">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-09-17T15:05:31.994Z">
+<meta property="og:updated_time" content="2018-10-31T02:09:54.312Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="R富集泡泡图">
-<meta name="twitter:description" content="12345678910111213141516171819202122232425df&amp;lt;-read.csv(&quot;GoTerm.csv&quot;,header = T)colnames(df)[1]&amp;lt;-&quot;Description&quot;df$GeneRatio&amp;lt;-df$Number.in.input.list/df$Number.in.BG.Refsortdf&amp;lt;-df[order(df$Gen">
+<meta name="twitter:title" content="集群上安装R">
+<meta name="twitter:description" content="普通用户在集群上安装R主要的教程里面有一些需要注意的，安装bzip，要加入一个 -fPIC 到 CFLAG 。（在 Makefile中CFLAG=-fPIC -Wall -Winline -O2 -g…）在R安装configure之前需要注意设置环境变量123LD_LIBRARY_PATH=/home02/qizhengyang/packages/libexport CFLAGS=&quot;-I/home">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/09/17/R富集泡泡图/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/10/31/集群上安装R/"/>
 
 
 
@@ -135,7 +136,7 @@
   };
 </script>
 
-  <title>R富集泡泡图 | Jeremy17</title>
+  <title>集群上安装R | Jeremy17</title>
   
 
 
@@ -327,7 +328,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/17/R富集泡泡图/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/31/集群上安装R/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -344,7 +345,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">R富集泡泡图
+          <h1 class="post-title" itemprop="name headline">集群上安装R
               
             
           </h1>
@@ -369,7 +370,7 @@
                 
               
 
-              <time title="Created: 2018-09-17 23:02:13 / Modified: 23:05:31" itemprop="dateCreated datePublished" datetime="2018-09-17T23:02:13+08:00">2018-09-17</time>
+              <time title="Created: 2018-10-31 09:54:17 / Modified: 10:09:54" itemprop="dateCreated datePublished" datetime="2018-10-31T09:54:17+08:00">2018-10-31</time>
             
 
             
@@ -407,7 +408,9 @@
       
 
       
-        <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">df&lt;-read.csv(<span class="string">"GoTerm.csv"</span>,header = <span class="literal">T</span>)</span><br><span class="line">colnames(df)[<span class="number">1</span>]&lt;-<span class="string">"Description"</span></span><br><span class="line">df$GeneRatio&lt;-df$Number.in.input.list/df$Number.in.BG.Ref</span><br><span class="line">sortdf&lt;-df[order(df$GeneRatio),]</span><br><span class="line">sortdf$Description&lt;-factor(sortdf$Description,levels = sortdf$Description)</span><br><span class="line"></span><br><span class="line"><span class="keyword">library</span>(ggplot2)</span><br><span class="line"></span><br><span class="line">pl&lt;-ggplot(sortdf,aes(GeneRatio,Description,</span><br><span class="line">                      colour=p.value))+<span class="comment">#横坐标、纵坐标、颜色代表p-value</span></span><br><span class="line">  geom_point(aes(size=Number.in.input.list))+<span class="comment">#圆点的大小代表组内基因数</span></span><br><span class="line">  scale_color_gradientn(colours=c(<span class="string">"red"</span>,<span class="string">"yellow"</span>))+<span class="comment">#可以自己改颜色</span></span><br><span class="line">  <span class="comment">#圆点的大小代表Number of significant genes</span></span><br><span class="line">  scale_size_continuous(range = c(<span class="number">2</span>,<span class="number">8.2</span>))+<span class="comment">#圆点的大小范围</span></span><br><span class="line">  scale_x_continuous(limits = c(<span class="number">0.04</span>,<span class="number">0.21</span>))+<span class="comment">#设置x轴范围</span></span><br><span class="line">  theme_bw(<span class="number">15</span>)+<span class="comment">#背景变成白色</span></span><br><span class="line">  ylab(<span class="string">""</span>)+</span><br><span class="line">  theme(legend.position=c(<span class="number">1</span>,<span class="number">0</span>),legend.justification = c(<span class="number">1</span>,<span class="number">0</span>),</span><br><span class="line">        legend.title=element_text(size=<span class="number">14</span>), </span><br><span class="line">        legend.text=element_text(size=<span class="number">9</span>),legend.box = <span class="string">"horizontal"</span>)+<span class="comment">#legend画在右下角</span></span><br><span class="line">  <span class="comment">#下面两行让legend融入图</span></span><br><span class="line">  theme(legend.background = element_blank())+<span class="comment">#移除legend整体的边框</span></span><br><span class="line">  theme(legend.key = element_blank())<span class="comment">#移除legend每个项目周围的边框</span></span><br><span class="line">pl</span><br><span class="line"><span class="comment">## Rstudio保存 width=1100 higth=800 svg</span></span><br></pre></td></tr></table></figure>
+        <p>普通用户在集群上安装R<br><a href="https://blog.csdn.net/s_gy_zetrov/article/details/83117288?tdsourcetag=s_pctim_aiomsg" target="_blank" rel="noopener">主要的教程</a><br>里面有一些需要注意的，<br>安装bzip，<strong>要加入一个 -fPIC 到 CFLAG</strong> 。（在 Makefile中CFLAG=-fPIC -Wall -Winline -O2 -g…）<br>在R安装configure之前需要注意设置环境变量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LD_LIBRARY_PATH=/home02/qizhengyang/packages/lib</span><br><span class="line"><span class="built_in">export</span> CFLAGS=<span class="string">"-I/home02/qizhengyang/packages/include"</span></span><br><span class="line"><span class="built_in">export</span> LDFLAGS=<span class="string">"-L/home02/qizhengyang/packages/lib"</span></span><br></pre></td></tr></table></figure></p>
+<p>R安装完成之后<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> R_HOME=<span class="variable">$HOME</span>/packages/R</span><br><span class="line"><span class="built_in">export</span> R_LIBS=<span class="variable">$HOME</span>/packages/R/lib64/library</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">"<span class="variable">$R_HOME</span>/bin"</span>:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure></p>
+<p>最后 source ~/.bashrc</p>
 
       
     </div>
@@ -426,6 +429,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/R/" rel="tag"># R</a>
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+        </div>
+      
 
       
       
@@ -435,8 +446,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/17/从blastp中提取同源的拟南芥AT号/" rel="next" title="从blastp中提取同源的拟南芥AT号">
-                <i class="fa fa-chevron-left"></i> 从blastp中提取同源的拟南芥AT号
+              <a href="/2018/10/30/trimmatic使用/" rel="next" title="trimmatic使用">
+                <i class="fa fa-chevron-left"></i> trimmatic使用
               </a>
             
           </div>
@@ -444,10 +455,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/19/today/" rel="prev" title="today">
-                today <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
