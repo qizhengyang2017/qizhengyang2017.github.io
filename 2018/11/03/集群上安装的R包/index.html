@@ -108,20 +108,24 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="JeremyKid17">
-<meta property="og:url" content="http://yoursite.com/tags/bioinfo/index.html">
+  <meta name="description" content="写了一个R script批量安装。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="集群上安装的R包">
+<meta property="og:url" content="http://yoursite.com/2018/11/03/集群上安装的R包/index.html">
 <meta property="og:site_name" content="JeremyKid17">
+<meta property="og:description" content="写了一个R script批量安装。">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-11-03T01:59:18.769Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JeremyKid17">
+<meta name="twitter:title" content="集群上安装的R包">
+<meta name="twitter:description" content="写了一个R script批量安装。">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/bioinfo/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/03/集群上安装的R包/"/>
 
 
 
@@ -131,7 +135,7 @@
   };
 </script>
 
-  <title>Tag: bioinfo | JeremyKid17</title>
+  <title>集群上安装的R包 | JeremyKid17</title>
   
 
 
@@ -178,7 +182,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -231,7 +235,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
   </li>
@@ -259,25 +263,6 @@
 
   
     
-
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
 
   
 
@@ -326,58 +311,163 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>bioinfo<small>Tag</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/03/集群上安装的R包/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JeremyKid17">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/09/10/由Id提取Seq/" itemprop="url">
-              
-                <span itemprop="name">由Id提取Seq</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">集群上安装的R包
+              
+            
+          </h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-10T22:52:42+08:00"
-              content="2018-09-10" >
-          09-10
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
 
-    </header>
-  </article>
+            
+            
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-11-03 09:58:13 / Modified: 09:59:18" itemprop="dateCreated datePublished" datetime="2018-11-03T09:58:13+08:00">2018-11-03</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>写了一个R script批量安装。<br><a id="more"></a><br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">install.packages(<span class="string">"devtools"</span>,repos=<span class="string">"https://mirrors.tuna.tsinghua.edu.cn/CRAN"</span>)</span><br><span class="line">install.packages(<span class="string">"dplyr"</span>,repos=<span class="string">"https://mirrors.tuna.tsinghua.edu.cn/CRAN"</span>)</span><br><span class="line">install.packages(<span class="string">"BiocManager"</span>,repos=<span class="string">"https://mirrors.tuna.tsinghua.edu.cn/CRAN"</span>)</span><br><span class="line">BiocManager::install(<span class="string">"ballgown"</span>, version = <span class="string">"3.8"</span>)</span><br><span class="line">BiocManager::install(genefilter<span class="string">", version = "</span><span class="number">3.8</span><span class="string">")</span></span><br><span class="line"><span class="string">devtools::install_github('alyssafrazee/RSkittleBrewer')</span></span><br><span class="line"><span class="string">BiocManager::install("</span>methylKit<span class="string">", version = "</span><span class="number">3.8</span><span class="string">")</span></span><br></pre></td></tr></table></figure></p>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/02/JC-肿瘤组学-吴健民/" rel="next" title="JC-肿瘤组学-吴健民">
+                <i class="fa fa-chevron-left"></i> JC-肿瘤组学-吴健民
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -601,6 +691,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.0"></script>
+
+
 
   
 
