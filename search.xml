@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[更新g++]]></title>
+    <url>%2F2018%2F11%2F03%2F%E6%9B%B4%E6%96%B0g%2F</url>
+    <content type="text"><![CDATA[安装 DEGseq2configure: WARNING: Only g++ version 4.7.2 or greater can be used with RcppArmadillo.参考]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[集群上安装的R包]]></title>
     <url>%2F2018%2F11%2F03%2F%E9%9B%86%E7%BE%A4%E4%B8%8A%E5%AE%89%E8%A3%85%E7%9A%84R%E5%8C%85%2F</url>
     <content type="text"><![CDATA[写了一个R script批量安装。1234567install.packages("devtools",repos="https://mirrors.tuna.tsinghua.edu.cn/CRAN")install.packages("dplyr",repos="https://mirrors.tuna.tsinghua.edu.cn/CRAN")install.packages("BiocManager",repos="https://mirrors.tuna.tsinghua.edu.cn/CRAN")BiocManager::install("ballgown", version = "3.8")BiocManager::install(genefilter", version = "3.8")devtools::install_github('alyssafrazee/RSkittleBrewer')BiocManager::install("methylKit", version = "3.8")]]></content>
