@@ -108,25 +108,25 @@
 
 
 
-  <meta name="description" content="安装 DEGseq2configure: WARNING: Only g++ version 4.7.2 or greater can be used with RcppArmadillo.参考">
+  <meta name="description" content="BiocManager::install(“DESeq2”, version = “3.8”)报错，错误内容：configure: WARNING: Only g++ version 4.7.2 or greater can be used with RcppArmadillo.configure: error: Please use a different compiler.ERROR: co">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="更新g++">
-<meta property="og:url" content="http://yoursite.com/2018/11/03/更新g/index.html">
+<meta property="og:title" content="集群上安装DESeq2遇到的困难及解决办法">
+<meta property="og:url" content="http://yoursite.com/2018/11/03/集群上安装DESeq2遇到的困难及解决办法/index.html">
 <meta property="og:site_name" content="JeremyKid17">
-<meta property="og:description" content="安装 DEGseq2configure: WARNING: Only g++ version 4.7.2 or greater can be used with RcppArmadillo.参考">
+<meta property="og:description" content="BiocManager::install(“DESeq2”, version = “3.8”)报错，错误内容：configure: WARNING: Only g++ version 4.7.2 or greater can be used with RcppArmadillo.configure: error: Please use a different compiler.ERROR: co">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-11-03T15:11:21.993Z">
+<meta property="og:updated_time" content="2018-11-04T05:18:12.211Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="更新g++">
-<meta name="twitter:description" content="安装 DEGseq2configure: WARNING: Only g++ version 4.7.2 or greater can be used with RcppArmadillo.参考">
+<meta name="twitter:title" content="集群上安装DESeq2遇到的困难及解决办法">
+<meta name="twitter:description" content="BiocManager::install(“DESeq2”, version = “3.8”)报错，错误内容：configure: WARNING: Only g++ version 4.7.2 or greater can be used with RcppArmadillo.configure: error: Please use a different compiler.ERROR: co">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/11/03/更新g/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/03/集群上安装DESeq2遇到的困难及解决办法/"/>
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>更新g++ | JeremyKid17</title>
+  <title>集群上安装DESeq2遇到的困难及解决办法 | JeremyKid17</title>
   
 
 
@@ -328,7 +328,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/03/更新g/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/03/集群上安装DESeq2遇到的困难及解决办法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -345,7 +345,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">更新g++
+          <h1 class="post-title" itemprop="name headline">集群上安装DESeq2遇到的困难及解决办法
               
             
           </h1>
@@ -370,12 +370,24 @@
                 
               
 
-              <time title="Created: 2018-11-03 22:18:08 / Modified: 23:11:21" itemprop="dateCreated datePublished" datetime="2018-11-03T22:18:08+08:00">2018-11-03</time>
+              <time title="Created: 2018-11-03 22:18:08" itemprop="dateCreated datePublished" datetime="2018-11-03T22:18:08+08:00">2018-11-03</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-11-04 13:18:12" itemprop="dateModified" datetime="2018-11-04T13:18:12+08:00">2018-11-04</time>
               
             
           </span>
@@ -408,7 +420,20 @@
       
 
       
-        <p>安装 DEGseq2<br>configure: WARNING: Only g++ version 4.7.2 or greater can be used with RcppArmadillo.<br><a href="https://blog.csdn.net/swing2008/article/details/63250192" target="_blank" rel="noopener">参考</a></p>
+        <ol>
+<li><p>BiocManager::install(“DESeq2”, version = “3.8”)<br>报错，错误内容：<br>configure: WARNING: Only g++ version 4.7.2 or greater can be used with RcppArmadillo.<br>configure: error: Please use a different compiler.<br>ERROR: configuration failed for package ‘RcppArmadillo’</p>
+</li>
+<li><p>源码安装gcc<br><a href="https://blog.csdn.net/swing2008/article/details/63250192" target="_blank" rel="noopener">参考</a><br>../configure –prefix=/home02/qizhengyang/packages -enable-checking=release -enable-languages=c,c++ -disable-multilib<br>报错，错误内容：<br>/usr/bin/ld: cannot find -lgfortran</p>
+</li>
+<li><p>重新安装gcc，增加fortran<br>../configure –prefix=/home02/qizhengyang/packages -enable-checking=release -enable-languages=c,c++,fortran -disable-multilib &amp;&amp; make -j4 &amp;&amp; make install</p>
+</li>
+<li><p>添加两个lib<br>export LD_LIBRARY_PATH=$HOME/packages/lib64:$LD_LIBRARY_PATH<br>export LD_LIBRARY_PATH=$HOME/packages/lib:$LD_LIBRARY_PATH</p>
+</li>
+</ol>
+<ol start="5">
+<li>BiocManager::install(“DESeq2”, version = “3.8”)<br>成功</li>
+</ol>
+<p>备注：configure时间超级长。过程艰辛。还尝试过手动安装RcppArmadillo，失败。<br>.libPaths()<br>“/home02/qizhengyang/packages/R/lib64/R/library”<br>R CMD INSTALL -l /home02/qizhengyang/packages/R/lib64/R/library RcppArmadillo_0.3.6.3.tar.gz</p>
 
       
     </div>
@@ -451,6 +476,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/04/解决Sublime-Text-3输入法中输入法不跟随光标移动的问题/" rel="prev" title="解决Sublime Text 3输入法中输入法不跟随光标移动的问题">
+                解决Sublime Text 3输入法中输入法不跟随光标移动的问题 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -511,7 +540,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">44</span>
+                    <span class="site-state-item-count">47</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

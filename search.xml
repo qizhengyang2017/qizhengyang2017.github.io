@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[更新g++]]></title>
-    <url>%2F2018%2F11%2F03%2F%E6%9B%B4%E6%96%B0g%2F</url>
-    <content type="text"><![CDATA[安装 DEGseq2configure: WARNING: Only g++ version 4.7.2 or greater can be used with RcppArmadillo.参考]]></content>
+    <title><![CDATA[七天决战第一天]]></title>
+    <url>%2F2018%2F11%2F05%2F%E4%B8%83%E5%A4%A9%E5%86%B3%E6%88%98%E7%AC%AC%E4%B8%80%E5%A4%A9%2F</url>
+    <content type="text"><![CDATA[今天，我完成了： 用methylKit成功提取了DMR，输出图形 修改了尹师兄的脚本，可以成功运行，提基因用。没有看具体算法 用输入法打sj，会自动出现时间。以后用hexo写静态博客可以直接打开st写 日常： 中午吃垃圾食物：一个汉堡、没有气的可乐、一包特别咸的薯条 下午三点，尝试了茎尖微芽嫁接，希望能成功 晚上8点到9点这段时间在 kill time，看一些没有具体用处的老新闻。记下一句话，“如果新一代的浙商放弃他们赖以成长的草根意识和创业精神，那么他们之中不可能走出真正的企业家”]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[统计假设的问题]]></title>
+    <url>%2F2018%2F11%2F04%2F%E7%BB%9F%E8%AE%A1%E5%81%87%E8%AE%BE%E7%9A%84%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[两尾测验与一尾测验两尾测验的正态离差|miu|大于一尾测验的|miu|。]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[解决Sublime Text 3输入法中输入法不跟随光标移动的问题]]></title>
+    <url>%2F2018%2F11%2F04%2F%E8%A7%A3%E5%86%B3Sublime-Text-3%E8%BE%93%E5%85%A5%E6%B3%95%E4%B8%AD%E8%BE%93%E5%85%A5%E6%B3%95%E4%B8%8D%E8%B7%9F%E9%9A%8F%E5%85%89%E6%A0%87%E7%A7%BB%E5%8A%A8%E7%9A%84%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[通过Package Control在线安装：安装Package Control插件（安装方法请自行搜索），通过Install Package选项列出插件列表，搜索IMESupport安装即可。]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[集群上安装DESeq2遇到的困难及解决办法]]></title>
+    <url>%2F2018%2F11%2F03%2F%E9%9B%86%E7%BE%A4%E4%B8%8A%E5%AE%89%E8%A3%85DESeq2%E9%81%87%E5%88%B0%E7%9A%84%E5%9B%B0%E9%9A%BE%E5%8F%8A%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[BiocManager::install(“DESeq2”, version = “3.8”)报错，错误内容：configure: WARNING: Only g++ version 4.7.2 or greater can be used with RcppArmadillo.configure: error: Please use a different compiler.ERROR: configuration failed for package ‘RcppArmadillo’ 源码安装gcc参考../configure –prefix=/home02/qizhengyang/packages -enable-checking=release -enable-languages=c,c++ -disable-multilib报错，错误内容：/usr/bin/ld: cannot find -lgfortran 重新安装gcc，增加fortran../configure –prefix=/home02/qizhengyang/packages -enable-checking=release -enable-languages=c,c++,fortran -disable-multilib &amp;&amp; make -j4 &amp;&amp; make install 添加两个libexport LD_LIBRARY_PATH=$HOME/packages/lib64:$LD_LIBRARY_PATHexport LD_LIBRARY_PATH=$HOME/packages/lib:$LD_LIBRARY_PATH BiocManager::install(“DESeq2”, version = “3.8”)成功 备注：configure时间超级长。过程艰辛。还尝试过手动安装RcppArmadillo，失败。.libPaths()“/home02/qizhengyang/packages/R/lib64/R/library”R CMD INSTALL -l /home02/qizhengyang/packages/R/lib64/R/library RcppArmadillo_0.3.6.3.tar.gz]]></content>
       <tags>
         <tag>Linux</tag>
       </tags>
