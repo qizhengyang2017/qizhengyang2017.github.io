@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[ggplot2 绘图]]></title>
+    <url>%2F2018%2F11%2F12%2Fggplot2%E7%BB%98%E5%9B%BE%2F</url>
+    <content type="text"><![CDATA[可以尝试设置一个bestfit图层参数12bestfit &lt;- geom_smooth(method = "lm", se = F, colour = alpha("steelblue", 0.5), size = 2)]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[第七天]]></title>
+    <url>%2F2018%2F11%2F11%2F%E7%AC%AC%E4%B8%83%E5%A4%A9%2F</url>
+    <content type="text"><![CDATA[多看一些综述文章 DNA methylation is likely to be both a cause and consequence of the developmental regulation of gene expression. doi:10.1038/nrn.2016.41 complexity of DNA methylation在这里，我们研究了10个与甲基化/去甲基化复合物相关的基因，以便更好地了解压力对健康的影响。doi: 10.1002/ajpa.23341哪些基因： conclutionDNMT1，DNMT3A，TET3和MBD2的母体GMM和母体甲基化的关联与这些基因在建立，维持和改变全基因组甲基化模式中的作用一致，在某些情况下是对应激的响应。 DNMT1产生一种在DNA复制过程中再现甲基化模式的主要酶。 DNMT3A和TET3参与糖皮质激素激素反应的全基因组低甲基化。 虽然我们无法确定基因和基因组范围内甲基化变化的方向性，但我们的研究结果表明，特定甲基化基因甲基化的改变可能是人类生物对压力反应的分子机制的一部分。 甲基化的作用 沉默转座子 小萌姐强调：fine tuning development：histone methylation and small RNAs DNA methylation 朱冰和饶毅的辩论]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[第六天]]></title>
+    <url>%2F2018%2F11%2F10%2F%E7%AC%AC%E5%85%AD%E5%A4%A9%2F</url>
+    <content type="text"><![CDATA[1234# bedGraph to Bigwig formatgunzip s716.bed.gzsed -i '1d' s716.bedbedGraphToBigWig s716.bed chr.txt s716.bw chr.txt 染色体位置信息chr1 28800734chr2 30837053chr3 28714068chr4 19953105chr5 36146064chr6 21179577chr7 32205053chr8 22710839chr9 18450726chrUn 88947451 作图 ggplot2ggplot2需要的长数据表格式 柱形图箱线图条形图DE9C5389BEB2C9BA83]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[第五天]]></title>
     <url>%2F2018%2F11%2F09%2F%E7%AC%AC%E4%BA%94%E5%A4%A9%2F</url>
-    <content type="text"><![CDATA[R：可以用ggsave输出图片。12ggplot(df,aes(DMR,number))+geom_bar(stat="identity")ggsave("DMR.tiff",width = 7,height = 14,units = "cm",dpi = 600) 筛选基因，接第四天 Q9S7P5，与共有核苷酸序列5’-TNCGTACAA-3’特异性结合的反式作用因子。Molecular Plant, 拟南芥转录因子SPL1和SPL12赋予植物在生殖阶段的耐热性。Arabidopsis Transcription Factors SPL1 and SPL12 Confer Plant Thermotolerance at Reproductive Stage Q9C6I8 参与60S核糖体亚基的生物发生 AT1G38131 Ai shift + o 调整画布 ctrl + a 调整图像 alt+ctrl+p 修改单位 shift + f8 看图像尺寸]]></content>
+    <content type="text"><![CDATA[R：可以用ggsave输出图片。12ggplot(df,aes(DMR,number))+geom_bar(stat="identity")ggsave("DMR.tiff",width = 7,height = 14,units = "cm",dpi = 600) 筛选基因，接第四天 Q9S7P5，与共有核苷酸序列5’-TNCGTACAA-3’特异性结合的反式作用因子。Molecular Plant, 拟南芥转录因子SPL1和SPL12赋予植物在生殖阶段的耐热性。Arabidopsis Transcription Factors SPL1 and SPL12 Confer Plant Thermotolerance at Reproductive Stage Q9C6I8 参与60S核糖体亚基的生物发生 AT1G38131 Ai shift + o 调整画布 ctrl + a 调整图像 alt+ctrl+p 修改单位 shift + f8 看图像尺寸 R调颜色还是存eps或pdf]]></content>
       <tags>
         <tag>工作</tag>
         <tag>日常</tag>
