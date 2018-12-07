@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[好像windows下circos不缺GD模块]]></title>
+    <url>%2F2018%2F12%2F07%2F2018-12-07%2F</url>
+    <content type="text"><![CDATA[windows下好像并没有缺失GD模块？版本：This is perl 5, version 24, subversion 2 (v5.24.2) built for MSWin32-x64-multi-thread missing Config::General missing Font::TTF::Fontmissing Math::Bezier missing Math::Roundmissing Math::VecStatmissing Regexp::Commonmissing SVGmissing Set::IntSpanmissing Statistics::Basicmissing Text::Format GD模块在C:\Perl64\lib我自己安装的在C:\Perl64\site\lib perl circos -moduleppm install Math::Round Math::VecStat Regexp::Common SVG Set::IntSpan Statistics::Basic Text::Format]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[bed和bedGraph区别]]></title>
     <url>%2F2018%2F11%2F14%2Fbed%E5%92%8CbedGraph%E5%8C%BA%E5%88%AB%2F</url>
     <content type="text"><![CDATA[BedGraph has 4 fields (chr start stop score), and the simplest BED file has 3 fields (chr start stop), so one easy way to convert from BED to bedGraph would be to use awk: cat file.bedGraph | awk ‘{print $1 “\t” $2 “\t” $3}’ &gt; file.bedIf your bedGraph file contains a header line, you can get rid of it with an inverse grep: grep -v track file.bedGraph | awk ‘{print $1 “\t” $2 “\t” $3}’ &gt; file.bedOr you can use tail to return everything but the first line (if your track line is the first line). If you want to add more fields to the bed file, you can insert them in the print statement (I don’t remember the minimum requirement for ChIPpeakAnno).]]></content>
