@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Google news "epigenetics plants"]]></title>
+    <url>%2F2018%2F12%2F10%2F2018-12-10%2F</url>
+    <content type="text"><![CDATA[University of Nebraska-Lincoln researchers have found revolutionary evidence that an evolutionary phenomenon at work in complex organisms is at play in their single-celled, extreme-loving counterparts, too.]]></content>
+      <tags>
+        <tag>科研</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[好像windows下circos不缺GD模块]]></title>
     <url>%2F2018%2F12%2F07%2F2018-12-07%2F</url>
     <content type="text"><![CDATA[windows下好像并没有缺失GD模块？版本：This is perl 5, version 24, subversion 2 (v5.24.2) built for MSWin32-x64-multi-thread missing Config::General missing Font::TTF::Fontmissing Math::Bezier missing Math::Roundmissing Math::VecStatmissing Regexp::Commonmissing SVGmissing Set::IntSpanmissing Statistics::Basicmissing Text::Format GD模块在C:\Perl64\lib我自己安装的在C:\Perl64\site\lib perl circos -moduleppm install Math::Round Math::VecStat Regexp::Common SVG Set::IntSpan Statistics::Basic Text::Format]]></content>
