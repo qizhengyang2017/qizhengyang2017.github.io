@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[R输出图形]]></title>
+    <url>%2F2018%2F12%2F12%2Fexporting-nice-plots-in-r%2F</url>
+    <content type="text"><![CDATA[这篇博文写的很好 https://www.r-bloggers.com/exporting-nice-plots-in-r/介绍的 Inkscape 也很好用，解决了之前IGV输出SVG图片的问题。导入PPT只显示一半。用Ai cc 打开，报错。“往返Tiny时剪贴将丢失”，只有框架没有图 There are two main problems when exporting graphics from R: Anti-aliasing is not activated in Windows R (this does not apply to Linux or Mac) – windows下没有反锯齿设置，解决：library(Cairo) When increasing the resolution the labels automatically decrease and become unreadable –分辨率升高，标签会自动缩小 If we want to increase the resolution of the plot we can’t just change the resolution parameter:We also have to change the point size, the formula is size * new resolution DPI / 72 DPI: If we double the image size we also need to double the point size: 123456789101112131415161718192021222324# https://www.r-graph-gallery.com/265-grouped-boxplot-with-ggplot2/# exporting nice plot https://www.r-bloggers.com/exporting-nice-plots-in-r/# librarylibrary(ggplot2) # create a data framevariety=rep(LETTERS[1:7], each=40)treatment=rep(c("high","low"),each=20)note=seq(1:280)+sample(1:150, 280, replace=T)data=data.frame(variety, treatment , note) # grouped boxplotggplot(data, aes(x=variety, y=note, fill=treatment)) + geom_boxplot()# One box per treatmentggplot(data, aes(x=variety, y=note, fill=treatment)) + geom_boxplot() + facet_wrap(~treatment)# one box per varietyggplot(data, aes(x=variety, y=note, fill=treatment)) + geom_boxplot() + facet_wrap(~variety, scale="free")]]></content>
+      <tags>
+        <tag>R</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Google news "epigenetics plants"]]></title>
     <url>%2F2018%2F12%2F10%2F2018-12-10%2F</url>
     <content type="text"><![CDATA[University of Nebraska-Lincoln researchers have found revolutionary evidence that an evolutionary phenomenon at work in complex organisms is at play in their single-celled, extreme-loving counterparts, too.]]></content>

@@ -110,7 +110,7 @@
 
   <meta property="og:type" content="website">
 <meta property="og:title" content="JeremyKid17">
-<meta property="og:url" content="http://yoursite.com/tags/python/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/Python/index.html">
 <meta property="og:site_name" content="JeremyKid17">
 <meta property="og:locale" content="en">
 <meta name="twitter:card" content="summary">
@@ -121,7 +121,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/python/"/>
+  <link rel="canonical" href="http://yoursite.com/tags/Python/"/>
 
 
 
@@ -131,7 +131,7 @@
   };
 </script>
 
-  <title>Tag: python | JeremyKid17</title>
+  <title>Tag: Python | JeremyKid17</title>
   
 
 
@@ -333,7 +333,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>python<small>Tag</small>
+        <h1>Python<small>Tag</small>
         </h1>
       </div>
 
@@ -345,37 +345,9 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2018/10/23/简单的格式转换，try语句的使用/" itemprop="url">
+            <a class="post-title-link" href="/2018/10/31/大概是我写的第一个脚本/" itemprop="url">
               
-                <span itemprop="name">简单的格式转换，try语句的使用</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-23T09:55:25+08:00"
-              content="2018-10-23" >
-          10-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/10/23/对甲基化位点进行排序/" itemprop="url">
-              
-                <span itemprop="name">对甲基化位点进行排序</span>
+                <span itemprop="name">大概是我写的第一个脚本</span>
               
             </a>
         
@@ -383,9 +355,9 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-23T09:54:00+08:00"
-              content="2018-10-23" >
-          10-23
+              datetime="2018-10-31T22:29:16+08:00"
+              content="2018-10-31" >
+          10-31
         </time>
       </div>
 
@@ -442,7 +414,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">57</span>
+                    <span class="site-state-item-count">58</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -958,6 +930,58 @@
         }
       });
     }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+}
 
     // handle and trigger popup window;
     $('.popup-trigger').click(function(e) {

@@ -324,6 +324,157 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/12/exporting-nice-plots-in-r/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JeremyKid17">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/12/exporting-nice-plots-in-r/" itemprop="url">
+                  R输出图形
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-12-12 17:42:06 / Modified: 18:00:19" itemprop="dateCreated datePublished" datetime="2018-12-12T17:42:06+08:00">2018-12-12</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>这篇博文写的很好 <a href="https://www.r-bloggers.com/exporting-nice-plots-in-r/" target="_blank" rel="noopener">https://www.r-bloggers.com/exporting-nice-plots-in-r/</a><br>介绍的 Inkscape 也很好用，解决了之前IGV输出SVG图片的问题。导入PPT只显示一半。用Ai cc 打开，报错。“往返Tiny时剪贴将丢失”，只有框架没有图</p>
+<p>There are two main problems when exporting graphics from R:</p>
+<ul>
+<li>Anti-aliasing is not activated in Windows R (this does not apply to Linux or Mac) – <strong>windows下没有反锯齿设置</strong>，解决：library(Cairo)</li>
+<li>When increasing the resolution the labels automatically decrease and become unreadable  –<strong>分辨率升高，标签会自动缩小</strong></li>
+</ul>
+<p>If we want to increase the resolution of the plot we can’t just change the resolution parameter:<br>We also have to change the point size, the formula is size * new resolution DPI / 72 DPI:</p>
+<p>If we double the image size we also need to double the point size:</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/12/12/exporting-nice-plots-in-r/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/10/2018-12-10/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1651,158 +1802,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/06/第二天/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JeremyKid17">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/06/第二天/" itemprop="url">
-                  第二天
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-11-06 10:32:18 / Modified: 18:54:32" itemprop="dateCreated datePublished" datetime="2018-11-06T10:32:18+08:00">2018-11-06</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>花时间做了小提琴图，但是没有什么作用。看上去不如之前的箱线图有用。<br><strong>作图策略上有所改进：</strong><br>拿到一个新包，看说明文档，运行示例代码。运行自己的数据。</p>
-<p>昨天一个师弟说，分析数据要先有自己的想法。我实在是找不出什么切入点。</p>
-<p>厚德载物是什么意思？<br><strong>品德应如大地般厚实可以承载万物。</strong></p>
-<p><span style="background-color: #FFB90F;"><font size="5," color="#2F4F4F">今天下午和晚上的任务：</font></span></p>
-<ol>
-<li>整理一星期来分析的东西，把桌面清空</li>
-<li>下那篇cell文章</li>
-<li>一定把circos图做出来</li>
-</ol>
-<p><a href="https://zhuanlan.zhihu.com/p/33616481" target="_blank" rel="noopener">设置字体大小</a><br><a href="http://www.114la.com/other/rgb.htm" target="_blank" rel="noopener">RGB参考</a></p>
-<p>《乡土日本》：“乡土研究的第一要义是了解平民的过去”</p>
-<p>整理之前的shell命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> stringtie &amp;&amp; rm -i `ls | grep -v “s”`    <span class="comment">#反向删除</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> *.txt; <span class="keyword">do</span> t=`<span class="built_in">echo</span> <span class="variable">$i</span> | cut -d <span class="string">"."</span> -f 1`;sed -i <span class="string">"1c<span class="variable">$t</span>"</span> <span class="variable">$i</span>; <span class="keyword">done</span> <span class="comment">#改变第一行的值</span></span><br><span class="line">sed -i <span class="string">'s/^  *//g'</span> line.txt <span class="comment">#删除行首空格（命令^  *之间有两个空格）</span></span><br></pre></td></tr></table></figure></p>
-<p><font size="5," color="#2F4F4F">网站设计模板</font><br><img src="/images/Stanford-Center-for-Computational-Evolutionary.png" alt=""></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1850,7 +1849,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">57</span>
+                    <span class="site-state-item-count">58</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

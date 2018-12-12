@@ -108,25 +108,25 @@
 
 
 
-  <meta name="description" content="普通用户在集群上安装R主要的教程里面有一些需要注意的，安装bzip，要加入一个 -fPIC 到 CFLAG 。（在 Makefile中CFLAG=-fPIC -Wall -Winline -O2 -g…）在R安装configure之前需要注意设置环境变量123LD_LIBRARY_PATH=/home02/qizhengyang/packages/libexport CFLAGS=&quot;-I/home">
-<meta name="keywords" content="R,Linux">
+  <meta name="description" content="这篇博文写的很好 https://www.r-bloggers.com/exporting-nice-plots-in-r/介绍的 Inkscape 也很好用，解决了之前IGV输出SVG图片的问题。导入PPT只显示一半。用Ai cc 打开，报错。“往返Tiny时剪贴将丢失”，只有框架没有图 There are two main problems when exporting graphics fr">
+<meta name="keywords" content="R">
 <meta property="og:type" content="article">
-<meta property="og:title" content="集群上更新R并安装methylKit">
-<meta property="og:url" content="http://yoursite.com/2018/10/31/集群上安装R/index.html">
+<meta property="og:title" content="R输出图形">
+<meta property="og:url" content="http://yoursite.com/2018/12/12/exporting-nice-plots-in-r/index.html">
 <meta property="og:site_name" content="JeremyKid17">
-<meta property="og:description" content="普通用户在集群上安装R主要的教程里面有一些需要注意的，安装bzip，要加入一个 -fPIC 到 CFLAG 。（在 Makefile中CFLAG=-fPIC -Wall -Winline -O2 -g…）在R安装configure之前需要注意设置环境变量123LD_LIBRARY_PATH=/home02/qizhengyang/packages/libexport CFLAGS=&quot;-I/home">
+<meta property="og:description" content="这篇博文写的很好 https://www.r-bloggers.com/exporting-nice-plots-in-r/介绍的 Inkscape 也很好用，解决了之前IGV输出SVG图片的问题。导入PPT只显示一半。用Ai cc 打开，报错。“往返Tiny时剪贴将丢失”，只有框架没有图 There are two main problems when exporting graphics fr">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-10-31T03:25:19.311Z">
+<meta property="og:updated_time" content="2018-12-12T10:00:19.557Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="集群上更新R并安装methylKit">
-<meta name="twitter:description" content="普通用户在集群上安装R主要的教程里面有一些需要注意的，安装bzip，要加入一个 -fPIC 到 CFLAG 。（在 Makefile中CFLAG=-fPIC -Wall -Winline -O2 -g…）在R安装configure之前需要注意设置环境变量123LD_LIBRARY_PATH=/home02/qizhengyang/packages/libexport CFLAGS=&quot;-I/home">
+<meta name="twitter:title" content="R输出图形">
+<meta name="twitter:description" content="这篇博文写的很好 https://www.r-bloggers.com/exporting-nice-plots-in-r/介绍的 Inkscape 也很好用，解决了之前IGV输出SVG图片的问题。导入PPT只显示一半。用Ai cc 打开，报错。“往返Tiny时剪贴将丢失”，只有框架没有图 There are two main problems when exporting graphics fr">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/31/集群上安装R/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/12/12/exporting-nice-plots-in-r/"/>
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>集群上更新R并安装methylKit | JeremyKid17</title>
+  <title>R输出图形 | JeremyKid17</title>
   
 
 
@@ -328,7 +328,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/31/集群上安装R/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/12/exporting-nice-plots-in-r/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -345,7 +345,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">集群上更新R并安装methylKit
+          <h1 class="post-title" itemprop="name headline">R输出图形
               
             
           </h1>
@@ -370,7 +370,7 @@
                 
               
 
-              <time title="Created: 2018-10-31 09:54:17 / Modified: 11:25:19" itemprop="dateCreated datePublished" datetime="2018-10-31T09:54:17+08:00">2018-10-31</time>
+              <time title="Created: 2018-12-12 17:42:06 / Modified: 18:00:19" itemprop="dateCreated datePublished" datetime="2018-12-12T17:42:06+08:00">2018-12-12</time>
             
 
             
@@ -408,11 +408,16 @@
       
 
       
-        <p>普通用户在集群上安装R<br><a href="https://blog.csdn.net/s_gy_zetrov/article/details/83117288?tdsourcetag=s_pctim_aiomsg" target="_blank" rel="noopener">主要的教程</a><br>里面有一些需要注意的，<br>安装bzip，<strong>要加入一个 -fPIC 到 CFLAG</strong> 。（在 Makefile中CFLAG=-fPIC -Wall -Winline -O2 -g…）<br>在R安装configure之前需要注意设置环境变量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LD_LIBRARY_PATH=/home02/qizhengyang/packages/lib</span><br><span class="line"><span class="built_in">export</span> CFLAGS=<span class="string">"-I/home02/qizhengyang/packages/include"</span></span><br><span class="line"><span class="built_in">export</span> LDFLAGS=<span class="string">"-L/home02/qizhengyang/packages/lib"</span></span><br></pre></td></tr></table></figure></p>
-<p>R安装完成之后<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> R_HOME=<span class="variable">$HOME</span>/packages/R</span><br><span class="line"><span class="built_in">export</span> R_LIBS=<span class="variable">$HOME</span>/packages/R/lib64/library</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">"<span class="variable">$R_HOME</span>/bin"</span>:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure></p>
-<p>最后 source ~/.bashrc</p>
-<p>装methyKit也是坑一堆。<br>我下了autoconf-2.69，<strong>libxml2-2.7.2</strong>。源码安装。./configure –prefix=/home02/qizhengyang/packages</p>
-
+        <p>这篇博文写的很好 <a href="https://www.r-bloggers.com/exporting-nice-plots-in-r/" target="_blank" rel="noopener">https://www.r-bloggers.com/exporting-nice-plots-in-r/</a><br>介绍的 Inkscape 也很好用，解决了之前IGV输出SVG图片的问题。导入PPT只显示一半。用Ai cc 打开，报错。“往返Tiny时剪贴将丢失”，只有框架没有图</p>
+<p>There are two main problems when exporting graphics from R:</p>
+<ul>
+<li>Anti-aliasing is not activated in Windows R (this does not apply to Linux or Mac) – <strong>windows下没有反锯齿设置</strong>，解决：library(Cairo)</li>
+<li>When increasing the resolution the labels automatically decrease and become unreadable  –<strong>分辨率升高，标签会自动缩小</strong></li>
+</ul>
+<p>If we want to increase the resolution of the plot we can’t just change the resolution parameter:<br>We also have to change the point size, the formula is size * new resolution DPI / 72 DPI:</p>
+<p>If we double the image size we also need to double the point size:</p>
+<a id="more"></a>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># https://www.r-graph-gallery.com/265-grouped-boxplot-with-ggplot2/</span></span><br><span class="line"><span class="comment"># exporting nice plot https://www.r-bloggers.com/exporting-nice-plots-in-r/</span></span><br><span class="line"><span class="comment"># library</span></span><br><span class="line"><span class="keyword">library</span>(ggplot2)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># create a data frame</span></span><br><span class="line">variety=rep(LETTERS[<span class="number">1</span>:<span class="number">7</span>], each=<span class="number">40</span>)</span><br><span class="line">treatment=rep(c(<span class="string">"high"</span>,<span class="string">"low"</span>),each=<span class="number">20</span>)</span><br><span class="line">note=seq(<span class="number">1</span>:<span class="number">280</span>)+sample(<span class="number">1</span>:<span class="number">150</span>, <span class="number">280</span>, replace=<span class="literal">T</span>)</span><br><span class="line">data=data.frame(variety, treatment ,  note)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="comment"># grouped boxplot</span></span><br><span class="line">ggplot(data, aes(x=variety, y=note, fill=treatment)) +</span><br><span class="line">    geom_boxplot()</span><br><span class="line"></span><br><span class="line"><span class="comment"># One box per treatment</span></span><br><span class="line">ggplot(data, aes(x=variety, y=note, fill=treatment)) +</span><br><span class="line">    geom_boxplot() +</span><br><span class="line">    facet_wrap(~treatment)</span><br><span class="line"><span class="comment"># one box per variety</span></span><br><span class="line">ggplot(data, aes(x=variety, y=note, fill=treatment)) +</span><br><span class="line">    geom_boxplot() +</span><br><span class="line">    facet_wrap(~variety, scale=<span class="string">"free"</span>)</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -434,8 +439,6 @@
           
             <a href="/tags/R/" rel="tag"># R</a>
           
-            <a href="/tags/Linux/" rel="tag"># Linux</a>
-          
         </div>
       
 
@@ -447,8 +450,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/30/trimmatic使用/" rel="next" title="trimmatic使用">
-                <i class="fa fa-chevron-left"></i> trimmatic使用
+              <a href="/2018/12/10/2018-12-10/" rel="next" title="Google news "epigenetics plants"">
+                <i class="fa fa-chevron-left"></i> Google news "epigenetics plants"
               </a>
             
           </div>
@@ -456,10 +459,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/31/大概是我写的第一个脚本/" rel="prev" title="大概是我写的第一个脚本">
-                大概是我写的第一个脚本 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
