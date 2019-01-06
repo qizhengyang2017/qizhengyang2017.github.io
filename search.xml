@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[SF felt like the Mecca of tech, but also the center of capitalism]]></title>
+    <url>%2F2019%2F01%2F05%2FSF%2F</url>
+    <content type="text"><![CDATA[There is a lot of money, but not a lot of wealth？ 该怎么翻译？]]></content>
+      <tags>
+        <tag>阅读</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[R输出图形]]></title>
     <url>%2F2018%2F12%2F12%2Fexporting-nice-plots-in-r%2F</url>
     <content type="text"><![CDATA[这篇博文写的很好 https://www.r-bloggers.com/exporting-nice-plots-in-r/介绍的 Inkscape 也很好用，解决了之前IGV输出SVG图片的问题。导入PPT只显示一半。用Ai cc 打开，报错。“往返Tiny时剪贴将丢失”，只有框架没有图 There are two main problems when exporting graphics from R: Anti-aliasing is not activated in Windows R (this does not apply to Linux or Mac) – windows下没有反锯齿设置，解决：library(Cairo) When increasing the resolution the labels automatically decrease and become unreadable –分辨率升高，标签会自动缩小 If we want to increase the resolution of the plot we can’t just change the resolution parameter:We also have to change the point size, the formula is size * new resolution DPI / 72 DPI: If we double the image size we also need to double the point size: 123456789101112131415161718192021222324# https://www.r-graph-gallery.com/265-grouped-boxplot-with-ggplot2/# exporting nice plot https://www.r-bloggers.com/exporting-nice-plots-in-r/# librarylibrary(ggplot2) # create a data framevariety=rep(LETTERS[1:7], each=40)treatment=rep(c("high","low"),each=20)note=seq(1:280)+sample(1:150, 280, replace=T)data=data.frame(variety, treatment , note) # grouped boxplotggplot(data, aes(x=variety, y=note, fill=treatment)) + geom_boxplot()# One box per treatmentggplot(data, aes(x=variety, y=note, fill=treatment)) + geom_boxplot() + facet_wrap(~treatment)# one box per varietyggplot(data, aes(x=variety, y=note, fill=treatment)) + geom_boxplot() + facet_wrap(~variety, scale="free")]]></content>
@@ -10,7 +18,7 @@
   </entry>
   <entry>
     <title><![CDATA[Google news "epigenetics plants"]]></title>
-    <url>%2F2018%2F12%2F10%2F2018-12-10%2F</url>
+    <url>%2F2018%2F12%2F10%2FGoogle-News%2F</url>
     <content type="text"><![CDATA[University of Nebraska-Lincoln researchers have found revolutionary evidence that an evolutionary phenomenon at work in complex organisms is at play in their single-celled, extreme-loving counterparts, too.]]></content>
       <tags>
         <tag>科研</tag>
@@ -18,7 +26,7 @@
   </entry>
   <entry>
     <title><![CDATA[好像windows下circos不缺GD模块]]></title>
-    <url>%2F2018%2F12%2F07%2F2018-12-07%2F</url>
+    <url>%2F2018%2F12%2F07%2FGD-module%2F</url>
     <content type="text"><![CDATA[windows下好像并没有缺失GD模块？版本：This is perl 5, version 24, subversion 2 (v5.24.2) built for MSWin32-x64-multi-thread missing Config::General missing Font::TTF::Fontmissing Math::Bezier missing Math::Roundmissing Math::VecStatmissing Regexp::Commonmissing SVGmissing Set::IntSpanmissing Statistics::Basicmissing Text::Format GD模块在C:\Perl64\lib我自己安装的在C:\Perl64\site\lib perl circos -moduleppm install Math::Round Math::VecStat Regexp::Common SVG Set::IntSpan Statistics::Basic Text::Format]]></content>
   </entry>
   <entry>
@@ -32,65 +40,6 @@
     <content type="text"><![CDATA[可以尝试设置一个bestfit图层参数12bestfit &lt;- geom_smooth(method = "lm", se = F, colour = alpha("steelblue", 0.5), size = 2)]]></content>
   </entry>
   <entry>
-    <title><![CDATA[第七天]]></title>
-    <url>%2F2018%2F11%2F11%2F%E7%AC%AC%E4%B8%83%E5%A4%A9%2F</url>
-    <content type="text"><![CDATA[多看一些综述文章 DNA methylation is likely to be both a cause and consequence of the developmental regulation of gene expression. doi:10.1038/nrn.2016.41 complexity of DNA methylation在这里，我们研究了10个与甲基化/去甲基化复合物相关的基因，以便更好地了解压力对健康的影响。doi: 10.1002/ajpa.23341哪些基因： conclutionDNMT1，DNMT3A，TET3和MBD2的母体GMM和母体甲基化的关联与这些基因在建立，维持和改变全基因组甲基化模式中的作用一致，在某些情况下是对应激的响应。 DNMT1产生一种在DNA复制过程中再现甲基化模式的主要酶。 DNMT3A和TET3参与糖皮质激素激素反应的全基因组低甲基化。 虽然我们无法确定基因和基因组范围内甲基化变化的方向性，但我们的研究结果表明，特定甲基化基因甲基化的改变可能是人类生物对压力反应的分子机制的一部分。 甲基化的作用 沉默转座子 小萌姐强调：fine tuning development：histone methylation and small RNAs DNA methylation 朱冰和饶毅的辩论]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[第六天]]></title>
-    <url>%2F2018%2F11%2F10%2F%E7%AC%AC%E5%85%AD%E5%A4%A9%2F</url>
-    <content type="text"><![CDATA[1234# bedGraph to Bigwig formatgunzip s716.bed.gzsed -i '1d' s716.bedbedGraphToBigWig s716.bed chr.txt s716.bw chr.txt 染色体位置信息chr1 28800734chr2 30837053chr3 28714068chr4 19953105chr5 36146064chr6 21179577chr7 32205053chr8 22710839chr9 18450726chrUn 88947451 作图 ggplot2ggplot2需要的长数据表格式 柱形图箱线图条形图DE9C5389BEB2C9BA83]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[第五天]]></title>
-    <url>%2F2018%2F11%2F09%2F%E7%AC%AC%E4%BA%94%E5%A4%A9%2F</url>
-    <content type="text"><![CDATA[R：可以用ggsave输出图片。12ggplot(df,aes(DMR,number))+geom_bar(stat="identity")ggsave("DMR.tiff",width = 7,height = 14,units = "cm",dpi = 600) 筛选基因，接第四天 Q9S7P5，与共有核苷酸序列5’-TNCGTACAA-3’特异性结合的反式作用因子。Molecular Plant, 拟南芥转录因子SPL1和SPL12赋予植物在生殖阶段的耐热性。Arabidopsis Transcription Factors SPL1 and SPL12 Confer Plant Thermotolerance at Reproductive Stage Q9C6I8 参与60S核糖体亚基的生物发生 AT1G38131 Ai shift + o 调整画布 ctrl + a 调整图像 alt+ctrl+p 修改单位 shift + f8 看图像尺寸 R调颜色还是存eps或pdf]]></content>
-      <tags>
-        <tag>工作</tag>
-        <tag>日常</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[第四天]]></title>
-    <url>%2F2018%2F11%2F08%2F%E7%AC%AC%E5%9B%9B%E5%A4%A9%2F</url>
-    <content type="text"><![CDATA[bismark2bedGraph12345bismark2bedGraph [options] -o &lt;output&gt; [methylation extractor input files]bismark2bedGraph --CX -o methylation_tmp/185.bed # 经测试，后面可以接多个 input files，生成两个压缩文件，一个.gz，甲基化水平，一个bismark.cov.gz，甲基化水平和数目bismark2bedGraph --CX -o 185_C.bed CHG_s185 CpG_s185 后一列是位点 2018-11-08 11:39:23 运行了bismark2bedGraph 筛选基因 Q9S7P5，与共有核苷酸序列5’-TNCGTACAA-3’特异性结合的反式作用因子。Molecular Plant, 拟南芥转录因子SPL1和SPL12赋予植物在生殖阶段的耐热性。Arabidopsis Transcription Factors SPL1 and SPL12 Confer Plant Thermotolerance at Reproductive Stage Q9C6I8 参与60S核糖体亚基的生物发生 AT1G38131 java -jar snpEff.jar 报错原因的可能解决方法java命令执行jar包的方式]]></content>
-      <tags>
-        <tag>工作</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[第三天]]></title>
-    <url>%2F2018%2F11%2F07%2F%E7%AC%AC%E4%B8%89%E5%A4%A9%2F</url>
-    <content type="text"><![CDATA[123456789# 柱形图，组图setwd("C:/Users/Administrator/Desktop/")pdf("barplot1.pdf",width = 18)par(mfrow=c(1,2))barplot(t(b),legend.text = c("CHG","CHH","CpG"),args.legend = list(x="topleft"), main="the distribution of mC",xlab="lines",ylab="number")barplot(t(a),legend.text = c("CHG","CHH","CpG"),args.legend = list(x="topleft"), main="the distribution of mC filtering by binomial test",xlab="lines",ylab="number")dev.off() library(ggplot2)给我链接到了R for data science，我练习了第五章 Data transformation。 ggplot 修改坐标轴的刻度标签theme(axis.text.x = element_text(size = 15)坐标轴标签axis.title.x参考 R studio copy as metafile 即可输出矢量图，局部还是后很粗糙。 实践证明这样做比较好。输出tiff格式，指定分辨率600dpi。显示不了tiff格式图片。 123tiff(filename = "test.tif",width = 18,height = 12,units ="cm",compression="lzw",bg="white",res=600)fpkm&lt;-ggplot(a,aes(Lines, log2(FPKM))) + geom_violin()+theme(axis.text = element_text(size=12),axis.title = element_text(size = 13));fpkmdev.off() 取消显示目录]]></content>
-      <tags>
-        <tag>工作</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[第二天]]></title>
-    <url>%2F2018%2F11%2F06%2F%E7%AC%AC%E4%BA%8C%E5%A4%A9%2F</url>
-    <content type="text"><![CDATA[花时间做了小提琴图，但是没有什么作用。看上去不如之前的箱线图有用。作图策略上有所改进：拿到一个新包，看说明文档，运行示例代码。运行自己的数据。 昨天一个师弟说，分析数据要先有自己的想法。我实在是找不出什么切入点。 厚德载物是什么意思？品德应如大地般厚实可以承载万物。 今天下午和晚上的任务： 整理一星期来分析的东西，把桌面清空 下那篇cell文章 一定把circos图做出来 设置字体大小RGB参考 《乡土日本》：“乡土研究的第一要义是了解平民的过去” 整理之前的shell命令123cd stringtie &amp;&amp; rm -i `ls | grep -v “s”` #反向删除for i in *.txt; do t=`echo $i | cut -d "." -f 1`;sed -i "1c$t" $i; done #改变第一行的值sed -i 's/^ *//g' line.txt #删除行首空格（命令^ *之间有两个空格） 网站设计模板]]></content>
-      <tags>
-        <tag>数据分析</tag>
-        <tag>日常</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[七天决战第一天]]></title>
-    <url>%2F2018%2F11%2F05%2F%E4%B8%83%E5%A4%A9%E5%86%B3%E6%88%98%E7%AC%AC%E4%B8%80%E5%A4%A9%2F</url>
-    <content type="text"><![CDATA[今天，我完成了： 用methylKit成功提取了DMR，输出图形 修改了尹师兄的脚本，可以成功运行，提基因用。没有看具体算法 用输入法打sj，会自动出现时间。以后用hexo写静态博客可以直接打开st写 日常： 中午吃垃圾食物：一个汉堡、没有气的可乐、一包特别咸的薯条 下午三点，尝试了茎尖微芽嫁接，希望能成功 晚上8点到9点这段时间在 kill time，看一些没有具体用处的老新闻。记下一句话，“如果新一代的浙商放弃他们赖以成长的草根意识和创业精神，那么他们之中不可能走出真正的企业家”]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[统计假设的问题]]></title>
-    <url>%2F2018%2F11%2F04%2F%E7%BB%9F%E8%AE%A1%E5%81%87%E8%AE%BE%E7%9A%84%E9%97%AE%E9%A2%98%2F</url>
-    <content type="text"><![CDATA[两尾测验与一尾测验两尾测验的正态离差|miu|大于一尾测验的|miu|。]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[解决Sublime Text 3输入法中输入法不跟随光标移动的问题]]></title>
-    <url>%2F2018%2F11%2F04%2F%E8%A7%A3%E5%86%B3Sublime-Text-3%E8%BE%93%E5%85%A5%E6%B3%95%E4%B8%AD%E8%BE%93%E5%85%A5%E6%B3%95%E4%B8%8D%E8%B7%9F%E9%9A%8F%E5%85%89%E6%A0%87%E7%A7%BB%E5%8A%A8%E7%9A%84%E9%97%AE%E9%A2%98%2F</url>
-    <content type="text"><![CDATA[通过Package Control在线安装：安装Package Control插件（安装方法请自行搜索），通过Install Package选项列出插件列表，搜索IMESupport安装即可。]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[集群上安装DESeq2遇到的困难及解决办法]]></title>
     <url>%2F2018%2F11%2F03%2F%E9%9B%86%E7%BE%A4%E4%B8%8A%E5%AE%89%E8%A3%85DESeq2%E9%81%87%E5%88%B0%E7%9A%84%E5%9B%B0%E9%9A%BE%E5%8F%8A%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95%2F</url>
     <content type="text"><![CDATA[BiocManager::install(“DESeq2”, version = “3.8”)报错，错误内容：configure: WARNING: Only g++ version 4.7.2 or greater can be used with RcppArmadillo.configure: error: Please use a different compiler.ERROR: configuration failed for package ‘RcppArmadillo’ 源码安装gcc参考../configure –prefix=/home02/qizhengyang/packages -enable-checking=release -enable-languages=c,c++ -disable-multilib报错，错误内容：/usr/bin/ld: cannot find -lgfortran 重新安装gcc，增加fortran../configure –prefix=/home02/qizhengyang/packages -enable-checking=release -enable-languages=c,c++,fortran -disable-multilib &amp;&amp; make -j4 &amp;&amp; make install 添加两个libexport LD_LIBRARY_PATH=$HOME/packages/lib64:$LD_LIBRARY_PATHexport LD_LIBRARY_PATH=$HOME/packages/lib:$LD_LIBRARY_PATH BiocManager::install(“DESeq2”, version = “3.8”)成功 备注：configure时间超级长。过程艰辛。还尝试过手动安装RcppArmadillo，失败。.libPaths()“/home02/qizhengyang/packages/R/lib64/R/library”R CMD INSTALL -l /home02/qizhengyang/packages/R/lib64/R/library RcppArmadillo_0.3.6.3.tar.gz]]></content>
@@ -102,19 +51,6 @@
     <title><![CDATA[集群上安装的R包]]></title>
     <url>%2F2018%2F11%2F03%2F%E9%9B%86%E7%BE%A4%E4%B8%8A%E5%AE%89%E8%A3%85%E7%9A%84R%E5%8C%85%2F</url>
     <content type="text"><![CDATA[写了一个R script批量安装。1234567install.packages("devtools",repos="https://mirrors.tuna.tsinghua.edu.cn/CRAN")install.packages("dplyr",repos="https://mirrors.tuna.tsinghua.edu.cn/CRAN")install.packages("BiocManager",repos="https://mirrors.tuna.tsinghua.edu.cn/CRAN")BiocManager::install("ballgown", version = "3.8")BiocManager::install(genefilter", version = "3.8")devtools::install_github('alyssafrazee/RSkittleBrewer')BiocManager::install("methylKit", version = "3.8")]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[JC-肿瘤组学-吴健民]]></title>
-    <url>%2F2018%2F11%2F02%2FJC-%E8%82%BF%E7%98%A4%E7%BB%84%E5%AD%A6-%E5%90%B4%E5%81%A5%E6%B0%91%2F</url>
-    <content type="text"><![CDATA[后面我都在想ballgown分析之后的q-value的问题。有的提问很精彩。 什么样的问题是好的问题？ 定义 交流实验思路 询问细节 统计 相关系数是线性回归里的东西 FDR 是一种对 p-value 进行校正的方法]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[大概是我写的第一个脚本]]></title>
-    <url>%2F2018%2F10%2F31%2F%E5%A4%A7%E6%A6%82%E6%98%AF%E6%88%91%E5%86%99%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E8%84%9A%E6%9C%AC%2F</url>
-    <content type="text"><![CDATA[整理文件夹的时候，发现了2018年三月份写的一个脚本，作用是根据基因ID提取序列 123456789101112131415161718192021222324252627# use gene Id to extract sequenceout = []geneId = input('please input gene ID, seprate in space: ')path = input('please input file path: ')genelist = geneId.split()for gene in genelist: f=open(path) for line in f.readlines(): if line[0] == '&gt;': i = 0 if gene in line: out.append(line) i = 1 else: if i == 1: out.append(line) f.close()outfile=open('result.fa','w+')for line in out: outfile.write(line)outfile.close() # caculate running timeimport timeitstart = timeit.default_timer() stop = timeit.default_timer()print(stop - start)]]></content>
-      <tags>
-        <tag>Python</tag>
-      </tags>
   </entry>
   <entry>
     <title><![CDATA[集群上更新R并安装methylKit]]></title>
@@ -135,145 +71,14 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[R拆分文文件]]></title>
-    <url>%2F2018%2F10%2F28%2FR%E6%8B%86%E5%88%86%E6%96%87%E6%96%87%E4%BB%B6%2F</url>
-    <content type="text"><![CDATA[文件格式是 sample freqC aa 100 aa 23.4 .. .. bb 56 bb 12 本来是打算做成下面的格式： aa bb 23 45 34 32 .. .. 但是发现数据不等长，最终就只是拆分了文件 123456789101112# =======CHGtest&lt;-read.table("CHG_methunit_cov3_merged.DMC.txt",header = T)names&lt;-as.character(unique(test[,1])) #必须将因子转化成字符，不然assign函数报错namesfor (i in 1:length(names)) &#123; a&lt;-subset(test,test[,1] == names[i],select=c(freqC)) assign(names[i],a) #字符串转变量 df.now &lt;- get(names[i]) #获取变量 write.table(df.now, file = paste("CHG_", names[i], ".txt",sep=""),sep='\t',row.names = F)&#125;rm(list=ls())]]></content>
-      <tags>
-        <tag>R</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[十月倒数第二个星期三总结]]></title>
     <url>%2F2018%2F10%2F24%2F%E5%8D%81%E6%9C%88%E5%80%92%E6%95%B0%E7%AC%AC%E4%BA%8C%E4%B8%AA%E6%98%9F%E6%9C%9F%E4%B8%89%E6%80%BB%E7%BB%93%2F</url>
     <content type="text"><![CDATA[抄一篇文章 What does Stack Overflow want to be when it grows up? I sometimes get asked by regular people in the actual real world what it is that I do for a living, and here’s my 15 second answer: We build a sort of Wikipedia website for computer programmers to post questions and answers. It’s called Stack Overflow. As of last month, it’s been 10 years since Joel Spolsky and I started Stack Overflow. I currently do other stuff now, and I have since 2012, but if I will be know for anything when I’m dead, clearly it is going to be good Stack Overflow. Here’s where I’d normally segue into a bunch of rah-rah stuff about how great Stack Overflow is, and thus how implicitly great I am by association for being a founder, and all.]]></content>
   </entry>
   <entry>
-    <title><![CDATA[简单的格式转换，try语句的使用]]></title>
-    <url>%2F2018%2F10%2F23%2F%E7%AE%80%E5%8D%95%E7%9A%84%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2%EF%BC%8Ctry%E8%AF%AD%E5%8F%A5%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
-    <content type="text"><![CDATA[脚本存放 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354#!/usr/bin/python# coding: utf-8# qizhengyang 20181022# 将格式调成methykit支持的格式file = open(&quot;mc.file.txt&quot;,&quot;w&quot;)file.write(&apos;chrBase&apos;+&apos;\t&apos;+&apos;chr&apos;+&apos;\t&apos;+&apos;base&apos;+&apos;\t&apos;+&apos;Strand&apos;+&apos;\t&apos;+&apos;coverage&apos;+&apos;\t&apos;+&apos;freqC&apos;+&apos;\t&apos;+&apos;\t&apos;&apos;freqT&apos;+&apos;\n&apos;)with open(&quot;test.txt&quot;) as mclines: mcfile = [[],[],[],[],[],[],[]] for mcline in mclines: #print(mclines) mcline = mcline.strip().split() if mcline[2] == &apos;+&apos;: mcline[2] = &apos;F&apos; else: mcline[2] = &apos;R&apos; mcfile[0] = mcline[0]+&apos;.&apos;+mcline[1] mcfile[1] = mcline[0] mcfile[2] = mcline[1] mcfile[3] = mcline[2] mcfile[4] = int(mcline[3]) + int(mcline[4]) try: mcfile[5] = round((int(mcline[3]) / mcfile[4])*100,2) except: mcfile[5] = 0.00 try: mcfile[6] = round((int(mcline[4]) / mcfile[4])*100,2) except: mcfile[6] = 0.00 file.write(mcfile[0]+&apos;\t&apos;+mcfile[1]+&apos;\t&apos;+mcfile[2]+&apos;\t&apos;+mcfile[3]+&apos;\t&apos;+str(mcfile[4])+&apos;\t&apos;+str(mcfile[5])+&apos;\t&apos;+str(mcfile[6])+&apos;\n&apos;)file.close() #bismark_methylation_extractor输出格式#scaffold_1 10 + 0 0 CG CGC#scaffold_1 11 - 0 0 CG CGC#scaffold_1 14 + 0 0 CG CGA#scaffold_1 15 - 4 0 CG CGG#scaffold_1 21 + 1 0 CG CGT#scaffold_1 22 - 5 0 CG CGA#scaffold_1 42 + 42 5 CG CGG#scaffold_1 43 - 65 5 CG CGC#methykit supporting format#chrBase chr base Strand coverage freqC freqT#scaffold_1.10 scaffold_1 10 F 0 0.0 0.0#scaffold_1.11 scaffold_1 11 R 0 0.0 0.0#scaffold_1.14 scaffold_1 14 F 0 0.0 0.0#scaffold_1.15 scaffold_1 15 R 4 100.0 0.0#scaffold_1.21 scaffold_1 21 F 1 100.0 0.0#scaffold_1.22 scaffold_1 22 R 5 100.0 0.0#scaffold_1.42 scaffold_1 42 F 47 89.36 10.64#scaffold_1.43 scaffold_1 43 R 70 92.86 7.14]]></content>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[对甲基化位点进行排序]]></title>
-    <url>%2F2018%2F10%2F23%2F%E5%AF%B9%E7%94%B2%E5%9F%BA%E5%8C%96%E4%BD%8D%E7%82%B9%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F%2F</url>
-    <content type="text"><![CDATA[对mC文件分正负链，按位点进行排序。 123456789101112131415161718192021222324252627282930313233343536373839404142#!/usr/bin/python# -*- coding: utf-8 -*-# qizhengyang 20181023# 对甲基化位点信息的文件按位点大小进行排序with open('test.txt') as lines: F_sorting = [] R_sorting = [] all_sorting = [] for line in lines: line = line.strip().split() line[2] = int(line[2]) line = tuple(line) if line[3] == 'F': F_sorting.append(line) else: R_sorting.append(line) F_sorted = sorted(F_sorting, key=lambda s: s[2]) R_sorted = sorted(R_sorting, key=lambda s: s[2]) all_sorted = F_sorted + R_sortedfile_sorted = open('file_sorted.txt','w')for line in all_sorted: line = line[0] + '\t'+ line[1] + '\t'+ str(line[2]) + '\t'+ line[3] + '\t'+ line[4] + '\t' + line[5] + '\t' + line[6] + '\n' file_sorted.write(line)file_sorted.close()# 结果如下# chr1.528 chr1 528 F 4 50.00 50.00# chr1.702 chr1 702 F 8 100.00 0.00# chr1.733 chr1 733 F 7 85.71 14.29# chr1.755 chr1 755 F 3 100.00 0.00# chr1.958 chr1 958 F 10 100.00 0.00# chr1.1111 chr1 1111 F 7 85.71 14.29# chr1.1207 chr1 1207 F 8 100.00 0.00# chr1.1294 chr1 1294 F 7 100.00 0.00# chr1.1333 chr1 1333 F 9 77.78 22.22# chr1.1569 chr1 1569 F 3 100.00 0.00# chr1.1629 chr1 1629 F 5 100.00 0.00# chr1.1668 chr1 1668 F 5 100.00 0.00# chr1.1671 chr1 1671 F 6 66.67 33.33# chr1.1695 chr1 1695 F 3 100.00 0.00]]></content>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[10.18~10.20中期检查PPT内容]]></title>
-    <url>%2F2018%2F10%2F18%2F10-18-10-20%E4%B8%AD%E6%9C%9F%E6%A3%80%E6%9F%A5PPT%E5%86%85%E5%AE%B9%2F</url>
-    <content type="text"><![CDATA[英文关键词： 我需要明确知道的事情：DNA甲基化： 被甲基化的胞嘧啶所占的比列 染色体上甲基化水平的分布 转录组分析（lncRNA文库）： 有多少转录因子基因差异表达，与体细胞胚发生或DNA甲基化相关的转录因子有哪些？ 透射电镜观察愈伤组织的超微结构：（我的材料各系之间没有明显差异!） 物质和能量基础：细胞核大、细胞质浓，富含各类细胞器。 生理隔离：细胞壁加厚。]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[书法作品]]></title>
-    <url>%2F2018%2F10%2F16%2F%E4%B9%A6%E6%B3%95%E4%BD%9C%E5%93%81%2F</url>
-    <content type="text"><![CDATA[几幅书法作品]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[gff3文件提取序列改进版]]></title>
-    <url>%2F2018%2F10%2F16%2Fgff3%E6%96%87%E4%BB%B6%E6%8F%90%E5%8F%96%E5%BA%8F%E5%88%97%E6%94%B9%E8%BF%9B%E7%89%88%2F</url>
-    <content type="text"><![CDATA[将染色体名与序列放在一列 染色体条件判断 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162#!/usr/bin/env python# created on 2018/10/16, Qizhengyang# 处理gff3文件，提取出ID，位置信息等## 建立基因位置信息文件import regene = open('gene.gff3','w')with open('csi.gene.models.gff3','r') as lines: for line in lines: line = line.strip().split('\t') if line[2] == 'gene': line[3] = str(int(line[3]) - 2000) if int(line[3]) &lt; 0: line[3] = str(1) line[4] = str(int(line[4]) + 2000) a = re.search(r'ID=(.*);',line[8]) line[8] = a.group()[3:len(a.group())-1] line1 = line[0] + '\t' + line[8] + '\t' + line[6] + '\t' + line[3] + '\t' + line[4] + '\n' gene.write(line1)gene.close()## 一条染色体当成一行fr = open('csi.chromosome.fa','r')fw = open('csi.chromosome_use.txt','w')line = fr.read()r = line.replace('\n','')s = re.sub('&gt;','\n&gt;',r)s = s[1:]fw.write(s)fr.close()fw.close()## 序列互补def reverse_complement(seq): ntComplement = &#123;'A':'T', 'C':'G', 'T':'A', 'G':'C', 'N':'N'&#125; revSeqList = list(seq) revComSeqList = [ntComplement[k] for k in revSeqList] revComSeq = ''.join(revComSeqList) return revComSeq## 生成基因序列chromosome_use = open('csi.chromosome_use.txt','r')chromosome_use_lines = chromosome_use.readlines()chromosome_use.close()gene_seq = open('gene_seq.fa','w')with open('gene.gff3','r') as lines: for line in lines: line = line.strip().split() for each_chromosome in chromosome_use_lines: if line[0] == each_chromosome[1:len(line[0])+5].strip('ATGC'): start = int(line[3]) + len(line[0]) - 1 end = int(line[4]) + len(line[0]) -1 if line[2] == '+': sequence = each_chromosome[start:(end + 1)].strip() # strip一定要加 else: sequence = each_chromosome[start:(end + 1)][::-1].strip() sequence = reverse_complement(sequence) gene_seq.write('&gt;' + line[1] + '\t' + line[2] + '\n' + sequence + '\n')gene_seq.close()]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[PS实战]]></title>
-    <url>%2F2018%2F10%2F11%2FPS%E5%AE%9E%E6%88%98%2F</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
-    <title><![CDATA[根据gff3文件提取序列]]></title>
-    <url>%2F2018%2F10%2F06%2F%E6%A0%B9%E6%8D%AEgff3%E6%96%87%E4%BB%B6%E6%8F%90%E5%8F%96%E5%BA%8F%E5%88%97%2F</url>
-    <content type="text"><![CDATA[思路： 一条染色体作为一条字符串 gff3文件中有位置信息和正负链信息 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596#!/usr/bin/env python# created on 2018/10/6, Qizhengyang# 处理gff3文件，提取出ID，位置信息等# 建立type = gene的gff3文件gene = open('gene.gff','w')with open('csi.gene.models.gff3','r') as lines: for line in lines: line = line.strip().split('\t',3) if line[2] == 'gene': line1 = line[0] + '\t' + line[1] + '\t' + line[2] + '\t' + line[3] +'\n' gene.write(line1)gene.close()## 每条染色体单独成一个文件 shell# sed -n '2,480014p' csi.chromosome.fa &gt; chr1.txt# sed -n '480016,993966p' csi.chromosome.fa &gt; chr2.txt# sed -n '993968,1472535p' csi.chromosome.fa &gt; chr3.txt# sed -n '1472537,1805088p' csi.chromosome.fa &gt; chr4.txt# sed -n '1805090,2407524p' csi.chromosome.fa &gt; chr5.txt# sed -n '2407526,2760518p' csi.chromosome.fa &gt; chr6.txt# sed -n '2760520,3297270p' csi.chromosome.fa &gt; chr7.txt# sed -n '3297272,3675785p' csi.chromosome.fa &gt; chr8.txt# sed -n '3675787,3983299p' csi.chromosome.fa &gt; chr9.txt# sed -n '3983301,$p' csi.chromosome.fa &gt; chrUn.txt## 修改位置信息，提取出ID，修改格式genePosition = open('genePosition','w')import rewith open('gene.gff','r') as lines: for line in lines: line = line.strip().split() line[3] = str(int(line[3]) - 2000) line[4] = str(int(line[4]) + 2000) a = re.search(r'ID=(.*);',line[8]) line[8] = a.group()[3:len(a.group())-1] line1 = line[8] + '\t' + line[6] + '\t' + line[3] + '\t' + line[4] + '\n' genePosition.write(line1)genePosition.close()## 定义一个函数，求每条染色体的序列def chromesome(filename): chr = '' with open(filename,'r') as lines: for line in lines: line = line.strip() chr += line return chrchr1 = chromesome("chr1.txt")chr2 = chromesome("chr2.txt")chr3 = chromesome("chr3.txt")chr4 = chromesome("chr4.txt")chr5 = chromesome("chr5.txt")chr6 = chromesome("chr6.txt")chr7 = chromesome("chr7.txt")chr8 = chromesome("chr8.txt")chr9 = chromesome("chr9.txt")chrUn = chromesome("chrUn.txt")## ipython下 %run seq.py运行 ## 正负分开 F = open("F.txt","w")with open('genePosition.txt','r') as lines: for line in lines: line = line.strip().split() if line[2] == '+': F.write(line[0] + '\t' + line[1] + '\t' + line[2] + '\t' + line[3] + '\n') F.close()R = open("R.txt","w")with open('genePosition.txt','r') as lines: for line in lines: line = line.strip().split() if line[2] == '-': R.write(line[0] + '\t' + line[1] + '\t' + line[2] + '\t' + line[3] + '\n') R.close() 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899#!/usr/bin/env python# created on 2018/10/6, Qizhengyang# 根据gff3文件提取序列，反义链seqF = open('seqR.txt','w')with open('R.txt','r') as lines: def chromesome(filename): chr = '' with open(filename,'r') as lines: for line in lines: line = line.strip() chr += line return chr chr1 = chromesome("chr1.txt") chr2 = chromesome("chr2.txt") chr3 = chromesome("chr3.txt") chr4 = chromesome("chr4.txt") chr5 = chromesome("chr5.txt") chr6 = chromesome("chr6.txt") chr7 = chromesome("chr7.txt") chr8 = chromesome("chr8.txt") chr9 = chromesome("chr9.txt") chrUn = chromesome("chrUn.txt")# 碱基互补配对 def reverse_complement(seq): ntComplement = &#123;'A':'T', 'C':'G', 'T':'A', 'G':'C', 'N':'N'&#125; revSeqList = list(seq) revComSeqList = [ntComplement[k] for k in revSeqList] revComSeq = ''.join(revComSeqList) return revComSeq for line in lines: line = line.strip().split() if line[0] == 'chr1': start = int(line[3]) - 1 end = int(line[4]) -1 sequence = chr1[start:(end + 1)][::-1] revComSeq = reverse_complement(sequence) seqF.write('&gt;' + line[1] + '\t' + line[2] + '\n' + revComSeq + '\n') elif line[0] == 'chr2': start = int(line[3]) - 1 end = int(line[4]) -1 sequence = chr2[start:(end + 1)] revComSeq = reverse_complement(sequence) seqF.write('&gt;' + line[1] + '\t' + line[2] + '\n' + revComSeq + '\n') elif line[0] == 'chr3': start = int(line[3]) - 1 end = int(line[4]) -1 sequence = chr3[start:(end + 1)] revComSeq = reverse_complement(sequence) seqF.write('&gt;' + line[1] + '\t' + line[2] + '\n' + revComSeq + '\n') elif line[0] == 'chr4': start = int(line[3]) - 1 end = int(line[4]) -1 sequence = chr4[start:(end + 1)] revComSeq = reverse_complement(sequence) seqF.write('&gt;' + line[1] + '\t' + line[2] + '\n' + revComSeq + '\n') elif line[0] == 'chr5': start = int(line[3]) - 1 end = int(line[4]) -1 sequence = chr5[start:(end + 1)] revComSeq = reverse_complement(sequence) seqF.write('&gt;' + line[1] + '\t' + line[2] + '\n' + revComSeq + '\n') elif line[0] == 'chr6': start = int(line[3]) - 1 end = int(line[4]) -1 sequence = chr6[start:(end + 1)] revComSeq = reverse_complement(sequence) seqF.write('&gt;' + line[1] + '\t' + line[2] + '\n' + revComSeq + '\n') elif line[0] == 'chr7': start = int(line[3]) - 1 end = int(line[4]) -1 sequence = chr7[start:(end + 1)] revComSeq = reverse_complement(sequence) seqF.write('&gt;' + line[1] + '\t' + line[2] + '\n' + revComSeq + '\n') elif line[0] == 'chr8': start = int(line[3]) - 1 end = int(line[4]) -1 sequence = chr8[start:(end + 1)] revComSeq = reverse_complement(sequence) seqF.write('&gt;' + line[1] + '\t' + line[2] + '\n' + revComSeq + '\n') elif line[0] == 'chr9': start = int(line[3]) - 1 end = int(line[4]) -1 sequence = chr9[start:(end + 1)] revComSeq = reverse_complement(sequence) seqF.write('&gt;' + line[1] + '\t' + line[2] + '\n' + revComSeq + '\n') else: start = int(line[3]) - 1 end = int(line[4]) -1 sequence = chrUn[start:(end + 1)] revComSeq = reverse_complement(sequence) seqF.write('&gt;' + line[1] + '\t' + line[2] + '\n' + revComSeq + '\n')seqF.close() 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879#!/usr/bin/env python# created on 2018/10/6, Qizhengyang# 根据gff3文件提取序列，正义链seqF = open('seqF.txt','w')with open('F.txt','r') as lines: def chromesome(filename): chr = '' with open(filename,'r') as lines: for line in lines: line = line.strip() chr += line return chr chr1 = chromesome("chr1.txt") chr2 = chromesome("chr2.txt") chr3 = chromesome("chr3.txt") chr4 = chromesome("chr4.txt") chr5 = chromesome("chr5.txt") chr6 = chromesome("chr6.txt") chr7 = chromesome("chr7.txt") chr8 = chromesome("chr8.txt") chr9 = chromesome("chr9.txt") chrUn = chromesome("chrUn.txt") for line in lines: line = line.strip().split() if line[0] == 'chr1': start = int(line[3]) - 1 end = int(line[4]) -1 sequence = chr1[start:(end + 1)] seqF.write('&gt;' + line[1] + '\t' + line[2] + '\n' + sequence + '\n') elif line[0] == 'chr2': start = int(line[3]) - 1 end = int(line[4]) -1 sequence = chr2[start:(end + 1)] seqF.write('&gt;' + line[1] + '\t' + line[2] + '\n' + sequence + '\n') elif line[0] == 'chr3': start = int(line[3]) - 1 end = int(line[4]) -1 sequence = chr3[start:(end + 1)] seqF.write('&gt;' + line[1] + '\t' + line[2] + '\n' + sequence + '\n') elif line[0] == 'chr4': start = int(line[3]) - 1 end = int(line[4]) -1 sequence = chr4[start:(end + 1)] seqF.write('&gt;' + line[1] + '\t' + line[2] + '\n' + sequence + '\n') elif line[0] == 'chr5': start = int(line[3]) - 1 end = int(line[4]) -1 sequence = chr5[start:(end + 1)] seqF.write('&gt;' + line[1] + '\t' + line[2] + '\n' + sequence + '\n') elif line[0] == 'chr6': start = int(line[3]) - 1 end = int(line[4]) -1 sequence = chr6[start:(end + 1)] seqF.write('&gt;' + line[1] + '\t' + line[2] + '\n' + sequence + '\n') elif line[0] == 'chr7': start = int(line[3]) - 1 end = int(line[4]) -1 sequence = chr7[start:(end + 1)] seqF.write('&gt;' + line[1] + '\t' + line[2] + '\n' + sequence + '\n') elif line[0] == 'chr8': start = int(line[3]) - 1 end = int(line[4]) -1 sequence = chr8[start:(end + 1)] seqF.write('&gt;' + line[1] + '\t' + line[2] + '\n' + sequence + '\n') elif line[0] == 'chr9': start = int(line[3]) - 1 end = int(line[4]) -1 sequence = chr9[start:(end + 1)] seqF.write('&gt;' + line[1] + '\t' + line[2] + '\n' + sequence + '\n') else: start = int(line[3]) - 1 end = int(line[4]) -1 sequence = chrUn[start:(end + 1)] seqF.write('&gt;' + line[1] + '\t' + line[2] + '\n' + sequence + '\n')seqF.close() ipython 运行命令 %run R.py cat seqF.txt seqR.txt &gt; all_gene.fagrep ‘30058,30062p’ all_gene.fatar czf all_gene.fa.tar.gz all_gene.fa]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[林书豪]]></title>
-    <url>%2F2018%2F10%2F04%2F%E6%9E%97%E4%B9%A6%E8%B1%AA%2F</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
-    <title><![CDATA[代码整理]]></title>
-    <url>%2F2018%2F09%2F27%2F%E4%BB%A3%E7%A0%81%E6%95%B4%E7%90%86%2F</url>
-    <content type="text"><![CDATA[一些 Linux 命令。12345678910111213## 后台运行nohup command &gt; myout.file 2&gt;&amp;1 &amp;## sam to bamnohup samtools view -bS -o s717-1.bam s717-1.clean_h2_t0_bismark_bt2_pe.sorted.sam &gt; s717-1.out 2&gt;&amp;1 &amp;samtools sort test.bam -o sorted.test.bam## 删除行sed -i &apos;27427009d&apos; s717-1.clean_h2_t0_bismark_bt2_pe.sorted.sam # -i 直接修改## 显示行sed -n &apos;27427009p&apos; s717-1.clean_h2_t0_bismark_bt2_pe.sorted.sam## samtools 建索引samtools index $i## samtools 建bam测试文件samtools view s185-1.clean_h2_t0_bismark_bt2_pe.sorted.bam | head -n1000 &gt; test.bam 12## 查文件grep 正则表达式ll | grep &apos;.*\.[o,e][0-9][0-9]*&apos; # [o,e]+数字 chmod 755 file.R./file.R #这种方式下，把file.R改为file.sh或file …，在Ubuntu下都能运行 如果你用 python xxoo.py 来运行，那么写不写都没关系，如果要用 ./xxoo.py 那么就必须加这行，这行被称为 shebang, 用来为脚本语言指定解释器.通常认为用 #!/usr/bin/env python 要比 #!/usr/bin/python 更好，因为 python 解释器有时并不安装在默认路径，例如在 virtualenv 中。 getwd()[1] “/home02/qizhengyang/methSAM”dir() [1] “185sort.e797100” [2] “bam” [3] “myplot.jpeg”]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[blast自动化]]></title>
-    <url>%2F2018%2F09%2F20%2Fblast%E8%87%AA%E5%8A%A8%E5%8C%96%2F</url>
-    <content type="text"><![CDATA[1234567891011121314151617181920212223242526272829303132333435363738394041424344#!/usr/bin/env python# -*- coding: utf-8 -*-"""Created on Thu Sep 20 20:49:38 2018description:"""#%%生成gene-annotation文件#anno = &#123;&#125;#with open('csi.gene.annotation.txt','r') as lines:# for line in lines:# line = line.split('\t')# id = line[0][::-1].split('.',1)[1][::-1] + '\t'# anno[id] = line[1]# # with open('csi.gene.annotation.output.txt','a') as output:# for id, annot in anno.items():# output.write(id + annot)#%%import sysdef produceDict(filename): annot = &#123;&#125; with open(filename,'r') as f: for line in f: line = line.strip().split('\t') id = line[0] annot[id] = line[1] return annotannot = produceDict(sys.argv[1])IDs = open(sys.argv[2],'r')OUT = open(sys.argv[3],'w')# 此处不能反斜杠换行，否则会有空格OUT.write('query\tsubject\tdescription\t% identity\talignment length\tmismatches\tgap opens\tq. start\tq. end\ts. start\ts. end\tevalue\tbit score\n')for line in IDs: if line.startswith('#'): continue line = line.strip().split('\t',2) id = line[1] try: OUT.write(line[0] + '\t' + id + '\t' + annot[id] + '\t' +line[2]+ '\n') except KeyError: OUT.write(line[0] + '\t' + id + '\t' + '' + '\t' +line[2]+ '\n') print("warning: can't find gene: " + id)IDs.close()OUT.close() 用法： python annot.py csi.gene.annotation.output.txt feng.txt final.txt]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[TAIR ID to entrez ID]]></title>
-    <url>%2F2018%2F09%2F20%2FTAIR-ID-to-entrez-ID%2F</url>
-    <content type="text"><![CDATA[David gene ID conversion]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[today]]></title>
-    <url>%2F2018%2F09%2F19%2Ftoday%2F</url>
-    <content type="text"><![CDATA[reference gene list的选择 网络图讲故事 谷歌搜索”big data AND visualization” 探索单个主体的关联网络 查找关键角色这是我想要做的 划清敌友界限 探索关联网络的变化 揭示隐藏的关系]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[R富集泡泡图]]></title>
-    <url>%2F2018%2F09%2F17%2FR%E5%AF%8C%E9%9B%86%E6%B3%A1%E6%B3%A1%E5%9B%BE%2F</url>
-    <content type="text"><![CDATA[12345678910111213141516171819202122232425df&lt;-read.csv("GoTerm.csv",header = T)colnames(df)[1]&lt;-"Description"df$GeneRatio&lt;-df$Number.in.input.list/df$Number.in.BG.Refsortdf&lt;-df[order(df$GeneRatio),]sortdf$Description&lt;-factor(sortdf$Description,levels = sortdf$Description)library(ggplot2)pl&lt;-ggplot(sortdf,aes(GeneRatio,Description, colour=p.value))+#横坐标、纵坐标、颜色代表p-value geom_point(aes(size=Number.in.input.list))+#圆点的大小代表组内基因数 scale_color_gradientn(colours=c("red","yellow"))+#可以自己改颜色 #圆点的大小代表Number of significant genes scale_size_continuous(range = c(2,8.2))+#圆点的大小范围 scale_x_continuous(limits = c(0.04,0.21))+#设置x轴范围 theme_bw(15)+#背景变成白色 ylab("")+ theme(legend.position=c(1,0),legend.justification = c(1,0), legend.title=element_text(size=14), legend.text=element_text(size=9),legend.box = "horizontal")+#legend画在右下角 #下面两行让legend融入图 theme(legend.background = element_blank())+#移除legend整体的边框 theme(legend.key = element_blank())#移除legend每个项目周围的边框pl## Rstudio保存 width=1100 higth=800 svg]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[从blastp中提取同源的拟南芥AT号]]></title>
-    <url>%2F2018%2F09%2F17%2F%E4%BB%8Eblastp%E4%B8%AD%E6%8F%90%E5%8F%96%E5%90%8C%E6%BA%90%E7%9A%84%E6%8B%9F%E5%8D%97%E8%8A%A5AT%E5%8F%B7%2F</url>
-    <content type="text"><![CDATA[1234567891011121314151617181920212223242526272829303132#!/usr/bin/env python# -*- coding: utf-8 -*-"""Created on Mon Sep 17 15:53:15 2018description: csi to AT"""import sysUSAGE = "\nusage: python %s sequences.fasta id_list out.fasta\n" % sys.argv[0]if len(sys.argv) != 4: print(USAGE) sys.exit()def parseBlastp(filename): csi_at = &#123;&#125; with open(filename, 'r') as fh: for line in fh: query = line.split()[1][::-1].split(".",1)[1][::-1] at = line.split()[5][6:] csi_at[query] = at return csi_atcsi_at = parseBlastp(sys.argv[1])IDs = open(sys.argv[2], 'r')OUT = open(sys.argv[3], 'w')for line in IDs: id = line.rstrip("\n") try: OUT.write(id + "\t" + csi_at[id] + "\n") except KeyError: print("Warning: can't find gene: " + id) IDs.close()OUT.close()]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[常用Linux命令]]></title>
-    <url>%2F2018%2F09%2F13%2F%E5%B8%B8%E7%94%A8Linux%E5%91%BD%E4%BB%A4%2F</url>
-    <content type="text"><![CDATA[free -g # 内存ls -lhdf -h #磁盘]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[热图]]></title>
-    <url>%2F2018%2F09%2F13%2F%E7%83%AD%E5%9B%BE%2F</url>
-    <content type="text"><![CDATA[又一次义务劳动1234567891011121314library(gplots)data &lt;- read.csv("121.csv",header = T)heat_data &lt;- as.matrix(data[,2:length(data)])library(showtext)setEPS()postscript("moxq1.eps", width = 15, height = 7)showtext_begin()# cexRow cexCol调labelheatmap.2(heat_data,col = greenred, trace = "none", density.info = "none", key.ylab = '', key.xlab = '', labRow = as.character(data[,1]) , scale = 'column', dendrogram = 'both', keysize = 1.0, srtRow = 315,cexRow = 0.8,srtCol=35,cexCol=0.8)showtext_end()dev.off() 之后用Adobe Illustrator CC 2018]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[顶级风险投资机构的日常]]></title>
-    <url>%2F2018%2F09%2F12%2F%E9%A1%B6%E7%BA%A7%E9%A3%8E%E9%99%A9%E6%8A%95%E8%B5%84%E6%9C%BA%E6%9E%84%E7%9A%84%E6%97%A5%E5%B8%B8%2F</url>
-    <content type="text"><![CDATA[对冲基金 一万多家VC 钱市场上有的是股权投资 二级市场投资发现项目、找到项目研究 出差]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[由Id提取Seq]]></title>
-    <url>%2F2018%2F09%2F10%2F%E7%94%B1Id%E6%8F%90%E5%8F%96Seq%2F</url>
-    <content type="text"><![CDATA[今天没午睡，没午睡，没有睡意。无法确定的印象如同海上漂浮的物体。为什么会惧怕它下沉？无法与现有的知识体系（日常经验）/行为方式/想象建立起联系。Transfer IDs by BLAST Job ID: 761094389 字符串反转 正则表达式（没有实质性的了解） 异常处理 字典，键重复，值为最后一个1234567891011121314151617181920212223242526272829303132333435363738#!/usr/bin/env python# -*- coding: utf-8 -*-"""Created on Mon Sep 10 20:03:51 2018description: 提取指定ID的序列"""import sysUSAGE = "\nusage: python %s sequences.fasta id_list out.fasta\n" % sys.argv[0]if len(sys.argv) != 4: print(USAGE) sys.exit()def parseFasta(filename): fas = &#123;&#125; id = None with open(filename, 'r') as fh: for line in fh: if line[0] == '&gt;': header = line[1:].rstrip() # 反转，设置最大分割，再反转 id = header[::-1].split(".",1)[1][::-1] fas[id] = [] else: fas[id].append(line.rstrip()) for id, seq in fas.items(): fas[id] = ''.join(seq) return fasfas = parseFasta(sys.argv[1])IDs = open(sys.argv[2], 'r')OUT = open(sys.argv[3], 'w')for line in IDs: id = line.rstrip("\n") try: OUT.write("&gt;" + id + "\n" + fas[id] + "\n") except KeyError: print("Warning: can't find gene: " + id) IDs.close()OUT.close() 用法：python extract_seqs_by_ids.py csi.peptide.fa id_list.txt out.fa 感谢]]></content>
-      <tags>
-        <tag>bioinfo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[PPT 快捷键]]></title>
-    <url>%2F2018%2F09%2F06%2FPPT-%E5%BF%AB%E6%8D%B7%E9%94%AE%2F</url>
-    <content type="text"><![CDATA[1、快速复制幻灯片或者图片文字选中复制对象 –→ Ctrl+D 2、垂直、水平方向移动图片文字选中移动对象 –→ 按住Shift 3、快速复制并移动图片文字选中复制对象 –→ 按住Ctrl + 按住鼠标左键进行拖动 参考线又是可以灵活移动的 4、绘制正方形正圆正三角形等选择图形工具 –→ 按住Shift –→ 拖动鼠标加上Ctrl，可以以鼠标为中心绘制图形； 5、等比例放大缩小图片选中操作对象 –→ 按住Shift –→ 拖动图片四个顶点处的控点也可以加上Ctrl，以图片为中心等比列放大缩小； 6、关于线段的伸长缩小选中对象 –→ 按住Shift –→ 拖动控点可以避免伸缩线段时更改线段的角度问题； 7、微调图片文字位置不知道大家有没有发现，平时在拖动对象时，都是一跳一跳的，很难很精准的把他们放在一个合适的位置上，解决办法：选中对象 –→ 按住Alt –→ 鼠标拖动同样在绘制图形或者放大缩小图片时也可按住Alt微调； 8、键盘调整图片大小位置（微调图片位置）选中对象 –→ 按住Ctrl –→ 上下左右方向键（微调图片大小）选中对象 –→ 按住Ctrl+Shift –→ 上下左右方向键（微调图片角度）选中对象 –→ 按住Ctrl+Alt –→ 左右方向键 9、图形文字组合选中对象 –→ Ctrl+G 10、解除组合选中对象 –→ Ctrl+Shift+G]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[Sep-5]]></title>
-    <url>%2F2018%2F09%2F05%2FSep-5%2F</url>
-    <content type="text"><![CDATA[批量修改文件名1for files in `ls`; do mv $files &quot;MCK&quot;$files; done 1du -sh foo # 查看目录大小 我将文件夹加了MCK前缀，gtf文件也加了MCK前缀。]]></content>
-      <tags>
-        <tag>linux</tag>
-        <tag>任务</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[windows blast+]]></title>
     <url>%2F2018%2F09%2F04%2Fwindows-blast%2B%2F</url>
     <content type="text"><![CDATA[下载网址ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/双击exe文件即可，安装程序会自动设置环境变量。blastn -version 查看版本信息]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[Bash 逻辑组合]]></title>
-    <url>%2F2018%2F09%2F04%2FBash-%E9%80%BB%E8%BE%91%E7%BB%84%E5%90%88%2F</url>
-    <content type="text"><![CDATA[command1 &amp;&amp; command2 前者执行成功执行后者command1 &amp;&amp; command2 前者执行失败执行后者]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[Python 文件读写]]></title>
-    <url>%2F2018%2F09%2F04%2FPython-%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99%2F</url>
-    <content type="text"><![CDATA[Python处理文本123456提取文件中特定列with open("s717-2_CHH.filter.txt") as f: for line in f: list = line.rstrip().split() with open("s717-2_CHH.txt", "a") as out: out.write('%s\t%s\t%s\n'%(list[1], list[2], list[2])) 123增加一行sed -i &apos;1i chrom\tchromStart\tchromEnd&apos; output1.txt #上一行sed -i &apos;1a chrom\tchromStart\tchromEnd&apos; output1.txt #下一行]]></content>
   </entry>
   <entry>
     <title><![CDATA[Sep-3]]></title>
@@ -284,16 +89,6 @@
     <title><![CDATA[Aug-31]]></title>
     <url>%2F2018%2F08%2F31%2FAug-31%2F</url>
     <content type="text"><![CDATA[单击鼠标会使神经麻木。如果结果没有变化，我无法确定是否正确执行了某一步操作。]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[Aug-30]]></title>
-    <url>%2F2018%2F08%2F30%2FAug-30%2F</url>
-    <content type="text"><![CDATA[昨天，我给人分享了Adobe cc 2018。里面有三个软件，分别是ps, ai, lr。但是我想是否当时的链接网盘里还要其他的软件，比如Pr。我是通过一个微信公众号获取的网盘链接，是不是叫“学苑君”，我记得我不太喜欢这个公众号，因为它分享的资料很大、很杂，它是一个网络搜集者。我重新关注过这个公众号，一切都很像，但是我怎么能确定确实是这个公众号？演绎和归纳，是两种数学证明的方式。我害怕的是失去渠道。 我用搜狗微信搜索“adobe acrobat reader”，得到这个链接Adobe Acrobat Pro 2017破解教程 能用！但是我的账户名（一打开就有）为什么是qi zhengyangさん（先生）,掺杂日语平假名。]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[处理BS数据]]></title>
-    <url>%2F2018%2F08%2F29%2F%E5%A4%84%E7%90%86BS%E6%95%B0%E6%8D%AE%2F</url>
-    <content type="text"><![CDATA[用亚硫酸氢盐处理DNA之后，the vast majority of 未被甲基化的C会以T的形式出现，whereas 甲基化的C largely protected from bisulphite-induced conversion。 to culculate absolute DNA methylation levels from bisulphite-sequencing data，sequencing reads are aligned to the positions in the reference genome from which they were most likely to be derived, and the percentage of Cs and Ts are determined among all reads aligned to each C in the genomic DNA sequence.]]></content>
   </entry>
   <entry>
     <title><![CDATA[DNA甲基化与自闭症]]></title>
@@ -312,7 +107,7 @@
   </entry>
   <entry>
     <title><![CDATA[《局外人》的主旨]]></title>
-    <url>%2F2018%2F08%2F17%2F%E3%80%8A%E5%B1%80%E5%A4%96%E4%BA%BA%E3%80%8B%E7%9A%84%E4%B8%BB%E6%97%A8%2F</url>
+    <url>%2F2018%2F08%2F17%2F%E5%B1%80%E5%A4%96%E4%BA%BA%E4%B8%BB%E6%97%A8%2F</url>
     <content type="text"><![CDATA[1937年8月一个男人，在人们通常视为人生大事的地方（婚姻、社会地位等等）寻找人生，然后某天在翻阅一本时装目录的时候，突然了解到他对自己人生亦即时装目录上鼓吹的那种人生是何其无所谓。]]></content>
   </entry>
   <entry>
@@ -325,13 +120,8 @@
   </entry>
   <entry>
     <title><![CDATA[《非洲的青山》]]></title>
-    <url>%2F2018%2F07%2F14%2F%E3%80%8A%E9%9D%9E%E6%B4%B2%E7%9A%84%E9%9D%92%E5%B1%B1%E3%80%8B%2F</url>
+    <url>%2F2018%2F07%2F14%2F%E9%9D%9E%E6%B4%B2%E7%9A%84%E9%9D%92%E5%B1%B1%2F</url>
     <content type="text"><![CDATA[第四章，“乔伊斯中等身高，他把眼睛用坏了。在那最后一晚，喝醉了，和乔伊斯在一起，他不断引用埃德加·基内的话：‘思维清晰、生命绚丽如战争时一样。’我知道我没有把这句话彻底弄清楚。等你见到他，他会提到三年前被打断的谈话。能见到我们这个时代伟大的作家真让人高兴。”这段话越发让我觉得我看的不是一部小说。 查了维基百科 Green Hills of Africa is a 1935 work of nonfiction by American writer Ernest Hemingway.]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[本地BLAST]]></title>
-    <url>%2F2018%2F07%2F14%2F%E6%9C%AC%E5%9C%B0BLAST%2F</url>
-    <content type="text"><![CDATA[12345678# 文档末尾换行，行首添加"&gt;XX"for dir in `ls`; do echo &gt;&gt; $dir; sed -i "1i&gt;$&#123;dir%%_*&#125;" $dir; done# 合并，去除空行cat * &gt; tmp.fa &amp;&amp; grep -v '^$' tmp.fa &gt; seq.fa &amp;&amp; rm tmp.fa# 2018/8/17for i in `ls`; do t=` echo $i | cut -d "_" -f 1,2`; sed "1i&gt;$t" -i $i; done# 2018/9/4grep '^$' seq.fa | wc -l # 查看文件是否有空行 12makeblastdb -in csi.gene.fa -dbtype nuclblastn -query seq.fa -db csi.gene.fa -out output.txt -evalue 10 -outfmt 7 添加注释用vlookup函数。]]></content>
   </entry>
   <entry>
     <title><![CDATA[hexo]]></title>

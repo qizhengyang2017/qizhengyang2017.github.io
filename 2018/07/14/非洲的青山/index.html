@@ -108,25 +108,24 @@
 
 
 
-  <meta name="description" content="更改了一下之前的trimmatic脚本">
-<meta name="keywords" content="Linux,软件">
+  <meta name="description" content="第四章，“乔伊斯中等身高，他把眼睛用坏了。在那最后一晚，喝醉了，和乔伊斯在一起，他不断引用埃德加·基内的话：‘思维清晰、生命绚丽如战争时一样。’我知道我没有把这句话彻底弄清楚。等你见到他，他会提到三年前被打断的谈话。能见到我们这个时代伟大的作家真让人高兴。”这段话越发让我觉得我看的不是一部小说。 查了维基百科  Green Hills of Africa is a 1935 work of non">
 <meta property="og:type" content="article">
-<meta property="og:title" content="trimmatic使用">
-<meta property="og:url" content="http://yoursite.com/2018/10/30/trimmatic使用/index.html">
+<meta property="og:title" content="《非洲的青山》">
+<meta property="og:url" content="http://yoursite.com/2018/07/14/非洲的青山/index.html">
 <meta property="og:site_name" content="Qizhengyang">
-<meta property="og:description" content="更改了一下之前的trimmatic脚本">
+<meta property="og:description" content="第四章，“乔伊斯中等身高，他把眼睛用坏了。在那最后一晚，喝醉了，和乔伊斯在一起，他不断引用埃德加·基内的话：‘思维清晰、生命绚丽如战争时一样。’我知道我没有把这句话彻底弄清楚。等你见到他，他会提到三年前被打断的谈话。能见到我们这个时代伟大的作家真让人高兴。”这段话越发让我觉得我看的不是一部小说。 查了维基百科  Green Hills of Africa is a 1935 work of non">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-10-30T10:16:14.073Z">
+<meta property="og:updated_time" content="2018-08-27T11:19:13.702Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="trimmatic使用">
-<meta name="twitter:description" content="更改了一下之前的trimmatic脚本">
+<meta name="twitter:title" content="《非洲的青山》">
+<meta name="twitter:description" content="第四章，“乔伊斯中等身高，他把眼睛用坏了。在那最后一晚，喝醉了，和乔伊斯在一起，他不断引用埃德加·基内的话：‘思维清晰、生命绚丽如战争时一样。’我知道我没有把这句话彻底弄清楚。等你见到他，他会提到三年前被打断的谈话。能见到我们这个时代伟大的作家真让人高兴。”这段话越发让我觉得我看的不是一部小说。 查了维基百科  Green Hills of Africa is a 1935 work of non">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/30/trimmatic使用/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/14/非洲的青山/"/>
 
 
 
@@ -136,7 +135,7 @@
   };
 </script>
 
-  <title>trimmatic使用 | Qizhengyang</title>
+  <title>《非洲的青山》 | Qizhengyang</title>
   
 
 
@@ -328,7 +327,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/30/trimmatic使用/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/14/非洲的青山/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -345,7 +344,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">trimmatic使用
+          <h1 class="post-title" itemprop="name headline">《非洲的青山》
               
             
           </h1>
@@ -370,12 +369,24 @@
                 
               
 
-              <time title="Created: 2018-10-30 09:04:01 / Modified: 18:16:14" itemprop="dateCreated datePublished" datetime="2018-10-30T09:04:01+08:00">2018-10-30</time>
+              <time title="Created: 2018-07-14 11:37:06" itemprop="dateCreated datePublished" datetime="2018-07-14T11:37:06+08:00">2018-07-14</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-08-27 19:19:13" itemprop="dateModified" datetime="2018-08-27T19:19:13+08:00">2018-08-27</time>
               
             
           </span>
@@ -408,10 +419,11 @@
       
 
       
-        <p>更改了一下之前的trimmatic脚本<br><a id="more"></a> </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#PBS -N trim</span></span><br><span class="line"><span class="comment">#PBS -l nodes=2:ppn=10</span></span><br><span class="line"><span class="comment">#PBS -q high</span></span><br><span class="line"></span><br><span class="line">ho=/home02/qizhengyang/rna_work_place/rna_data</span><br><span class="line"><span class="built_in">cd</span> <span class="variable">$ho</span></span><br><span class="line">dir=<span class="variable">$ho</span>/trim_result</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> *R1.fq.gz</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">  java -jar ~/softwares/Trimmomatic-0.38/trimmomatic-0.38.jar PE -threads 20 -phred33 \</span><br><span class="line">  <span class="variable">$i</span> <span class="variable">$&#123;i/R1/R2&#125;</span> -baseout <span class="variable">$&#123;i/_R1/&#125;</span> ILLUMINACLIP:/home02/qizhengyang/softwares/Trimmomatic-0.38/adapters/TruSeq3-PE.fa:2:30:10 LEADING:3 \</span><br><span class="line">  TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
-<p>[qizhengyang@node1 rna_data]$ i=”abd”<br>[qizhengyang@node1 rna_data]$ echo $icde</p>
-<p>[qizhengyang@node1 rna_data]$ echo ${i}cde<br>abdcde<br>[qizhengyang@node1 rna_data]$ echo $i”cde”<br>abdcde</p>
+        <p>第四章，“乔伊斯中等身高，他把眼睛用坏了。在那最后一晚，喝醉了，和乔伊斯在一起，他不断引用埃德加·基内的话：‘思维清晰、生命绚丽如战争时一样。’我知道我没有把这句话彻底弄清楚。等你见到他，他会提到三年前被打断的谈话。能见到我们这个时代伟大的作家真让人高兴。”<br>这段话越发让我觉得我看的不是一部小说。</p>
+<p>查了维基百科</p>
+<blockquote>
+<p><em>Green Hills of Africa</em> is a 1935 work of nonfiction by American writer Ernest Hemingway.</p>
+</blockquote>
 
       
     </div>
@@ -430,14 +442,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Linux/" rel="tag"># Linux</a>
-          
-            <a href="/tags/软件/" rel="tag"># 软件</a>
-          
-        </div>
-      
 
       
       
@@ -447,8 +451,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/24/十月倒数第二个星期三总结/" rel="next" title="十月倒数第二个星期三总结">
-                <i class="fa fa-chevron-left"></i> 十月倒数第二个星期三总结
+              <a href="/2018/07/13/hexo/" rel="next" title="hexo">
+                <i class="fa fa-chevron-left"></i> hexo
               </a>
             
           </div>
@@ -457,8 +461,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/10/31/集群上安装R/" rel="prev" title="集群上更新R并安装methylKit">
-                集群上更新R并安装methylKit <i class="fa fa-chevron-right"></i>
+              <a href="/2018/07/21/anaconda创建不同的运行环境/" rel="prev" title="anaconda创建不同的运行环境">
+                anaconda创建不同的运行环境 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
