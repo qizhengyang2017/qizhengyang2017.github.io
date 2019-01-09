@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[统计]]></title>
+    <url>%2F2019%2F01%2F08%2Ftest%2F</url>
+    <content type="text"><![CDATA[In the one sample case the distribution under the null hypothesis is a central t with n-1 degrees of freedom. In the two sample cases with sample sizes n and m not necessarily equal the null distribution of the test statistics is t with n+m-2 degrees of freedom. The increased variability due to low sample size is accounted for in the distribution which has heavier tails when the degrees of freedom is low which corresponds to a low sample size. So critical values can be found for the test statistic to have a given significance level for any sample size (well, at least of size 2 or larger). https://stats.stackexchange.com/questions/37993/is-there-a-minimum-sample-size-required-for-the-t-test-to-be-valid结论就是t检验没有最低样本容量要求，大于或等于二就可以。 1dsfa 2东发给]]></content>
+      <tags>
+        <tag>统计</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[统计]]></title>
+    <url>%2F2019%2F01%2F08%2Flinux%E6%93%8D%E4%BD%9C%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95%2F</url>
+    <content type="text"><![CDATA[In the one sample case the distribution under the null hypothesis is a central t with n-1 degrees of freedom. In the two sample cases with sample sizes n and m not necessarily equal the null distribution of the test statistics is t with n+m-2 degrees of freedom. The increased variability due to low sample size is accounted for in the distribution which has heavier tails when the degrees of freedom is low which corresponds to a low sample size. So critical values can be found for the test statistic to have a given significance level for any sample size (well, at least of size 2 or larger). https://stats.stackexchange.com/questions/37993/is-there-a-minimum-sample-size-required-for-the-t-test-to-be-valid结论就是t检验没有最低样本容量要求，大于或等于二就可以。]]></content>
+      <tags>
+        <tag>统计</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[SF felt like the Mecca of tech, but also the center of capitalism]]></title>
     <url>%2F2019%2F01%2F05%2FSF%2F</url>
     <content type="text"><![CDATA[There is a lot of money, but not a lot of wealth？ 该怎么翻译？]]></content>
