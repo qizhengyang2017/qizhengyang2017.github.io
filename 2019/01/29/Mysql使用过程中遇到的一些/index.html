@@ -108,25 +108,32 @@
 
 
 
-  <meta name="description" content="In the one sample case the distribution under the null hypothesis is a central t with n-1 degrees of freedom. In the two sample cases with sample sizes n and m not necessarily equal the null distribu">
-<meta name="keywords" content="统计">
+  <meta name="description" content="blast2go本地化需要用到mysql，操作系统Centos 7。 1. 卸载之前的mysql之前的版本是mysql5.6，想要更新到mysql5.7。  查看mysql安装了哪些东西。 1rpm -qa |grep -i mysql   开始卸载 1yum remove XXX   查看卸载是否完成  查找mysql相关目录 1find / -name mysql   删除相关目录 123rm">
+<meta name="keywords" content="Mysql">
 <meta property="og:type" content="article">
-<meta property="og:title" content="统计">
-<meta property="og:url" content="http://yoursite.com/2019/01/08/统计/index.html">
+<meta property="og:title" content="Mysql使用过程中遇到的一些问题">
+<meta property="og:url" content="http://yoursite.com/2019/01/29/Mysql使用过程中遇到的一些/index.html">
 <meta property="og:site_name" content="Qizhengyang">
-<meta property="og:description" content="In the one sample case the distribution under the null hypothesis is a central t with n-1 degrees of freedom. In the two sample cases with sample sizes n and m not necessarily equal the null distribu">
+<meta property="og:description" content="blast2go本地化需要用到mysql，操作系统Centos 7。 1. 卸载之前的mysql之前的版本是mysql5.6，想要更新到mysql5.7。  查看mysql安装了哪些东西。 1rpm -qa |grep -i mysql   开始卸载 1yum remove XXX   查看卸载是否完成  查找mysql相关目录 1find / -name mysql   删除相关目录 123rm">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-01-10T08:36:28.178Z">
+<meta property="og:image" content="http://yoursite.com/images/mysql/rpmcheck.PNG">
+<meta property="og:image" content="http://yoursite.com/images/mysql/remove.PNG">
+<meta property="og:image" content="http://yoursite.com/images/mysql/find.PNG">
+<meta property="og:image" content="http://yoursite.com/images/mysql/install.PNG">
+<meta property="og:image" content="http://yoursite.com/images/mysql/password%27.PNG">
+<meta property="og:image" content="http://yoursite.com/images/mysql/sql_mode.PNG">
+<meta property="og:updated_time" content="2019-01-29T15:08:22.415Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="统计">
-<meta name="twitter:description" content="In the one sample case the distribution under the null hypothesis is a central t with n-1 degrees of freedom. In the two sample cases with sample sizes n and m not necessarily equal the null distribu">
+<meta name="twitter:title" content="Mysql使用过程中遇到的一些问题">
+<meta name="twitter:description" content="blast2go本地化需要用到mysql，操作系统Centos 7。 1. 卸载之前的mysql之前的版本是mysql5.6，想要更新到mysql5.7。  查看mysql安装了哪些东西。 1rpm -qa |grep -i mysql   开始卸载 1yum remove XXX   查看卸载是否完成  查找mysql相关目录 1find / -name mysql   删除相关目录 123rm">
+<meta name="twitter:image" content="http://yoursite.com/images/mysql/rpmcheck.PNG">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/01/08/统计/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/01/29/Mysql使用过程中遇到的一些/"/>
 
 
 
@@ -136,7 +143,7 @@
   };
 </script>
 
-  <title>统计 | Qizhengyang</title>
+  <title>Mysql使用过程中遇到的一些问题 | Qizhengyang</title>
   
 
 
@@ -328,7 +335,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/08/统计/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/29/Mysql使用过程中遇到的一些/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -345,7 +352,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">统计
+          <h1 class="post-title" itemprop="name headline">Mysql使用过程中遇到的一些问题
               
             
           </h1>
@@ -370,24 +377,12 @@
                 
               
 
-              <time title="Created: 2019-01-08 23:46:09" itemprop="dateCreated datePublished" datetime="2019-01-08T23:46:09+08:00">2019-01-08</time>
+              <time title="Created: 2019-01-29 22:55:40 / Modified: 23:08:22" itemprop="dateCreated datePublished" datetime="2019-01-29T22:55:40+08:00">2019-01-29</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-01-10 16:36:28" itemprop="dateModified" datetime="2019-01-10T16:36:28+08:00">2019-01-10</time>
               
             
           </span>
@@ -420,30 +415,67 @@
       
 
       
-        <blockquote>
-<p>In the one sample case the distribution under the null hypothesis is a central t with n-1 degrees of freedom. In the two sample cases with sample sizes n and m not necessarily equal the null distribution of the test statistics is t with n+m-2 degrees of freedom. The increased variability due to low sample size is accounted for in the distribution which has heavier tails when the degrees of freedom is low which corresponds to a low sample size. So critical values can be found for the test statistic to have a given significance level for any sample size (well, <strong>at least of size 2 or larger</strong>). </p>
-</blockquote>
-<p><a href="https://stats.stackexchange.com/questions/37993/is-there-a-minimum-sample-size-required-for-the-t-test-to-be-valid" target="_blank" rel="noopener">https://stats.stackexchange.com/questions/37993/is-there-a-minimum-sample-size-required-for-the-t-test-to-be-valid</a><br>结论就是t检验没有最低样本容量要求，大于或等于二就可以。</p>
-<p>缩进四个空格显示代码块,直接展示链接不需要尖括号。<br><a href="https://laravel-china.org/topics/621/you-will-be-able-to-master-these-markdown-grammars" target="_blank" rel="noopener">https://laravel-china.org/topics/621/you-will-be-able-to-master-these-markdown-grammars</a></p>
-<pre><code>def read_fasta(fastafile):
-ids = []
-seqs = []
-f = open(fastafile)
-seq = &apos;&apos;
-for line in f:
-    line = line.strip()
-    if line.startswith(&apos;&gt;&apos;):
-        ids.append(line[1:])
-        if seq:
-            seqs.append(seq)
-            seq = &apos;&apos;
-    else:
-        seq += line.upper()
-seqs.append(seq)
-return ids, seqs
-</code></pre><p>inkscape<br>ctrl shift d 页大小与内容相匹配</p>
-<p>我在PPT中调了差异基因数目</p>
-<p>PPT表格文字之间的间距与文字大小有关</p>
+        <p>blast2go本地化需要用到mysql，操作系统Centos 7。</p>
+<h2 id="1-卸载之前的mysql"><a href="#1-卸载之前的mysql" class="headerlink" title="1. 卸载之前的mysql"></a>1. 卸载之前的mysql</h2><p>之前的版本是mysql5.6，想要更新到mysql5.7。</p>
+<ol>
+<li><p>查看mysql安装了哪些东西。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa |grep -i mysql</span><br></pre></td></tr></table></figure>
+<p><img src="\images\mysql\rpmcheck.PNG" alt=""></p>
+</li>
+<li><p>开始卸载</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum remove XXX</span><br></pre></td></tr></table></figure>
+<p><img src="\images\mysql\remove.PNG" alt=""></p>
+</li>
+<li><p>查看卸载是否完成</p>
+</li>
+<li><p>查找mysql相关目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find / -name mysql</span><br></pre></td></tr></table></figure>
+<p><img src="\images\mysql\find.PNG" alt=""></p>
+</li>
+<li><p>删除相关目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rm -rf XXX</span><br><span class="line">rm -rf /etc/my.cnf</span><br><span class="line">rm -rf rm -rf /var/log/mysqld.log</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="2-安装Mysql5-7"><a href="#2-安装Mysql5-7" class="headerlink" title="2. 安装Mysql5.7"></a>2. 安装Mysql5.7</h2><ol>
+<li><p>安装mysql源</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm</span><br><span class="line">yum localinstall mysql57-community-release-el7-11.noarch.rpm</span><br><span class="line"># 检查是否安装成功</span><br><span class="line">yum repolist enabled | grep &quot;mysql.*-community.*&quot;</span><br></pre></td></tr></table></figure>
+<p><img src="\images\mysql\install.PNG" alt=""></p>
+</li>
+<li><p>启动mysql服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl start mysqld</span><br><span class="line"># 查看状态</span><br><span class="line">systemctl status mysqld</span><br></pre></td></tr></table></figure>
+<p>这里可能会遇到 “Another mysqld server running on port 3306 error”，可以采用<code>netstat -lp | grep 3306</code> 查找占用这个端口号的进程，kill 这个PID。（我发现占用这个3306的是mysql??）。</p>
+</li>
+<li><p>修改root密码</p>
+<p>我用root身份导入数据的时候，提示我要修改密码。生成的默认密码在 <code>/var/log/mysqld.log</code> 文件中。使用 grep 命令找到日志中的密码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep &apos;temporary password&apos; /var/log/mysqld.log</span><br></pre></td></tr></table></figure>
+<p><img src="\images\mysql\password&#39;.PNG" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;ALTER USER &apos;root&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;123,c%vPl9ek&apos;;</span><br></pre></td></tr></table></figure>
+<p>或者：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; use mysql;</span><br><span class="line">mysql&gt; update mysql.user set authentication_string=password(&apos;123,c%vPl9ek&apos;) where user=&apos;root&apos;;</span><br><span class="line">mysql&gt; flush privileges;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="3-导入数据"><a href="#3-导入数据" class="headerlink" title="3. 导入数据"></a>3. 导入数据</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p &lt; b2gdb.sql</span><br></pre></td></tr></table></figure>
+<p>会出现莫名其妙的错误，“ERROR 1819 (HY000) at line 4: Your password does not satisfy the current policy requirements”，但是我的密码是符合它的规则的。最后采取的办法是把检验密码的插件删了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;uninstall plugin validate_password;</span><br></pre></td></tr></table></figure>
+<p>有试着导入数据，这次的错误是：</p>
+<p>“ERROR 1101 (42000) at line 9: BLOB, TEXT, GEOMETRY or JSON column ‘description’ can’t have a default value”</p>
+<p>先查看了sql_mode</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select @@session.sql_mode;</span><br><span class="line">mysql&gt; select @@global.sql_mode;</span><br></pre></td></tr></table></figure>
+<p><img src="\images\mysql\sql_mode.PNG" alt=""></p>
+<p>之后重新设置sql_mode</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set sql_mode=&apos;&apos;;</span><br><span class="line">set global sql_mode=&apos;&apos;;</span><br></pre></td></tr></table></figure>
+<p>重新打开一个终端，进入mysql，查看sql_mode</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select @@global.sql_mode;</span><br></pre></td></tr></table></figure>
+<p>在尝试导入数据，成功。</p>
+<h2 id="4-blast2go"><a href="#4-blast2go" class="headerlink" title="4. blast2go"></a>4. blast2go</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd data1/data/blast2go/</span><br><span class="line">mysql -u root -p &lt; b2gdb.sql</span><br><span class="line">mysql -u root -p -e &quot;GRANT ALL ON b2gdb.* TO &apos;blast2go&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;blast4it&apos;;&quot;</span><br><span class="line">mysql -u root -p -e &quot;FLUSH PRIVILEGES;&quot;</span><br><span class="line"># 这一步很耗时</span><br><span class="line">mysql -s -u root -p b2gdb &lt; go_monthly-assocdb-data</span><br></pre></td></tr></table></figure>
+<h2 id="5-参考"><a href="#5-参考" class="headerlink" title="5. 参考"></a>5. 参考</h2><ul>
+<li><a href="http://seanlook.com/2016/04/22/mysql-sql-mode-troubleshooting/" target="_blank" rel="noopener">MySQL sql_mode 说明</a></li>
+<li><a href="http://www.bioinfo-scrounger.com/archives/188" target="_blank" rel="noopener">blast2go本地化教程</a></li>
+<li><a href="https://stackoverflow.com/questions/43094726/your-password-does-not-satisfy-the-current-policy-requirements" target="_blank" rel="noopener">your password does not satisfy the current policy requirements</a></li>
+<li><a href="https://stackoverflow.com/questions/9918062/another-mysqld-server-running-on-port-3306-error" target="_blank" rel="noopener">another mysqld server running on the port 3306</a></li>
+<li><a href="https://www.jianshu.com/p/ef58fb333cd6" target="_blank" rel="noopener">Centos7 完全卸载mysql</a></li>
+<li><a href="https://www.jianshu.com/p/1dab9a4d0d5f" target="_blank" rel="noopener">CentOS 7 下 MySQL 5.7 的安装与配置</a></li>
+</ul>
 
       
     </div>
@@ -464,7 +496,7 @@ return ids, seqs
       
         <div class="post-tags">
           
-            <a href="/tags/统计/" rel="tag"># 统计</a>
+            <a href="/tags/Mysql/" rel="tag"># Mysql</a>
           
         </div>
       
@@ -477,8 +509,8 @@ return ids, seqs
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/05/SF/" rel="next" title="SF felt like the Mecca of tech, but also the center of capitalism">
-                <i class="fa fa-chevron-left"></i> SF felt like the Mecca of tech, but also the center of capitalism
+              <a href="/2019/01/17/tair-breaking-news/" rel="next" title="tair breaking news">
+                <i class="fa fa-chevron-left"></i> tair breaking news
               </a>
             
           </div>
@@ -486,10 +518,6 @@ return ids, seqs
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/17/tair-breaking-news/" rel="prev" title="tair breaking news">
-                tair breaking news <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -534,8 +562,17 @@ return ids, seqs
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -615,6 +652,22 @@ return ids, seqs
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-卸载之前的mysql"><span class="nav-text">1. 卸载之前的mysql</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-安装Mysql5-7"><span class="nav-text">2. 安装Mysql5.7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-导入数据"><span class="nav-text">3. 导入数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-blast2go"><span class="nav-text">4. blast2go</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-参考"><span class="nav-text">5. 参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
