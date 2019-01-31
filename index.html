@@ -546,12 +546,24 @@
                 
               
 
-              <time title="Created: 2019-01-29 22:55:40 / Modified: 23:08:22" itemprop="dateCreated datePublished" datetime="2019-01-29T22:55:40+08:00">2019-01-29</time>
+              <time title="Created: 2019-01-29 22:55:40" itemprop="dateCreated datePublished" datetime="2019-01-29T22:55:40+08:00">2019-01-29</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-01-31 12:04:45" itemprop="dateModified" datetime="2019-01-31T12:04:45+08:00">2019-01-31</time>
               
             
           </span>
@@ -591,18 +603,24 @@
 <ol>
 <li><p>查看mysql安装了哪些东西。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa |grep -i mysql</span><br></pre></td></tr></table></figure>
-<p><img src="\images\mysql\rpmcheck.PNG" alt=""></p>
+<p><img src="/images/mysql/rpmcheck.PNG" alt=""></p>
 </li>
+</ol>
+<ol start="2">
 <li><p>开始卸载</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum remove XXX</span><br></pre></td></tr></table></figure>
-<p><img src="\images\mysql\remove.PNG" alt=""></p>
+<p><img src="/images/mysql/remove.PNG" alt=""></p>
 </li>
+</ol>
+<ol start="3">
 <li><p>查看卸载是否完成</p>
 </li>
 <li><p>查找mysql相关目录</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find / -name mysql</span><br></pre></td></tr></table></figure>
-<p><img src="\images\mysql\find.PNG" alt=""></p>
+<p><img src="/images/mysql/find.PNG" alt=""></p>
 </li>
+</ol>
+<ol start="5">
 <li><p>删除相关目录</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rm -rf XXX</span><br><span class="line">rm -rf /etc/my.cnf</span><br><span class="line">rm -rf rm -rf /var/log/mysqld.log</span><br></pre></td></tr></table></figure>
 </li>
@@ -610,8 +628,10 @@
 <h2 id="2-安装Mysql5-7"><a href="#2-安装Mysql5-7" class="headerlink" title="2. 安装Mysql5.7"></a>2. 安装Mysql5.7</h2><ol>
 <li><p>安装mysql源</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm</span><br><span class="line">yum localinstall mysql57-community-release-el7-11.noarch.rpm</span><br><span class="line"># 检查是否安装成功</span><br><span class="line">yum repolist enabled | grep &quot;mysql.*-community.*&quot;</span><br></pre></td></tr></table></figure>
-<p><img src="\images\mysql\install.PNG" alt=""></p>
+<p><img src="/images/mysql/install.PNG" alt=""></p>
 </li>
+</ol>
+<ol start="2">
 <li><p>启动mysql服务</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl start mysqld</span><br><span class="line"># 查看状态</span><br><span class="line">systemctl status mysqld</span><br></pre></td></tr></table></figure>
 <p>这里可能会遇到 “Another mysqld server running on port 3306 error”，可以采用<code>netstat -lp | grep 3306</code> 查找占用这个端口号的进程，kill 这个PID。（我发现占用这个3306的是mysql??）。</p>
@@ -619,12 +639,12 @@
 <li><p>修改root密码</p>
 <p>我用root身份导入数据的时候，提示我要修改密码。生成的默认密码在 <code>/var/log/mysqld.log</code> 文件中。使用 grep 命令找到日志中的密码。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep &apos;temporary password&apos; /var/log/mysqld.log</span><br></pre></td></tr></table></figure>
-<p><img src="\images\mysql\password&#39;.PNG" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;ALTER USER &apos;root&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;123,c%vPl9ek&apos;;</span><br></pre></td></tr></table></figure>
-<p>或者：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; use mysql;</span><br><span class="line">mysql&gt; update mysql.user set authentication_string=password(&apos;123,c%vPl9ek&apos;) where user=&apos;root&apos;;</span><br><span class="line">mysql&gt; flush privileges;</span><br></pre></td></tr></table></figure>
+<p><img src="/images/mysql/password&#39;.PNG" alt=""></p>
 </li>
 </ol>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;ALTER USER &apos;root&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;123,c%vPl9ek&apos;;</span><br></pre></td></tr></table></figure>
+<p>   或者：</p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; use mysql;</span><br><span class="line">mysql&gt; update mysql.user set authentication_string=password(&apos;123,c%vPl9ek&apos;) where user=&apos;root&apos;;</span><br><span class="line">mysql&gt; flush privileges;</span><br></pre></td></tr></table></figure>
 <h2 id="3-导入数据"><a href="#3-导入数据" class="headerlink" title="3. 导入数据"></a>3. 导入数据</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p &lt; b2gdb.sql</span><br></pre></td></tr></table></figure>
 <p>会出现莫名其妙的错误，“ERROR 1819 (HY000) at line 4: Your password does not satisfy the current policy requirements”，但是我的密码是符合它的规则的。最后采取的办法是把检验密码的插件删了。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;uninstall plugin validate_password;</span><br></pre></td></tr></table></figure>
@@ -632,13 +652,14 @@
 <p>“ERROR 1101 (42000) at line 9: BLOB, TEXT, GEOMETRY or JSON column ‘description’ can’t have a default value”</p>
 <p>先查看了sql_mode</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select @@session.sql_mode;</span><br><span class="line">mysql&gt; select @@global.sql_mode;</span><br></pre></td></tr></table></figure>
-<p><img src="\images\mysql\sql_mode.PNG" alt=""></p>
+<p><img src="/images/mysql/sql_mode.PNG" alt=""></p>
 <p>之后重新设置sql_mode</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set sql_mode=&apos;&apos;;</span><br><span class="line">set global sql_mode=&apos;&apos;;</span><br></pre></td></tr></table></figure>
 <p>重新打开一个终端，进入mysql，查看sql_mode</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select @@global.sql_mode;</span><br></pre></td></tr></table></figure>
 <p>在尝试导入数据，成功。</p>
-<h2 id="4-blast2go"><a href="#4-blast2go" class="headerlink" title="4. blast2go"></a>4. blast2go</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd data1/data/blast2go/</span><br><span class="line">mysql -u root -p &lt; b2gdb.sql</span><br><span class="line">mysql -u root -p -e &quot;GRANT ALL ON b2gdb.* TO &apos;blast2go&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;blast4it&apos;;&quot;</span><br><span class="line">mysql -u root -p -e &quot;FLUSH PRIVILEGES;&quot;</span><br><span class="line"># 这一步很耗时</span><br><span class="line">mysql -s -u root -p b2gdb &lt; go_monthly-assocdb-data</span><br></pre></td></tr></table></figure>
+<h2 id="4-blast2go"><a href="#4-blast2go" class="headerlink" title="4. blast2go"></a>4. blast2go</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd data1/data/blast2go/</span><br><span class="line">mysql -u root -p &lt; b2gdb.sql</span><br><span class="line">mysql -u root -p -e &quot;GRANT ALL ON b2gdb.* TO &apos;blast2go&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;blast4it&apos;;&quot;</span><br><span class="line">mysql -u root -p -e &quot;FLUSH PRIVILEGES;&quot;</span><br><span class="line"># 这一步很耗时</span><br><span class="line">nohup time mysql -s -u root -p b2gdb &lt; go_monthly-assocdb-data &gt; mysql.out 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+<p><img src="/images/mysql/time.PNG" alt=""></p>
 <h2 id="5-参考"><a href="#5-参考" class="headerlink" title="5. 参考"></a>5. 参考</h2><ul>
 <li><a href="http://seanlook.com/2016/04/22/mysql-sql-mode-troubleshooting/" target="_blank" rel="noopener">MySQL sql_mode 说明</a></li>
 <li><a href="http://www.bioinfo-scrounger.com/archives/188" target="_blank" rel="noopener">blast2go本地化教程</a></li>
