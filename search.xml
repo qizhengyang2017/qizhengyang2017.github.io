@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[the machine stops]]></title>
+    <url>%2F2019%2F02%2F11%2F%E6%9C%BA%E5%99%A8%E5%81%9C%E6%AD%A2%2F</url>
+    <content type="text"><![CDATA[从工业革命开始，城市化，信息化，智能化，人们的生活发生了不可逆转的剧变。有些东西消失后就不会再出现，比如蒸汽机车，有些东西即使外界再变也不会消失，比如文明。 they have given up, to a great extent, the amenities and achievements of civilization: solitude and leisure, the sanction to be oneself, truly absorbed, whether in contemplating a work of art, a scientific theory, a sunset, or the face of one’s beloved.]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[甲基化数据分析]]></title>
     <url>%2F2019%2F01%2F30%2F%E7%94%B2%E5%9F%BA%E5%8C%96%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%2F</url>
     <content type="text"><![CDATA[DNA甲基化数据分析流程 用Trimmomatic去除低质量序列（q&lt;20），接头。 用BSMAP比对，允许0.8的错配率。 用methratio.py提取甲基化比例，选项-r去除PCR重复。 获得DMR 为了得到可靠的DMR区域，合并两个生物学重复，仅考虑所有文库中深度至少为4的胞嘧啶。 使用200bp窗口（50bp步长）识别DMR。 对每个窗口内的甲基化和未甲基化胞嘧啶进行Fisher精确检验。使用Benjamini-Hochberg对p值进行调整，估计错误发生率（FDR）。 FDR&lt;0.01，甲基化水平变化大于1.5倍且至少含有5个差异甲基化胞嘧啶（DMCs：Fisher精确检验中p&lt;0.01）的窗口用于进一步分析，窗口在100bp内合并为更大的区域。 RNA-seq 数据分析 Trimmomatic去除低质量序列和接头 用STAR进行比对，–sjdbGTFfile 用于提供基因组注释文件 htseq-count计算每个基因map上的片段数 DESeq2计算差异表达基因 DMR-associated基因分析 DMR相关基因定义为2kb启动子区域内具有DMR的基因 仅用DMR-associated genes进行基因聚类 差异基因定义，FPKM &gt;= 1, FDR &lt;= 0.01, fc &gt;= 1.5 GO注释 使用拟南芥（TAIR10）、番茄（ITAG3）、草莓（PhytozomeV12）的蛋白序列和GO注释文件 blast 用GOATOOLs进行GO富集 小RNA分析 使用BWA比对 计算DMR的24 nt 小RNA丰度（normalized to per million per one hundred base pair）]]></content>
@@ -20,14 +25,6 @@
     <title><![CDATA[tair breaking news]]></title>
     <url>%2F2019%2F01%2F17%2Ftair-breaking-news%2F</url>
     <content type="text"><![CDATA[tair breaking news 必须fq设置全局代理）才能查看 https://zenodo.org/record/2530282#.XECIyvln18E 这里可以下载到最新的tair注释文件。下载后存”F:\Project\org.At.tair.db”。创建物种注释包https://www.jianshu.com/p/8963f396bfed 《狂人日记》，那个时代的知识分子]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[统计]]></title>
-    <url>%2F2019%2F01%2F08%2F%E7%BB%9F%E8%AE%A1%2F</url>
-    <content type="text"><![CDATA[In the one sample case the distribution under the null hypothesis is a central t with n-1 degrees of freedom. In the two sample cases with sample sizes n and m not necessarily equal the null distribution of the test statistics is t with n+m-2 degrees of freedom. The increased variability due to low sample size is accounted for in the distribution which has heavier tails when the degrees of freedom is low which corresponds to a low sample size. So critical values can be found for the test statistic to have a given significance level for any sample size (well, at least of size 2 or larger). https://stats.stackexchange.com/questions/37993/is-there-a-minimum-sample-size-required-for-the-t-test-to-be-valid结论就是t检验没有最低样本容量要求，大于或等于二就可以。 缩进四个空格显示代码块,直接展示链接不需要尖括号。https://laravel-china.org/topics/621/you-will-be-able-to-master-these-markdown-grammars def read_fasta(fastafile): ids = [] seqs = [] f = open(fastafile) seq = &apos;&apos; for line in f: line = line.strip() if line.startswith(&apos;&gt;&apos;): ids.append(line[1:]) if seq: seqs.append(seq) seq = &apos;&apos; else: seq += line.upper() seqs.append(seq) return ids, seqs inkscapectrl shift d 页大小与内容相匹配 我在PPT中调了差异基因数目 PPT表格文字之间的间距与文字大小有关]]></content>
-      <tags>
-        <tag>统计</tag>
-      </tags>
   </entry>
   <entry>
     <title><![CDATA[SF felt like the Mecca of tech, but also the center of capitalism]]></title>
@@ -100,11 +97,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[十月倒数第二个星期三总结]]></title>
-    <url>%2F2018%2F10%2F24%2F%E5%8D%81%E6%9C%88%E5%80%92%E6%95%B0%E7%AC%AC%E4%BA%8C%E4%B8%AA%E6%98%9F%E6%9C%9F%E4%B8%89%E6%80%BB%E7%BB%93%2F</url>
-    <content type="text"><![CDATA[抄一篇文章 What does Stack Overflow want to be when it grows up? I sometimes get asked by regular people in the actual real world what it is that I do for a living, and here’s my 15 second answer: We build a sort of Wikipedia website for computer programmers to post questions and answers. It’s called Stack Overflow. As of last month, it’s been 10 years since Joel Spolsky and I started Stack Overflow. I currently do other stuff now, and I have since 2012, but if I will be know for anything when I’m dead, clearly it is going to be good Stack Overflow. Here’s where I’d normally segue into a bunch of rah-rah stuff about how great Stack Overflow is, and thus how implicitly great I am by association for being a founder, and all.]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[windows blast+]]></title>
     <url>%2F2018%2F09%2F04%2Fwindows-blast%2B%2F</url>
     <content type="text"><![CDATA[下载网址ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/双击exe文件即可，安装程序会自动设置环境变量。blastn -version 查看版本信息]]></content>
@@ -115,11 +107,6 @@
     <content type="text"><![CDATA[“当您使用〖发送至Kindle〗电子邮箱发送个人文件时，您的文件会自动保存到Kindle图书馆中。”如果禁用，则我发送至Kindle电子邮箱的文件不会出现在Kindle图书馆中。 我删除了某条记录之后，发现这条记录里有我想了解的信息。 我打算将smartypants改回true。改之前再试一试，我能在editplus上打出中文破折号（一个全角字符）。 实验结果，会渲染成占两个全角字符的破折号，不能加空格。 我不打算将smartypants改为true了。 我打算删掉Runaway Baby。理由：太长。 紧接着数据，即使在中文输入状态下，点还是半角的点，不是句号。]]></content>
   </entry>
   <entry>
-    <title><![CDATA[Aug-31]]></title>
-    <url>%2F2018%2F08%2F31%2FAug-31%2F</url>
-    <content type="text"><![CDATA[单击鼠标会使神经麻木。如果结果没有变化，我无法确定是否正确执行了某一步操作。]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[DNA甲基化与自闭症]]></title>
     <url>%2F2018%2F08%2F26%2FDNA%E7%94%B2%E5%9F%BA%E5%8C%96%E4%B8%8E%E8%87%AA%E9%97%AD%E7%97%87%2F</url>
     <content type="text"><![CDATA[摘要：越来越多的证据表明自闭症谱系障碍（ASD）中基因与环境之间存在复杂的相互作用，包括染色质基因中罕见的从头突变，例如Rett综合征中的methyl-CpG结合蛋白2（MECP2)。基因组序列、基因途径和DNA甲基化的全基因组研究为ASD提供了有价值的机制见解。 词汇： autism spectrum disorder:自闭症谱系障碍 加入spectrum代表自闭症本身的多元性。1 CpG islands: CpG密度极高的区域(&lt; 1 kb)。 Gene body: 基因组上从转录起始位点到终止位点的一段区域。]]></content>
@@ -128,11 +115,6 @@
     <title><![CDATA[she - from Ed Sheeran]]></title>
     <url>%2F2018%2F08%2F25%2Fshe-from-Ed-Sheeran%2F</url>
     <content type="text"><![CDATA[一首歌的歌词，来自Ed Sheeran Patience, my enemyAnd loving’s my friendIt’s harder to leaveWith my heart on my sleeveThan to stay and just pretendOh, she knows me so wellOh, she knows me like I know myself]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[Aug-25]]></title>
-    <url>%2F2018%2F08%2F25%2FAug-25%2F</url>
-    <content type="text"><![CDATA[我现在或许比以往任何时候需要书籍（小说）——杰克·凯鲁亚克、加缪、海明威……中国当代的文人（一定有！）。我现在完全没有挣钱的技能（人与人的交流、人与人之间相互帮助）。直面内心的对话。焦虑伴随失眠。我还在用家里的钱，用家里的钱买饭、买书、买雀巢咖啡。我还把时间花在担心失眠的问题上，我应该每时每刻在工作才对。学习技能！ 今天晚上开始尝试学习新的英文书写方式（重要）！！听英文播客节目。游泳&gt;1000米。最后一个回寝室。喝咖啡。 老板是体制内的人，思想上也完全是！他对生活的看法无助与我。 不要做徒劳无益的事情。]]></content>
   </entry>
   <entry>
     <title><![CDATA[《局外人》的主旨]]></title>
