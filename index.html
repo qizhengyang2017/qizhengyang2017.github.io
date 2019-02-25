@@ -387,7 +387,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-02-25 16:37:31" itemprop="dateModified" datetime="2019-02-25T16:37:31+08:00">2019-02-25</time>
+                <time title="Modified: 2019-02-25 16:43:05" itemprop="dateModified" datetime="2019-02-25T16:43:05+08:00">2019-02-25</time>
               
             
           </span>
@@ -422,7 +422,7 @@
       
         
           
-            <h1 id="GATK-calling-variants-in-RNA-seq-using-snakemake-framework"><a href="#GATK-calling-variants-in-RNA-seq-using-snakemake-framework" class="headerlink" title="GATK calling variants in RNA-seq using snakemake framework"></a>GATK calling variants in RNA-seq using snakemake framework</h1><h2 id="变异检测流程"><a href="#变异检测流程" class="headerlink" title="变异检测流程"></a>变异检测流程</h2><p><img src="https://us.v-cdn.net/5019796/uploads/FileUpload/fa/e60ecf89bd1b2645d9fce68ccf3919.png" alt=""></p>
+            <h2 id="变异检测流程"><a href="#变异检测流程" class="headerlink" title="变异检测流程"></a>变异检测流程</h2><p><img src="https://us.v-cdn.net/5019796/uploads/FileUpload/fa/e60ecf89bd1b2645d9fce68ccf3919.png" alt=""></p>
 <h2 id="检查md5值"><a href="#检查md5值" class="headerlink" title="检查md5值"></a>检查md5值</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">md5sum -c checksums.md5</span><br><span class="line"><span class="meta">#</span> 报错,使用dos2unix转化格式</span><br></pre></td></tr></table></figure>
 <h2 id="trimmomatic"><a href="#trimmomatic" class="headerlink" title="trimmomatic"></a>trimmomatic</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 2019-2-12 17:16:35 trim</span><br><span class="line">for i in *_1.clean.fq.gz</span><br><span class="line">do</span><br><span class="line">  trimmomatic PE -threads 8 -phred33 $i $&#123;i/_1/_2&#125; -baseout $&#123;i:0:7&#125;.fq.gz \</span><br><span class="line">  ILLUMINACLIP:/home/qi/miniconda3/share/trimmomatic-0.38-1/adapters/TruSeq3-PE.fa:2:30:10 \</span><br><span class="line">  LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
 <p><strong>2019-2-13 12:55:38</strong>  查看结果，只trim了一部分，查看trim.log。HB-9-3终止。</p>
