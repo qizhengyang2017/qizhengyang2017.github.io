@@ -324,6 +324,230 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2019/02/26/JBrowse 安装和使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qizhengyang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/26/JBrowse 安装和使用/" itemprop="url">
+                  JBrowse 安装和使用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-02-26 16:05:41 / Modified: 23:40:25" itemprop="dateCreated datePublished" datetime="2019-02-26T16:05:41+08:00">2019-02-26</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这件事情弄了我两天。查看处理错误信息占据了大部分时间。好在最后终于成功了。</p>
+<p>感悟，对于技术文档不能完全照搬。中文的技术文档，主要的作用是了解，最后的实践一定要<strong>充分参考官方的英文文档。</strong></p>
+<h2 id="基因浏览器介绍（入门）"><a href="#基因浏览器介绍（入门）" class="headerlink" title="基因浏览器介绍（入门）"></a>基因浏览器介绍（入门）</h2><p><a href="https://www.plob.org/article/11742.html" target="_blank" rel="noopener">https://www.plob.org/article/11742.html</a></p>
+<blockquote>
+<p>在日常数据处理和分析工作中，根据分析项目的不同我们会面对各种各样的文件，比如mapping得到的SAM或者BAM文件，在此基础上转化而来的记录各种（定量）信息的bedgraph文件、Wig文件或者tdf文件，亦或记录variant信息的VCF文件。以至于有一种比较调侃的说法，所谓<strong>“生物信息”</strong>就是整天和各种格式的文件打交道，转换来转换去。</p>
+<p><strong>JBrowse</strong> 是今天要介绍的主角。它是<strong>GMOD</strong>开源项目的一部分，想了解这个开源项目可以查看它的官方网站<a href="http://gmod.org/wiki/Main_Page" target="_blank" rel="noopener">http://gmod.org/wiki/Main_Page</a></p>
+<p>完全基于<strong>HTML5</strong>和<strong>Javascript</strong>构建的JBrowse通过<strong>AJAX</strong>技术实现了数据的异步加载，所以响应速度非常快。由于Javascript将大量的计算工作在前端完成，服务器端只需要向浏览器客户端发送静态文件，因此也极大程度减轻了服务器端的负担。</p>
+<p>完全基于<strong>HTML5</strong>和<strong>Javascript</strong>构建的JBrowse通过<strong>AJAX</strong>技术实现了数据的异步加载，所以响应速度非常快。由于Javascript将大量的计算工作在前端完成，服务器端只需要向浏览器客户端发送静态文件，因此也极大程度减轻了服务器端的负担。</p>
+<h3 id="准备参考序列"><a href="#准备参考序列" class="headerlink" title="准备参考序列"></a>准备参考序列</h3><p>安装成功之后首先要做的是<strong>格式化参考序列</strong>，支持的格式有fasta， gff，或者是用samtools faidx处理过的indexed fasta 文件。参考序列生成的track 会为后续所有文件提供一个坐标，一直放大后参考序列的碱基也会显示出来。</p>
+<p>通常我们使用某一个物种的genome fasta 文件，默认情况下，每一条染色体会独立为一条参考序列。如果想把RNA或者蛋白序列当成参考序列也没有问题。</p>
+<p>需要注意的是所有数据默认都会输出在<code>out</code>目录中，如果你想用JBrowse展示不同物种的信息，最好使用<code>--out</code>参数指定单独的目录。</p>
+<p>在这里提前说明，后面所有基于命令行设置的配置信息都会自动生成在tarckList.json文件中。</p>
+<p>准备参考序列需要用到的是bin目录下的<code>prepare-refseqs.pl</code>脚本</p>
+<p><strong>对于VCF文件</strong>，需要提前做的准备就是使用bgzip压缩之后再利用tabix -p vcf 建立index。</p>
+<p>展示方式和BigWig类似，其中type要定义为 “JBrowse/View/Track/HTMLVariants”；而storeClass定义为”JBrowse/Store/SeqFeature/VCFTabix” 即可。</p>
+</blockquote>
+<h2 id="尝试安装"><a href="#尝试安装" class="headerlink" title="尝试安装"></a>尝试安装</h2><p>主要参考这篇文献</p>
+<p><a href="https://yq.aliyun.com/articles/650480" target="_blank" rel="noopener">https://yq.aliyun.com/articles/650480</a></p>
+<p>没有成功，应该是perl模块的安装问题。不知道是否和conda有关。</p>
+<blockquote>
+<p>! Installing GD failed. See /root/.cpanm/work/1551106022.8560/build.log for details. Retry with –force to force install it.<br>Searching XML::LibXML (0) on cpanmetadb …<br>Already tried XML-LibXML-2.0134. Skipping.<br>! Installing the dependencies failed: Module ‘XML::LibXML’ is not installed, Module ‘XML::LibXML::Reader’ is not installed, Module ‘GD’ is not install<br>ed, Module ‘DBI’ is not installed, Module ‘DB_File’ is not installed<br>! Bailing out the installation for BioPerl-1.7.5.<br>Searching JSON::XS (0) on cpanmetadb …<br>Unpacking JSON-XS-4.01.tar.gz<br>FAIL</p>
+</blockquote>
+<blockquote>
+<p>! Installing JSON::XS failed. See /root/.cpanm/work/1551106022.8560/build.log for details. Retry with –force to force install it.<br>Searching Bio::Root::Version (1.006000) on cpanmetadb …</p>
+</blockquote>
+<blockquote>
+<p>-&gt; FAIL Installing the dependencies failed: Module ‘DBI’ is not installed, Module ‘Heap::Simple::XS’ is not installed, Module ‘Bio::Annotation::Simple<br>Value’ is not installed, Module ‘Bio::SeqFeature::Annotated’ is not installed, Module ‘DB_File’ is not installed, Module ‘Bio::Index::Fasta’ is not in<br>stalled, Module ‘Bio::SeqFeature::Lite’ is not installed, Module ‘DBD::SQLite’ is not installed, Module ‘Devel::Size’ is not installed, Module ‘Bio::F<br>eatureIO’ is not installed, Module ‘JSON::XS’ is not installed, Module ‘Bio::Root::Version’ is not installed, Module ‘PerlIO::gzip’ is not installed,<br>Module ‘Bio::OntologyIO’ is not installed<br>-&gt; FAIL Bailing out the installation for JBrowse-.</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">perl -MCPAN -e shell</span><br><span class="line">install DBI</span><br><span class="line"></span><br><span class="line">conda install -c bioconda perl-module-list</span><br><span class="line">conda install -c bioconda perl-dbi</span><br><span class="line">conda install -c bioconda perl-bioperl </span><br><span class="line"></span><br><span class="line">instmodsh</span><br><span class="line">locate XML/SAX.pm</span><br></pre></td></tr></table></figure>
+<p><img src="images/1551113280461.png" alt="1551113280461"></p>
+<blockquote>
+<p>/home/conda/feedstock_root/build_artifacts/perl_1548813468557/_build_env/bin/x86_64-conda_cos6-linux-gnu-gcc: No such file or directory<br>make: *** [Perl.o] Error 127</p>
+</blockquote>
+<h2 id="安装docker（没有成功）"><a href="#安装docker（没有成功）" class="headerlink" title="安装docker（没有成功）"></a>安装docker（没有成功）</h2><p><a href="http://www.runoob.com/docker/centos-docker-install.html" target="_blank" rel="noopener">http://www.runoob.com/docker/centos-docker-install.html</a></p>
+<p>下一步顺畅</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install -y yum-utils device-mapper-persistent-data lvm2</span><br><span class="line">sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br><span class="line">sudo yum makecache fast</span><br><span class="line">sudo yum -y install docker-ce</span><br><span class="line">sudo systemctl start docker</span><br><span class="line">docker run hello-world</span><br></pre></td></tr></table></figure>
+<p><strong>由于本地没有hello-world这个镜像，所以会下载一个hello-world的镜像，并在容器内运行。</strong></p>
+<p><a href="https://hub.docker.com/r/jbrowse/gmod-jbrowse/" target="_blank" rel="noopener">jbrowse/gmod-jbrowse</a> 卡住了</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 8080:80 jbrowse/jbrowse-1.12.0</span><br><span class="line"><span class="meta">#</span> 有问题</span><br></pre></td></tr></table></figure>
+<h2 id="conda-安装（安装成功了，不知道如何启用）"><a href="#conda-安装（安装成功了，不知道如何启用）" class="headerlink" title="conda 安装（安装成功了，不知道如何启用）"></a>conda 安装（安装成功了，不知道如何启用）</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 需要超级用户权限，不然会失败</span><br><span class="line">conda install -c bioconda jbrowse</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>[root@localhost qi]#  netstat -ntpl<br>Active Internet connections (only servers)<br>Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name<br>tcp        0      0 0.0.0.0:111             0.0.0.0:<em>               LISTEN      1/systemd<br>tcp        0      0 0.0.0.0:80              0.0.0.0:</em>               LISTEN      1823/nginx: master<br>tcp        0      0 0.0.0.0:6000            0.0.0.0:<em>               LISTEN      6706/X<br>tcp        0      0 192.168.122.1:53        0.0.0.0:</em>               LISTEN      6629/dnsmasq<br>tcp        0      0 0.0.0.0:22              0.0.0.0:<em>               LISTEN      6296/sshd<br>tcp        0      0 127.0.0.1:631           0.0.0.0:</em>               LISTEN      6299/cupsd<br>tcp        0      0 127.0.0.1:6010          0.0.0.0:<em>               LISTEN      13051/sshd: qi@pts/<br>tcp        0      0 127.0.0.1:6011          0.0.0.0:</em>               LISTEN      23741/sshd: qi@pts/<br>tcp        0      0 127.0.0.1:6012          0.0.0.0:<em>               LISTEN      31798/sshd: qi@pts/<br>tcp6       0      0 :::3306                 :::</em>                    LISTEN      7024/mysqld<br>tcp6       0      0 :::111                  :::<em>                    LISTEN      1/systemd<br>tcp6       0      0 :::80                   :::</em>                    LISTEN      1823/nginx: master<br>tcp6       0      0 :::6000                 :::<em>                    LISTEN      6706/X<br>tcp6       0      0 :::22                   :::</em>                    LISTEN      6296/sshd<br>tcp6       0      0 ::1:631                 :::<em>                    LISTEN      6299/cupsd<br>tcp6       0      0 ::1:6010                :::</em>                    LISTEN      13051/sshd: qi@pts/<br>tcp6       0      0 ::1:6011                :::<em>                    LISTEN      23741/sshd: qi@pts/<br>tcp6       0      0 ::1:6012                :::</em>                    LISTEN      31798/sshd: qi@pts/ </p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kill 1823</span><br><span class="line">service nginx star</span><br></pre></td></tr></table></figure>
+<h2 id="安装Nginx"><a href="#安装Nginx" class="headerlink" title="安装Nginx"></a>安装Nginx</h2><p><a href="https://www.jianshu.com/p/7986bcab355c" target="_blank" rel="noopener">Centos7 yum配置Nginx</a></p>
+<blockquote>
+<p>/home/qi/miniconda3/pkgs/jbrowse-1.16.2-pl526h6bb024c_6/opt/jbrowse</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> conda 的卸载命令</span><br><span class="line">conda list | grep jbrowse</span><br><span class="line">conda remove jbrowse</span><br></pre></td></tr></table></figure>
+<h2 id="成功的操作"><a href="#成功的操作" class="headerlink" title="成功的操作"></a>成功的操作</h2><ol>
+<li>将web服务器换成了apache，放文件的目录就是 /var/www/html</li>
+</ol>
+<p><a href="https://www.linode.com/docs/web-servers/apache/install-and-configure-apache-on-centos-7/" target="_blank" rel="noopener">How to Install Apache on CentOS 7</a></p>
+<p><a href="https://www.jianshu.com/p/a482a0f8adfd" target="_blank" rel="noopener">CentOS 7 安装 Apache, MySQL, PHP 指南</a></p>
+<p><img src="/images/Apache.png" alt=""></p>
+<ol start="2">
+<li><a href="https://jbrowse.org/blog/" target="_blank" rel="noopener">Jbrowse下载安装</a></li>
+</ol>
+<p>下面这句话很关键，提到了不用 root 或 sudo 安装。我也不知道为什么，这部分：</p>
+<p><strong>Installing Perl prerequisites 成功。这是昨天一直没成功的地方</strong></p>
+<p>Formatting data 失败。提取报错信息里的命令，运行，获取错误信息。<strong>Can’t locate local/lib.pm</strong></p>
+<p><a href="http://gmod.org/wiki/JBrowse_Configuration_Guide#Making_a_New_JBrowse" target="_blank" rel="noopener">3. Run the automated-setup script, <code>./setup.sh</code>, which will attempt to install all of JBrowse’s (modest) prerequisites for you in the <code>jbrowse/</code> directory itself. Note that <code>setup.sh</code> should not be run as root or with <code>sudo</code>.</a></p>
+<blockquote>
+<p>(py3.6) [qi@localhost JBrowse-1.16.3]$ ./setup.sh<br>Gathering system information …done.<br>NOTE: Legacy scripts wig-to-json.pl and bam-to-json.pl have been removed from setup. Their functionality has been superseded by add-bam-track.pl and add-bw-track.pl. If you require the old versions, please use JBrowse 1.12.3 or earlier.<br>Minimal release, skipping node and Webpack build<br>Installing Perl prerequisites …done.</p>
+<p>Formatting Volvox example data … failed.  See setup.log file for error messages.</p>
+<p>Formatting Yeast example data … failed.  See setup.log file for error messages.</p>
+</blockquote>
+<blockquote>
+<p>Formatting Volvox example data …</p>
+<ul>
+<li>rm -rf sample_data/json/volvox</li>
+<li>bin/prepare-refseqs.pl –fasta docs/tutorial/data_files/volvox.fa –out sample_data/json/volvox<br>Attempting to create directory /var/www/html/JBrowse-1.16.3/bin/../src/perl5/../../extlib<br>mkdir sample_data/json/volvox: Permission denied at /var/www/html/JBrowse-1.16.3/bin/../src/perl5/JsonFileStorage.pm line 64.</li>
+</ul>
+<p>Formatting Yeast example data …</p>
+<ul>
+<li>rm -rf sample_data/json/yeast/</li>
+<li>bin/prepare-refseqs.pl –fasta sample_data/raw/yeast_scaffolds/chr1.fa.gz –fasta sample_data/raw/yeast_scaffolds/chr2.fa.gzip –out sample_data/json/yeast/<br>mkdir sample_data/json/yeast/: Permission denied at /var/www/html/JBrowse-1.16.3/bin/../src/perl5/JsonFileStorage.pm line 64.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>Can’t locate local/lib.pm</strong> in @INC (@INC contains: /var/www/html/JBrowse-1.16.3/bin/../src/perl5/../../extlib/lib/perl5/5.16.3/x86_64-linux-thread-multi <strong>/var/www/html/JBrowse-1.16.3/bin/../src/perl5/../../extlib/lib/perl5/5.16.3</strong> /var/www/html/JBrowse-1.16.3/bin/../src/perl5/../../extlib/lib/perl5/x86_64-linux-thread-multi /var/www/html/JBrowse-1.16.3/bin/../src/perl5/../../extlib/lib/perl5 /var/www/html/JBrowse-1.16.3/bin/../src/perl5 /usr/local/lib64/perl5 /usr/local/share/perl5 /usr/lib64/perl5/vendor_perl /usr/share/perl5/vendor_perl /usr/lib64/perl5 /usr/share/perl5 .) at /var/www/html/JBrowse-1.16.3/bin/../src/perl5/JBlibs.pm line 25.<br>Compilation failed in require at bin/prepare-refseqs.pl line 5.<br>BEGIN failed–compilation aborted at bin/prepare-refseqs.pl line 5</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">locate local/lib.pm</span><br><span class="line">cp -r /home/qi/perl5/lib/perl5/local /var/www/html/JBrowse-1.16.3/bin/../src/perl5/../../extlib/lib/perl5/5.16.3</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sudo bin/prepare-refseqs.pl --fasta docs/tutorial/data_files/volvox.fa --out sample_data/json/volvox</span><br><span class="line"></span><br><span class="line">sudo bin/prepare-refseqs.pl --fasta sample_data/raw/yeast_scaffolds/chr1.fa.gz --fasta sample_data/raw/yeast_scaffolds/chr2.fa.gzip --out sample_data/json/yeast/</span><br></pre></td></tr></table></figure>
+<p>地址：</p>
+<p><a href="http://10.164.6.154/JBrowse-1.16.3/index.html?data=sample_data/json/volvox" target="_blank" rel="noopener">http://10.164.6.154/JBrowse-1.16.3/index.html?data=sample_data/json/volvox</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2019/02/20/snakemake/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1331,6 +1555,189 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2019/01/26/服务器安装-CentOS-7-并开启ssh服务之后/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qizhengyang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/26/服务器安装-CentOS-7-并开启ssh服务之后/" itemprop="url">
+                  服务器安装 CentOS 7 并开启ssh服务之后
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-01-26 17:11:40" itemprop="dateCreated datePublished" datetime="2019-01-26T17:11:40+08:00">2019-01-26</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-02-26 17:16:14" itemprop="dateModified" datetime="2019-02-26T17:16:14+08:00">2019-02-26</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>挂载服务器里的另外两块硬盘硬盘</strong></p>
+<ol>
+<li>查看没有挂载的硬盘 fdisk -l</li>
+<li>格式化硬盘，mkfs.ext4 /dev/sdb.报错，/dev/sdb is apparently in use by the system; will not make a 文件系统 here!。用这个命令：dmsetup remove_all</li>
+<li>mkfs.ext4 /dev/sdb</li>
+<li>挂载 mount /dev/sdb /data</li>
+</ol>
+<p><strong>mount挂载ntfs 格式的移动硬盘</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">成功执行</span><br><span class="line">mount -t ntfs-3g /dev/sdd1 /run/media/qi/Zhangmiao_15623277907</span><br><span class="line">未成功执行</span><br><span class="line">mount -t ntfs-3g /dev/sdb5 /run/media/qi/软件</span><br></pre></td></tr></table></figure>
+<p><strong>自动挂载设置</strong></p>
+<blockquote>
+<p>Ps:在使用gnome桌面挂载U盘的时候发现，系统可以识别NTFS 分区的存在，但是通过桌面无法自动挂载，系统会提示：</p>
+<p>Error mounting /dev/sdb1 at /run/media/lenovo/v220w: Command-line `mount -t “ntfs” -o “uhelper=udisks2,nodev,nosuid,uid=1000,gid=1000,dmask=0077,fmask=0177” “/dev/sdb1” “/run/media/lenovo/v220w”‘ exited with non-zero exit status 32: mount: unknown filesystem type ‘ntfs’</p>
+<p>mount 提示未知的文件系统类型 ‘ntfs’</p>
+<p>解决办法：</p>
+<p>$ mount[Tab][Tab]  #连续按两次 Tab 键作命令补齐</p>
+<p>mount             mount.glusterfs   mount.nfs4        mountstats<br>mount.cifs        mount.lowntfs-3g  mount.ntfs-3g<br>mount.fuse        mount.nfs         mountpoint        </p>
+<p>可以看到只有mount.ntfs-3g，在使用 mount -t 挂载ntfs 时 mount 会调用 mount.ntfs-3g 而非默认的 mount.ntfs</p>
+<p>$ locate mount.ntfs-3g  #查找有关文件所在位置<br>/usr/local/share/man/man8/mount.ntfs-3g.8<br>/usr/sbin/mount.ntfs-3g<br>$ sudo ln -s /usr/sbin/mount.ntfs-3g  /usr/sbin/mount.ntfs   #创建软链接</p>
+<p>之后就可以自动识别U 盘而不会出现如上报错了。。。</p>
+</blockquote>
+<p><strong>centOS7 将“桌面”、“图片”等替换成英文</strong></p>
+<ol>
+<li>export LANG=en_US</li>
+<li>xdg-user-dirs-gtk-update</li>
+<li>弹出配置界面，选择替换</li>
+<li>export LANG=zh_CN.UTF-8</li>
+<li>重启，不替换。</li>
+</ol>
+<p><strong>IP变化</strong></p>
+<p>wlp0s26f7u3:<br>inet 192.168.1.102/24<br>发现只有连同一个wifi(Magic-home)的电脑才能登入。</p>
+<p>原来的IP：<br>4: wlp0s26f7u3:<br>inet 10.164.11.166</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2019/01/17/tair-breaking-news/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1916,292 +2323,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2018/12/07/GD-module/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qizhengyang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/07/GD-module/" itemprop="url">
-                  好像windows下circos不缺GD模块
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-12-07 22:55:27 / Modified: 22:58:13" itemprop="dateCreated datePublished" datetime="2018-12-07T22:55:27+08:00">2018-12-07</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>windows下好像并没有缺失GD模块？<br>版本：<br>This is perl 5, version 24, subversion 2 (v5.24.2) built for MSWin32-x64-multi-thread<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/12/07/GD-module/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2018/11/14/bed和bedGraph区别/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qizhengyang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/14/bed和bedGraph区别/" itemprop="url">
-                  bed和bedGraph区别
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-11-14 21:58:44 / Modified: 21:59:32" itemprop="dateCreated datePublished" datetime="2018-11-14T21:58:44+08:00">2018-11-14</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>BedGraph has 4 fields (chr start stop score), and the simplest BED file has 3 fields (chr start stop), so one easy way to convert from BED to bedGraph would be to use awk:</p>
-<p>cat file.bedGraph | awk ‘{print $1 “\t” $2 “\t” $3}’ &gt; file.bed<br>If your bedGraph file contains a header line, you can get rid of it with an inverse grep:</p>
-<p>grep -v track file.bedGraph | awk ‘{print $1 “\t” $2 “\t” $3}’ &gt; file.bed<br>Or you can use tail to return everything but the first line (if your track line is the first line). If you want to add more fields to the bed file, you can insert them in the print statement (I don’t remember the minimum requirement for ChIPpeakAnno).</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2249,7 +2370,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
