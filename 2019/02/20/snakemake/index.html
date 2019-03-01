@@ -108,13 +108,13 @@
 
 
 
-  <meta name="description" content="变异检测流程 检查md5值12md5sum -c checksums.md5# 报错,使用dos2unix转化格式 trimmomatic1234567# 2019-2-12 17:16:35 trimfor i in *_1.clean.fq.gzdo  trimmomatic PE -threads 8 -phred33 $i $&amp;#123;i/_1/_2&amp;#125; -baseout $&amp;#">
+  <meta name="description" content="[TOC] 标准流程 检查md5值12md5sum -c checksums.md5# 报错,使用dos2unix转化格式 trimmomatic1234567# 2019-2-12 17:16:35 trimfor i in *_1.clean.fq.gzdo  trimmomatic PE -threads 8 -phred33 $i $&amp;#123;i/_1/_2&amp;#125; -baseout">
 <meta name="keywords" content="生物信息,snakemake">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GATK calling variants in RNA-seq using snakemake framework">
+<meta property="og:title" content="使用GATK和snakemake框架的总结">
 <meta property="og:url" content="https://qizhengyang2017.github.io/2019/02/20/snakemake/index.html">
 <meta property="og:site_name" content="Qizhengyang">
-<meta property="og:description" content="变异检测流程 检查md5值12md5sum -c checksums.md5# 报错,使用dos2unix转化格式 trimmomatic1234567# 2019-2-12 17:16:35 trimfor i in *_1.clean.fq.gzdo  trimmomatic PE -threads 8 -phred33 $i $&amp;#123;i/_1/_2&amp;#125; -baseout $&amp;#">
+<meta property="og:description" content="[TOC] 标准流程 检查md5值12md5sum -c checksums.md5# 报错,使用dos2unix转化格式 trimmomatic1234567# 2019-2-12 17:16:35 trimfor i in *_1.clean.fq.gzdo  trimmomatic PE -threads 8 -phred33 $i $&amp;#123;i/_1/_2&amp;#125; -baseout">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://us.v-cdn.net/5019796/uploads/FileUpload/fa/e60ecf89bd1b2645d9fce68ccf3919.png">
 <meta property="og:image" content="https://qizhengyang2017.github.io/images/GATK/trimlog.PNG">
@@ -146,10 +146,10 @@
 <meta property="og:image" content="https://qizhengyang2017.github.io/images/time2.PNG">
 <meta property="og:image" content="https://qizhengyang2017.github.io/images/qstat-n.PNG">
 <meta property="og:image" content="https://qizhengyang2017.github.io/images/1550891046764.png">
-<meta property="og:updated_time" content="2019-02-25T08:43:05.096Z">
+<meta property="og:updated_time" content="2019-02-27T09:31:34.537Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GATK calling variants in RNA-seq using snakemake framework">
-<meta name="twitter:description" content="变异检测流程 检查md5值12md5sum -c checksums.md5# 报错,使用dos2unix转化格式 trimmomatic1234567# 2019-2-12 17:16:35 trimfor i in *_1.clean.fq.gzdo  trimmomatic PE -threads 8 -phred33 $i $&amp;#123;i/_1/_2&amp;#125; -baseout $&amp;#">
+<meta name="twitter:title" content="使用GATK和snakemake框架的总结">
+<meta name="twitter:description" content="[TOC] 标准流程 检查md5值12md5sum -c checksums.md5# 报错,使用dos2unix转化格式 trimmomatic1234567# 2019-2-12 17:16:35 trimfor i in *_1.clean.fq.gzdo  trimmomatic PE -threads 8 -phred33 $i $&amp;#123;i/_1/_2&amp;#125; -baseout">
 <meta name="twitter:image" content="https://us.v-cdn.net/5019796/uploads/FileUpload/fa/e60ecf89bd1b2645d9fce68ccf3919.png">
 
 
@@ -167,7 +167,7 @@
   };
 </script>
 
-  <title>GATK calling variants in RNA-seq using snakemake framework | Qizhengyang</title>
+  <title>使用GATK和snakemake框架的总结 | Qizhengyang</title>
   
 
 
@@ -376,7 +376,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">GATK calling variants in RNA-seq using snakemake framework
+          <h1 class="post-title" itemprop="name headline">使用GATK和snakemake框架的总结
               
             
           </h1>
@@ -418,7 +418,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-02-25 16:43:05" itemprop="dateModified" datetime="2019-02-25T16:43:05+08:00">2019-02-25</time>
+                <time title="Modified: 2019-02-27 17:31:34" itemprop="dateModified" datetime="2019-02-27T17:31:34+08:00">2019-02-27</time>
               
             
           </span>
@@ -451,7 +451,8 @@
       
 
       
-        <h2 id="变异检测流程"><a href="#变异检测流程" class="headerlink" title="变异检测流程"></a>变异检测流程</h2><p><img src="https://us.v-cdn.net/5019796/uploads/FileUpload/fa/e60ecf89bd1b2645d9fce68ccf3919.png" alt=""></p>
+        <p>[TOC]</p>
+<h2 id="标准流程"><a href="#标准流程" class="headerlink" title="标准流程"></a>标准流程</h2><p><img src="https://us.v-cdn.net/5019796/uploads/FileUpload/fa/e60ecf89bd1b2645d9fce68ccf3919.png" alt=""></p>
 <h2 id="检查md5值"><a href="#检查md5值" class="headerlink" title="检查md5值"></a>检查md5值</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">md5sum -c checksums.md5</span><br><span class="line"><span class="meta">#</span> 报错,使用dos2unix转化格式</span><br></pre></td></tr></table></figure>
 <h2 id="trimmomatic"><a href="#trimmomatic" class="headerlink" title="trimmomatic"></a>trimmomatic</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 2019-2-12 17:16:35 trim</span><br><span class="line">for i in *_1.clean.fq.gz</span><br><span class="line">do</span><br><span class="line">  trimmomatic PE -threads 8 -phred33 $i $&#123;i/_1/_2&#125; -baseout $&#123;i:0:7&#125;.fq.gz \</span><br><span class="line">  ILLUMINACLIP:/home/qi/miniconda3/share/trimmomatic-0.38-1/adapters/TruSeq3-PE.fa:2:30:10 \</span><br><span class="line">  LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
 <p><strong>2019-2-13 12:55:38</strong>  查看结果，只trim了一部分，查看trim.log。HB-9-3终止。</p>
@@ -779,6 +780,35 @@
     
 
     
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weixin.png" alt=" WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt=" Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
 
     
 
@@ -883,7 +913,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -918,7 +948,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">9</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -954,7 +990,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#变异检测流程"><span class="nav-text">变异检测流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检查md5值"><span class="nav-text">检查md5值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#trimmomatic"><span class="nav-text">trimmomatic</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#质检"><span class="nav-text">质检</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用-snakemake-编写任务流程"><span class="nav-text">用 snakemake 编写任务流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简单的例子"><span class="nav-text">简单的例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#snakemake-规则"><span class="nav-text">snakemake 规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#snakemake-命令"><span class="nav-text">snakemake 命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#snakemake-执行"><span class="nav-text">snakemake 执行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#snakemake-实践"><span class="nav-text">snakemake 实践</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实验室服务器试运行"><span class="nav-text">实验室服务器试运行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集群上运行"><span class="nav-text">集群上运行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nohup将程序放入后台"><span class="nav-text">nohup将程序放入后台</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP-意外变化"><span class="nav-text">IP 意外变化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重新开始"><span class="nav-text">重新开始</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2019-2-21-21-33-58"><span class="nav-text">2019-2-21 21:33:58</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2019-2-23-11-02-59"><span class="nav-text">2019-2-23 11:02:59</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#任务完成"><span class="nav-text">任务完成</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#最终的Snakefile"><span class="nav-text">最终的Snakefile</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#标准流程"><span class="nav-text">标准流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检查md5值"><span class="nav-text">检查md5值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#trimmomatic"><span class="nav-text">trimmomatic</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#质检"><span class="nav-text">质检</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用-snakemake-编写任务流程"><span class="nav-text">用 snakemake 编写任务流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简单的例子"><span class="nav-text">简单的例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#snakemake-规则"><span class="nav-text">snakemake 规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#snakemake-命令"><span class="nav-text">snakemake 命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#snakemake-执行"><span class="nav-text">snakemake 执行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#snakemake-实践"><span class="nav-text">snakemake 实践</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实验室服务器试运行"><span class="nav-text">实验室服务器试运行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集群上运行"><span class="nav-text">集群上运行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nohup将程序放入后台"><span class="nav-text">nohup将程序放入后台</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP-意外变化"><span class="nav-text">IP 意外变化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重新开始"><span class="nav-text">重新开始</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2019-2-21-21-33-58"><span class="nav-text">2019-2-21 21:33:58</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2019-2-23-11-02-59"><span class="nav-text">2019-2-23 11:02:59</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#任务完成"><span class="nav-text">任务完成</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#最终的Snakefile"><span class="nav-text">最终的Snakefile</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
@@ -974,7 +1010,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>

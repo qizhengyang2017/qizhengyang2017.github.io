@@ -118,7 +118,8 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://qizhengyang2017.github.io/2019/02/26/JBrowse%20安装和使用/images/1551113280461.png">
 <meta property="og:image" content="https://qizhengyang2017.github.io/images/Apache.png">
-<meta property="og:updated_time" content="2019-02-26T15:40:25.064Z">
+<meta property="og:image" content="https://github.com/qizhengyang2017/qizhengyang2017.github.io/blob/master/images/vcferror.png?raw=true">
+<meta property="og:updated_time" content="2019-02-28T16:28:04.417Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JBrowse 安装和使用">
 <meta name="twitter:description" content="这件事情弄了我两天。查看处理错误信息占据了大部分时间。好在最后终于成功了。 感悟，对于技术文档不能完全照搬。中文的技术文档，主要的作用是了解，最后的实践一定要充分参考官方的英文文档。 基因浏览器介绍（入门）https://www.plob.org/article/11742.html  在日常数据处理和分析工作中，根据分析项目的不同我们会面对各种各样的文件，比如mapping得到的SAM或者BAM">
@@ -373,12 +374,24 @@
                 
               
 
-              <time title="Created: 2019-02-26 16:05:41 / Modified: 23:40:25" itemprop="dateCreated datePublished" datetime="2019-02-26T16:05:41+08:00">2019-02-26</time>
+              <time title="Created: 2019-02-26 16:05:41" itemprop="dateCreated datePublished" datetime="2019-02-26T16:05:41+08:00">2019-02-26</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-03-01 00:28:04" itemprop="dateModified" datetime="2019-03-01T00:28:04+08:00">2019-03-01</time>
               
             
           </span>
@@ -429,7 +442,7 @@
 </blockquote>
 <h2 id="尝试安装"><a href="#尝试安装" class="headerlink" title="尝试安装"></a>尝试安装</h2><p>主要参考这篇文献</p>
 <p><a href="https://yq.aliyun.com/articles/650480" target="_blank" rel="noopener">https://yq.aliyun.com/articles/650480</a></p>
-<p>没有成功，应该是perl模块的安装问题。不知道是否和conda有关。</p>
+<p><strong>没有成功，应该是perl模块的安装问题。不知道是否和conda有关。</strong></p>
 <blockquote>
 <p>! Installing GD failed. See /root/.cpanm/work/1551106022.8560/build.log for details. Retry with –force to force install it.<br>Searching XML::LibXML (0) on cpanmetadb …<br>Already tried XML-LibXML-2.0134. Skipping.<br>! Installing the dependencies failed: Module ‘XML::LibXML’ is not installed, Module ‘XML::LibXML::Reader’ is not installed, Module ‘GD’ is not install<br>ed, Module ‘DBI’ is not installed, Module ‘DB_File’ is not installed<br>! Bailing out the installation for BioPerl-1.7.5.<br>Searching JSON::XS (0) on cpanmetadb …<br>Unpacking JSON-XS-4.01.tar.gz<br>FAIL</p>
 </blockquote>
@@ -444,22 +457,24 @@
 <blockquote>
 <p>/home/conda/feedstock_root/build_artifacts/perl_1548813468557/_build_env/bin/x86_64-conda_cos6-linux-gnu-gcc: No such file or directory<br>make: *** [Perl.o] Error 127</p>
 </blockquote>
-<h2 id="安装docker（没有成功）"><a href="#安装docker（没有成功）" class="headerlink" title="安装docker（没有成功）"></a>安装docker（没有成功）</h2><p><a href="http://www.runoob.com/docker/centos-docker-install.html" target="_blank" rel="noopener">http://www.runoob.com/docker/centos-docker-install.html</a></p>
-<p>下一步顺畅</p>
+<h2 id="docker安装（没有成功）"><a href="#docker安装（没有成功）" class="headerlink" title="docker安装（没有成功）"></a>docker安装（没有成功）</h2><p><a href="http://www.runoob.com/docker/centos-docker-install.html" target="_blank" rel="noopener">http://www.runoob.com/docker/centos-docker-install.html</a></p>
+<p>安装docker很顺畅</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install -y yum-utils device-mapper-persistent-data lvm2</span><br><span class="line">sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br><span class="line">sudo yum makecache fast</span><br><span class="line">sudo yum -y install docker-ce</span><br><span class="line">sudo systemctl start docker</span><br><span class="line">docker run hello-world</span><br></pre></td></tr></table></figure>
 <p><strong>由于本地没有hello-world这个镜像，所以会下载一个hello-world的镜像，并在容器内运行。</strong></p>
 <p><a href="https://hub.docker.com/r/jbrowse/gmod-jbrowse/" target="_blank" rel="noopener">jbrowse/gmod-jbrowse</a> 卡住了</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 8080:80 jbrowse/jbrowse-1.12.0</span><br><span class="line"><span class="meta">#</span> 有问题</span><br></pre></td></tr></table></figure>
 <h2 id="conda-安装（安装成功了，不知道如何启用）"><a href="#conda-安装（安装成功了，不知道如何启用）" class="headerlink" title="conda 安装（安装成功了，不知道如何启用）"></a>conda 安装（安装成功了，不知道如何启用）</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 需要超级用户权限，不然会失败</span><br><span class="line">conda install -c bioconda jbrowse</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> conda 的卸载命令</span><br><span class="line">conda list | grep jbrowse</span><br><span class="line">conda remove jbrowse</span><br></pre></td></tr></table></figure>
+<h2 id="安装Nginx"><a href="#安装Nginx" class="headerlink" title="安装Nginx"></a>安装Nginx</h2><p><code>yum install nginx</code></p>
 <blockquote>
 <p>[root@localhost qi]#  netstat -ntpl<br>Active Internet connections (only servers)<br>Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name<br>tcp        0      0 0.0.0.0:111             0.0.0.0:<em>               LISTEN      1/systemd<br>tcp        0      0 0.0.0.0:80              0.0.0.0:</em>               LISTEN      1823/nginx: master<br>tcp        0      0 0.0.0.0:6000            0.0.0.0:<em>               LISTEN      6706/X<br>tcp        0      0 192.168.122.1:53        0.0.0.0:</em>               LISTEN      6629/dnsmasq<br>tcp        0      0 0.0.0.0:22              0.0.0.0:<em>               LISTEN      6296/sshd<br>tcp        0      0 127.0.0.1:631           0.0.0.0:</em>               LISTEN      6299/cupsd<br>tcp        0      0 127.0.0.1:6010          0.0.0.0:<em>               LISTEN      13051/sshd: qi@pts/<br>tcp        0      0 127.0.0.1:6011          0.0.0.0:</em>               LISTEN      23741/sshd: qi@pts/<br>tcp        0      0 127.0.0.1:6012          0.0.0.0:<em>               LISTEN      31798/sshd: qi@pts/<br>tcp6       0      0 :::3306                 :::</em>                    LISTEN      7024/mysqld<br>tcp6       0      0 :::111                  :::<em>                    LISTEN      1/systemd<br>tcp6       0      0 :::80                   :::</em>                    LISTEN      1823/nginx: master<br>tcp6       0      0 :::6000                 :::<em>                    LISTEN      6706/X<br>tcp6       0      0 :::22                   :::</em>                    LISTEN      6296/sshd<br>tcp6       0      0 ::1:631                 :::<em>                    LISTEN      6299/cupsd<br>tcp6       0      0 ::1:6010                :::</em>                    LISTEN      13051/sshd: qi@pts/<br>tcp6       0      0 ::1:6011                :::<em>                    LISTEN      23741/sshd: qi@pts/<br>tcp6       0      0 ::1:6012                :::</em>                    LISTEN      31798/sshd: qi@pts/ </p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kill 1823</span><br><span class="line">service nginx star</span><br></pre></td></tr></table></figure>
-<h2 id="安装Nginx"><a href="#安装Nginx" class="headerlink" title="安装Nginx"></a>安装Nginx</h2><p><a href="https://www.jianshu.com/p/7986bcab355c" target="_blank" rel="noopener">Centos7 yum配置Nginx</a></p>
+<p><a href="https://www.jianshu.com/p/7986bcab355c" target="_blank" rel="noopener">Centos7 yum配置Nginx</a></p>
 <blockquote>
 <p>/home/qi/miniconda3/pkgs/jbrowse-1.16.2-pl526h6bb024c_6/opt/jbrowse</p>
 </blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> conda 的卸载命令</span><br><span class="line">conda list | grep jbrowse</span><br><span class="line">conda remove jbrowse</span><br></pre></td></tr></table></figure>
+<p>又卸载<code>yum remove nginx</code></p>
 <h2 id="成功的操作"><a href="#成功的操作" class="headerlink" title="成功的操作"></a>成功的操作</h2><ol>
 <li>将web服务器换成了apache，放文件的目录就是 /var/www/html</li>
 </ol>
@@ -496,6 +511,28 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">locate local/lib.pm</span><br><span class="line">cp -r /home/qi/perl5/lib/perl5/local /var/www/html/JBrowse-1.16.3/bin/../src/perl5/../../extlib/lib/perl5/5.16.3</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sudo bin/prepare-refseqs.pl --fasta docs/tutorial/data_files/volvox.fa --out sample_data/json/volvox</span><br><span class="line"></span><br><span class="line">sudo bin/prepare-refseqs.pl --fasta sample_data/raw/yeast_scaffolds/chr1.fa.gz --fasta sample_data/raw/yeast_scaffolds/chr2.fa.gzip --out sample_data/json/yeast/</span><br></pre></td></tr></table></figure>
 <p>地址：</p>
 <p><a href="http://10.164.6.154/JBrowse-1.16.3/index.html?data=sample_data/json/volvox" target="_blank" rel="noopener">http://10.164.6.154/JBrowse-1.16.3/index.html?data=sample_data/json/volvox</a></p>
+<p><strong>2019-2-28 19:53:01</strong></p>
+<p>今天登入ip的时候，没有显示。</p>
+<p>Enable Apache to start at boot, and restart the service for the above changes to take effect:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl enable httpd.service</span><br><span class="line">sudo systemctl restart httpd.service</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 确认http服务是否开启，端口 80</span><br><span class="line">sudo systemctl is-enabled httpd.service</span><br><span class="line"><span class="meta">#</span> 查看历史记录，awk去掉第一列，sed去掉行首空格</span><br><span class="line">history | tail -n 40 | awk '&#123;$1="";print $0&#125;' | sed 's/^ *//'</span><br></pre></td></tr></table></figure>
+<h2 id="准备参考序列和特征数据"><a href="#准备参考序列和特征数据" class="headerlink" title="准备参考序列和特征数据"></a>准备参考序列和特征数据</h2><p>JBrowser 用的是 perl 5.16.3</p>
+<p><strong>所有track都生成在默认的data目录中</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 指定perl为/usr/bin/perl </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> seq  trackList.json  tracks.conf</span><br><span class="line">/usr/bin/perl bin/prepare-refseqs.pl --fasta ~/data2/tan_rna/genome/HWB.chromosome.fa</span><br><span class="line"><span class="meta">#</span> tracks</span><br><span class="line">/usr/bin/perl bin/flatfile-to-json.pl --gff HWB.gene.models.gff3 --trackType CanvasFeatures --trackLabel HWBgff</span><br></pre></td></tr></table></figure>
+<p>不指定会出现如下错误：[^1]</p>
+<blockquote>
+<p>(base) [qi@localhost JBrowse-1.16.3]$ bin/flatfile-to-json.pl –help<br>perl: symbol lookup error: /var/www/html/JBrowse-1.16.3/bin/../src/perl5/../../extlib/lib/perl5/x86_64-linux-thread-multi/auto/JSON/XS/XS.so: undefined symbol: Perl_xs_apiversion_bootcheck</p>
+</blockquote>
+<p>查资料</p>
+<p><strong>This type of error is almost always indicates you are loading a module that was installed using  a different build of Perl.</strong></p>
+<p><a href="https://stackoverflow.com/questions/51375821/perl-xs-apiversion-bootcheck" target="_blank" rel="noopener">https://stackoverflow.com/questions/51375821/perl-xs-apiversion-bootcheck</a></p>
+<p>[^1]: 不指定，如果用sudo 也不会出现错误，如：<code>sudo bin/prepare-refseqs.pl --fasta ~/data2/tan_rna/genome/HWB.chromosome.fa --out sample_data/json/HWB</code> 不清楚原因</p>
+<h2 id="建立索引方便搜索"><a href="#建立索引方便搜索" class="headerlink" title="建立索引方便搜索"></a>建立索引方便搜索</h2><p>缺这一步，搜索功能不能用</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 生成 ./data/names</span><br><span class="line">/usr/bin/perl bin/generate-names.pl</span><br></pre></td></tr></table></figure>
+<p><a href="http://10.164.6.154/JBrowse-1.16.3/index.html?data=data" target="_blank" rel="noopener">http://10.164.6.154/JBrowse-1.16.3/index.html?data=data</a></p>
+<h2 id="VCF-tracks"><a href="#VCF-tracks" class="headerlink" title="VCF tracks"></a>VCF tracks</h2><p><a href="http://jbrowse.org/docs/variants.html" target="_blank" rel="noopener">http://jbrowse.org/docs/variants.html</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for i in *.vcf; do bgzip $i; done</span><br><span class="line"></span><br><span class="line">for i in *.vcf.gz; do tabix -p vcf $i; done</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/qizhengyang2017/qizhengyang2017.github.io/blob/master/images/vcferror.png?raw=true" alt=""></p>
 
       
     </div>
@@ -508,6 +545,35 @@
 
     
 
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weixin.png" alt=" WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt=" Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
     
 
     
@@ -531,8 +597,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/20/snakemake/" rel="next" title="GATK calling variants in RNA-seq using snakemake framework">
-                <i class="fa fa-chevron-left"></i> GATK calling variants in RNA-seq using snakemake framework
+              <a href="/2019/02/20/snakemake/" rel="next" title="使用GATK和snakemake框架的总结">
+                <i class="fa fa-chevron-left"></i> 使用GATK和snakemake框架的总结
               </a>
             
           </div>
@@ -540,6 +606,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/27/git使用/" rel="prev" title="git和github使用">
+                git和github使用 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -609,7 +679,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -644,7 +714,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">9</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -680,7 +756,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基因浏览器介绍（入门）"><span class="nav-text">基因浏览器介绍（入门）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#准备参考序列"><span class="nav-text">准备参考序列</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#尝试安装"><span class="nav-text">尝试安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装docker（没有成功）"><span class="nav-text">安装docker（没有成功）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#conda-安装（安装成功了，不知道如何启用）"><span class="nav-text">conda 安装（安装成功了，不知道如何启用）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Nginx"><span class="nav-text">安装Nginx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#成功的操作"><span class="nav-text">成功的操作</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基因浏览器介绍（入门）"><span class="nav-text">基因浏览器介绍（入门）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#准备参考序列"><span class="nav-text">准备参考序列</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#尝试安装"><span class="nav-text">尝试安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker安装（没有成功）"><span class="nav-text">docker安装（没有成功）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#conda-安装（安装成功了，不知道如何启用）"><span class="nav-text">conda 安装（安装成功了，不知道如何启用）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Nginx"><span class="nav-text">安装Nginx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#成功的操作"><span class="nav-text">成功的操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#准备参考序列和特征数据"><span class="nav-text">准备参考序列和特征数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建立索引方便搜索"><span class="nav-text">建立索引方便搜索</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VCF-tracks"><span class="nav-text">VCF tracks</span></a></li></ol></div>
             
 
           </div>
@@ -700,7 +776,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>

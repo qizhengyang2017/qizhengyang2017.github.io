@@ -2,9 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://qizhengyang2017.github.io/2019/03/01/%E7%94%A8python%E7%94%9F%E6%88%90json%E6%A0%BC%E5%BC%8F%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</loc>
+    
+    <lastmod>2019-03-01T14:52:36.498Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://qizhengyang2017.github.io/2019/03/01/JBrowse/</loc>
+    
+    <lastmod>2019-03-01T14:36:46.216Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://qizhengyang2017.github.io/2019/02/26/JBrowse%20%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/</loc>
     
-    <lastmod>2019-02-26T15:40:25.064Z</lastmod>
+    <lastmod>2019-02-28T16:28:04.417Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://qizhengyang2017.github.io/2019/02/28/GFP/</loc>
+    
+    <lastmod>2019-02-28T03:14:08.562Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://qizhengyang2017.github.io/2019/02/27/git%E4%BD%BF%E7%94%A8/</loc>
+    
+    <lastmod>2019-02-27T12:27:28.560Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://qizhengyang2017.github.io/2019/02/20/snakemake/</loc>
+    
+    <lastmod>2019-02-27T09:31:34.537Z</lastmod>
     
   </url>
   
@@ -12,13 +47,6 @@
     <loc>https://qizhengyang2017.github.io/2019/01/26/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85-CentOS-7-%E5%B9%B6%E5%BC%80%E5%90%AFssh%E6%9C%8D%E5%8A%A1%E4%B9%8B%E5%90%8E/</loc>
     
     <lastmod>2019-02-26T09:16:14.060Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://qizhengyang2017.github.io/2019/02/20/snakemake/</loc>
-    
-    <lastmod>2019-02-25T08:43:05.096Z</lastmod>
     
   </url>
   

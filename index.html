@@ -324,6 +324,791 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2019/03/01/用python生成json格式的配置文件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qizhengyang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/01/用python生成json格式的配置文件/" itemprop="url">
+                  用 python生成json格式的配置文件
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-03-01 22:36:18 / Modified: 22:52:36" itemprop="dateCreated datePublished" datetime="2019-03-01T22:36:18+08:00">2019-03-01</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="python-基础知识"><a href="#python-基础知识" class="headerlink" title="python 基础知识"></a>python 基础知识</h2><p><a href="https://blog.51cto.com/xiaotaoge/1864761" target="_blank" rel="noopener">writelines 和 write 区别</a>：</p>
+<ol>
+<li>write()需要传入一个字符串做为参数，否则会报错</li>
+<li>writelines()既可以传入字符串又可以传入一个字符序列，并将该字符序列写入文件</li>
+<li>注意必须传入的是字符序列，不能是数字序列(卡在这里搞了半天)</li>
+</ol>
+<p><a href="https://www.cnblogs.com/evening/archive/2012/03/29/2423554.html" target="_blank" rel="noopener">lambda函数</a></p>
+<p>lambda作为一个表达式，定义了一个匿名函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; foo = [2, 18, 9, 22, 17, 24, 8, 12, 27]</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt; print filter(lambda x: x % 3 == 0, foo)</span><br><span class="line">[18, 9, 24, 12, 27]</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt; print map(lambda x: x * 2 + 10, foo)</span><br><span class="line">[14, 46, 28, 54, 44, 58, 26, 34, 64]</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt; print reduce(lambda x, y: x + y, foo)</span><br><span class="line">139</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001431779637539089fd627094a43a8a7c77e6102e3a811000" target="_blank" rel="noopener">列表生成式</a></p>
+<p>列表生成式即List Comprehensions，是Python内置的非常简单却强大的可以用来创建list的生成式。</p>
+<p>for循环后面还可以加上if判断，这样我们就可以筛选出仅偶数的平方：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; [x * x for x in range(1, 11) if x % 2 == 0]</span><br><span class="line">[4, 16, 36, 64, 100]</span><br></pre></td></tr></table></figure>
+<p>还可以使用两层循环，可以生成全排列：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; [m + n for m in &apos;ABC&apos; for n in &apos;XYZ&apos;]</span><br><span class="line">[&apos;AX&apos;, &apos;AY&apos;, &apos;AZ&apos;, &apos;BX&apos;, &apos;BY&apos;, &apos;BZ&apos;, &apos;CX&apos;, &apos;CY&apos;, &apos;CZ&apos;]</span><br></pre></td></tr></table></figure>
+<h2 id="任务"><a href="#任务" class="headerlink" title="任务"></a>任务</h2><p>用文件名（存在列表当值），生成json配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"> &quot;label&quot;         : &quot;sample&quot;,</span><br><span class="line"> &quot;key&quot;           : &quot;sample&quot;,</span><br><span class="line"> &quot;storeClass&quot;    : &quot;JBrowse/Store/SeqFeature/VCFTabix&quot;,</span><br><span class="line"> &quot;urlTemplate&quot;   : &quot;sample.vcf.gz&quot;,</span><br><span class="line"> &quot;type&quot;          : &quot;JBrowse/View/Track/HTMLVariants&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>json 模块</p>
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import json</span><br><span class="line">&gt;&gt;&gt; print(json.dumps(&#123;&apos;4&apos;: 5, &apos;6&apos;: 7&#125;, sort_keys=True, indent=4))</span><br><span class="line">&#123;</span><br><span class="line">    &quot;4&quot;: 5,</span><br><span class="line">    &quot;6&quot;: 7</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>原创脚本</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">Make a samples.json file with sample names and file names.</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">from</span> glob <span class="keyword">import</span> glob</span><br><span class="line"></span><br><span class="line"><span class="comment"># match filenames</span></span><br><span class="line">fastqs = glob(<span class="string">'/usr/share/nginx/html/vcf/*.vcf.gz'</span>)</span><br><span class="line">files = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># extract a sample name from each filename.</span></span><br><span class="line">samples = [fastq.split(<span class="string">'/'</span>)[<span class="number">-1</span>].split(<span class="string">'_'</span>)[<span class="number">0</span>] <span class="keyword">for</span> fastq <span class="keyword">in</span> fastqs]</span><br><span class="line">samples1 = sorted(samples)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> sample <span class="keyword">in</span> samples1:</span><br><span class="line">    files[<span class="string">'label'</span>] = sample</span><br><span class="line">    files[<span class="string">'key'</span>] = sample</span><br><span class="line">    files[<span class="string">'storeClass'</span>] = <span class="string">'JBrowse/Store/SeqFeature/VCFTabix'</span></span><br><span class="line">    files[<span class="string">'urlTemplate'</span>] = <span class="string">'vcf/'</span> + sample + <span class="string">'_filtered.vcf.gz'</span></span><br><span class="line">    files[<span class="string">'category'</span>] = <span class="string">'VCF'</span></span><br><span class="line">    files[<span class="string">'type'</span>] = <span class="string">'JBrowse/View/Track/HTMLVariants'</span></span><br><span class="line">    js = json.dumps(files, indent=<span class="number">4</span>, sort_keys=<span class="keyword">True</span>)</span><br><span class="line">    js1 = js + <span class="string">','</span> + <span class="string">'\n'</span></span><br><span class="line">    open(<span class="string">'mysamples1.json'</span>, <span class="string">'a'</span>).writelines(js1)</span><br></pre></td></tr></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;category&quot;: &quot;VCF&quot;, </span><br><span class="line">    &quot;key&quot;: &quot;HB-10-1&quot;, </span><br><span class="line">    &quot;label&quot;: &quot;HB-10-1&quot;, </span><br><span class="line">    &quot;storeClass&quot;: &quot;JBrowse/Store/SeqFeature/VCFTabix&quot;, </span><br><span class="line">    &quot;type&quot;: &quot;JBrowse/View/Track/HTMLVariants&quot;, </span><br><span class="line">    &quot;urlTemplate&quot;: &quot;vcf/HB-10-1_filtered.vcf.gz&quot;</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line">    &quot;category&quot;: &quot;VCF&quot;, </span><br><span class="line">    &quot;key&quot;: &quot;HB-10-2&quot;, </span><br><span class="line">    &quot;label&quot;: &quot;HB-10-2&quot;, </span><br><span class="line">    &quot;storeClass&quot;: &quot;JBrowse/Store/SeqFeature/VCFTabix&quot;, </span><br><span class="line">    &quot;type&quot;: &quot;JBrowse/View/Track/HTMLVariants&quot;, </span><br><span class="line">    &quot;urlTemplate&quot;: &quot;vcf/HB-10-2_filtered.vcf.gz&quot;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>JBrowse 结果</p>
+<p><img src="/images/snptrack.PNG" alt=""></p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>安装制定版本为3.6，为什么python的版本是3.5.5</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(py3.6) [qi@localhost ~]$ python --version</span><br><span class="line">Python 3.5.5</span><br><span class="line">(py3.6) [qi@localhost ~]$</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install -c anaconda ipython  # su</span><br></pre></td></tr></table></figure>
+<p><a href="https://zhidao.baidu.com/question/1540623632707309307.html" target="_blank" rel="noopener">目录高亮是怎么回事？</a></p>
+<p>说明这个目录权限太高了，所有人都能够访问、修改、删除、运行。<br>正常情况，应该是Owner可以读写，all可读，root可以修改可执行权限才对。<br>正常情况，对于目录，应该权限设定为744，对于文件默认权限应该设定为644。<br>用户私有文件，权限应该设定为600。</p>
+<p>更改文件拥有者</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls -ld html/</span><br><span class="line">chown -R qi:qi html/</span><br></pre></td></tr></table></figure>
+<p>py3.6的环境，我安装了samtools，也用不了。自然也就用不了，bgzip和tabix。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(py3.6) [qi@localhost vcf]$ conda list | grep samtools</span><br><span class="line">perl-bio-samtools         1.43            pl526h1341992_1    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda</span><br><span class="line">samtools                  1.9                  h57cc563_6    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2019/03/01/JBrowse/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qizhengyang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/01/JBrowse/" itemprop="url">
+                  JBrowse 总结
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-03-01 15:15:27 / Modified: 22:36:46" itemprop="dateCreated datePublished" datetime="2019-03-01T15:15:27+08:00">2019-03-01</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>当没有得到结果的时候，总是战战兢兢。得到结果之后，逻辑一下子就很清晰。</p>
+<ol>
+<li>下载<a href="https://jbrowse.org/blog/" target="_blank" rel="noopener">JBrowse</a>最新版本，我用的是 1.16.3</li>
+<li>web服务器，用Nginx。（用 Apache，建立 VCF track 会出错）<a href="https://www.biostars.org/p/366646/#366778" target="_blank" rel="noopener">^question</a></li>
+</ol>
+<h2 id="安装-JBrowse"><a href="#安装-JBrowse" class="headerlink" title="安装 JBrowse"></a>安装 JBrowse</h2><p>./setup.sh这一步需要安装很多perl依赖库，如果报错，查看setup.log文件，应该是一些 perl 模块没有安装。如：</p>
+<blockquote>
+<p>! <strong>Installing GD failed</strong>. See /root/.cpanm/work/1551106022.8560/build.log for details. Retry with –force to force install it.<br>Searching XML::LibXML (0) on cpanmetadb …<br>Already tried XML-LibXML-2.0134. Skipping.<br>! Installing the dependencies failed: Module ‘XML::LibXML’ is not installed, Module ‘XML::LibXML::Reader’ is not installed, Module ‘GD’ is not install<br>ed, Module ‘DBI’ is not installed, Module ‘DB_File’ is not installed<br>! Bailing out the installation for BioPerl-1.7.5.<br>Searching JSON::XS (0) on cpanmetadb …<br>Unpacking JSON-XS-4.01.tar.gz<br>FAIL</p>
+</blockquote>
+<p><strong>官方文档说，运行./setup.sh 的时候不要是 root 或使用 sudo。</strong>（和安装目录有关？）这可能是之前安装失败的原因。</p>
+<p>Run the automated-setup script, <code>./setup.sh</code>, which will attempt to install all of JBrowse’s (modest) prerequisites for you in the <code>jbrowse/</code> directory itself. Note that <code>setup.sh</code> should not be run as root or with <code>sudo</code>.<a href="http://gmod.org/wiki/JBrowse_Configuration_Guide#Making_a_New_JBrowse" target="_blank" rel="noopener">^1</a></p>
+<h2 id="安装Nginx"><a href="#安装Nginx" class="headerlink" title="安装Nginx"></a>安装Nginx</h2><p><code>yum install nginx</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl stop httpd.service # 因为之前有apache服务器，所以要先停掉</span><br><span class="line">sudo yum install nginx  # 安装</span><br><span class="line">systemctl start  nginx.service  # 启动</span><br></pre></td></tr></table></figure>
+<p>如果你的服务器正在运行防火墙，请运行下列命令以允许它进行 HTTP 和 HTTPS 通信：</p>
+<p><a href="https://www.jianshu.com/p/a482a0f8adfd" target="_blank" rel="noopener">https://www.jianshu.com/p/a482a0f8adfd</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo firewall-cmd --permanent --zone=public --add-service=http</span><br><span class="line">sudo firewall-cmd --permanent --zone=public --add-service=https</span><br><span class="line">sudo firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+<p><img src="/images/nginx.PNG" alt=""></p>
+<p>两个 perl 版本的问题，从报错信息知 JBrowse 用的是 perl 5.16.3，即 /usr/bin/perl。系统默认的 perl 是 conda  安装的 perl。</p>
+<blockquote>
+<p><strong>Can’t locate local/lib.pm</strong> in @INC (@INC contains: /var/www/html/JBrowse-1.16.3/bin/../src/perl5/../../extlib/lib/perl5/5.16.3/x86_64-linux-thread-multi <strong>/var/www/html/JBrowse-1.16.3/bin/../src/perl5/../../extlib/lib/perl5/5.16.3</strong> /var/www/html/JBrowse-1.16.3/bin/../src/perl5/../../extlib/lib/perl5/x86_64-linux-thread-multi /var/www/html/JBrowse-1.16.3/bin/../src/perl5/../../extlib/lib/perl5 /var/www/html/JBrowse-1.16.3/bin/../src/perl5 /usr/local/lib64/perl5 /usr/local/share/perl5 /usr/lib64/perl5/vendor_perl /usr/share/perl5/vendor_perl /usr/lib64/perl5 /usr/share/perl5 .) at /var/www/html/JBrowse-1.16.3/bin/../src/perl5/JBlibs.pm line 25.<br>Compilation failed in require at bin/prepare-refseqs.pl line 5.<br>BEGIN failed–compilation aborted at bin/prepare-refseqs.pl line 5</p>
+</blockquote>
+<p>解决上面的问题，可以直接copy 一份。（不知道家目录下的 perl5 文件夹是什么时候生成的？）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">locate local/lib.pm</span><br><span class="line">cp -r /home/qi/perl5/lib/perl5/local /var/www/html/JBrowse-1.16.3/bin/../src/perl5/../../extlib/lib/perl5/5.16.3</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 运行示例</span><br><span class="line">sudo bin/prepare-refseqs.pl --fasta docs/tutorial/data_files/volvox.fa --out sample_data/json/volvox</span><br><span class="line"></span><br><span class="line">sudo bin/prepare-refseqs.pl --fasta sample_data/raw/yeast_scaffolds/chr1.fa.gz --fasta sample_data/raw/yeast_scaffolds/chr2.fa.gzip --out sample_data/json/yeast/</span><br></pre></td></tr></table></figure>
+<h2 id="柚子数据"><a href="#柚子数据" class="headerlink" title="柚子数据"></a>柚子数据</h2><h3 id="准备参考序列和特征数据"><a href="#准备参考序列和特征数据" class="headerlink" title="准备参考序列和特征数据"></a>准备参考序列和特征数据</h3><p>所有track都生成在默认的data目录中</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 指定perl为/usr/bin/perl </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> seq  trackList.json  tracks.conf</span><br><span class="line">/usr/bin/perl bin/prepare-refseqs.pl --fasta ~/data2/tan_rna/genome/HWB.chromosome.fa</span><br><span class="line"><span class="meta">#</span> tracks</span><br><span class="line">/usr/bin/perl bin/flatfile-to-json.pl --gff HWB.gene.models.gff3 --trackType CanvasFeatures --trackLabel HWBgff</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 建索引。生成 ./data/names</span><br><span class="line">/usr/bin/perl bin/generate-names.pl</span><br></pre></td></tr></table></figure>
+<p>不指定会出现如下错误：</p>
+<blockquote>
+<p>(base) [qi@localhost JBrowse-1.16.3]$ bin/flatfile-to-json.pl –help<br>perl: symbol lookup error: /var/www/html/JBrowse-1.16.3/bin/../src/perl5/../../extlib/lib/perl5/x86_64-linux-thread-multi/auto/JSON/XS/XS.so: undefined symbol: Perl_xs_apiversion_bootcheck</p>
+</blockquote>
+<p>查资料</p>
+<p><strong>This type of error is almost always indicates you are loading a module that was installed using  a different build of Perl.</strong><a href="https://stackoverflow.com/questions/51375821/perl-xs-apiversion-bootcheck" target="_blank" rel="noopener">^stackoverflow</a></p>
+<h3 id="VCF-tracks"><a href="#VCF-tracks" class="headerlink" title="VCF tracks"></a>VCF tracks</h3><p><a href="http://jbrowse.org/docs/variants.html" target="_blank" rel="noopener">http://jbrowse.org/docs/variants.html</a></p>
+<p>VCF files used with the <code>VCFTabix</code> must be compressed with <code>bgzip</code> and indexed with <code>tabix</code>, both of which are part of the <a href="http://samtools.sourceforge.net/" target="_blank" rel="noopener">samtools</a> package. This is usually done with commands like:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for i in *.vcf; do bgzip $i; done</span><br><span class="line">for i in *.vcf.gz; do tabix -p vcf $i; done</span><br></pre></td></tr></table></figure>
+<p>安装好之后，我们将JBrowse-1.12.1下所有文件拷贝到网站根目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp *  /usr/share/nginx/html</span><br></pre></td></tr></table></figure>
+<p><a href="http://10.164.6.154" target="_blank" rel="noopener">http://10.164.6.154</a></p>
+<p>要添加其他物种，可重命名data文件夹</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mv data xxx</span><br></pre></td></tr></table></figure>
+<p>下次再把另外一个基因组放进来时，<code>bin</code>目录下的脚本又会默认放到data目录，就不会发生混乱啦！</p>
+<p>另外，如果你把JBrowse部署在内网，却想让外网访问到，而部署JBrowse的服务器又在防火墙后面的话，请一定要记得把<code>jbrowse.conf</code>加入到防火墙白名单，因为防火墙默认会把这种<code>.conf</code>结尾的文件屏蔽。<a href="https://segmentfault.com/a/1190000010576819" target="_blank" rel="noopener">^引自</a></p>
+<blockquote>
+<p>所谓基因组浏览器就是通过这个工具查看基因组，具体包括参考基因组序列，哪个地方是外显子、那个地方是内含子等等功能。参考基因组就是一个fasta文件，哪个地方是外显子、哪个地方是内含子这些信息称之为特征，一般情况下NCBI、ENSEMBL等数据库都会提供GFF3格式的基因组特征文件。JBrowse支持GFF3, BED, FASTA, Wiggle, BigWig, BAM, VCF (with tabix), REST等众多数据格式，BAM, BigWig，VCF格式的数据可以不需要转换而直接使用。</p>
+</blockquote>
+<h2 id="其他相关的命令"><a href="#其他相关的命令" class="headerlink" title="其他相关的命令"></a>其他相关的命令</h2><p>一些关于防火墙的命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --state  # 查看状态，running</span><br><span class="line">firewall-cmd --reload  # 重启firewall</span><br><span class="line">systemctl stop firewalld.service  # 停止firewall</span><br><span class="line">systemctl disable firewalld.service  # 禁止firewall开机启动</span><br></pre></td></tr></table></figure>
+<p>查看历史记录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> awk去掉第一列，sed去掉行首空格</span><br><span class="line">history | tail -n 40 | awk '&#123;$1="";print $0&#125;' | sed 's/^ *//'</span><br></pre></td></tr></table></figure>
+<p>conda 命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">conda create --name bioinfo python=3.6    # 创建环境</span><br><span class="line">conda list    # 查看包</span><br><span class="line">conda update --all    # 更新所有包</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 查看环境</span><br><span class="line">conda info -e</span><br><span class="line">conda activate bioinfo</span><br><span class="line">conda deactivate</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> ERROR: This cross-compiler package contains no program </span><br><span class="line"><span class="meta">#</span> https://github.com/conda/conda/issues/6600</span><br><span class="line">conda list | grep gcc</span><br><span class="line"><span class="meta">#</span> 需要超级用户权限</span><br><span class="line">conda remove gcc_linux-64 gcc_impl_linux-64 binutils_linux-64 binutils_impl_linux-64</span><br></pre></td></tr></table></figure>
+<p>解决复制终端文本换行的问题</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">zcat HB-10-2_filtered.vcf.gz | sed -n '/#CHROM/='  # 输出行号</span><br><span class="line">zcat HB-10-2_filtered.vcf.gz | head -n 42 &gt; header.txt</span><br><span class="line"><span class="meta">#</span> 文本编辑器打开会多一行，因为行末尾的换行符</span><br></pre></td></tr></table></figure>
+<h2 id="JBrowse-参考"><a href="#JBrowse-参考" class="headerlink" title="JBrowse 参考"></a>JBrowse 参考</h2><p><a href="http://gmod.org/wiki/JBrowse_Configuration_Guide#Making_a_New_JBrowse" target="_blank" rel="noopener">JBrowse Configuration Guide</a></p>
+<p><a href="http://jbrowse.org/docs/variants.html" target="_blank" rel="noopener">Variant Tracks (VCF)</a></p>
+<p><a href="http://jbrowse.org/docs/faq_troubleshooting.html" target="_blank" rel="noopener">Troubleshooting</a></p>
+<p><a href="https://www.plob.org/article/11742.html#respond" target="_blank" rel="noopener">Browse基因浏览器介绍</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2019/02/28/GFP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qizhengyang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/28/GFP/" itemprop="url">
+                  绿色荧光蛋白
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-02-28 10:45:58 / Modified: 11:14:08" itemprop="dateCreated datePublished" datetime="2019-02-28T10:45:58+08:00">2019-02-28</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>绿色萤光蛋白</strong>(Green fluorescent protein，简称<strong>GFP</strong>)，是一个由约238个<a href="https://zh.wikipedia.org/wiki/%E6%B0%A8%E5%9F%BA%E9%85%B8" target="_blank" rel="noopener">氨基酸</a>组成的蛋白质，从蓝光到<a href="https://zh.wikipedia.org/wiki/%E7%B4%AB%E5%A4%96%E7%BA%BF" target="_blank" rel="noopener">紫外线</a>都能使其激发，发出绿色<a href="https://zh.wikipedia.org/wiki/%E8%9E%A2%E5%85%89" target="_blank" rel="noopener">萤光</a>。<a href="https://zh.wikipedia.org/wiki/%E7%BB%BF%E8%89%B2%E8%8D%A7%E5%85%89%E8%9B%8B%E7%99%BD" target="_blank" rel="noopener">^1</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2019/02/27/git使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qizhengyang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/27/git使用/" itemprop="url">
+                  git和github使用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-02-27 16:28:51 / Modified: 20:27:28" itemprop="dateCreated datePublished" datetime="2019-02-27T16:28:51+08:00">2019-02-27</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>对之前使用git和github的整理，重新在网上搜索资料，添加代码注释。</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
+<p>我们一直用GitHub作为免费的远程仓库，如果是个人的开源项目，放到GitHub上是完全没有问题的。其实GitHub还是一个开源协作社区，通过GitHub，既可以让别人参与你的开源项目，也可以参与别人的开源项目。</p>
+<p>在GitHub出现以前，开源项目开源容易，但让广大人民群众参与进来比较困难，因为要参与，就要提交代码，而给每个想提交代码的群众都开一个账号那是不现实的，因此，群众也仅限于报个bug，即使能改掉bug，也只能把diff文件用邮件发过去，很不方便。</p>
+<p>但是在GitHub上，利用Git极其强大的克隆和分支功能，广大人民群众真正可以第一次自由参与各种开源项目了。</p>
+</blockquote>
+<h2 id="使用过的代码"><a href="#使用过的代码" class="headerlink" title="使用过的代码"></a>使用过的代码</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 创建SSH Key</span><br><span class="line"><span class="meta">#</span> 在用户目录下，看看有没有.ssh目录，如果有，再看看这个目录下有没有id_rsa和id_rsa.pub这两个文件</span><br><span class="line">ssh-keygen -t rsa -C "qizhengyang17@gmail.com"</span><br><span class="line"><span class="meta">#</span> 测试添加是否成功</span><br><span class="line">ssh -T git@github.com</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 配置个人信息</span><br><span class="line">git config --global user.name "qizhengyang"</span><br><span class="line">git config --global user.email "qizhengyang17@gmail.com"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 通过SSH协议连接远程仓库</span><br><span class="line">git remote add origin git@github.com:qizhengyang2017/thesis.git</span><br></pre></td></tr></table></figure>
+<p><strong>添加、提交</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 当前仓库状态</span><br><span class="line">git status</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 将文件更改添加到暂存区</span><br><span class="line">git add prepDE.py</span><br><span class="line"><span class="meta">#</span> 添加所有更改到暂存区</span><br><span class="line">git add .</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 提交说明</span><br><span class="line">git commit -m "第一个脚本文件"</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 推送内容到GitHub的仓库</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+<h2 id="git命令"><a href="#git命令" class="headerlink" title="git命令"></a>git命令</h2><p>表格直接复制完全没有问题呀 </p>
+<p><strong>个人本地使用</strong></p>
+<table>
+<thead>
+<tr>
+<th>行为</th>
+<th>命令</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>初始化</td>
+<td><a href="http://www.cnblogs.com/schaepher/p/5561193.html#init" target="_blank" rel="noopener">init</a></td>
+<td>在本地的当前目录里初始化git仓库</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="http://www.cnblogs.com/schaepher/p/5561193.html#clone" target="_blank" rel="noopener">clone 地址</a></td>
+<td>从网络上某个地址拷贝仓库(repository)到本地</td>
+</tr>
+<tr>
+<td>查看当前状态</td>
+<td><a href="http://www.cnblogs.com/schaepher/p/5561193.html#status" target="_blank" rel="noopener">status</a></td>
+<td>查看当前仓库的状态。碰到问题不知道怎么办的时候，可以通过看它给出的提示来解决问题</td>
+</tr>
+<tr>
+<td>查看不同</td>
+<td><a href="http://www.cnblogs.com/schaepher/p/5561193.html#diff" target="_blank" rel="noopener">diff</a></td>
+<td>查看当前状态和最新的commit之间不同的地方</td>
+</tr>
+<tr>
+<td></td>
+<td>diff 版本号1 版本号2</td>
+<td>查看两个指定的版本之间不同的地方。这里的版本号指的是commit的hash值</td>
+</tr>
+<tr>
+<td>添加文件</td>
+<td><a href="http://www.cnblogs.com/schaepher/p/5561193.html#add" target="_blank" rel="noopener">add -A</a></td>
+<td>这算是相当通用的了。在commit之前要先add</td>
+</tr>
+<tr>
+<td>撤回stage的东西</td>
+<td><a href="http://www.cnblogs.com/schaepher/p/5561193.html#checkout" target="_blank" rel="noopener">checkout – .</a></td>
+<td>这里用小数点表示撤回所有修改，在<code>--</code>的前后都有空格</td>
+</tr>
+<tr>
+<td>提交</td>
+<td><a href="http://www.cnblogs.com/schaepher/p/5561193.html#commit" target="_blank" rel="noopener">commit -m “提交信息”</a></td>
+<td>提交信息最好能体现更改了什么</td>
+</tr>
+<tr>
+<td>删除未tracked</td>
+<td><a href="http://www.cnblogs.com/schaepher/p/5561193.html#clean" target="_blank" rel="noopener">clean -xf</a></td>
+<td>删除当前目录下所有没有track过的文件。不管它是否是.gitignore文件里面指定的文件夹和文件</td>
+</tr>
+<tr>
+<td>查看提交记录</td>
+<td><a href="http://www.cnblogs.com/schaepher/p/5561193.html#log" target="_blank" rel="noopener">log</a></td>
+<td>查看当前版本及之前的commit记录</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="http://www.cnblogs.com/schaepher/p/5561193.html#reflog" target="_blank" rel="noopener">reflog</a></td>
+<td>HEAD的变更记录</td>
+</tr>
+<tr>
+<td>版本回退</td>
+<td><a href="http://www.cnblogs.com/schaepher/p/5561193.html#reset" target="_blank" rel="noopener">reset –hard 版本号</a></td>
+<td>回退到指定版本号的版本，该版本之后的修改都被删除。同时也是通过这个命令回到最新版本。需要reflog配合</td>
+</tr>
+</tbody>
+</table>
+<p><strong>个人使用远程仓库</strong></p>
+<table>
+<thead>
+<tr>
+<th>行为</th>
+<th>命令</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>设置用户名</td>
+<td><a href="http://www.cnblogs.com/schaepher/p/5561193.html#config_user" target="_blank" rel="noopener">config –global user.name “你的用户名”</a></td>
+<td></td>
+</tr>
+<tr>
+<td>设置邮箱</td>
+<td><a href="http://www.cnblogs.com/schaepher/p/5561193.html#config_email" target="_blank" rel="noopener">config –global user.email “你的邮箱”</a></td>
+<td></td>
+</tr>
+<tr>
+<td>生成ssh key</td>
+<td><a href="http://www.cnblogs.com/schaepher/p/5561193.html#ssh_key" target="_blank" rel="noopener">ssh-keygen -t rsa -C “你的邮箱”</a></td>
+<td>这条命令前面不用加git</td>
+</tr>
+<tr>
+<td>添加远程仓库</td>
+<td><a href="http://www.cnblogs.com/schaepher/p/5561193.html#remote_add" target="_blank" rel="noopener">remote add origin 你复制的地址</a></td>
+<td>设置origin</td>
+</tr>
+<tr>
+<td>上传并指定默认</td>
+<td><a href="http://www.cnblogs.com/schaepher/p/5561193.html#push_origin" target="_blank" rel="noopener">push -u origin master</a></td>
+<td>指定origin为默认主机，以后push默认上传到origin上</td>
+</tr>
+<tr>
+<td>提交到远程仓库</td>
+<td><a href="http://www.cnblogs.com/schaepher/p/5561193.html#push" target="_blank" rel="noopener">push</a></td>
+<td>将当前分支增加的commit提交到远程仓库</td>
+</tr>
+<tr>
+<td>从远程仓库同步</td>
+<td>pull</td>
+<td>在本地版本低于远程仓库版本的时候，获取远程仓库的commit</td>
+</tr>
+</tbody>
+</table>
+<p>可以用一张图直观地看出以上<strong>主要的命令对仓库的影响</strong>。</p>
+<p><img src="/images/git.png" alt=""></p>
+<p><strong>工作区和暂存区</strong></p>
+<p><img src="/images/工作区和暂存区.jpg" alt=""></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137628548491051ccfaef0ccb470894c858999603fedf000" target="_blank" rel="noopener">使用GitHub</a></p>
+<p><a href="http://www.cnblogs.com/schaepher/p/5561193.html" target="_blank" rel="noopener">git和github简单教程</a></p>
+<p><a href="https://blog.csdn.net/u014722627/article/details/71101904" target="_blank" rel="noopener">使用git和github管理自己的项目</a></p>
+<p><a href="https://blog.csdn.net/u014722627/article/details/71101904" target="_blank" rel="noopener">Git | 一篇文章搞定Git、GitHub的理解和使用（学习笔记）</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2019/02/26/JBrowse 安装和使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -370,12 +1155,24 @@
                 
               
 
-              <time title="Created: 2019-02-26 16:05:41 / Modified: 23:40:25" itemprop="dateCreated datePublished" datetime="2019-02-26T16:05:41+08:00">2019-02-26</time>
+              <time title="Created: 2019-02-26 16:05:41" itemprop="dateCreated datePublished" datetime="2019-02-26T16:05:41+08:00">2019-02-26</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-03-01 00:28:04" itemprop="dateModified" datetime="2019-03-01T00:28:04+08:00">2019-03-01</time>
               
             
           </span>
@@ -428,7 +1225,7 @@
 </blockquote>
 <h2 id="尝试安装"><a href="#尝试安装" class="headerlink" title="尝试安装"></a>尝试安装</h2><p>主要参考这篇文献</p>
 <p><a href="https://yq.aliyun.com/articles/650480" target="_blank" rel="noopener">https://yq.aliyun.com/articles/650480</a></p>
-<p>没有成功，应该是perl模块的安装问题。不知道是否和conda有关。</p>
+<p><strong>没有成功，应该是perl模块的安装问题。不知道是否和conda有关。</strong></p>
 <blockquote>
 <p>! Installing GD failed. See /root/.cpanm/work/1551106022.8560/build.log for details. Retry with –force to force install it.<br>Searching XML::LibXML (0) on cpanmetadb …<br>Already tried XML-LibXML-2.0134. Skipping.<br>! Installing the dependencies failed: Module ‘XML::LibXML’ is not installed, Module ‘XML::LibXML::Reader’ is not installed, Module ‘GD’ is not install<br>ed, Module ‘DBI’ is not installed, Module ‘DB_File’ is not installed<br>! Bailing out the installation for BioPerl-1.7.5.<br>Searching JSON::XS (0) on cpanmetadb …<br>Unpacking JSON-XS-4.01.tar.gz<br>FAIL</p>
 </blockquote>
@@ -443,22 +1240,24 @@
 <blockquote>
 <p>/home/conda/feedstock_root/build_artifacts/perl_1548813468557/_build_env/bin/x86_64-conda_cos6-linux-gnu-gcc: No such file or directory<br>make: *** [Perl.o] Error 127</p>
 </blockquote>
-<h2 id="安装docker（没有成功）"><a href="#安装docker（没有成功）" class="headerlink" title="安装docker（没有成功）"></a>安装docker（没有成功）</h2><p><a href="http://www.runoob.com/docker/centos-docker-install.html" target="_blank" rel="noopener">http://www.runoob.com/docker/centos-docker-install.html</a></p>
-<p>下一步顺畅</p>
+<h2 id="docker安装（没有成功）"><a href="#docker安装（没有成功）" class="headerlink" title="docker安装（没有成功）"></a>docker安装（没有成功）</h2><p><a href="http://www.runoob.com/docker/centos-docker-install.html" target="_blank" rel="noopener">http://www.runoob.com/docker/centos-docker-install.html</a></p>
+<p>安装docker很顺畅</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install -y yum-utils device-mapper-persistent-data lvm2</span><br><span class="line">sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br><span class="line">sudo yum makecache fast</span><br><span class="line">sudo yum -y install docker-ce</span><br><span class="line">sudo systemctl start docker</span><br><span class="line">docker run hello-world</span><br></pre></td></tr></table></figure>
 <p><strong>由于本地没有hello-world这个镜像，所以会下载一个hello-world的镜像，并在容器内运行。</strong></p>
 <p><a href="https://hub.docker.com/r/jbrowse/gmod-jbrowse/" target="_blank" rel="noopener">jbrowse/gmod-jbrowse</a> 卡住了</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 8080:80 jbrowse/jbrowse-1.12.0</span><br><span class="line"><span class="meta">#</span> 有问题</span><br></pre></td></tr></table></figure>
 <h2 id="conda-安装（安装成功了，不知道如何启用）"><a href="#conda-安装（安装成功了，不知道如何启用）" class="headerlink" title="conda 安装（安装成功了，不知道如何启用）"></a>conda 安装（安装成功了，不知道如何启用）</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 需要超级用户权限，不然会失败</span><br><span class="line">conda install -c bioconda jbrowse</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> conda 的卸载命令</span><br><span class="line">conda list | grep jbrowse</span><br><span class="line">conda remove jbrowse</span><br></pre></td></tr></table></figure>
+<h2 id="安装Nginx"><a href="#安装Nginx" class="headerlink" title="安装Nginx"></a>安装Nginx</h2><p><code>yum install nginx</code></p>
 <blockquote>
 <p>[root@localhost qi]#  netstat -ntpl<br>Active Internet connections (only servers)<br>Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name<br>tcp        0      0 0.0.0.0:111             0.0.0.0:<em>               LISTEN      1/systemd<br>tcp        0      0 0.0.0.0:80              0.0.0.0:</em>               LISTEN      1823/nginx: master<br>tcp        0      0 0.0.0.0:6000            0.0.0.0:<em>               LISTEN      6706/X<br>tcp        0      0 192.168.122.1:53        0.0.0.0:</em>               LISTEN      6629/dnsmasq<br>tcp        0      0 0.0.0.0:22              0.0.0.0:<em>               LISTEN      6296/sshd<br>tcp        0      0 127.0.0.1:631           0.0.0.0:</em>               LISTEN      6299/cupsd<br>tcp        0      0 127.0.0.1:6010          0.0.0.0:<em>               LISTEN      13051/sshd: qi@pts/<br>tcp        0      0 127.0.0.1:6011          0.0.0.0:</em>               LISTEN      23741/sshd: qi@pts/<br>tcp        0      0 127.0.0.1:6012          0.0.0.0:<em>               LISTEN      31798/sshd: qi@pts/<br>tcp6       0      0 :::3306                 :::</em>                    LISTEN      7024/mysqld<br>tcp6       0      0 :::111                  :::<em>                    LISTEN      1/systemd<br>tcp6       0      0 :::80                   :::</em>                    LISTEN      1823/nginx: master<br>tcp6       0      0 :::6000                 :::<em>                    LISTEN      6706/X<br>tcp6       0      0 :::22                   :::</em>                    LISTEN      6296/sshd<br>tcp6       0      0 ::1:631                 :::<em>                    LISTEN      6299/cupsd<br>tcp6       0      0 ::1:6010                :::</em>                    LISTEN      13051/sshd: qi@pts/<br>tcp6       0      0 ::1:6011                :::<em>                    LISTEN      23741/sshd: qi@pts/<br>tcp6       0      0 ::1:6012                :::</em>                    LISTEN      31798/sshd: qi@pts/ </p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kill 1823</span><br><span class="line">service nginx star</span><br></pre></td></tr></table></figure>
-<h2 id="安装Nginx"><a href="#安装Nginx" class="headerlink" title="安装Nginx"></a>安装Nginx</h2><p><a href="https://www.jianshu.com/p/7986bcab355c" target="_blank" rel="noopener">Centos7 yum配置Nginx</a></p>
+<p><a href="https://www.jianshu.com/p/7986bcab355c" target="_blank" rel="noopener">Centos7 yum配置Nginx</a></p>
 <blockquote>
 <p>/home/qi/miniconda3/pkgs/jbrowse-1.16.2-pl526h6bb024c_6/opt/jbrowse</p>
 </blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> conda 的卸载命令</span><br><span class="line">conda list | grep jbrowse</span><br><span class="line">conda remove jbrowse</span><br></pre></td></tr></table></figure>
+<p>又卸载<code>yum remove nginx</code></p>
 <h2 id="成功的操作"><a href="#成功的操作" class="headerlink" title="成功的操作"></a>成功的操作</h2><ol>
 <li>将web服务器换成了apache，放文件的目录就是 /var/www/html</li>
 </ol>
@@ -495,6 +1294,28 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">locate local/lib.pm</span><br><span class="line">cp -r /home/qi/perl5/lib/perl5/local /var/www/html/JBrowse-1.16.3/bin/../src/perl5/../../extlib/lib/perl5/5.16.3</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sudo bin/prepare-refseqs.pl --fasta docs/tutorial/data_files/volvox.fa --out sample_data/json/volvox</span><br><span class="line"></span><br><span class="line">sudo bin/prepare-refseqs.pl --fasta sample_data/raw/yeast_scaffolds/chr1.fa.gz --fasta sample_data/raw/yeast_scaffolds/chr2.fa.gzip --out sample_data/json/yeast/</span><br></pre></td></tr></table></figure>
 <p>地址：</p>
 <p><a href="http://10.164.6.154/JBrowse-1.16.3/index.html?data=sample_data/json/volvox" target="_blank" rel="noopener">http://10.164.6.154/JBrowse-1.16.3/index.html?data=sample_data/json/volvox</a></p>
+<p><strong>2019-2-28 19:53:01</strong></p>
+<p>今天登入ip的时候，没有显示。</p>
+<p>Enable Apache to start at boot, and restart the service for the above changes to take effect:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl enable httpd.service</span><br><span class="line">sudo systemctl restart httpd.service</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 确认http服务是否开启，端口 80</span><br><span class="line">sudo systemctl is-enabled httpd.service</span><br><span class="line"><span class="meta">#</span> 查看历史记录，awk去掉第一列，sed去掉行首空格</span><br><span class="line">history | tail -n 40 | awk '&#123;$1="";print $0&#125;' | sed 's/^ *//'</span><br></pre></td></tr></table></figure>
+<h2 id="准备参考序列和特征数据"><a href="#准备参考序列和特征数据" class="headerlink" title="准备参考序列和特征数据"></a>准备参考序列和特征数据</h2><p>JBrowser 用的是 perl 5.16.3</p>
+<p><strong>所有track都生成在默认的data目录中</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 指定perl为/usr/bin/perl </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> seq  trackList.json  tracks.conf</span><br><span class="line">/usr/bin/perl bin/prepare-refseqs.pl --fasta ~/data2/tan_rna/genome/HWB.chromosome.fa</span><br><span class="line"><span class="meta">#</span> tracks</span><br><span class="line">/usr/bin/perl bin/flatfile-to-json.pl --gff HWB.gene.models.gff3 --trackType CanvasFeatures --trackLabel HWBgff</span><br></pre></td></tr></table></figure>
+<p>不指定会出现如下错误：[^1]</p>
+<blockquote>
+<p>(base) [qi@localhost JBrowse-1.16.3]$ bin/flatfile-to-json.pl –help<br>perl: symbol lookup error: /var/www/html/JBrowse-1.16.3/bin/../src/perl5/../../extlib/lib/perl5/x86_64-linux-thread-multi/auto/JSON/XS/XS.so: undefined symbol: Perl_xs_apiversion_bootcheck</p>
+</blockquote>
+<p>查资料</p>
+<p><strong>This type of error is almost always indicates you are loading a module that was installed using  a different build of Perl.</strong></p>
+<p><a href="https://stackoverflow.com/questions/51375821/perl-xs-apiversion-bootcheck" target="_blank" rel="noopener">https://stackoverflow.com/questions/51375821/perl-xs-apiversion-bootcheck</a></p>
+<p>[^1]: 不指定，如果用sudo 也不会出现错误，如：<code>sudo bin/prepare-refseqs.pl --fasta ~/data2/tan_rna/genome/HWB.chromosome.fa --out sample_data/json/HWB</code> 不清楚原因</p>
+<h2 id="建立索引方便搜索"><a href="#建立索引方便搜索" class="headerlink" title="建立索引方便搜索"></a>建立索引方便搜索</h2><p>缺这一步，搜索功能不能用</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 生成 ./data/names</span><br><span class="line">/usr/bin/perl bin/generate-names.pl</span><br></pre></td></tr></table></figure>
+<p><a href="http://10.164.6.154/JBrowse-1.16.3/index.html?data=data" target="_blank" rel="noopener">http://10.164.6.154/JBrowse-1.16.3/index.html?data=data</a></p>
+<h2 id="VCF-tracks"><a href="#VCF-tracks" class="headerlink" title="VCF tracks"></a>VCF tracks</h2><p><a href="http://jbrowse.org/docs/variants.html" target="_blank" rel="noopener">http://jbrowse.org/docs/variants.html</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for i in *.vcf; do bgzip $i; done</span><br><span class="line"></span><br><span class="line">for i in *.vcf.gz; do tabix -p vcf $i; done</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/qizhengyang2017/qizhengyang2017.github.io/blob/master/images/vcferror.png?raw=true" alt=""></p>
 
           
         
@@ -568,7 +1389,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 <a class="post-title-link" href="/2019/02/20/snakemake/" itemprop="url">
-                  GATK calling variants in RNA-seq using snakemake framework
+                  使用GATK和snakemake框架的总结
                 </a>
               
             
@@ -611,7 +1432,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-02-25 16:43:05" itemprop="dateModified" datetime="2019-02-25T16:43:05+08:00">2019-02-25</time>
+                <time title="Modified: 2019-02-27 17:31:34" itemprop="dateModified" datetime="2019-02-27T17:31:34+08:00">2019-02-27</time>
               
             
           </span>
@@ -646,7 +1467,8 @@
       
         
           
-            <h2 id="变异检测流程"><a href="#变异检测流程" class="headerlink" title="变异检测流程"></a>变异检测流程</h2><p><img src="https://us.v-cdn.net/5019796/uploads/FileUpload/fa/e60ecf89bd1b2645d9fce68ccf3919.png" alt=""></p>
+            <p>[TOC]</p>
+<h2 id="标准流程"><a href="#标准流程" class="headerlink" title="标准流程"></a>标准流程</h2><p><img src="https://us.v-cdn.net/5019796/uploads/FileUpload/fa/e60ecf89bd1b2645d9fce68ccf3919.png" alt=""></p>
 <h2 id="检查md5值"><a href="#检查md5值" class="headerlink" title="检查md5值"></a>检查md5值</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">md5sum -c checksums.md5</span><br><span class="line"><span class="meta">#</span> 报错,使用dos2unix转化格式</span><br></pre></td></tr></table></figure>
 <h2 id="trimmomatic"><a href="#trimmomatic" class="headerlink" title="trimmomatic"></a>trimmomatic</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 2019-2-12 17:16:35 trim</span><br><span class="line">for i in *_1.clean.fq.gz</span><br><span class="line">do</span><br><span class="line">  trimmomatic PE -threads 8 -phred33 $i $&#123;i/_1/_2&#125; -baseout $&#123;i:0:7&#125;.fq.gz \</span><br><span class="line">  ILLUMINACLIP:/home/qi/miniconda3/share/trimmomatic-0.38-1/adapters/TruSeq3-PE.fa:2:30:10 \</span><br><span class="line">  LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
 <p><strong>2019-2-13 12:55:38</strong>  查看结果，只trim了一部分，查看trim.log。HB-9-3终止。</p>
@@ -1723,606 +2545,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2019/01/17/tair-breaking-news/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qizhengyang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/17/tair-breaking-news/" itemprop="url">
-                  tair breaking news
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-01-17 21:40:04" itemprop="dateCreated datePublished" datetime="2019-01-17T21:40:04+08:00">2019-01-17</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-01-18 20:52:23" itemprop="dateModified" datetime="2019-01-18T20:52:23+08:00">2019-01-18</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://www.arabidopsis.org/doc/news/breaking_news/140" target="_blank" rel="noopener">tair breaking news</a> 必须fq设置全局代理）才能查看<br><img src="/images/tair_release.jpg" alt=""></p>
-<p><a href="https://zenodo.org/record/2530282#.XECIyvln18E" target="_blank" rel="noopener">https://zenodo.org/record/2530282#.XECIyvln18E</a> 这里可以下载到最新的tair注释文件。下载后存”F:\Project\org.At.tair.db”。<br>创建物种注释包<a href="https://www.jianshu.com/p/8963f396bfed" target="_blank" rel="noopener">https://www.jianshu.com/p/8963f396bfed</a></p>
-<p>《狂人日记》，那个时代的知识分子</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2019/01/05/SF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qizhengyang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/05/SF/" itemprop="url">
-                  SF felt like the Mecca of tech, but also the center of capitalism
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-01-05 20:00:12" itemprop="dateCreated datePublished" datetime="2019-01-05T20:00:12+08:00">2019-01-05</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-01-06 15:40:17" itemprop="dateModified" datetime="2019-01-06T15:40:17+08:00">2019-01-06</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>There is a lot of money, but not a lot of wealth？</p>
-</blockquote>
-<p>该怎么翻译？</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2018/12/12/exporting-nice-plots-in-r/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qizhengyang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/12/exporting-nice-plots-in-r/" itemprop="url">
-                  R输出图形
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-12-12 17:42:06 / Modified: 18:00:19" itemprop="dateCreated datePublished" datetime="2018-12-12T17:42:06+08:00">2018-12-12</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>这篇博文写的很好 <a href="https://www.r-bloggers.com/exporting-nice-plots-in-r/" target="_blank" rel="noopener">https://www.r-bloggers.com/exporting-nice-plots-in-r/</a><br>介绍的 Inkscape 也很好用，解决了之前IGV输出SVG图片的问题。导入PPT只显示一半。用Ai cc 打开，报错。“往返Tiny时剪贴将丢失”，只有框架没有图</p>
-<p>There are two main problems when exporting graphics from R:</p>
-<ul>
-<li>Anti-aliasing is not activated in Windows R (this does not apply to Linux or Mac) – <strong>windows下没有反锯齿设置</strong>，解决：library(Cairo)</li>
-<li>When increasing the resolution the labels automatically decrease and become unreadable  –<strong>分辨率升高，标签会自动缩小</strong></li>
-</ul>
-<p>If we want to increase the resolution of the plot we can’t just change the resolution parameter:<br>We also have to change the point size, the formula is size * new resolution DPI / 72 DPI:</p>
-<p>If we double the image size we also need to double the point size:</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/12/12/exporting-nice-plots-in-r/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2018/12/10/Google-News/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qizhengyang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/10/Google-News/" itemprop="url">
-                  Google news "epigenetics plants"
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-12-10 23:14:13 / Modified: 23:16:56" itemprop="dateCreated datePublished" datetime="2018-12-10T23:14:13+08:00">2018-12-10</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>University of Nebraska-Lincoln researchers have found revolutionary evidence that an evolutionary phenomenon at work in complex organisms is at play in their single-celled, extreme-loving counterparts, too.<br><img src="https://www.astrobio.net/wp-content/uploads/2018/12/187441_web.jpg" alt=""></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2370,7 +2592,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -2405,7 +2627,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">9</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -2445,7 +2673,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
