@@ -324,6 +324,410 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2019/01/29/Mysql使用过程中遇到的一些/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qizhengyang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/29/Mysql使用过程中遇到的一些/" itemprop="url">
+                  Mysql使用过程中遇到的一些问题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-01-29 22:55:40" itemprop="dateCreated datePublished" datetime="2019-01-29T22:55:40+08:00">2019-01-29</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-01-31 12:04:45" itemprop="dateModified" datetime="2019-01-31T12:04:45+08:00">2019-01-31</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>blast2go本地化需要用到mysql，操作系统Centos 7。</p>
+<h2 id="1-卸载之前的mysql"><a href="#1-卸载之前的mysql" class="headerlink" title="1. 卸载之前的mysql"></a>1. 卸载之前的mysql</h2><p>之前的版本是mysql5.6，想要更新到mysql5.7。</p>
+<ol>
+<li><p>查看mysql安装了哪些东西。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa |grep -i mysql</span><br></pre></td></tr></table></figure>
+<p><img src="/images/mysql/rpmcheck.PNG" alt=""></p>
+</li>
+</ol>
+<ol start="2">
+<li><p>开始卸载</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum remove XXX</span><br></pre></td></tr></table></figure>
+<p><img src="/images/mysql/remove.PNG" alt=""></p>
+</li>
+</ol>
+<ol start="3">
+<li><p>查看卸载是否完成</p>
+</li>
+<li><p>查找mysql相关目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find / -name mysql</span><br></pre></td></tr></table></figure>
+<p><img src="/images/mysql/find.PNG" alt=""></p>
+</li>
+</ol>
+<ol start="5">
+<li><p>删除相关目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rm -rf XXX</span><br><span class="line">rm -rf /etc/my.cnf</span><br><span class="line">rm -rf rm -rf /var/log/mysqld.log</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="2-安装Mysql5-7"><a href="#2-安装Mysql5-7" class="headerlink" title="2. 安装Mysql5.7"></a>2. 安装Mysql5.7</h2><ol>
+<li><p>安装mysql源</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm</span><br><span class="line">yum localinstall mysql57-community-release-el7-11.noarch.rpm</span><br><span class="line"># 检查是否安装成功</span><br><span class="line">yum repolist enabled | grep &quot;mysql.*-community.*&quot;</span><br></pre></td></tr></table></figure>
+<p><img src="/images/mysql/install.PNG" alt=""></p>
+</li>
+</ol>
+<ol start="2">
+<li><p>启动mysql服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl start mysqld</span><br><span class="line"># 查看状态</span><br><span class="line">systemctl status mysqld</span><br></pre></td></tr></table></figure>
+<p>这里可能会遇到 “Another mysqld server running on port 3306 error”，可以采用<code>netstat -lp | grep 3306</code> 查找占用这个端口号的进程，kill 这个PID。（我发现占用这个3306的是mysql??）。</p>
+</li>
+<li><p>修改root密码</p>
+<p>我用root身份导入数据的时候，提示我要修改密码。生成的默认密码在 <code>/var/log/mysqld.log</code> 文件中。使用 grep 命令找到日志中的密码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep &apos;temporary password&apos; /var/log/mysqld.log</span><br></pre></td></tr></table></figure>
+<p><img src="/images/mysql/password&#39;.PNG" alt=""></p>
+</li>
+</ol>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;ALTER USER &apos;root&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;123,c%vPl9ek&apos;;</span><br></pre></td></tr></table></figure>
+<p>   或者：</p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; use mysql;</span><br><span class="line">mysql&gt; update mysql.user set authentication_string=password(&apos;123,c%vPl9ek&apos;) where user=&apos;root&apos;;</span><br><span class="line">mysql&gt; flush privileges;</span><br></pre></td></tr></table></figure>
+<h2 id="3-导入数据"><a href="#3-导入数据" class="headerlink" title="3. 导入数据"></a>3. 导入数据</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p &lt; b2gdb.sql</span><br></pre></td></tr></table></figure>
+<p>会出现莫名其妙的错误，“ERROR 1819 (HY000) at line 4: Your password does not satisfy the current policy requirements”，但是我的密码是符合它的规则的。最后采取的办法是把检验密码的插件删了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;uninstall plugin validate_password;</span><br></pre></td></tr></table></figure>
+<p>有试着导入数据，这次的错误是：</p>
+<p>“ERROR 1101 (42000) at line 9: BLOB, TEXT, GEOMETRY or JSON column ‘description’ can’t have a default value”</p>
+<p>先查看了sql_mode</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select @@session.sql_mode;</span><br><span class="line">mysql&gt; select @@global.sql_mode;</span><br></pre></td></tr></table></figure>
+<p><img src="/images/mysql/sql_mode.PNG" alt=""></p>
+<p>之后重新设置sql_mode</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set sql_mode=&apos;&apos;;</span><br><span class="line">set global sql_mode=&apos;&apos;;</span><br></pre></td></tr></table></figure>
+<p>重新打开一个终端，进入mysql，查看sql_mode</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select @@global.sql_mode;</span><br></pre></td></tr></table></figure>
+<p>在尝试导入数据，成功。</p>
+<h2 id="4-blast2go"><a href="#4-blast2go" class="headerlink" title="4. blast2go"></a>4. blast2go</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd data1/data/blast2go/</span><br><span class="line">mysql -u root -p &lt; b2gdb.sql</span><br><span class="line">mysql -u root -p -e &quot;GRANT ALL ON b2gdb.* TO &apos;blast2go&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;blast4it&apos;;&quot;</span><br><span class="line">mysql -u root -p -e &quot;FLUSH PRIVILEGES;&quot;</span><br><span class="line"># 这一步很耗时</span><br><span class="line">nohup time mysql -s -u root -p b2gdb &lt; go_monthly-assocdb-data &gt; mysql.out 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+<p><img src="/images/mysql/time.PNG" alt=""></p>
+<h2 id="5-参考"><a href="#5-参考" class="headerlink" title="5. 参考"></a>5. 参考</h2><ul>
+<li><a href="http://seanlook.com/2016/04/22/mysql-sql-mode-troubleshooting/" target="_blank" rel="noopener">MySQL sql_mode 说明</a></li>
+<li><a href="http://www.bioinfo-scrounger.com/archives/188" target="_blank" rel="noopener">blast2go本地化教程</a></li>
+<li><a href="https://stackoverflow.com/questions/43094726/your-password-does-not-satisfy-the-current-policy-requirements" target="_blank" rel="noopener">your password does not satisfy the current policy requirements</a></li>
+<li><a href="https://stackoverflow.com/questions/9918062/another-mysqld-server-running-on-port-3306-error" target="_blank" rel="noopener">another mysqld server running on the port 3306</a></li>
+<li><a href="https://www.jianshu.com/p/ef58fb333cd6" target="_blank" rel="noopener">Centos7 完全卸载mysql</a></li>
+<li><a href="https://www.jianshu.com/p/1dab9a4d0d5f" target="_blank" rel="noopener">CentOS 7 下 MySQL 5.7 的安装与配置</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2019/01/26/服务器安装-CentOS-7-并开启ssh服务之后/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qizhengyang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/26/服务器安装-CentOS-7-并开启ssh服务之后/" itemprop="url">
+                  服务器安装 CentOS 7 并开启ssh服务之后
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-01-26 17:11:40" itemprop="dateCreated datePublished" datetime="2019-01-26T17:11:40+08:00">2019-01-26</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-02-26 17:16:14" itemprop="dateModified" datetime="2019-02-26T17:16:14+08:00">2019-02-26</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>挂载服务器里的另外两块硬盘硬盘</strong></p>
+<ol>
+<li>查看没有挂载的硬盘 fdisk -l</li>
+<li>格式化硬盘，mkfs.ext4 /dev/sdb.报错，/dev/sdb is apparently in use by the system; will not make a 文件系统 here!。用这个命令：dmsetup remove_all</li>
+<li>mkfs.ext4 /dev/sdb</li>
+<li>挂载 mount /dev/sdb /data</li>
+</ol>
+<p><strong>mount挂载ntfs 格式的移动硬盘</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">成功执行</span><br><span class="line">mount -t ntfs-3g /dev/sdd1 /run/media/qi/Zhangmiao_15623277907</span><br><span class="line">未成功执行</span><br><span class="line">mount -t ntfs-3g /dev/sdb5 /run/media/qi/软件</span><br></pre></td></tr></table></figure>
+<p><strong>自动挂载设置</strong></p>
+<blockquote>
+<p>Ps:在使用gnome桌面挂载U盘的时候发现，系统可以识别NTFS 分区的存在，但是通过桌面无法自动挂载，系统会提示：</p>
+<p>Error mounting /dev/sdb1 at /run/media/lenovo/v220w: Command-line `mount -t “ntfs” -o “uhelper=udisks2,nodev,nosuid,uid=1000,gid=1000,dmask=0077,fmask=0177” “/dev/sdb1” “/run/media/lenovo/v220w”‘ exited with non-zero exit status 32: mount: unknown filesystem type ‘ntfs’</p>
+<p>mount 提示未知的文件系统类型 ‘ntfs’</p>
+<p>解决办法：</p>
+<p>$ mount[Tab][Tab]  #连续按两次 Tab 键作命令补齐</p>
+<p>mount             mount.glusterfs   mount.nfs4        mountstats<br>mount.cifs        mount.lowntfs-3g  mount.ntfs-3g<br>mount.fuse        mount.nfs         mountpoint        </p>
+<p>可以看到只有mount.ntfs-3g，在使用 mount -t 挂载ntfs 时 mount 会调用 mount.ntfs-3g 而非默认的 mount.ntfs</p>
+<p>$ locate mount.ntfs-3g  #查找有关文件所在位置<br>/usr/local/share/man/man8/mount.ntfs-3g.8<br>/usr/sbin/mount.ntfs-3g<br>$ sudo ln -s /usr/sbin/mount.ntfs-3g  /usr/sbin/mount.ntfs   #创建软链接</p>
+<p>之后就可以自动识别U 盘而不会出现如上报错了。。。</p>
+</blockquote>
+<p><strong>centOS7 将“桌面”、“图片”等替换成英文</strong></p>
+<ol>
+<li>export LANG=en_US</li>
+<li>xdg-user-dirs-gtk-update</li>
+<li>弹出配置界面，选择替换</li>
+<li>export LANG=zh_CN.UTF-8</li>
+<li>重启，不替换。</li>
+</ol>
+<p><strong>IP变化</strong></p>
+<p>wlp0s26f7u3:<br>inet 192.168.1.102/24<br>发现只有连同一个wifi(Magic-home)的电脑才能登入。</p>
+<p>原来的IP：<br>4: wlp0s26f7u3:<br>inet 10.164.11.166</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2019/01/17/tair-breaking-news/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1512,298 +1916,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2018/11/03/集群上安装的R包/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qizhengyang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/03/集群上安装的R包/" itemprop="url">
-                  集群上安装的R包
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-11-03 09:58:13 / Modified: 10:03:02" itemprop="dateCreated datePublished" datetime="2018-11-03T09:58:13+08:00">2018-11-03</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>写了一个R script批量安装。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/11/03/集群上安装的R包/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2018/10/31/集群上安装R/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qizhengyang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/31/集群上安装R/" itemprop="url">
-                  集群上更新R并安装methylKit
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-10-31 09:54:17 / Modified: 11:25:19" itemprop="dateCreated datePublished" datetime="2018-10-31T09:54:17+08:00">2018-10-31</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>普通用户在集群上安装R<br><a href="https://blog.csdn.net/s_gy_zetrov/article/details/83117288?tdsourcetag=s_pctim_aiomsg" target="_blank" rel="noopener">主要的教程</a><br>里面有一些需要注意的，<br>安装bzip，<strong>要加入一个 -fPIC 到 CFLAG</strong> 。（在 Makefile中CFLAG=-fPIC -Wall -Winline -O2 -g…）<br>在R安装configure之前需要注意设置环境变量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LD_LIBRARY_PATH=/home02/qizhengyang/packages/lib</span><br><span class="line"><span class="built_in">export</span> CFLAGS=<span class="string">"-I/home02/qizhengyang/packages/include"</span></span><br><span class="line"><span class="built_in">export</span> LDFLAGS=<span class="string">"-L/home02/qizhengyang/packages/lib"</span></span><br></pre></td></tr></table></figure></p>
-<p>R安装完成之后<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> R_HOME=<span class="variable">$HOME</span>/packages/R</span><br><span class="line"><span class="built_in">export</span> R_LIBS=<span class="variable">$HOME</span>/packages/R/lib64/library</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">"<span class="variable">$R_HOME</span>/bin"</span>:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure></p>
-<p>最后 source ~/.bashrc</p>
-<p>装methyKit也是坑一堆。<br>我下了autoconf-2.69，<strong>libxml2-2.7.2</strong>。源码安装。./configure –prefix=/home02/qizhengyang/packages</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1846,7 +1963,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">30</span>
+                    <span class="site-state-item-count">32</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1887,7 +2004,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">12</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
