@@ -324,182 +324,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2019/01/30/甲基化数据分析/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qizhengyang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/30/甲基化数据分析/" itemprop="url">
-                  甲基化数据分析
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-01-30 20:02:19 / Modified: 20:06:55" itemprop="dateCreated datePublished" datetime="2019-01-30T20:02:19+08:00">2019-01-30</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>DNA甲基化数据分析流程</p>
-<ul>
-<li>用Trimmomatic去除低质量序列（q&lt;20），接头。 </li>
-<li>用BSMAP比对，允许0.8的错配率。</li>
-<li>用methratio.py提取甲基化比例，选项-r去除PCR重复。</li>
-</ul>
-<p>获得DMR</p>
-<ul>
-<li>为了得到可靠的DMR区域，合并两个生物学重复，仅考虑所有文库中深度至少为4的胞嘧啶。</li>
-<li>使用200bp窗口（50bp步长）识别DMR。</li>
-<li>对每个窗口内的甲基化和未甲基化胞嘧啶进行Fisher精确检验。使用Benjamini-Hochberg对p值进行调整，估计错误发生率（FDR）。</li>
-<li>FDR&lt;0.01，甲基化水平变化大于1.5倍且至少含有5个差异甲基化胞嘧啶（DMCs：Fisher精确检验中p&lt;0.01）的窗口用于进一步分析，窗口在100bp内合并为更大的区域。</li>
-</ul>
-<p>RNA-seq 数据分析</p>
-<ul>
-<li>Trimmomatic去除低质量序列和接头</li>
-<li>用STAR进行比对，–sjdbGTFfile 用于提供基因组注释文件</li>
-<li>htseq-count计算每个基因map上的片段数</li>
-<li>DESeq2计算差异表达基因</li>
-</ul>
-<p>DMR-associated基因分析</p>
-<ul>
-<li>DMR相关基因定义为2kb启动子区域内具有DMR的基因</li>
-<li><strong>仅用DMR-associated genes进行基因聚类</strong></li>
-<li>差异基因定义，FPKM &gt;= 1, FDR &lt;= 0.01, fc &gt;= 1.5</li>
-</ul>
-<p>GO注释</p>
-<ul>
-<li>使用拟南芥（TAIR10）、番茄（ITAG3）、草莓（PhytozomeV12）的蛋白序列和GO注释文件</li>
-<li>blast</li>
-<li>用GOATOOLs进行GO富集</li>
-</ul>
-<p>小RNA分析</p>
-<ul>
-<li>使用BWA比对</li>
-<li>计算DMR的24 nt 小RNA丰度（normalized to per million per one hundred base pair）</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2019/01/29/Mysql使用过程中遇到的一些/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -904,315 +728,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2019/01/17/tair-breaking-news/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qizhengyang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/17/tair-breaking-news/" itemprop="url">
-                  tair breaking news
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-01-17 21:40:04" itemprop="dateCreated datePublished" datetime="2019-01-17T21:40:04+08:00">2019-01-17</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-01-18 20:52:23" itemprop="dateModified" datetime="2019-01-18T20:52:23+08:00">2019-01-18</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://www.arabidopsis.org/doc/news/breaking_news/140" target="_blank" rel="noopener">tair breaking news</a> 必须fq设置全局代理）才能查看<br><img src="/images/tair_release.jpg" alt=""></p>
-<p><a href="https://zenodo.org/record/2530282#.XECIyvln18E" target="_blank" rel="noopener">https://zenodo.org/record/2530282#.XECIyvln18E</a> 这里可以下载到最新的tair注释文件。下载后存”F:\Project\org.At.tair.db”。<br>创建物种注释包<a href="https://www.jianshu.com/p/8963f396bfed" target="_blank" rel="noopener">https://www.jianshu.com/p/8963f396bfed</a></p>
-<p>《狂人日记》，那个时代的知识分子</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2019/01/05/SF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qizhengyang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/05/SF/" itemprop="url">
-                  SF felt like the Mecca of tech, but also the center of capitalism
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-01-05 20:00:12" itemprop="dateCreated datePublished" datetime="2019-01-05T20:00:12+08:00">2019-01-05</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-01-06 15:40:17" itemprop="dateModified" datetime="2019-01-06T15:40:17+08:00">2019-01-06</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>There is a lot of money, but not a lot of wealth？</p>
-</blockquote>
-<p>该怎么翻译？</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2018/12/12/exporting-nice-plots-in-r/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1504,7 +1019,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2018/12/07/GD-module/">
+    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2018/11/03/集群上安装DESeq2遇到的困难及解决办法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -1523,8 +1038,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/07/GD-module/" itemprop="url">
-                  好像windows下circos不缺GD模块
+                <a class="post-title-link" href="/2018/11/03/集群上安装DESeq2遇到的困难及解决办法/" itemprop="url">
+                  集群上安装DESeq2遇到的困难及解决办法
                 </a>
               
             
@@ -1550,7 +1065,172 @@
                 
               
 
-              <time title="Created: 2018-12-07 22:55:27 / Modified: 22:58:13" itemprop="dateCreated datePublished" datetime="2018-12-07T22:55:27+08:00">2018-12-07</time>
+              <time title="Created: 2018-11-03 22:18:08" itemprop="dateCreated datePublished" datetime="2018-11-03T22:18:08+08:00">2018-11-03</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-11-04 13:18:12" itemprop="dateModified" datetime="2018-11-04T13:18:12+08:00">2018-11-04</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li><p>BiocManager::install(“DESeq2”, version = “3.8”)<br>报错，错误内容：<br>configure: WARNING: Only g++ version 4.7.2 or greater can be used with RcppArmadillo.<br>configure: error: Please use a different compiler.<br>ERROR: configuration failed for package ‘RcppArmadillo’</p>
+</li>
+<li><p>源码安装gcc<br><a href="https://blog.csdn.net/swing2008/article/details/63250192" target="_blank" rel="noopener">参考</a><br>../configure –prefix=/home02/qizhengyang/packages -enable-checking=release -enable-languages=c,c++ -disable-multilib<br>报错，错误内容：<br>/usr/bin/ld: cannot find -lgfortran</p>
+</li>
+<li><p>重新安装gcc，增加fortran<br>../configure –prefix=/home02/qizhengyang/packages -enable-checking=release -enable-languages=c,c++,fortran -disable-multilib &amp;&amp; make -j4 &amp;&amp; make install</p>
+</li>
+<li><p>添加两个lib<br>export LD_LIBRARY_PATH=$HOME/packages/lib64:$LD_LIBRARY_PATH<br>export LD_LIBRARY_PATH=$HOME/packages/lib:$LD_LIBRARY_PATH</p>
+</li>
+</ol>
+<ol start="5">
+<li>BiocManager::install(“DESeq2”, version = “3.8”)<br>成功</li>
+</ol>
+<p>备注：configure时间超级长。过程艰辛。还尝试过手动安装RcppArmadillo，失败。<br>.libPaths()<br>“/home02/qizhengyang/packages/R/lib64/R/library”<br>R CMD INSTALL -l /home02/qizhengyang/packages/R/lib64/R/library RcppArmadillo_0.3.6.3.tar.gz</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2018/11/03/集群上安装的R包/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qizhengyang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/03/集群上安装的R包/" itemprop="url">
+                  集群上安装的R包
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-11-03 09:58:13 / Modified: 10:03:02" itemprop="dateCreated datePublished" datetime="2018-11-03T09:58:13+08:00">2018-11-03</time>
             
 
             
@@ -1589,10 +1269,10 @@
 
       
         
-          <p>windows下好像并没有缺失GD模块？<br>版本：<br>This is perl 5, version 24, subversion 2 (v5.24.2) built for MSWin32-x64-multi-thread<br>
+          <p>写了一个R script批量安装。<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/12/07/GD-module/#more" rel="contents">
+            <a class="btn" href="/2018/11/03/集群上安装的R包/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1648,7 +1328,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2018/11/14/bed和bedGraph区别/">
+    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2018/10/31/集群上安装R/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -1667,8 +1347,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/11/14/bed和bedGraph区别/" itemprop="url">
-                  bed和bedGraph区别
+                <a class="post-title-link" href="/2018/10/31/集群上安装R/" itemprop="url">
+                  集群上更新R并安装methylKit
                 </a>
               
             
@@ -1694,7 +1374,7 @@
                 
               
 
-              <time title="Created: 2018-11-14 21:58:44 / Modified: 21:59:32" itemprop="dateCreated datePublished" datetime="2018-11-14T21:58:44+08:00">2018-11-14</time>
+              <time title="Created: 2018-10-31 09:54:17 / Modified: 11:25:19" itemprop="dateCreated datePublished" datetime="2018-10-31T09:54:17+08:00">2018-10-31</time>
             
 
             
@@ -1734,9 +1414,10 @@
       
         
           
-            <p>BedGraph has 4 fields (chr start stop score), and the simplest BED file has 3 fields (chr start stop), so one easy way to convert from BED to bedGraph would be to use awk:</p>
-<p>cat file.bedGraph | awk ‘{print $1 “\t” $2 “\t” $3}’ &gt; file.bed<br>If your bedGraph file contains a header line, you can get rid of it with an inverse grep:</p>
-<p>grep -v track file.bedGraph | awk ‘{print $1 “\t” $2 “\t” $3}’ &gt; file.bed<br>Or you can use tail to return everything but the first line (if your track line is the first line). If you want to add more fields to the bed file, you can insert them in the print statement (I don’t remember the minimum requirement for ChIPpeakAnno).</p>
+            <p>普通用户在集群上安装R<br><a href="https://blog.csdn.net/s_gy_zetrov/article/details/83117288?tdsourcetag=s_pctim_aiomsg" target="_blank" rel="noopener">主要的教程</a><br>里面有一些需要注意的，<br>安装bzip，<strong>要加入一个 -fPIC 到 CFLAG</strong> 。（在 Makefile中CFLAG=-fPIC -Wall -Winline -O2 -g…）<br>在R安装configure之前需要注意设置环境变量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LD_LIBRARY_PATH=/home02/qizhengyang/packages/lib</span><br><span class="line"><span class="built_in">export</span> CFLAGS=<span class="string">"-I/home02/qizhengyang/packages/include"</span></span><br><span class="line"><span class="built_in">export</span> LDFLAGS=<span class="string">"-L/home02/qizhengyang/packages/lib"</span></span><br></pre></td></tr></table></figure></p>
+<p>R安装完成之后<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> R_HOME=<span class="variable">$HOME</span>/packages/R</span><br><span class="line"><span class="built_in">export</span> R_LIBS=<span class="variable">$HOME</span>/packages/R/lib64/library</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">"<span class="variable">$R_HOME</span>/bin"</span>:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure></p>
+<p>最后 source ~/.bashrc</p>
+<p>装methyKit也是坑一堆。<br>我下了autoconf-2.69，<strong>libxml2-2.7.2</strong>。源码安装。./configure –prefix=/home02/qizhengyang/packages</p>
 
           
         
@@ -1790,7 +1471,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2018/11/12/ggplot2绘图/">
+    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2018/08/17/局外人主旨/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -1809,8 +1490,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/11/12/ggplot2绘图/" itemprop="url">
-                  ggplot2 绘图
+                <a class="post-title-link" href="/2018/08/17/局外人主旨/" itemprop="url">
+                  《局外人》的主旨
                 </a>
               
             
@@ -1836,7 +1517,7 @@
                 
               
 
-              <time title="Created: 2018-11-12 08:53:43" itemprop="dateCreated datePublished" datetime="2018-11-12T08:53:43+08:00">2018-11-12</time>
+              <time title="Created: 2018-08-17 21:18:53" itemprop="dateCreated datePublished" datetime="2018-08-17T21:18:53+08:00">2018-08-17</time>
             
 
             
@@ -1853,7 +1534,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-11-13 09:14:27" itemprop="dateModified" datetime="2018-11-13T09:14:27+08:00">2018-11-13</time>
+                <time title="Modified: 2018-08-26 14:57:47" itemprop="dateModified" datetime="2018-08-26T14:57:47+08:00">2018-08-26</time>
               
             
           </span>
@@ -1888,7 +1569,316 @@
       
         
           
-            <p>可以尝试设置一个bestfit图层参数<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bestfit &lt;- geom_smooth(method = <span class="string">"lm"</span>, se = <span class="literal">F</span>,</span><br><span class="line">	colour = alpha(<span class="string">"steelblue"</span>, <span class="number">0.5</span>), size = <span class="number">2</span>)</span><br></pre></td></tr></table></figure></p>
+            <p>1937年8月<br>一个男人，在人们通常视为人生大事的地方（婚姻、社会地位等等）寻找人生，然后某天在翻阅一本时装目录的时候，突然了解到他对自己人生亦即时装目录上鼓吹的那种人生是何其无所谓。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2018/07/14/非洲的青山/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qizhengyang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/14/非洲的青山/" itemprop="url">
+                  《非洲的青山》
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-07-14 11:37:06" itemprop="dateCreated datePublished" datetime="2018-07-14T11:37:06+08:00">2018-07-14</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-08-27 19:19:13" itemprop="dateModified" datetime="2018-08-27T19:19:13+08:00">2018-08-27</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>第四章，“乔伊斯中等身高，他把眼睛用坏了。在那最后一晚，喝醉了，和乔伊斯在一起，他不断引用埃德加·基内的话：‘思维清晰、生命绚丽如战争时一样。’我知道我没有把这句话彻底弄清楚。等你见到他，他会提到三年前被打断的谈话。能见到我们这个时代伟大的作家真让人高兴。”<br>这段话越发让我觉得我看的不是一部小说。</p>
+<p>查了维基百科</p>
+<blockquote>
+<p><em>Green Hills of Africa</em> is a 1935 work of nonfiction by American writer Ernest Hemingway.</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2018/07/13/hexo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qizhengyang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/13/hexo/" itemprop="url">
+                  hexo
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-07-13 21:48:11" itemprop="dateCreated datePublished" datetime="2018-07-13T21:48:11+08:00">2018-07-13</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-09-04 17:31:51" itemprop="dateModified" datetime="2018-09-04T17:31:51+08:00">2018-09-04</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">NexT</a><br><a href="https://xdlrt.github.io/2016/02/18/2016-02-18/" target="_blank" rel="noopener">教程</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo clean </span><br><span class="line">hexo g  </span><br><span class="line">hexo s  </span><br><span class="line">hexo d </span><br><span class="line"># 后面两步可合并 hexo d -g</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://zhuanlan.zhihu.com/p/35668237" target="_blank" rel="noopener">连接Github与本地</a></p>
 
           
         
@@ -1931,7 +1921,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
   </nav>
 
 
@@ -1974,7 +1964,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-count">20</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -2021,7 +2011,7 @@
                     
                       
                     
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

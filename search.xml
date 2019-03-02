@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[docear 使用心得]]></title>
     <url>%2F2019%2F03%2F03%2F2019-3-3-docear-%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[]]></content>
       <tags>
         <tag>软件</tag>
         <tag>学术</tag>
@@ -44,11 +44,6 @@
         <tag>生物信息</tag>
         <tag>jbrowse</tag>
       </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[绿色荧光蛋白]]></title>
-    <url>%2F2019%2F02%2F28%2FGFP%2F</url>
-    <content type="text"><![CDATA[绿色萤光蛋白(Green fluorescent protein，简称GFP)，是一个由约238个氨基酸组成的蛋白质，从蓝光到紫外线都能使其激发，发出绿色萤光。^1]]></content>
   </entry>
   <entry>
     <title><![CDATA[git和github使用]]></title>
@@ -106,19 +101,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[tair breaking news]]></title>
-    <url>%2F2019%2F01%2F17%2Ftair-breaking-news%2F</url>
-    <content type="text"><![CDATA[tair breaking news 必须fq设置全局代理）才能查看 https://zenodo.org/record/2530282#.XECIyvln18E 这里可以下载到最新的tair注释文件。下载后存”F:\Project\org.At.tair.db”。创建物种注释包https://www.jianshu.com/p/8963f396bfed 《狂人日记》，那个时代的知识分子]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[SF felt like the Mecca of tech, but also the center of capitalism]]></title>
-    <url>%2F2019%2F01%2F05%2FSF%2F</url>
-    <content type="text"><![CDATA[There is a lot of money, but not a lot of wealth？ 该怎么翻译？]]></content>
-      <tags>
-        <tag>阅读</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[R输出图形]]></title>
     <url>%2F2018%2F12%2F12%2Fexporting-nice-plots-in-r%2F</url>
     <content type="text"><![CDATA[这篇博文写的很好 https://www.r-bloggers.com/exporting-nice-plots-in-r/介绍的 Inkscape 也很好用，解决了之前IGV输出SVG图片的问题。导入PPT只显示一半。用Ai cc 打开，报错。“往返Tiny时剪贴将丢失”，只有框架没有图 There are two main problems when exporting graphics from R: Anti-aliasing is not activated in Windows R (this does not apply to Linux or Mac) – windows下没有反锯齿设置，解决：library(Cairo) When increasing the resolution the labels automatically decrease and become unreadable –分辨率升高，标签会自动缩小 If we want to increase the resolution of the plot we can’t just change the resolution parameter:We also have to change the point size, the formula is size * new resolution DPI / 72 DPI: If we double the image size we also need to double the point size: 123456789101112131415161718192021222324# https://www.r-graph-gallery.com/265-grouped-boxplot-with-ggplot2/# exporting nice plot https://www.r-bloggers.com/exporting-nice-plots-in-r/# librarylibrary(ggplot2) # create a data framevariety=rep(LETTERS[1:7], each=40)treatment=rep(c("high","low"),each=20)note=seq(1:280)+sample(1:150, 280, replace=T)data=data.frame(variety, treatment , note) # grouped boxplotggplot(data, aes(x=variety, y=note, fill=treatment)) + geom_boxplot()# One box per treatmentggplot(data, aes(x=variety, y=note, fill=treatment)) + geom_boxplot() + facet_wrap(~treatment)# one box per varietyggplot(data, aes(x=variety, y=note, fill=treatment)) + geom_boxplot() + facet_wrap(~variety, scale="free")]]></content>
@@ -133,21 +115,6 @@
       <tags>
         <tag>科研</tag>
       </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[好像windows下circos不缺GD模块]]></title>
-    <url>%2F2018%2F12%2F07%2FGD-module%2F</url>
-    <content type="text"><![CDATA[windows下好像并没有缺失GD模块？版本：This is perl 5, version 24, subversion 2 (v5.24.2) built for MSWin32-x64-multi-thread missing Config::General missing Font::TTF::Fontmissing Math::Bezier missing Math::Roundmissing Math::VecStatmissing Regexp::Commonmissing SVGmissing Set::IntSpanmissing Statistics::Basicmissing Text::Format GD模块在C:\Perl64\lib我自己安装的在C:\Perl64\site\lib perl circos -moduleppm install Math::Round Math::VecStat Regexp::Common SVG Set::IntSpan Statistics::Basic Text::Format]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[bed和bedGraph区别]]></title>
-    <url>%2F2018%2F11%2F14%2Fbed%E5%92%8CbedGraph%E5%8C%BA%E5%88%AB%2F</url>
-    <content type="text"><![CDATA[BedGraph has 4 fields (chr start stop score), and the simplest BED file has 3 fields (chr start stop), so one easy way to convert from BED to bedGraph would be to use awk: cat file.bedGraph | awk ‘{print $1 “\t” $2 “\t” $3}’ &gt; file.bedIf your bedGraph file contains a header line, you can get rid of it with an inverse grep: grep -v track file.bedGraph | awk ‘{print $1 “\t” $2 “\t” $3}’ &gt; file.bedOr you can use tail to return everything but the first line (if your track line is the first line). If you want to add more fields to the bed file, you can insert them in the print statement (I don’t remember the minimum requirement for ChIPpeakAnno).]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[ggplot2 绘图]]></title>
-    <url>%2F2018%2F11%2F12%2Fggplot2%E7%BB%98%E5%9B%BE%2F</url>
-    <content type="text"><![CDATA[可以尝试设置一个bestfit图层参数12bestfit &lt;- geom_smooth(method = "lm", se = F, colour = alpha("steelblue", 0.5), size = 2)]]></content>
   </entry>
   <entry>
     <title><![CDATA[集群上安装DESeq2遇到的困难及解决办法]]></title>
@@ -172,46 +139,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[trimmatic使用]]></title>
-    <url>%2F2018%2F10%2F30%2Ftrimmatic%E4%BD%BF%E7%94%A8%2F</url>
-    <content type="text"><![CDATA[更改了一下之前的trimmatic脚本 12345678910111213#PBS -N trim#PBS -l nodes=2:ppn=10#PBS -q highho=/home02/qizhengyang/rna_work_place/rna_datacd $hodir=$ho/trim_resultfor i in *R1.fq.gzdo java -jar ~/softwares/Trimmomatic-0.38/trimmomatic-0.38.jar PE -threads 20 -phred33 \ $i $&#123;i/R1/R2&#125; -baseout $&#123;i/_R1/&#125; ILLUMINACLIP:/home02/qizhengyang/softwares/Trimmomatic-0.38/adapters/TruSeq3-PE.fa:2:30:10 LEADING:3 \ TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36done [qizhengyang@node1 rna_data]$ i=”abd”[qizhengyang@node1 rna_data]$ echo $icde [qizhengyang@node1 rna_data]$ echo ${i}cdeabdcde[qizhengyang@node1 rna_data]$ echo $i”cde”abdcde]]></content>
-      <tags>
-        <tag>Linux</tag>
-        <tag>软件</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[windows blast+]]></title>
-    <url>%2F2018%2F09%2F04%2Fwindows-blast%2B%2F</url>
-    <content type="text"><![CDATA[下载网址ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/双击exe文件即可，安装程序会自动设置环境变量。blastn -version 查看版本信息]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[Sep-3]]></title>
-    <url>%2F2018%2F09%2F03%2FSep-3%2F</url>
-    <content type="text"><![CDATA[“当您使用〖发送至Kindle〗电子邮箱发送个人文件时，您的文件会自动保存到Kindle图书馆中。”如果禁用，则我发送至Kindle电子邮箱的文件不会出现在Kindle图书馆中。 我删除了某条记录之后，发现这条记录里有我想了解的信息。 我打算将smartypants改回true。改之前再试一试，我能在editplus上打出中文破折号（一个全角字符）。 实验结果，会渲染成占两个全角字符的破折号，不能加空格。 我不打算将smartypants改为true了。 我打算删掉Runaway Baby。理由：太长。 紧接着数据，即使在中文输入状态下，点还是半角的点，不是句号。]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[DNA甲基化与自闭症]]></title>
-    <url>%2F2018%2F08%2F26%2FDNA%E7%94%B2%E5%9F%BA%E5%8C%96%E4%B8%8E%E8%87%AA%E9%97%AD%E7%97%87%2F</url>
-    <content type="text"><![CDATA[摘要：越来越多的证据表明自闭症谱系障碍（ASD）中基因与环境之间存在复杂的相互作用，包括染色质基因中罕见的从头突变，例如Rett综合征中的methyl-CpG结合蛋白2（MECP2)。基因组序列、基因途径和DNA甲基化的全基因组研究为ASD提供了有价值的机制见解。 词汇： autism spectrum disorder:自闭症谱系障碍 加入spectrum代表自闭症本身的多元性。1 CpG islands: CpG密度极高的区域(&lt; 1 kb)。 Gene body: 基因组上从转录起始位点到终止位点的一段区域。]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[she - from Ed Sheeran]]></title>
-    <url>%2F2018%2F08%2F25%2Fshe-from-Ed-Sheeran%2F</url>
-    <content type="text"><![CDATA[一首歌的歌词，来自Ed Sheeran Patience, my enemyAnd loving’s my friendIt’s harder to leaveWith my heart on my sleeveThan to stay and just pretendOh, she knows me so wellOh, she knows me like I know myself]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[《局外人》的主旨]]></title>
     <url>%2F2018%2F08%2F17%2F%E5%B1%80%E5%A4%96%E4%BA%BA%E4%B8%BB%E6%97%A8%2F</url>
     <content type="text"><![CDATA[1937年8月一个男人，在人们通常视为人生大事的地方（婚姻、社会地位等等）寻找人生，然后某天在翻阅一本时装目录的时候，突然了解到他对自己人生亦即时装目录上鼓吹的那种人生是何其无所谓。]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[anaconda创建不同的运行环境]]></title>
-    <url>%2F2018%2F07%2F21%2Fanaconda%E5%88%9B%E5%BB%BA%E4%B8%8D%E5%90%8C%E7%9A%84%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%2F</url>
-    <content type="text"><![CDATA[CPC依赖biopython。 服务器上的python版本太低。运行 pip install biopython 报错。这种情况下安装Anaconda，并使用conda创建了一个python=2.7.9的虚拟环境。123conda create -n py2 python=2.7.9 #createsource activate py2 #activatesource deactivate #deactivate 预测lncRNA:1perl LncRNA_Finder_2.0.pl -i test.fa -k housekeeping.fa -s smallRNA.fa -o jc_test -t 1]]></content>
-      <tags>
-        <tag>linux</tag>
-      </tags>
   </entry>
   <entry>
     <title><![CDATA[《非洲的青山》]]></title>
@@ -222,10 +152,5 @@
     <title><![CDATA[hexo]]></title>
     <url>%2F2018%2F07%2F13%2Fhexo%2F</url>
     <content type="text"><![CDATA[NexT教程12345hexo clean hexo g hexo s hexo d # 后面两步可合并 hexo d -g 连接Github与本地]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[《非洲的青山》摘录]]></title>
-    <url>%2F2018%2F07%2F13%2F%E3%80%8A%E9%9D%9E%E6%B4%B2%E7%9A%84%E9%9D%92%E5%B1%B1%E3%80%8B%E6%91%98%E5%BD%95%2F</url>
-    <content type="text"><![CDATA[《非洲的青山》第三章，关于贝尔蒙特的注释信息中写道，“他是海明威的好朋友，曾出现在海明威的小说《死在午后》、《太阳照常升起》中。晚年受病痛折磨，和海明威一样，饮弹自尽。” 小说的第三章的后半部是我和妻子的对话 “你不觉得老爹很英俊吗？”“不觉得。”我说，“挂眼皮才英俊。”“挂眼皮那是漂亮。但你真的不认为老爹英俊吗？”……“但你真的不认为他英俊吗？”“不认为。” 第四章 P.O.M从一个行囊里拿出几本书，和老爹一起看了起来， 我想起托尔斯泰，想到战争的经历对一个作家而言是多么有益。战争是重大的主题之一，当然也是最难进行真实描写的主题之一。 雨天交通拥堵时在湿滑的沥青路和鹅卵石路上骑车的感觉。]]></content>
   </entry>
 </search>
