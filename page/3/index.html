@@ -324,6 +324,171 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2018/11/03/集群上安装DESeq2遇到的困难及解决办法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qizhengyang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/03/集群上安装DESeq2遇到的困难及解决办法/" itemprop="url">
+                  集群上安装DESeq2遇到的困难及解决办法
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-11-03 22:18:08" itemprop="dateCreated datePublished" datetime="2018-11-03T22:18:08+08:00">2018-11-03</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-11-04 13:18:12" itemprop="dateModified" datetime="2018-11-04T13:18:12+08:00">2018-11-04</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li><p>BiocManager::install(“DESeq2”, version = “3.8”)<br>报错，错误内容：<br>configure: WARNING: Only g++ version 4.7.2 or greater can be used with RcppArmadillo.<br>configure: error: Please use a different compiler.<br>ERROR: configuration failed for package ‘RcppArmadillo’</p>
+</li>
+<li><p>源码安装gcc<br><a href="https://blog.csdn.net/swing2008/article/details/63250192" target="_blank" rel="noopener">参考</a><br>../configure –prefix=/home02/qizhengyang/packages -enable-checking=release -enable-languages=c,c++ -disable-multilib<br>报错，错误内容：<br>/usr/bin/ld: cannot find -lgfortran</p>
+</li>
+<li><p>重新安装gcc，增加fortran<br>../configure –prefix=/home02/qizhengyang/packages -enable-checking=release -enable-languages=c,c++,fortran -disable-multilib &amp;&amp; make -j4 &amp;&amp; make install</p>
+</li>
+<li><p>添加两个lib<br>export LD_LIBRARY_PATH=$HOME/packages/lib64:$LD_LIBRARY_PATH<br>export LD_LIBRARY_PATH=$HOME/packages/lib:$LD_LIBRARY_PATH</p>
+</li>
+</ol>
+<ol start="5">
+<li>BiocManager::install(“DESeq2”, version = “3.8”)<br>成功</li>
+</ol>
+<p>备注：configure时间超级长。过程艰辛。还尝试过手动安装RcppArmadillo，失败。<br>.libPaths()<br>“/home02/qizhengyang/packages/R/lib64/R/library”<br>R CMD INSTALL -l /home02/qizhengyang/packages/R/lib64/R/library RcppArmadillo_0.3.6.3.tar.gz</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2018/11/03/集群上安装的R包/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1653,162 +1818,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2018/07/14/非洲的青山/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qizhengyang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/14/非洲的青山/" itemprop="url">
-                  《非洲的青山》
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-07-14 11:37:06" itemprop="dateCreated datePublished" datetime="2018-07-14T11:37:06+08:00">2018-07-14</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2018-08-27 19:19:13" itemprop="dateModified" datetime="2018-08-27T19:19:13+08:00">2018-08-27</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>第四章，“乔伊斯中等身高，他把眼睛用坏了。在那最后一晚，喝醉了，和乔伊斯在一起，他不断引用埃德加·基内的话：‘思维清晰、生命绚丽如战争时一样。’我知道我没有把这句话彻底弄清楚。等你见到他，他会提到三年前被打断的谈话。能见到我们这个时代伟大的作家真让人高兴。”<br>这段话越发让我觉得我看的不是一部小说。</p>
-<p>查了维基百科</p>
-<blockquote>
-<p><em>Green Hills of Africa</em> is a 1935 work of nonfiction by American writer Ernest Hemingway.</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1856,7 +1865,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">32</span>
+                    <span class="site-state-item-count">33</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1901,7 +1910,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">14</span>
+                      
+                    
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

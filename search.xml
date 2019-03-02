@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[docear 使用心得]]></title>
+    <url>%2F2019%2F03%2F03%2F2019-3-3-docear-%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97%2F</url>
+    <content type="text"></content>
+      <tags>
+        <tag>软件</tag>
+        <tag>学术</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[需要比对的结果，在snakemake脚本里添加log]]></title>
     <url>%2F2019%2F03%2F02%2F%E5%9C%A8snakemake%E8%84%9A%E6%9C%AC%E9%87%8C%E6%B7%BB%E5%8A%A0log%2F</url>
     <content type="text"><![CDATA[log名要添加{sample}，不然出现如下错误 1234[qizhengyang@node1 gatk_snakemake]$ snakemake -n --quietSyntaxError:Not all output, log and benchmark files of rule star_1pass_align contain the same wildcards. This is crucial though, in order to avoid that two or more jobs write to the same file. File &quot;/home02/qizhengyang/qizhengyang/gatk_snakemake/Snakefile&quot;, line 63, in &lt;module&gt; 开始跑，大概 2019-3-2 21:10123snakemake -n --quietpestatnohup snakemake --cluster &quot;qsub -q low&quot; --jobs 100 &amp;&gt; snakemake.out &amp; 2019-3-2 23:52:22 一切正常 打算关闭终端，查看用： 1ps aux|grep Snakefile|grep -v grep]]></content>
