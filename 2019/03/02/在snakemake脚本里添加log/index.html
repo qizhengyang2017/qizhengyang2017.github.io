@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="Qizhengyang">
 <meta property="og:description" content="log名要添加{sample}，不然出现如下错误 1234[qizhengyang@node1 gatk_snakemake]$ snakemake -n --quietSyntaxError:Not all output, log and benchmark files of rule star_1pass_align contain the same wildcards. This is cr">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-03-02T15:54:26.349Z">
+<meta property="og:updated_time" content="2019-03-05T03:48:52.913Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="需要比对的结果，在snakemake脚本里添加log">
 <meta name="twitter:description" content="log名要添加{sample}，不然出现如下错误 1234[qizhengyang@node1 gatk_snakemake]$ snakemake -n --quietSyntaxError:Not all output, log and benchmark files of rule star_1pass_align contain the same wildcards. This is cr">
@@ -370,12 +370,24 @@
                 
               
 
-              <time title="Created: 2019-03-02 23:51:11 / Modified: 23:54:26" itemprop="dateCreated datePublished" datetime="2019-03-02T23:51:11+08:00">2019-03-02</time>
+              <time title="Created: 2019-03-02 23:51:11" itemprop="dateCreated datePublished" datetime="2019-03-02T23:51:11+08:00">2019-03-02</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-03-05 11:48:52" itemprop="dateModified" datetime="2019-03-05T11:48:52+08:00">2019-03-05</time>
               
             
           </span>
@@ -414,6 +426,20 @@
 <p>2019-3-2 23:52:22 一切正常</p>
 <p>打算关闭终端，查看用：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux|grep Snakefile|grep -v grep</span><br></pre></td></tr></table></figure>
+<p>2019-3-3 15:34:06</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">150 of 255 steps (59%) done</span><br><span class="line">Shutting down, this might take some time.</span><br><span class="line">Exiting because a job execution failed. Look above for error message</span><br><span class="line">Complete log: /home02/qizhengyang/qizhengyang/gatk_snakemake/.snakemake/log/2019-03-02T210938.398049.snakemake.log</span><br></pre></td></tr></table></figure>
+<p>error picard_markduplicates</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">OpenJDK 64-Bit Server VM warning: INFO: os::commit_memory(0x00002b6141200000, 1882193920, 0) failed; error=&apos;无法分配内存&apos; (errno=12)</span><br><span class="line">#</span><br><span class="line"># There is insufficient memory for the Java Runtime Environment to continue.</span><br><span class="line"># Native memory allocation (mmap) failed to map 1882193920 bytes for committing reserved memory.</span><br><span class="line"># An error report file with more information is saved as:</span><br><span class="line"># /home02/qizhengyang/qizhengyang/gatk_snakemake/hs_err_pid14847.log</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">snakemake -n --quiet</span><br><span class="line">nohup snakemake --cluster &quot;qsub -q low&quot; --jobs 100 &amp;&gt;&gt; snakemake.out &amp;</span><br></pre></td></tr></table></figure>
+<p>2019-3-5 11:37:02</p>
+<p>用时：</p>
+<p>开始：[Sat Mar  2 21:09:38 2019]</p>
+<p>结束：[Sun Mar  3 08:21:52 2019]</p>
+<p><strong>中间出错过一次，<code>java -Xmx40g -jar $picard MarkDuplicates</code>，下次设置JVM最大可用内存为80g</strong></p>
+<p>开始：[Sun Mar  3 16:11:13 2019]</p>
+<p>结束：[Mon Mar  4 22:12:01 2019]</p>
+<p><strong>总用时 ~41 小时</strong></p>
+<p><a href="/documents/Snakemake">附运行代码</a></p>
 
       
     </div>
@@ -522,7 +548,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-count">25</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -569,7 +595,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">14</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">17</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

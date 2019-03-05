@@ -1,0 +1,212 @@
+# 2019-3-2 20:38:19
+# GATK snakemake
+# qizhengyang
+# 添加log, 加BASEDIR, DATADIR
+
+from os.path import join
+
+BASEDIR = '/home02/qizhengyang/qizhengyang/gatk_rna'
+GENOME = join(BASEDIR, 'genome/HWB.chromosome.fa')
+DATADIR = join(BASEDIR, 'pairedDIR')
+GTF = join(BASEDIR, 'genes/HWB.gene.models.gtf')
+
+
+(SAMPLES,) = glob_wildcards(join(DATADIR, '{sample}_1P.fq.gz'))
+PATTERN_R1 = join(DATADIR, '{sample}_1P.fq.gz')
+PATTERN_R2 = join(DATADIR, '{sample}_2P.fq.gz')
+
+
+rule all:
+    input:
+        'star_index_2pass/',
+        expand('star_1pass/{sample}SJ.out.tab', sample=SAMPLES),
+        'star_index_2pass/',
+        expand('star_2pass/{sample}Aligned.out.sam', sample=SAMPLES),
+        expand('star_2pass/{sample}_rg_added_sorted.bam', sample=SAMPLES),
+        expand('star_2pass/{sample}_dedup.bam', sample=SAMPLES),
+        expand('star_2pass/{sample}_dedup_split.bam', sample=SAMPLES),
+        expand('star_2pass/{sample}.vcf', sample=SAMPLES),
+        expand('star_2pass/{sample}_filtered.vcf', sample=SAMPLES)
+
+
+rule star_index:
+    input:
+        genome = GENOME,
+        gtf = GTF
+    output:
+        star_index = directory('star_index/')
+
+    log:
+        'star_index.log'
+    threads: 20
+    run:
+        # star 1-pass index, OK
+        shell('STAR --runThreadN {threads} --runMode genomeGenerate'
+              ' --genomeDir {output.star_index}'
+              ' --genomeFastaFiles {input.genome}'
+              ' --sjdbGTFfile {input.gtf}'
+              ' > {log} 2>&1')
+
+rule star_1pass_align:
+    input:
+        index = 'star_index/',
+        r1 = PATTERN_R1,
+        r2 = PATTERN_R2
+    output:
+        index = 'star_1pass/{sample}SJ.out.tab'
+    log:
+        '{sample}.1pass_align.log'
+    threads: 20
+    params:
+        prefix = './star_1pass/{sample}'
+    # 在使用params之前是报错的，NameError,The name 'sample' is unknown in this context
+    run:
+        # star 1-pass align, OK
+        shell('STAR --runThreadN {threads} --genomeDir {input.index}'
+              ' --readFilesIn {input.r1} {input.r2}'
+              ' --readFilesCommand zcat'
+              ' --outFileNamePrefix {params.prefix}'
+              ' > {log} 2>&1')
+
+rule star_2pass_index:
+    input:
+        genome = GENOME,
+
+        # 这里必需加expand，不然会报错：Wildcards in input files cannot be determined from output files:
+        # 'sample'。
+        # 很奇怪，确实是需要所有样本的剪接位点信息，我之前没有注意到。。还好报错，不然就尴尬了
+        # 然后用--sjdbFileChrStartEnd参数将所有样品的SJ.out.tab文件作为输入的annotated junction进行第二次建index
+        # http://www.bioinfo-scrounger.com/archives/288
+
+        # 这里不能加三个引号（"""或'''注释）
+
+        splice_site = expand('star_1pass/{sample}SJ.out.tab', sample=SAMPLES)
+    output:
+        index = directory('star_index_2pass/')
+    log:
+        '2pass_index.log'
+    threads: 20
+    run:
+        # star 2-pass index, OK
+        shell('STAR --runThreadN {threads} --runMode genomeGenerate'
+              ' --genomeDir {output.index}'
+              ' --genomeFastaFiles {input.genome}'
+              ' --sjdbFileChrStartEnd {input.splice_site}'
+              ' > {log} 2>&1')
+
+rule star_2pass_align:
+    input:
+        index = 'star_index_2pass/',
+        r1 = PATTERN_R1,
+        r2 = PATTERN_R2
+    output:
+        sam = 'star_2pass/{sample}Aligned.out.sam'
+    log:
+        '{sample}.2pass_align.log'
+    threads: 20
+    params:
+        prefix = 'star_2pass/{sample}'
+    run:
+        # star 2-pass align
+        shell('STAR --runThreadN {threads} --genomeDir {input.index}'
+              ' --readFilesIn {input.r1} {input.r2}'
+              ' --readFilesCommand zcat'
+              ' --outFileNamePrefix {params.prefix}'
+              ' > {log} 2>&1')
+
+rule picard:
+    input:
+        sam = 'star_2pass/{sample}Aligned.out.sam'
+    output:
+        bam = 'star_2pass/{sample}_rg_added_sorted.bam'
+    log:
+        '{sample}.picard.log'
+    run:
+        # RGID和RGSM的sample必须是{wildcards.sample}，不然
+        # The name 'sample' is unknown in this context. Please make sure that you defined that variable.
+        # Also note that braces not used for variable access have to be escaped by repeating them, i.e. {{print $1}}
+        shell('java -Xmx40g -jar $picard AddOrReplaceReadGroups'
+              ' I={input.sam}'
+              ' O={output.bam}'
+              ' SO=coordinate'
+              ' RGID={wildcards.sample}'
+              ' RGLB=rna'
+              ' RGPL=illumina'
+              ' RGPU=hiseq'
+              ' RGSM={wildcards.sample}'
+              ' > {log} 2>&1')
+
+
+rule picard_markduplicates:
+    input:
+        bam = 'star_2pass/{sample}_rg_added_sorted.bam'
+    output:
+        dedup_bam = 'star_2pass/{sample}_dedup.bam'
+    log:
+        '{sample}.picard_markduplicates.log'
+    params:
+        dedup_metrices = 'star_2pass/{sample}_dedup.metrics'
+    run:
+        shell('java -Xmx40g -jar $picard MarkDuplicates'
+              ' I={input.bam}'
+              ' O={output.dedup_bam}'
+              ' CREATE_INDEX=true'
+              ' VALIDATION_STRINGENCY=SILENT'
+              ' M={params.dedup_metrices}'
+              ' > {log} 2>&1')
+
+
+rule gatk_split:
+    input:
+        dedup_bam = 'star_2pass/{sample}_dedup.bam',
+        genome = GENOME
+    output:
+        split_bam = 'star_2pass/{sample}_dedup_split.bam'
+    log:
+        '{sample}.gatk_split.log'
+    run:
+        shell('java -Xmx10g -jar $GATK -T SplitNCigarReads'
+              ' -R {input.genome}'
+              ' -I {input.dedup_bam}'
+              ' -o {output.split_bam}'
+              ' -rf ReassignOneMappingQuality'
+              ' -RMQF 255'
+              ' -RMQT 60'
+              ' -U ALLOW_N_CIGAR_READS'
+              ' > {log} 2>&1')
+rule gatk:
+    input:
+        bam = 'star_2pass/{sample}_dedup_split.bam',
+        genome = GENOME
+    output:
+        vcf = 'star_2pass/{sample}.vcf'
+    log:
+        '{sample}.gatk.log'
+    run:
+        shell('java -Xmx10g -jar $GATK -T HaplotypeCaller'
+              ' -R {input.genome}'
+              ' -I {input.bam}'
+              ' -dontUseSoftClippedBases'
+              ' -stand_call_conf 20.0'
+              ' -o {output.vcf}'
+              ' > {log} 2>&1')
+
+rule gatk_filter:
+    input:
+        genome = GENOME,
+        vcf = 'star_2pass/{sample}.vcf'
+    output:
+        'star_2pass/{sample}_filtered.vcf'
+    log:
+        '{sample}.gatk_filter.log'
+    run:
+        shell('java -Xmx10g -jar $GATK '
+              ' -T VariantFiltration'
+              ' -R {input.genome}'
+              ' -V {input.vcf}'
+              ' -window 35'
+              ' -cluster 3'
+              ' -filterName FS -filter "FS > 30.0"'
+              ' -filterName QD -filter "QD < 2.0"'
+              ' -o {output}'
+              ' > {log} 2>&1')

@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[决心对抗失眠的周二]]></title>
+    <url>%2F2019%2F03%2F05%2F2019-3-5-%E5%86%B3%E5%BF%83%E5%AF%B9%E6%8A%97%E5%A4%B1%E7%9C%A0%E7%9A%84%E5%91%A8%E4%BA%8C%2F</url>
+    <content type="text"><![CDATA[《麻省理工科技评论》 盖茨列出 10 项改变世界的技术名单，大部分你也猜得到 但它和 2018 年的名单有些不一样，因为盖茨也在成长。 This year’s 10 Breakthrough Technologies fall into roughly three groups: climate change mitigation, healthcare, and AI. They are: Robot dexterity—robot hands that can learn to manipulate unfamiliar objects on their own New-wave nuclear power—both fission and fusion reactor designs that could help bring down carbon emissions Predicting preemies—a simple blood test to warn of a preterm birth, potentially saving many children’s lives Gut probe in a pill—a swallowable device that can image the digestive tract and even perform biopsies Custom cancer vaccines—a treatment that uses the body’s own immune system to target only tumor cells The cow-free burger—both plant-based and lab-grown meat alternatives that could drastically cut emissions from the food industry Carbon dioxide catcher—techniques for absorbing CO2 from the air and locking it away that may finally become economic An ECG on your wrist—the ability for people with heart conditions to continuously monitor their health and get early warnings of problems Sanitation without sewers—a self-contained toilet that could tackle disease and unpleasant living conditions in much of the developing world Smooth-talking AI assistants—new advances in natural language processing that make digital assistants capable of greater autonomy 2017 年，盖茨投资了美国人造肉食品初创公司 Memphis Meats，更早前还投资过同类公司 Impossible Foods 。人造肉的意义在于，与传统畜牧业相比，它的肉类生产过程能够使用了传统畜牧业所需大约 1% 的土地和 10% 的水，减少对生态的损耗。^1]]></content>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[周一担心自己的睡眠问题]]></title>
+    <url>%2F2019%2F03%2F04%2F2019-3-4-%E5%91%A8%E4%B8%80%E6%8B%85%E5%BF%83%E8%87%AA%E5%B7%B1%E7%9A%84%E7%9D%A1%E7%9C%A0%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[在一轮招聘热潮之前，WeWork裁减了大约300名员工 诞生 100 年后，塞林格还在守望我们对青春与童年的认知 1919 年元旦，塞林格出生于曼哈顿，是一个四口之家的小儿子。从一所中学退学后，他被送往福吉谷军事学院，也就是小说中赶走霍尔顿的学校的原型。1937 年至 1941 年，塞林格没有接受过什么正规教育。他随父亲在奥地利和波兰学着做生意，在德军占领前一周回到美国，上过夜校的写作课，试着给文艺界富有盛名的《纽约客》投稿。 混乱于 1941 年结束，塞林格应征入伍，前往欧洲战场从事情报工作。1945 年，他因战争带来的精神问题入院。战后，他搬回纽约的父母家，继续写作。 《麦田里的守望者》塑造了一个可爱的废物，但没有人会否认，这部小说为塞林格本人在文学界赢得了一席之地。这个地位之重要超出了当时人们的预期。包括厄普代克（John Updike）等文学偶像在内，同时代和晚辈的美国作家都深受塞林格的影响，至今仍活在“霍尔顿”不散的阴魂之下。]]></content>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Gmail 使用]]></title>
+    <url>%2F2019%2F03%2F04%2F2019-3-4-Gmail-%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[诺禾致源2018-12-1的邮件在gmail中消失了。是因为我将它转发到了outlook? gmail 搜索 Gmail 不会将“垃圾邮件”或“已删除邮件”中的邮件显示在搜索结果中。 搜索“垃圾邮件”和“已删除邮件” 如果要搜索，点击所有邮件下拉菜单，然后选择邮件、垃圾邮件和已删除邮件。 在 Gmail 中进行搜索 Gmail 现在已经有搜索附件的功能了]]></content>
+      <tags>
+        <tag>gmail</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[网页不能登入检查]]></title>
+    <url>%2F2019%2F03%2F03%2F2019-3-3-%E7%BD%91%E9%A1%B5%E4%B8%8D%E8%83%BD%E7%99%BB%E5%85%A5%E6%A3%80%E6%9F%A5%2F</url>
+    <content type="text"><![CDATA[停电，IP又变了。http://10.164.6.4/ 下面的步骤，全要做一遍，才能登入网页。 12345678910111213# 用root查看，才会显示进程信息。查看80端口是否被监听。netstat -ntpl# 停止apache服务sudo systemctl stop httpd.service# 启动nginx服务systemctl start nginx.service# 必须做sudo firewall-cmd --permanent --zone=public --add-service=httpsudo firewall-cmd --permanent --zone=public --add-service=httpssudo firewall-cmd --reload 如何查看防火墙是否允许http 1234firewall-cmd --query-service http ##查看http服务是否支持，返回yes或者nofirewall-cmd --add-service=http ##临时开放http服务firewall-cmd --add-service=http --permanent ##永久开放http服务firewall-cmd --reload ##重启防火墙生效 Centos7 yum配置Nginx CentOS 7.4 firewall 开启http/https 服务]]></content>
+      <tags>
+        <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[docear 使用心得]]></title>
     <url>%2F2019%2F03%2F03%2F2019-3-3-docear-%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97%2F</url>
     <content type="text"><![CDATA[]]></content>
@@ -12,7 +44,7 @@
   <entry>
     <title><![CDATA[需要比对的结果，在snakemake脚本里添加log]]></title>
     <url>%2F2019%2F03%2F02%2F%E5%9C%A8snakemake%E8%84%9A%E6%9C%AC%E9%87%8C%E6%B7%BB%E5%8A%A0log%2F</url>
-    <content type="text"><![CDATA[log名要添加{sample}，不然出现如下错误 1234[qizhengyang@node1 gatk_snakemake]$ snakemake -n --quietSyntaxError:Not all output, log and benchmark files of rule star_1pass_align contain the same wildcards. This is crucial though, in order to avoid that two or more jobs write to the same file. File &quot;/home02/qizhengyang/qizhengyang/gatk_snakemake/Snakefile&quot;, line 63, in &lt;module&gt; 开始跑，大概 2019-3-2 21:10123snakemake -n --quietpestatnohup snakemake --cluster &quot;qsub -q low&quot; --jobs 100 &amp;&gt; snakemake.out &amp; 2019-3-2 23:52:22 一切正常 打算关闭终端，查看用： 1ps aux|grep Snakefile|grep -v grep]]></content>
+    <content type="text"><![CDATA[log名要添加{sample}，不然出现如下错误 1234[qizhengyang@node1 gatk_snakemake]$ snakemake -n --quietSyntaxError:Not all output, log and benchmark files of rule star_1pass_align contain the same wildcards. This is crucial though, in order to avoid that two or more jobs write to the same file. File &quot;/home02/qizhengyang/qizhengyang/gatk_snakemake/Snakefile&quot;, line 63, in &lt;module&gt; 开始跑，大概 2019-3-2 21:10123snakemake -n --quietpestatnohup snakemake --cluster &quot;qsub -q low&quot; --jobs 100 &amp;&gt; snakemake.out &amp; 2019-3-2 23:52:22 一切正常 打算关闭终端，查看用： 1ps aux|grep Snakefile|grep -v grep 2019-3-3 15:34:06 1234150 of 255 steps (59%) doneShutting down, this might take some time.Exiting because a job execution failed. Look above for error messageComplete log: /home02/qizhengyang/qizhengyang/gatk_snakemake/.snakemake/log/2019-03-02T210938.398049.snakemake.log error picard_markduplicates 123456OpenJDK 64-Bit Server VM warning: INFO: os::commit_memory(0x00002b6141200000, 1882193920, 0) failed; error=&apos;无法分配内存&apos; (errno=12)## There is insufficient memory for the Java Runtime Environment to continue.# Native memory allocation (mmap) failed to map 1882193920 bytes for committing reserved memory.# An error report file with more information is saved as:# /home02/qizhengyang/qizhengyang/gatk_snakemake/hs_err_pid14847.log 12snakemake -n --quietnohup snakemake --cluster &quot;qsub -q low&quot; --jobs 100 &amp;&gt;&gt; snakemake.out &amp; 2019-3-5 11:37:02 用时： 开始：[Sat Mar 2 21:09:38 2019] 结束：[Sun Mar 3 08:21:52 2019] 中间出错过一次，java -Xmx40g -jar $picard MarkDuplicates，下次设置JVM最大可用内存为80g 开始：[Sun Mar 3 16:11:13 2019] 结束：[Mon Mar 4 22:12:01 2019] 总用时 ~41 小时 附运行代码]]></content>
       <tags>
         <tag>snakemake</tag>
         <tag>gatk</tag>
@@ -90,6 +122,14 @@
     <content type="text"><![CDATA[blast2go本地化需要用到mysql，操作系统Centos 7。 1. 卸载之前的mysql之前的版本是mysql5.6，想要更新到mysql5.7。 查看mysql安装了哪些东西。 1rpm -qa |grep -i mysql 开始卸载 1yum remove XXX 查看卸载是否完成 查找mysql相关目录 1find / -name mysql 删除相关目录 123rm -rf XXXrm -rf /etc/my.cnfrm -rf rm -rf /var/log/mysqld.log 2. 安装Mysql5.7 安装mysql源 1234wget https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpmyum localinstall mysql57-community-release-el7-11.noarch.rpm# 检查是否安装成功yum repolist enabled | grep &quot;mysql.*-community.*&quot; 启动mysql服务 123systemctl start mysqld# 查看状态systemctl status mysqld 这里可能会遇到 “Another mysqld server running on port 3306 error”，可以采用netstat -lp | grep 3306 查找占用这个端口号的进程，kill 这个PID。（我发现占用这个3306的是mysql??）。 修改root密码 我用root身份导入数据的时候，提示我要修改密码。生成的默认密码在 /var/log/mysqld.log 文件中。使用 grep 命令找到日志中的密码。 1grep &apos;temporary password&apos; /var/log/mysqld.log 1mysql&gt;ALTER USER &apos;root&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;123,c%vPl9ek&apos;; 或者： 123mysql&gt; use mysql;mysql&gt; update mysql.user set authentication_string=password(&apos;123,c%vPl9ek&apos;) where user=&apos;root&apos;;mysql&gt; flush privileges; 3. 导入数据1mysql -u root -p &lt; b2gdb.sql 会出现莫名其妙的错误，“ERROR 1819 (HY000) at line 4: Your password does not satisfy the current policy requirements”，但是我的密码是符合它的规则的。最后采取的办法是把检验密码的插件删了。 1mysql&gt;uninstall plugin validate_password; 有试着导入数据，这次的错误是： “ERROR 1101 (42000) at line 9: BLOB, TEXT, GEOMETRY or JSON column ‘description’ can’t have a default value” 先查看了sql_mode 12mysql&gt; select @@session.sql_mode;mysql&gt; select @@global.sql_mode; 之后重新设置sql_mode 12set sql_mode=&apos;&apos;;set global sql_mode=&apos;&apos;; 重新打开一个终端，进入mysql，查看sql_mode 1select @@global.sql_mode; 在尝试导入数据，成功。 4. blast2go123456cd data1/data/blast2go/mysql -u root -p &lt; b2gdb.sqlmysql -u root -p -e &quot;GRANT ALL ON b2gdb.* TO &apos;blast2go&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;blast4it&apos;;&quot;mysql -u root -p -e &quot;FLUSH PRIVILEGES;&quot;# 这一步很耗时nohup time mysql -s -u root -p b2gdb &lt; go_monthly-assocdb-data &gt; mysql.out 2&gt;&amp;1 &amp; 5. 参考 MySQL sql_mode 说明 blast2go本地化教程 your password does not satisfy the current policy requirements another mysqld server running on the port 3306 Centos7 完全卸载mysql CentOS 7 下 MySQL 5.7 的安装与配置]]></content>
       <tags>
         <tag>Mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[建立本地nr数据库]]></title>
+    <url>%2F2019%2F01%2F28%2Fblast2go%2F</url>
+    <content type="text"><![CDATA[1234567891011# 下载nr数据库，并解压# 安装nt/nr库需要进行环境变量配置，在家目录下新建一个.ncbirc配置文件nohup time update_blastdb.pl --decompress nr &gt; out.log 2&gt;&amp;1 &amp;# 同一目录下建立nr_plant子库blastdb_aliastool -seqidlist sequence.seq -db nr -out nr_plant -title nr_plant# 运行时间相当长blastp -query AT-ARR.fa -db nr -outfmt 11 -out ARR.blastp@nr.asn -num_threads 8# 测试时间time blastp -query ~/qizhengyang/AT-ARR.fa -db nr_plant -outfmt 11 -out ARR.blastp@nr.asn -num_threads 8]]></content>
+      <tags>
+        <tag>生物信息</tag>
       </tags>
   </entry>
   <entry>
