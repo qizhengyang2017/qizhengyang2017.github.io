@@ -174,8 +174,8 @@
     <url>%2F2018%2F10%2F31%2F%E9%9B%86%E7%BE%A4%E4%B8%8A%E5%AE%89%E8%A3%85R%2F</url>
     <content type="text"><![CDATA[普通用户在集群上安装R主要的教程里面有一些需要注意的，安装bzip，要加入一个 -fPIC 到 CFLAG 。（在 Makefile中CFLAG=-fPIC -Wall -Winline -O2 -g…）在R安装configure之前需要注意设置环境变量123LD_LIBRARY_PATH=/home02/qizhengyang/packages/libexport CFLAGS="-I/home02/qizhengyang/packages/include"export LDFLAGS="-L/home02/qizhengyang/packages/lib" R安装完成之后123export R_HOME=$HOME/packages/Rexport R_LIBS=$HOME/packages/R/lib64/libraryexport PATH="$R_HOME/bin":$PATH 最后 source ~/.bashrc 装methyKit也是坑一堆。我下了autoconf-2.69，libxml2-2.7.2。源码安装。./configure –prefix=/home02/qizhengyang/packages]]></content>
       <tags>
-        <tag>R</tag>
         <tag>Linux</tag>
+        <tag>R</tag>
       </tags>
   </entry>
   <entry>
