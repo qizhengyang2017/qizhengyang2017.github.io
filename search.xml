@@ -37,14 +37,14 @@
     <url>%2F2019%2F03%2F03%2F2019-3-3-docear-%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97%2F</url>
     <content type="text"><![CDATA[]]></content>
       <tags>
-        <tag>软件</tag>
         <tag>学术</tag>
+        <tag>软件</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[需要比对的结果，在snakemake脚本里添加log]]></title>
     <url>%2F2019%2F03%2F02%2F%E5%9C%A8snakemake%E8%84%9A%E6%9C%AC%E9%87%8C%E6%B7%BB%E5%8A%A0log%2F</url>
-    <content type="text"><![CDATA[log名要添加{sample}，不然出现如下错误 1234[qizhengyang@node1 gatk_snakemake]$ snakemake -n --quietSyntaxError:Not all output, log and benchmark files of rule star_1pass_align contain the same wildcards. This is crucial though, in order to avoid that two or more jobs write to the same file. File &quot;/home02/qizhengyang/qizhengyang/gatk_snakemake/Snakefile&quot;, line 63, in &lt;module&gt; 开始跑，大概 2019-3-2 21:10123snakemake -n --quietpestatnohup snakemake --cluster &quot;qsub -q low&quot; --jobs 100 &amp;&gt; snakemake.out &amp; 2019-3-2 23:52:22 一切正常 打算关闭终端，查看用： 1ps aux|grep Snakefile|grep -v grep 2019-3-3 15:34:06 1234150 of 255 steps (59%) doneShutting down, this might take some time.Exiting because a job execution failed. Look above for error messageComplete log: /home02/qizhengyang/qizhengyang/gatk_snakemake/.snakemake/log/2019-03-02T210938.398049.snakemake.log error picard_markduplicates 123456OpenJDK 64-Bit Server VM warning: INFO: os::commit_memory(0x00002b6141200000, 1882193920, 0) failed; error=&apos;无法分配内存&apos; (errno=12)## There is insufficient memory for the Java Runtime Environment to continue.# Native memory allocation (mmap) failed to map 1882193920 bytes for committing reserved memory.# An error report file with more information is saved as:# /home02/qizhengyang/qizhengyang/gatk_snakemake/hs_err_pid14847.log 12snakemake -n --quietnohup snakemake --cluster &quot;qsub -q low&quot; --jobs 100 &amp;&gt;&gt; snakemake.out &amp; 2019-3-5 11:37:02 用时： 开始：[Sat Mar 2 21:09:38 2019] 结束：[Sun Mar 3 08:21:52 2019] 中间出错过一次，java -Xmx40g -jar $picard MarkDuplicates，下次设置JVM最大可用内存为80g 开始：[Sun Mar 3 16:11:13 2019] 结束：[Mon Mar 4 22:12:01 2019] 总用时 ~41 小时 附运行代码]]></content>
+    <content type="text"><![CDATA[log名要添加{sample}，不然出现如下错误 1234[qizhengyang@node1 gatk_snakemake]$ snakemake -n --quietSyntaxError:Not all output, log and benchmark files of rule star_1pass_align contain the same wildcards. This is crucial though, in order to avoid that two or more jobs write to the same file. File &quot;/home02/qizhengyang/qizhengyang/gatk_snakemake/Snakefile&quot;, line 63, in &lt;module&gt; 开始跑，大概 2019-3-2 21:10123snakemake -n --quietpestatnohup snakemake --cluster &quot;qsub -q low&quot; --jobs 100 &amp;&gt; snakemake.out &amp; 2019-3-2 23:52:22 一切正常 打算关闭终端，查看用： 1ps aux|grep Snakefile|grep -v grep 2019-3-3 15:34:06 1234150 of 255 steps (59%) doneShutting down, this might take some time.Exiting because a job execution failed. Look above for error messageComplete log: /home02/qizhengyang/qizhengyang/gatk_snakemake/.snakemake/log/2019-03-02T210938.398049.snakemake.log error picard_markduplicates 123456OpenJDK 64-Bit Server VM warning: INFO: os::commit_memory(0x00002b6141200000, 1882193920, 0) failed; error=&apos;无法分配内存&apos; (errno=12)## There is insufficient memory for the Java Runtime Environment to continue.# Native memory allocation (mmap) failed to map 1882193920 bytes for committing reserved memory.# An error report file with more information is saved as:# /home02/qizhengyang/qizhengyang/gatk_snakemake/hs_err_pid14847.log 12snakemake -n --quietnohup snakemake --cluster &quot;qsub -q low&quot; --jobs 100 &amp;&gt;&gt; snakemake.out &amp; 2019-3-5 11:37:02 用时： 开始：[Sat Mar 2 21:09:38 2019] 结束：[Sun Mar 3 08:21:52 2019] 中间出错过一次，java -Xmx40g -jar $picard MarkDuplicates，下次设置JVM最大可用内存为80g 开始：[Sun Mar 3 16:11:13 2019] 结束：[Mon Mar 4 22:12:01 2019] 总用时 ~41 小时 附运行代码 添加log没有用，比对信息有输出 HB-10-1Log.final.out]]></content>
       <tags>
         <tag>snakemake</tag>
         <tag>gatk</tag>
@@ -174,8 +174,8 @@
     <url>%2F2018%2F10%2F31%2F%E9%9B%86%E7%BE%A4%E4%B8%8A%E5%AE%89%E8%A3%85R%2F</url>
     <content type="text"><![CDATA[普通用户在集群上安装R主要的教程里面有一些需要注意的，安装bzip，要加入一个 -fPIC 到 CFLAG 。（在 Makefile中CFLAG=-fPIC -Wall -Winline -O2 -g…）在R安装configure之前需要注意设置环境变量123LD_LIBRARY_PATH=/home02/qizhengyang/packages/libexport CFLAGS="-I/home02/qizhengyang/packages/include"export LDFLAGS="-L/home02/qizhengyang/packages/lib" R安装完成之后123export R_HOME=$HOME/packages/Rexport R_LIBS=$HOME/packages/R/lib64/libraryexport PATH="$R_HOME/bin":$PATH 最后 source ~/.bashrc 装methyKit也是坑一堆。我下了autoconf-2.69，libxml2-2.7.2。源码安装。./configure –prefix=/home02/qizhengyang/packages]]></content>
       <tags>
-        <tag>Linux</tag>
         <tag>R</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
