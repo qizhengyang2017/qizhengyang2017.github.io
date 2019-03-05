@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[hexo next 主题 seo]]></title>
+    <url>%2F2019%2F03%2F05%2F2019-3-5-hexo-next-%E4%B8%BB%E9%A2%98-seo%2F</url>
+    <content type="text"><![CDATA[hexo next 主题 seo seo 确实起作用 抓取用的旧版 robots.txt这个文件，经过测试，有无决定了seo是否起作用。（根目录下必须放，但第一次提交会报错，此时，将内容复制进去，点击第二个选项，再点击第三个。如果事先没有放，会报错，错误404） 抓取此网址及其直接链接？（前者可以月提交500次，后者月之能提交10次，区别就是点后者提交能一并提交他的子目录。） Google抓取工具验证 添加属性并输入你的网站 下载HTML文件并放入网站文件中使其可以访问 robots.txt测试工具。首先我们需要将网站地图robots.txt加入网站的根目录文件中。它会告诉搜索引擎哪些页面可以抓取，哪些页面不能抓取。 站点地图，我们进入站点地图，全选页面然后进行提交。 *这里需要注意的是，我们在修改网站信息后，站点地图的内容不会自动进行更新。所以养成良好的习惯，定期在网站更新后对站点地图进行重新提交，有助于你的网站快速被收录。 google抓取工具。该工具可以帮助你了解谷歌的网页抓取机器人是否有访问你网站中的网页，呈现出来的样子，及是否有被禁止的网页。 输入链接后点击抓取预览，请求编入索引 选择第二个抓取此网址及其直接链接 不明白的地方：搜索界面的时间 第一次 第二次 参考 https://www.cmwonderland.com/2018/05/05/search-engine/ https://hoxis.github.io/Hexo+Next%20SEO%E4%BC%98%E5%8C%96.html https://www.wordpresshy.com/20029 https://www.inkwp.com/crawl-or-remove-website-content-immediately/]]></content>
+      <tags>
+        <tag>技术</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[决心对抗失眠的周二]]></title>
     <url>%2F2019%2F03%2F05%2F2019-3-5-%E5%86%B3%E5%BF%83%E5%AF%B9%E6%8A%97%E5%A4%B1%E7%9C%A0%E7%9A%84%E5%91%A8%E4%BA%8C%2F</url>
     <content type="text"><![CDATA[《麻省理工科技评论》 盖茨列出 10 项改变世界的技术名单，大部分你也猜得到 但它和 2018 年的名单有些不一样，因为盖茨也在成长。 This year’s 10 Breakthrough Technologies fall into roughly three groups: climate change mitigation, healthcare, and AI. They are: Robot dexterity—robot hands that can learn to manipulate unfamiliar objects on their own New-wave nuclear power—both fission and fusion reactor designs that could help bring down carbon emissions Predicting preemies—a simple blood test to warn of a preterm birth, potentially saving many children’s lives Gut probe in a pill—a swallowable device that can image the digestive tract and even perform biopsies Custom cancer vaccines—a treatment that uses the body’s own immune system to target only tumor cells The cow-free burger—both plant-based and lab-grown meat alternatives that could drastically cut emissions from the food industry Carbon dioxide catcher—techniques for absorbing CO2 from the air and locking it away that may finally become economic An ECG on your wrist—the ability for people with heart conditions to continuously monitor their health and get early warnings of problems Sanitation without sewers—a self-contained toilet that could tackle disease and unpleasant living conditions in much of the developing world Smooth-talking AI assistants—new advances in natural language processing that make digital assistants capable of greater autonomy 2017 年，盖茨投资了美国人造肉食品初创公司 Memphis Meats，更早前还投资过同类公司 Impossible Foods 。人造肉的意义在于，与传统畜牧业相比，它的肉类生产过程能够使用了传统畜牧业所需大约 1% 的土地和 10% 的水，减少对生态的损耗。^1]]></content>
