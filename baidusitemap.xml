@@ -1,186 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
   <url>
     <loc>https://qizhengyang2017.github.io/2019/03/02/%E5%9C%A8snakemake%E8%84%9A%E6%9C%AC%E9%87%8C%E6%B7%BB%E5%8A%A0log/</loc>
-    
-    <lastmod>2019-03-05T05:00:20.338Z</lastmod>
-    
-  </url>
-  
-  <url>
+    <lastmod>2019-03-05</lastmod>
+  </url>  <url>
     <loc>https://qizhengyang2017.github.io/2019/03/05/2019-3-5-%E5%86%B3%E5%BF%83%E5%AF%B9%E6%8A%97%E5%A4%B1%E7%9C%A0%E7%9A%84%E5%91%A8%E4%BA%8C/</loc>
-    
-    <lastmod>2019-03-05T02:20:02.090Z</lastmod>
-    
-  </url>
-  
-  <url>
+    <lastmod>2019-03-05</lastmod>
+  </url>  <url>
     <loc>https://qizhengyang2017.github.io/2019/03/04/2019-3-4-%E5%91%A8%E4%B8%80%E6%8B%85%E5%BF%83%E8%87%AA%E5%B7%B1%E7%9A%84%E7%9D%A1%E7%9C%A0%E9%97%AE%E9%A2%98/</loc>
-    
-    <lastmod>2019-03-04T15:55:03.743Z</lastmod>
-    
-  </url>
-  
-  <url>
+    <lastmod>2019-03-04</lastmod>
+  </url>  <url>
     <loc>https://qizhengyang2017.github.io/2019/03/04/2019-3-4-Gmail-%E4%BD%BF%E7%94%A8/</loc>
-    
-    <lastmod>2019-03-04T09:16:57.518Z</lastmod>
-    
-  </url>
-  
-  <url>
+    <lastmod>2019-03-04</lastmod>
+  </url>  <url>
     <loc>https://qizhengyang2017.github.io/2019/03/03/2019-3-3-%E7%BD%91%E9%A1%B5%E4%B8%8D%E8%83%BD%E7%99%BB%E5%85%A5%E6%A3%80%E6%9F%A5/</loc>
-    
-    <lastmod>2019-03-04T07:01:22.169Z</lastmod>
-    
-  </url>
-  
-  <url>
+    <lastmod>2019-03-04</lastmod>
+  </url>  <url>
     <loc>https://qizhengyang2017.github.io/2019/01/28/blast2go/</loc>
-    
-    <lastmod>2019-03-03T05:17:11.465Z</lastmod>
-    
-  </url>
-  
-  <url>
+    <lastmod>2019-03-03</lastmod>
+  </url>  <url>
     <loc>https://qizhengyang2017.github.io/2019/03/03/2019-3-3-docear-%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/</loc>
-    
-    <lastmod>2019-03-02T16:59:57.695Z</lastmod>
-    
-  </url>
-  
-  <url>
+    <lastmod>2019-03-02</lastmod>
+  </url>  <url>
     <loc>https://qizhengyang2017.github.io/2019/03/02/2019-3-2-%E9%9B%86%E7%BE%A4%E5%92%8CLinux%E7%9B%B8%E5%85%B3/</loc>
-    
-    <lastmod>2019-03-02T12:41:28.217Z</lastmod>
-    
-  </url>
-  
-  <url>
+    <lastmod>2019-03-02</lastmod>
+  </url>  <url>
     <loc>https://qizhengyang2017.github.io/2019/03/01/%E7%94%A8python%E7%94%9F%E6%88%90json%E6%A0%BC%E5%BC%8F%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</loc>
-    
-    <lastmod>2019-03-01T14:52:36.498Z</lastmod>
-    
-  </url>
-  
-  <url>
+    <lastmod>2019-03-01</lastmod>
+  </url>  <url>
     <loc>https://qizhengyang2017.github.io/2019/03/01/JBrowse/</loc>
-    
-    <lastmod>2019-03-01T14:36:46.216Z</lastmod>
-    
-  </url>
-  
-  <url>
+    <lastmod>2019-03-01</lastmod>
+  </url>  <url>
     <loc>https://qizhengyang2017.github.io/2019/02/26/JBrowse%20%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/</loc>
-    
-    <lastmod>2019-02-28T16:28:04.417Z</lastmod>
-    
-  </url>
-  
-  <url>
+    <lastmod>2019-02-28</lastmod>
+  </url>  <url>
     <loc>https://qizhengyang2017.github.io/2019/02/27/git%E4%BD%BF%E7%94%A8/</loc>
-    
-    <lastmod>2019-02-27T12:27:28.560Z</lastmod>
-    
-  </url>
-  
-  <url>
+    <lastmod>2019-02-27</lastmod>
+  </url>  <url>
     <loc>https://qizhengyang2017.github.io/2019/02/20/snakemake/</loc>
-    
-    <lastmod>2019-02-27T09:31:34.537Z</lastmod>
-    
-  </url>
-  
-  <url>
+    <lastmod>2019-02-27</lastmod>
+  </url>  <url>
     <loc>https://qizhengyang2017.github.io/2019/01/26/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85-CentOS-7-%E5%B9%B6%E5%BC%80%E5%90%AFssh%E6%9C%8D%E5%8A%A1%E4%B9%8B%E5%90%8E/</loc>
-    
-    <lastmod>2019-02-26T09:16:14.060Z</lastmod>
-    
-  </url>
-  
-  <url>
+    <lastmod>2019-02-26</lastmod>
+  </url>  <url>
     <loc>https://qizhengyang2017.github.io/2019/02/11/the-machine-stops/</loc>
-    
-    <lastmod>2019-02-11T13:19:47.935Z</lastmod>
-    
-  </url>
-  
-  <url>
+    <lastmod>2019-02-11</lastmod>
+  </url>  <url>
     <loc>https://qizhengyang2017.github.io/2019/01/29/Mysql%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B/</loc>
-    
-    <lastmod>2019-01-31T04:04:45.876Z</lastmod>
-    
-  </url>
-  
-  <url>
+    <lastmod>2019-01-31</lastmod>
+  </url>  <url>
     <loc>https://qizhengyang2017.github.io/2019/01/30/%E7%94%B2%E5%9F%BA%E5%8C%96%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</loc>
-    
-    <lastmod>2019-01-30T12:06:55.973Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://qizhengyang2017.github.io/about/index.html</loc>
-    
-    <lastmod>2019-01-05T12:29:00.567Z</lastmod>
-    
-  </url>
-  
-  <url>
+    <lastmod>2019-01-30</lastmod>
+  </url>  <url>
     <loc>https://qizhengyang2017.github.io/2018/12/12/exporting-nice-plots-in-r/</loc>
-    
-    <lastmod>2018-12-12T10:00:19.557Z</lastmod>
-    
-  </url>
-  
-  <url>
+    <lastmod>2018-12-12</lastmod>
+  </url>  <url>
     <loc>https://qizhengyang2017.github.io/2018/12/10/Google-News/</loc>
-    
-    <lastmod>2018-12-10T15:16:56.074Z</lastmod>
-    
-  </url>
-  
-  <url>
+    <lastmod>2018-12-10</lastmod>
+  </url>  <url>
     <loc>https://qizhengyang2017.github.io/2018/11/03/%E9%9B%86%E7%BE%A4%E4%B8%8A%E5%AE%89%E8%A3%85DESeq2%E9%81%87%E5%88%B0%E7%9A%84%E5%9B%B0%E9%9A%BE%E5%8F%8A%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</loc>
-    
-    <lastmod>2018-11-04T05:18:12.211Z</lastmod>
-    
-  </url>
-  
-  <url>
+    <lastmod>2018-11-04</lastmod>
+  </url>  <url>
     <loc>https://qizhengyang2017.github.io/2018/11/03/%E9%9B%86%E7%BE%A4%E4%B8%8A%E5%AE%89%E8%A3%85%E7%9A%84R%E5%8C%85/</loc>
-    
-    <lastmod>2018-11-03T02:03:02.077Z</lastmod>
-    
-  </url>
-  
-  <url>
+    <lastmod>2018-11-03</lastmod>
+  </url>  <url>
     <loc>https://qizhengyang2017.github.io/2018/10/31/%E9%9B%86%E7%BE%A4%E4%B8%8A%E5%AE%89%E8%A3%85R/</loc>
-    
-    <lastmod>2018-10-31T03:25:19.311Z</lastmod>
-    
-  </url>
-  
-  <url>
+    <lastmod>2018-10-31</lastmod>
+  </url>  <url>
     <loc>https://qizhengyang2017.github.io/2018/07/14/%E9%9D%9E%E6%B4%B2%E7%9A%84%E9%9D%92%E5%B1%B1/</loc>
-    
-    <lastmod>2018-08-27T11:19:13.702Z</lastmod>
-    
-  </url>
-  
-  <url>
+    <lastmod>2018-08-27</lastmod>
+  </url>  <url>
     <loc>https://qizhengyang2017.github.io/2018/08/17/%E5%B1%80%E5%A4%96%E4%BA%BA%E4%B8%BB%E6%97%A8/</loc>
-    
-    <lastmod>2018-08-26T06:57:47.168Z</lastmod>
-    
+    <lastmod>2018-08-26</lastmod>
   </url>
-  
-  <url>
-    <loc>https://qizhengyang2017.github.io/tags/index.html</loc>
-    
-    <lastmod>2018-08-15T07:22:06.694Z</lastmod>
-    
-  </url>
-  
 </urlset>
