@@ -324,6 +324,632 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2019/01/28/blast2go/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qizhengyang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/28/blast2go/" itemprop="url">
+                  建立本地nr数据库
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-01-28 13:16:32" itemprop="dateCreated datePublished" datetime="2019-01-28T13:16:32+08:00">2019-01-28</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-03-03 13:17:11" itemprop="dateModified" datetime="2019-03-03T13:17:11+08:00">2019-03-03</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 下载nr数据库，并解压</span><br><span class="line"><span class="meta">#</span> 安装nt/nr库需要进行环境变量配置，在家目录下新建一个.ncbirc配置文件</span><br><span class="line">nohup time update_blastdb.pl --decompress nr &gt; out.log 2&gt;&amp;1 &amp;</span><br><span class="line"><span class="meta">#</span> 同一目录下建立nr_plant子库</span><br><span class="line">blastdb_aliastool -seqidlist sequence.seq -db nr -out nr_plant -title nr_plant</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 运行时间相当长</span><br><span class="line">blastp -query  AT-ARR.fa -db nr -outfmt 11 -out ARR.blastp@nr.asn -num_threads 8</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 测试时间</span><br><span class="line">time blastp -query ~/qizhengyang/AT-ARR.fa -db nr_plant -outfmt 11 -out ARR.blastp@nr.asn -num_threads 8</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2019/01/26/服务器安装-CentOS-7-并开启ssh服务之后/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qizhengyang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/26/服务器安装-CentOS-7-并开启ssh服务之后/" itemprop="url">
+                  服务器安装 CentOS 7 并开启ssh服务之后
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-01-26 17:11:40" itemprop="dateCreated datePublished" datetime="2019-01-26T17:11:40+08:00">2019-01-26</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-02-26 17:16:14" itemprop="dateModified" datetime="2019-02-26T17:16:14+08:00">2019-02-26</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>挂载服务器里的另外两块硬盘硬盘</strong></p>
+<ol>
+<li>查看没有挂载的硬盘 fdisk -l</li>
+<li>格式化硬盘，mkfs.ext4 /dev/sdb.报错，/dev/sdb is apparently in use by the system; will not make a 文件系统 here!。用这个命令：dmsetup remove_all</li>
+<li>mkfs.ext4 /dev/sdb</li>
+<li>挂载 mount /dev/sdb /data</li>
+</ol>
+<p><strong>mount挂载ntfs 格式的移动硬盘</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">成功执行</span><br><span class="line">mount -t ntfs-3g /dev/sdd1 /run/media/qi/Zhangmiao_15623277907</span><br><span class="line">未成功执行</span><br><span class="line">mount -t ntfs-3g /dev/sdb5 /run/media/qi/软件</span><br></pre></td></tr></table></figure>
+<p><strong>自动挂载设置</strong></p>
+<blockquote>
+<p>Ps:在使用gnome桌面挂载U盘的时候发现，系统可以识别NTFS 分区的存在，但是通过桌面无法自动挂载，系统会提示：</p>
+<p>Error mounting /dev/sdb1 at /run/media/lenovo/v220w: Command-line `mount -t “ntfs” -o “uhelper=udisks2,nodev,nosuid,uid=1000,gid=1000,dmask=0077,fmask=0177” “/dev/sdb1” “/run/media/lenovo/v220w”‘ exited with non-zero exit status 32: mount: unknown filesystem type ‘ntfs’</p>
+<p>mount 提示未知的文件系统类型 ‘ntfs’</p>
+<p>解决办法：</p>
+<p>$ mount[Tab][Tab]  #连续按两次 Tab 键作命令补齐</p>
+<p>mount             mount.glusterfs   mount.nfs4        mountstats<br>mount.cifs        mount.lowntfs-3g  mount.ntfs-3g<br>mount.fuse        mount.nfs         mountpoint        </p>
+<p>可以看到只有mount.ntfs-3g，在使用 mount -t 挂载ntfs 时 mount 会调用 mount.ntfs-3g 而非默认的 mount.ntfs</p>
+<p>$ locate mount.ntfs-3g  #查找有关文件所在位置<br>/usr/local/share/man/man8/mount.ntfs-3g.8<br>/usr/sbin/mount.ntfs-3g<br>$ sudo ln -s /usr/sbin/mount.ntfs-3g  /usr/sbin/mount.ntfs   #创建软链接</p>
+<p>之后就可以自动识别U 盘而不会出现如上报错了。。。</p>
+</blockquote>
+<p><strong>centOS7 将“桌面”、“图片”等替换成英文</strong></p>
+<ol>
+<li>export LANG=en_US</li>
+<li>xdg-user-dirs-gtk-update</li>
+<li>弹出配置界面，选择替换</li>
+<li>export LANG=zh_CN.UTF-8</li>
+<li>重启，不替换。</li>
+</ol>
+<p><strong>IP变化</strong></p>
+<p>wlp0s26f7u3:<br>inet 192.168.1.102/24<br>发现只有连同一个wifi(Magic-home)的电脑才能登入。</p>
+<p>原来的IP：<br>4: wlp0s26f7u3:<br>inet 10.164.11.166</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2018/12/12/exporting-nice-plots-in-r/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qizhengyang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/12/exporting-nice-plots-in-r/" itemprop="url">
+                  R输出图形
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-12-12 17:42:06 / Modified: 18:00:19" itemprop="dateCreated datePublished" datetime="2018-12-12T17:42:06+08:00">2018-12-12</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>这篇博文写的很好 <a href="https://www.r-bloggers.com/exporting-nice-plots-in-r/" target="_blank" rel="noopener">https://www.r-bloggers.com/exporting-nice-plots-in-r/</a><br>介绍的 Inkscape 也很好用，解决了之前IGV输出SVG图片的问题。导入PPT只显示一半。用Ai cc 打开，报错。“往返Tiny时剪贴将丢失”，只有框架没有图</p>
+<p>There are two main problems when exporting graphics from R:</p>
+<ul>
+<li>Anti-aliasing is not activated in Windows R (this does not apply to Linux or Mac) – <strong>windows下没有反锯齿设置</strong>，解决：library(Cairo)</li>
+<li>When increasing the resolution the labels automatically decrease and become unreadable  –<strong>分辨率升高，标签会自动缩小</strong></li>
+</ul>
+<p>If we want to increase the resolution of the plot we can’t just change the resolution parameter:<br>We also have to change the point size, the formula is size * new resolution DPI / 72 DPI:</p>
+<p>If we double the image size we also need to double the point size:</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/12/12/exporting-nice-plots-in-r/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2018/12/10/Google-News/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qizhengyang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/10/Google-News/" itemprop="url">
+                  Google news "epigenetics plants"
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-12-10 23:14:13 / Modified: 23:16:56" itemprop="dateCreated datePublished" datetime="2018-12-10T23:14:13+08:00">2018-12-10</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>University of Nebraska-Lincoln researchers have found revolutionary evidence that an evolutionary phenomenon at work in complex organisms is at play in their single-celled, extreme-loving counterparts, too.<br><img src="https://www.astrobio.net/wp-content/uploads/2018/12/187441_web.jpg" alt=""></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2018/11/03/集群上安装DESeq2遇到的困难及解决办法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1116,7 +1742,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">25</span>
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1167,7 +1793,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">18</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">21</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

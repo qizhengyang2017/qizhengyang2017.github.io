@@ -1,24 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[dplyr的使用以及clusterProfiler使用]]></title>
+    <url>%2F2019%2F03%2F17%2F2019-3-17-dplyr%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BB%A5%E5%8F%8AclusterProfiler%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[以后每周整理一次一些技术上的内容。dplyr包的使用用于整理数据用到的函数： mutate() select() gather() 将宽数据格式变为长数据格 123456789101112131415161718# 处理CpG region 文件library(dplyr)library(tidyr)setwd("C:/Users/Administrator/Desktop/")df&lt;-read.table("CpG_regions.txt",header = T)df1 &lt;- df %&gt;% mutate(W = (numCs1 + numCs2 + numCs3 + numCs4) / (coverage1 + coverage2 + coverage3 + coverage4), S = (numCs5 + numCs6 + numCs7 + numCs8) / (coverage5 + coverage6 + coverage7 + coverage8)) %&gt;% select(-(strand:numTs8))df1_long &lt;- gather(df1,samples,level,W:S)ggplot(df1_long, aes(samples,level))+geom_violin(aes(color=samples))+geom_boxplot(width=0.2,aes(color=samples))write.csv(df1,"cpg.csv",row.names = F, quote=F)# 用配对双尾t检验检测是否有差异# gather# https://www.cnblogs.com/shangfr/p/6110614.html clusterProfiler使用 12345678910111213141516171819setwd("C:/Users/Administrator/Desktop/")library(org.Atair10.eg.db)library(clusterProfiler)DEG_GENES&lt;-read.table("up_yin.txt",header = T)DEG_GENES&lt;-as.character(DEG_GENES[,1])org &lt;- org.Atair10.eg.db# OrgDb要改，keyType改成"GID"ego_up &lt;-enrichGO(gene = DEG_GENES, OrgDb = org, keyType = "GID", ont = "BP") dotplot(ego_up, showCategory=20)write.csv(ego_up, "ego_up.csv", row.names = F)# 这个结果和原来的一样，organism http://www.genome.jp/kegg/catalog/org_list.htmlkegg_up = enrichKEGG(DEG_GENES, organism="ath", pvalueCutoff=.1)write.csv(kegg_up,"kegg_up.csv",row.names = F)]]></content>
+      <tags>
+        <tag>代码</tag>
+        <tag>毕业</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[如何发表论文]]></title>
+    <url>%2F2019%2F03%2F17%2F%E5%A6%82%E4%BD%95%E5%8F%91%E8%A1%A8%E8%AE%BA%E6%96%87%2F</url>
+    <content type="text"><![CDATA[表达方式，应当「SHOULD」遵循《The Element of Style》： 使段落成为文章的单元：一个段落只表达一个主题 通常在每一段落开始要点题，在段落结尾要扣题 使用主动语态 陈述句中使用肯定说法 删除不必要的词 避免连续使用松散的句子 使用相同的结构表达并列的意思 将相关的词放在一起 在总结中，要用同一种时态（这里指英文中的时态，中文不适用，所以可以不理会） 将强调的词放在句末 https://github.com/fex-team/styleguide/blob/master/markdown.md 看文献的方法：下面我想说，希望你们养成这样一个习惯，每周阅读CNS，你们知道CNS是什么意思，有人说是中枢神经系统（课堂上引起哄笑）。CNS是Cell、Nature、Science，CNS每周出一期，要养成一个习惯浏览一下目录。我经常会问自己，为什么这篇文章会发在CNS上，如果能坚持一个学期下来，你必定会有很大的收获。我这个习惯是在读研究生是养成的，每周我与几位同学一起网上浏览，这周CNS上发表了哪些文章，当然很多东西你不懂，偶尔一个东西你懂，你就会问它为什么可以发表在Nature、Science上，久而久之，你就养成两个习惯，一个是批判精神，很多已经发表在Nature、Science上的文章都有漏洞，所以要学会批判。过去我念书的时候，老师讲要是能找到论文的错误就及格了。有一次生化考试，内容是对一篇发表在Scientific American杂志上的一篇文章找错误，Scientific American的杂志往往是一个非常成熟的工作，一位非常有名的科学家写在这个杂志上的文章，我们的考试是对发表在这个杂志上的一篇综述找错，这篇文章写错了，叫大家找。结果大家傻了，这有名的大杂志怎么会有错误，所以就是要有批判精神。另一种你要养成欣赏别人做的好的工作，如到音乐厅去听音乐或到展览馆去欣赏艺术作品一样。其实做科学是很有趣的，政府出钱给你玩，你如同每天在听音乐，每天在看电影一样，哪有什么不开心的。 在座的各位都是研究生，通过这堂课，要逐渐地培养自己对科学的欣赏能力。现在谈一谈怎样阅读科学文章。有谁能告诉我，你们是怎么读文章的（课堂上，有的说，先读题目和摘要；有的说先看材料和方法，再看结果；有的说先看结果），我在读研究生一年级的时候，一周上两堂分子生物学、两堂生化课。老师在每次讲课时都给我们开一个十几篇文章的目录，这些文章并不是短文章，每堂课前，我们先把文章拷贝好，然后用荧光笔把重要的内容画好。给我们上课的教授，教我们一个办法，是哈佛大学Walter Gilbert发明的，Gilbert因发明DNA序列测试法，得过诺贝尔奖。他在给本科生讲课时说，你们是怎样读Paper的，会读Paper是你一辈子受用的事情，这个Paper不能够先看序言、方法，然后结果，既花时间又给它牵着鼻子走，这是很可怕的。写文章的人就是要牵着你的鼻子看他的文章，让你去相信他写的东西，但你先不要去相信他，拿到文章后，先看题目、摘要，然后就去看图1，因为结果都在图里，不要借助任何帮助的情况下，先给图1下一个你自己的结论，然后再看图2，也下个结论，等到你把几个图都看完以后，在下个结论，然后去看文章，结果会发现你的结论经常与作者的结论不一样，两个不一样的结论，那总有一个是错的，这时再去看文章，是你的错，还是他的错，也许你没有看清楚，那是你的错，也许是他的解释错。这样的话，你的收获是很大的，而且速度也很快，不会被他牵着鼻子走。我评审文章一般不看讨论，因为有误导现象，专门领着你去上他的圈套，所以看Paper，首先了解他要探讨怎样一个问题，这是一个大框架，以及问题的重要性，假如是个吹毛求疵的小问题，Who cares。然后用实验的方法能否回答这个问题，如一个分子在细胞里是怎么动的，用光学显微镜是没法看的，这肯定是胡说八道。一篇文章一定有它的闪光的思想，如在一篇文章中有出人意料的新观点，而且新观点是否有实验结果来支持，如果实验结果没有支持新的观点，那样的文章要被拒绝。但是很多这样的文章也照样发表，所以你自己不一定要相信作者的观点，自己要有自己的想法。 我在斯坦福大学有位熟人，我知道我的很多文章在他手里败下阵来。我问他，你是怎样审文章的，他告诉我，他评审有一个基本原则，文章到手，第一反应是拒绝，然后再到文章中去找，找到足够的证据来改变我的拒绝，我才考虑去接受，所以你的实验结果一定要用多种方法、从多种角度，反反复复来证明。这是对得起别人，也对得起你自己。不要过两天人家认为你的文章是错的，你会没面子的，所以结果一定要非常可靠。 —— 来自微信]]></content>
+      <tags>
+        <tag>科研</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[做海报也不容易]]></title>
+    <url>%2F2019%2F03%2F11%2F2019-3-11-%E5%81%9A%E6%B5%B7%E6%8A%A5%E4%B9%9F%E4%B8%8D%E5%AE%B9%E6%98%93%2F</url>
+    <content type="text"><![CDATA[第一天日期不对，”plant”莫名其妙变成”pant” 第二天干吗在后面加了个“博士”，人家只是在读博士 要跟审核的人讲清楚改了哪些地方]]></content>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[set up a BAM file]]></title>
+    <url>%2F2019%2F03%2F05%2Fset-up-a-BAM-file%2F</url>
+    <content type="text"><![CDATA[Jbrowse：diagnostic message object response error 这种错误应该就是bam文件没有排序，或者没有建立索引。 貌似samtools sort 输出文件不能和输入文件一样，不然就没排序？这导致了后面的麻烦 2019-3-5 23:45:23：排完序之后会有输出 xx merge 受了下面内容的影响，以为是web 服务器问题 Apache Configuration NoteIf you are using the Apache web server, please be aware that the module mime_magic can cause BAM files to be served incorrectly. Usually, the error in the web developer console will be something like “Not a BAM file”. Some packaged versions of Apache, particularly on Red Hat or CentOS-based systems, are configured with this module turned on by default. We recommend you deactivate this Apache module for the server or directory used to serve JBrowse files. If you do not want to deactivate this module for the entire server, try adding this line to your HTTPD config or .htaccess file: 1AddType application/octet-stream .bam .bami .bai 123456# 停止、开启服务，systemctl stop nginx.servicesystemctl start httpd.servicenetstat -ntpl/usr/bin/perl ../bin/add-bam-track.pl --label jhhbam --bam_url jhh.bam --in trackList.json http://10.164.6.4/JBrowse-1.16.3 正确的操作How do I set up a BAM file?有bam、bigwig的perl脚本生成json格式的配置文件 When you set up a BAM file in jbrowse, the best way to do it is as follows Put the BAM file and the BAM index (.bai) in your data directory (e.g. you downloaded jbrowse, and your did prepare-refseqs.pl, which created a data subfolder. Put your BAM file in there) Then use add-bam-track.pl like this: add-bam-track.pl –label mybam –bam_url mybam.bam –in data/trackList.json This will only create a simple section of configuration in your data directory’s trackList.json for the BAM file that will look like 1234567&#123; &quot;storeClass&quot; : &quot;JBrowse/Store/SeqFeature/BAM&quot;, &quot;urlTemplate&quot; : &quot;mybam.bam&quot;, &quot;label&quot; : &quot;mybam&quot;, &quot;type&quot; : &quot;JBrowse/View/Track/Alignments2&quot;, &quot;key&quot; : &quot;mybam&quot;&#125; This basically just instructs JBrowse to fetch “mybam.bam” using the class that understands BAM data, “JBrowse/Store/SeqFeature/BAM”, and display it with the “Alignments2” tracktype. If this does not work please post to github or gmod-ajax@lists.sourceforge.net Other notes Don’t use bam-to-json.pl, it is old and converting your probably humongous next-gen-sequencing BAM into text json is unwieldy Your bam index should just be named the same as your BAM with .bai on the end The add-bam-track.pl does NOT copy the bam to your data directory for you, you put it there yourself, and specify the –bam_url appropriately baiUrlTemplate is unnecessary if your bai file is just your bam file with .bai added onto the end, in that case it is found automatically 排序 samtools使用 123samtools view KL_3d_clean_filter.xRNAs.bam | lesssamtools sort KL_3d_clean_filter.xRNAs.bam -o KL_3d_clean_filter.xRNAs.sorted.bam samtools index KL_3d_clean_filter.xRNAs.sorted.bam bam生成配置文件12# 对样品生成 json 文件/usr/bin/perl ../bin/add-bam-track.pl --label mybam --bam_url HB-12-2_dedup.bam --in trackList.json 1234567# 查看帮助，有各项参数的意思/usr/bin/perl bin/prepare-refseqs.pl --help# 添加key,即track显示的名称/usr/bin/perl bin/prepare-refseqs.pl --fasta /home/qi/JHH/siRNA/Cclementina_182_v1.fa --out Ccle --key Ccle.fasta/usr/bin/perl bin/flatfile-to-json.pl --gff /home/qi/JHH/siRNA/Cclementina_v1.0_gene_no_Cc_182.gff3 --trackType CanvasFeatures --trackLabel Ccle.gff3 --out Ccle 发现了 Cclementina Jbrowse download fasta –out Data directory to process. Default ‘data/‘. 123# 建立索引，搜索/usr/bin/perl bin/generate-names.pl --help/usr/bin/perl bin/generate-names.pl --out Ccle http://10.164.6.4/index.html?data=Ccle 12# 生成bam的配置文件。配置文件中的路径只能写相对路径。要把文件移到相应的文件夹下for i in *.sorted.bam;do t=`echo $i | cut -d _ -f 1,2`;/usr/bin/perl ../bin/add-bam-track.pl --label $t --bam_url $i --in trackList.json; done wig to bigwig 1conda install -c bioconda ucsc-wigtobigwig 现在我用conda安装软件，总是会碰到perssion denied的问题。明天再搞了。 (base) [qi@localhost Ccle]$ ls ../binadd-bam-track.pl add-json.pl biodb-to-json.pl draw-basepair-track.pl generate-names.pl json2conf.pl new-plugin.pl remove-track.pladd-bw-track.pl add-track-json.pl cpanm flatfile-to-json.pl jbdoc maker2jbrowse prepare-refseqs.pl ucsc-to-json.pl]]></content>
+      <tags>
+        <tag>Jbrowse</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[hexo next 主题 seo]]></title>
     <url>%2F2019%2F03%2F05%2F2019-3-5-hexo-next-%E4%B8%BB%E9%A2%98-seo%2F</url>
-    <content type="text"><![CDATA[hexo next 主题 seo seo 确实起作用 抓取用的旧版 robots.txt这个文件，经过测试，有无决定了seo是否起作用。（根目录下必须放，但第一次提交会报错，此时，将内容复制进去，点击第二个选项，再点击第三个。如果事先没有放，会报错，错误404） 抓取此网址及其直接链接？（前者可以月提交500次，后者月之能提交10次，区别就是点后者提交能一并提交他的子目录。） Google抓取工具验证 添加属性并输入你的网站 下载HTML文件并放入网站文件中使其可以访问 robots.txt测试工具。首先我们需要将网站地图robots.txt加入网站的根目录文件中。它会告诉搜索引擎哪些页面可以抓取，哪些页面不能抓取。 站点地图，我们进入站点地图，全选页面然后进行提交。 *这里需要注意的是，我们在修改网站信息后，站点地图的内容不会自动进行更新。所以养成良好的习惯，定期在网站更新后对站点地图进行重新提交，有助于你的网站快速被收录。 google抓取工具。该工具可以帮助你了解谷歌的网页抓取机器人是否有访问你网站中的网页，呈现出来的样子，及是否有被禁止的网页。 输入链接后点击抓取预览，请求编入索引 选择第二个抓取此网址及其直接链接 不明白的地方：搜索界面的时间 第一次 第二次 参考 https://www.cmwonderland.com/2018/05/05/search-engine/ https://hoxis.github.io/Hexo+Next%20SEO%E4%BC%98%E5%8C%96.html https://www.wordpresshy.com/20029 https://www.inkwp.com/crawl-or-remove-website-content-immediately/]]></content>
+    <content type="text"><![CDATA[小结 seo 确实起作用 抓取用的旧版 robots.txt这个文件，经过测试，有无决定了seo是否起作用（2019-3-5 17:20:21：我也不确定，也许是写入索引需要一点时间）。（根目录下必须放，但第一次提交会报错，此时，将内容复制进去，点击第二个选项，再点击第三个。如果事先没有放，会报错，错误404） hexo clean 会把robots.txt清理掉 hexo d 不会重新提交robots.txt 抓取此网址及其直接链接？（前者可以月提交500次，后者月之能提交10次，区别就是点后者提交能一并提交他的子目录。） Google抓取 添加属性并输入你的网站 下载HTML文件并放入网站文件中使其可以访问 robots.txt测试工具。首先我们需要将网站地图robots.txt加入网站的根目录文件中。它会告诉搜索引擎哪些页面可以抓取，哪些页面不能抓取。 站点地图，我们进入站点地图，全选页面然后进行提交。 *这里需要注意的是，我们在修改网站信息后，站点地图的内容不会自动进行更新。所以养成良好的习惯，定期在网站更新后对站点地图进行重新提交，有助于你的网站快速被收录。 google抓取工具。该工具可以帮助你了解谷歌的网页抓取机器人是否有访问你网站中的网页，呈现出来的样子，及是否有被禁止的网页。 输入链接后点击抓取预览，请求编入索引 选择第二个抓取此网址及其直接链接 不明白的地方：搜索界面的时间。可能是编入索引这一步的问题。暂时这样吧。 第一次抓取 第二次抓取 抓取此网址及其直接链接起作用了 一开始，搜索结果又没有我的信息了。 我听完报告回来，一切都正常了。连我的Twitter都有了，seo真实博大精深，没有精力深究了（可能是之前我在站点或主题的配置文件添加了社交网站，搜了一下并没有），我也很奇怪。时间是对的。 听报告送书啦《作物功能基因组学》 听报告的时候感觉ipad拍照像素很低 2019-3-5 17:36:19 又试一次，twitter没有了 怪了！ 参考 https://www.cmwonderland.com/2018/05/05/search-engine/ https://hoxis.github.io/Hexo+Next%20SEO%E4%BC%98%E5%8C%96.html https://www.wordpresshy.com/20029 https://www.inkwp.com/crawl-or-remove-website-content-immediately/]]></content>
       <tags>
         <tag>技术</tag>
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[决心对抗失眠的周二]]></title>
-    <url>%2F2019%2F03%2F05%2F2019-3-5-%E5%86%B3%E5%BF%83%E5%AF%B9%E6%8A%97%E5%A4%B1%E7%9C%A0%E7%9A%84%E5%91%A8%E4%BA%8C%2F</url>
+    <title><![CDATA[盖茨思考的东西]]></title>
+    <url>%2F2019%2F03%2F05%2F2019-3-5-%E7%9B%96%E8%8C%A8%E6%80%9D%E8%80%83%E7%9A%84%E4%B8%9C%E8%A5%BF%2F</url>
     <content type="text"><![CDATA[《麻省理工科技评论》 盖茨列出 10 项改变世界的技术名单，大部分你也猜得到 但它和 2018 年的名单有些不一样，因为盖茨也在成长。 This year’s 10 Breakthrough Technologies fall into roughly three groups: climate change mitigation, healthcare, and AI. They are: Robot dexterity—robot hands that can learn to manipulate unfamiliar objects on their own New-wave nuclear power—both fission and fusion reactor designs that could help bring down carbon emissions Predicting preemies—a simple blood test to warn of a preterm birth, potentially saving many children’s lives Gut probe in a pill—a swallowable device that can image the digestive tract and even perform biopsies Custom cancer vaccines—a treatment that uses the body’s own immune system to target only tumor cells The cow-free burger—both plant-based and lab-grown meat alternatives that could drastically cut emissions from the food industry Carbon dioxide catcher—techniques for absorbing CO2 from the air and locking it away that may finally become economic An ECG on your wrist—the ability for people with heart conditions to continuously monitor their health and get early warnings of problems Sanitation without sewers—a self-contained toilet that could tackle disease and unpleasant living conditions in much of the developing world Smooth-talking AI assistants—new advances in natural language processing that make digital assistants capable of greater autonomy 2017 年，盖茨投资了美国人造肉食品初创公司 Memphis Meats，更早前还投资过同类公司 Impossible Foods 。人造肉的意义在于，与传统畜牧业相比，它的肉类生产过程能够使用了传统畜牧业所需大约 1% 的土地和 10% 的水，减少对生态的损耗。^1]]></content>
       <tags>
         <tag>日记</tag>
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[周一担心自己的睡眠问题]]></title>
-    <url>%2F2019%2F03%2F04%2F2019-3-4-%E5%91%A8%E4%B8%80%E6%8B%85%E5%BF%83%E8%87%AA%E5%B7%B1%E7%9A%84%E7%9D%A1%E7%9C%A0%E9%97%AE%E9%A2%98%2F</url>
+    <title><![CDATA[浏览了好奇心日报]]></title>
+    <url>%2F2019%2F03%2F04%2F2019-3-4-%E6%B5%8F%E8%A7%88%E4%BA%86%E5%A5%BD%E5%A5%87%E5%BF%83%E6%97%A5%E6%8A%A5%2F</url>
     <content type="text"><![CDATA[在一轮招聘热潮之前，WeWork裁减了大约300名员工 诞生 100 年后，塞林格还在守望我们对青春与童年的认知 1919 年元旦，塞林格出生于曼哈顿，是一个四口之家的小儿子。从一所中学退学后，他被送往福吉谷军事学院，也就是小说中赶走霍尔顿的学校的原型。1937 年至 1941 年，塞林格没有接受过什么正规教育。他随父亲在奥地利和波兰学着做生意，在德军占领前一周回到美国，上过夜校的写作课，试着给文艺界富有盛名的《纽约客》投稿。 混乱于 1941 年结束，塞林格应征入伍，前往欧洲战场从事情报工作。1945 年，他因战争带来的精神问题入院。战后，他搬回纽约的父母家，继续写作。 《麦田里的守望者》塑造了一个可爱的废物，但没有人会否认，这部小说为塞林格本人在文学界赢得了一席之地。这个地位之重要超出了当时人们的预期。包括厄普代克（John Updike）等文学偶像在内，同时代和晚辈的美国作家都深受塞林格的影响，至今仍活在“霍尔顿”不散的阴魂之下。]]></content>
       <tags>
         <tag>日记</tag>
@@ -182,8 +215,8 @@
     <url>%2F2018%2F10%2F31%2F%E9%9B%86%E7%BE%A4%E4%B8%8A%E5%AE%89%E8%A3%85R%2F</url>
     <content type="text"><![CDATA[普通用户在集群上安装R主要的教程里面有一些需要注意的，安装bzip，要加入一个 -fPIC 到 CFLAG 。（在 Makefile中CFLAG=-fPIC -Wall -Winline -O2 -g…）在R安装configure之前需要注意设置环境变量123LD_LIBRARY_PATH=/home02/qizhengyang/packages/libexport CFLAGS="-I/home02/qizhengyang/packages/include"export LDFLAGS="-L/home02/qizhengyang/packages/lib" R安装完成之后123export R_HOME=$HOME/packages/Rexport R_LIBS=$HOME/packages/R/lib64/libraryexport PATH="$R_HOME/bin":$PATH 最后 source ~/.bashrc 装methyKit也是坑一堆。我下了autoconf-2.69，libxml2-2.7.2。源码安装。./configure –prefix=/home02/qizhengyang/packages]]></content>
       <tags>
-        <tag>Linux</tag>
         <tag>R</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>

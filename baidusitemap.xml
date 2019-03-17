@@ -1,17 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://qizhengyang2017.github.io/2019/03/17/2019-3-17-dplyr%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BB%A5%E5%8F%8AclusterProfiler%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2019-03-17</lastmod>
+  </url>  <url>
+    <loc>https://qizhengyang2017.github.io/2019/03/17/%E5%A6%82%E4%BD%95%E5%8F%91%E8%A1%A8%E8%AE%BA%E6%96%87/</loc>
+    <lastmod>2019-03-17</lastmod>
+  </url>  <url>
+    <loc>https://qizhengyang2017.github.io/2019/03/11/2019-3-11-%E5%81%9A%E6%B5%B7%E6%8A%A5%E4%B9%9F%E4%B8%8D%E5%AE%B9%E6%98%93/</loc>
+    <lastmod>2019-03-11</lastmod>
+  </url>  <url>
+    <loc>https://qizhengyang2017.github.io/2019/03/04/2019-3-4-%E6%B5%8F%E8%A7%88%E4%BA%86%E5%A5%BD%E5%A5%87%E5%BF%83%E6%97%A5%E6%8A%A5/</loc>
+    <lastmod>2019-03-11</lastmod>
+  </url>  <url>
+    <loc>https://qizhengyang2017.github.io/2019/03/05/2019-3-5-%E7%9B%96%E8%8C%A8%E6%80%9D%E8%80%83%E7%9A%84%E4%B8%9C%E8%A5%BF/</loc>
+    <lastmod>2019-03-11</lastmod>
+  </url>  <url>
+    <loc>https://qizhengyang2017.github.io/2019/03/05/set-up-a-BAM-file/</loc>
+    <lastmod>2019-03-05</lastmod>
+  </url>  <url>
     <loc>https://qizhengyang2017.github.io/2019/03/05/2019-3-5-hexo-next-%E4%B8%BB%E9%A2%98-seo/</loc>
     <lastmod>2019-03-05</lastmod>
   </url>  <url>
     <loc>https://qizhengyang2017.github.io/2019/03/02/%E5%9C%A8snakemake%E8%84%9A%E6%9C%AC%E9%87%8C%E6%B7%BB%E5%8A%A0log/</loc>
     <lastmod>2019-03-05</lastmod>
-  </url>  <url>
-    <loc>https://qizhengyang2017.github.io/2019/03/05/2019-3-5-%E5%86%B3%E5%BF%83%E5%AF%B9%E6%8A%97%E5%A4%B1%E7%9C%A0%E7%9A%84%E5%91%A8%E4%BA%8C/</loc>
-    <lastmod>2019-03-05</lastmod>
-  </url>  <url>
-    <loc>https://qizhengyang2017.github.io/2019/03/04/2019-3-4-%E5%91%A8%E4%B8%80%E6%8B%85%E5%BF%83%E8%87%AA%E5%B7%B1%E7%9A%84%E7%9D%A1%E7%9C%A0%E9%97%AE%E9%A2%98/</loc>
-    <lastmod>2019-03-04</lastmod>
   </url>  <url>
     <loc>https://qizhengyang2017.github.io/2019/03/04/2019-3-4-Gmail-%E4%BD%BF%E7%94%A8/</loc>
     <lastmod>2019-03-04</lastmod>
