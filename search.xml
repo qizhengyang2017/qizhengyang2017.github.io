@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[本地化galaxy]]></title>
+    <url>%2F2019%2F03%2F18%2F2019-3-18-%E6%9C%AC%E5%9C%B0%E5%8C%96galaxy%2F</url>
+    <content type="text"><![CDATA[centos7 本地化galaxy 要关闭防火墙 服务器上localhost:8080，还是10.164.10.186:8080都能访问。移除http服务，在自己电脑上访问不了Jbrowse(10.174.10.186)，服务器上能正常访问。所以想到了可能是防火墙的问题]]></content>
+      <categories>
+        <category>毕业倒计时</category>
+      </categories>
+      <tags>
+        <tag>生物信息</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[dplyr的使用以及clusterProfiler使用]]></title>
     <url>%2F2019%2F03%2F17%2F2019-3-17-dplyr%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BB%A5%E5%8F%8AclusterProfiler%E4%BD%BF%E7%94%A8%2F</url>
     <content type="text"><![CDATA[以后每周整理一次一些技术上的内容。dplyr包的使用用于整理数据用到的函数： mutate() select() gather() 将宽数据格式变为长数据格 123456789101112131415161718# 处理CpG region 文件library(dplyr)library(tidyr)setwd("C:/Users/Administrator/Desktop/")df&lt;-read.table("CpG_regions.txt",header = T)df1 &lt;- df %&gt;% mutate(W = (numCs1 + numCs2 + numCs3 + numCs4) / (coverage1 + coverage2 + coverage3 + coverage4), S = (numCs5 + numCs6 + numCs7 + numCs8) / (coverage5 + coverage6 + coverage7 + coverage8)) %&gt;% select(-(strand:numTs8))df1_long &lt;- gather(df1,samples,level,W:S)ggplot(df1_long, aes(samples,level))+geom_violin(aes(color=samples))+geom_boxplot(width=0.2,aes(color=samples))write.csv(df1,"cpg.csv",row.names = F, quote=F)# 用配对双尾t检验检测是否有差异# gather# https://www.cnblogs.com/shangfr/p/6110614.html clusterProfiler使用 12345678910111213141516171819setwd("C:/Users/Administrator/Desktop/")library(org.Atair10.eg.db)library(clusterProfiler)DEG_GENES&lt;-read.table("up_yin.txt",header = T)DEG_GENES&lt;-as.character(DEG_GENES[,1])org &lt;- org.Atair10.eg.db# OrgDb要改，keyType改成"GID"ego_up &lt;-enrichGO(gene = DEG_GENES, OrgDb = org, keyType = "GID", ont = "BP") dotplot(ego_up, showCategory=20)write.csv(ego_up, "ego_up.csv", row.names = F)# 这个结果和原来的一样，organism http://www.genome.jp/kegg/catalog/org_list.htmlkegg_up = enrichKEGG(DEG_GENES, organism="ath", pvalueCutoff=.1)write.csv(kegg_up,"kegg_up.csv",row.names = F)]]></content>

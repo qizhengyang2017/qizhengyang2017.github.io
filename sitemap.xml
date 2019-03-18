@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://qizhengyang2017.github.io/2019/03/18/2019-3-18-%E6%9C%AC%E5%9C%B0%E5%8C%96galaxy/</loc>
+    
+    <lastmod>2019-03-18T15:51:04.391Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://qizhengyang2017.github.io/tags/index.html</loc>
+    
+    <lastmod>2019-03-18T03:06:50.049Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://qizhengyang2017.github.io/categories/index.html</loc>
+    
+    <lastmod>2019-03-18T03:06:47.916Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://qizhengyang2017.github.io/2019/03/17/2019-3-17-dplyr%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BB%A5%E5%8F%8AclusterProfiler%E4%BD%BF%E7%94%A8/</loc>
     
     <lastmod>2019-03-17T13:32:30.191Z</lastmod>
@@ -208,13 +229,6 @@
     <loc>https://qizhengyang2017.github.io/2018/08/17/%E5%B1%80%E5%A4%96%E4%BA%BA%E4%B8%BB%E6%97%A8/</loc>
     
     <lastmod>2018-08-26T06:57:47.168Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://qizhengyang2017.github.io/tags/index.html</loc>
-    
-    <lastmod>2018-08-15T07:22:06.694Z</lastmod>
     
   </url>
   
