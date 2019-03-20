@@ -332,7 +332,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2019/03/18/2019-3-18-本地化galaxy/">
+    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2019/03/20/DMR注释/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -351,8 +351,8 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/18/2019-3-18-本地化galaxy/" itemprop="url">
-                  本地化galaxy
+                <a class="post-title-link" href="/2019/03/20/DMR注释/" itemprop="url">
+                  DMR注释
                 </a>
               
             
@@ -378,7 +378,7 @@
                 
               
 
-              <time title="Created: 2019-03-18 23:49:38 / Modified: 23:51:04" itemprop="dateCreated datePublished" datetime="2019-03-18T23:49:38+08:00">2019-03-18</time>
+              <time title="Created: 2019-03-20 23:56:19 / Modified: 23:57:59" itemprop="dateCreated datePublished" datetime="2019-03-20T23:56:19+08:00">2019-03-20</time>
             
 
             
@@ -436,9 +436,239 @@
       
         
           
-            <p><strong>centos7 本地化galaxy 要关闭防火墙</strong></p>
-<p>服务器上localhost:8080，还是10.164.10.186:8080都能访问。移除http服务，在自己电脑上访问不了Jbrowse(10.174.10.186)，服务器上能正常访问。所以想到了可能是防火墙的问题</p>
+            <p>bed：chromStart从0开始</p>
+<p>gff3：chromStart从1开始</p>
+<p><a href="https://cloud.tencent.com/developer/article/1078324" target="_blank" rel="noopener">https://cloud.tencent.com/developer/article/1078324</a></p>
+<p><a href="https://www.plob.org/article/3748.html" target="_blank" rel="noopener">https://www.plob.org/article/3748.html</a></p>
+<p>A.bed</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">chr1	69200	70000	TCGA-3C-AAAU-10A-01D-A41E-01	53225	0.0055</span><br><span class="line">chr1	95676511	95676518	TCGA-3C-AAAU-10A-01D-A41E-01	2	-1.6636</span><br><span class="line">chr1	95680124	167057183	TCGA-3C-AAAU-10A-01D-A41E-01	24886	0.0053</span><br><span class="line">chr1	167057495	167059336	TCGA-3C-AAAU-10A-01D-A41E-01	3	-1.0999</span><br><span class="line">chr1	167059760	181602002	TCGA-3C-AAAU-10A-01D-A41E-01	9213	-8.00E-04</span><br><span class="line">chr1	181603120	181609567	TCGA-3C-AAAU-10A-01D-A41E-01	6	-1.2009</span><br><span class="line">chr1	879511	894690	TCGA-3C-AAAU-10A-01D-A41E-01	12002	0.0055</span><br><span class="line">chr1	201474400	201474544	TCGA-3C-AAAU-10A-01D-A41E-01	2	-1.4235</span><br><span class="line">chr1	201475220	247813706	TCGA-3C-AAAU-10A-01D-A41E-01	29781	-4.00E-04</span><br></pre></td></tr></table></figure>
+<p>B.bed</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">chr1	69091	70008	OR4F5</span><br><span class="line">chr1	367640	368634	OR4F29</span><br><span class="line">chr1	621096	622034	OR4F16</span><br><span class="line">chr1	859308	879961	SAMD11</span><br><span class="line">chr1	879584	894689	NOC2L</span><br><span class="line">chr1	895967	901095	KLHL17</span><br><span class="line">chr1	901877	911245	PLEKHN1</span><br><span class="line">chr1	910584	917473	PERM1</span><br><span class="line">chr1	934342	935552	HES4</span><br><span class="line">chr1	936518	949921	ISG15</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bedtools intersect -a A.bed  -b  B.bed -wa -wb | bedtools groupby -i - -g 1-4 -c 10 -o collapse</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chr1	69200	70000	TCGA-3C-AAAU-10A-01D-A41E-01	OR4F5</span><br><span class="line">chr1	879511	894690	TCGA-3C-AAAU-10A-01D-A41E-01	SAMD11,NOC2L</span><br></pre></td></tr></table></figure>
+<p><strong>需要这样的一个文件</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">chr1	69091	70008	exon</span><br><span class="line">chr1	367640	368634	intron</span><br><span class="line">chr1	621096	622034	promoter</span><br><span class="line">chr1	859308	879961	intergenic</span><br><span class="line">....</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bedtools intersect -a CpG.hyper.bed  -b  csi.bed -wa -wb | bedtools groupby -i - -g 1-4 -c 10 -o collapse &gt; result.bed</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h2><ol>
+<li>用Galaxy 工具 gff-to-bed将gff3 文件转成bed，然后提取前四列</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[qizhengyang@node1 bedtest]$ cat Galaxy3-\[GFF-to-BED_on_data_1\].bed | cut -f1,2,3,4 &gt; csi.bed</span><br><span class="line">[qizhengyang@node1 bedtest]$ head csi.bed</span><br><span class="line">chr4	17943	22804	gene</span><br><span class="line">chr4	17943	22804	mRNA</span><br><span class="line">chr4	17943	18472	five_prime_UTR</span><br><span class="line">chr4	17943	18544	exon</span><br><span class="line">chr4	18472	18544	CDS</span><br><span class="line">chr4	18917	19169	exon</span><br><span class="line">chr4	18917	19169	CDS</span><br><span class="line">chr4	19540	19817	exon</span><br><span class="line">chr4	19540	19817	CDS</span><br><span class="line">chr4	21013	21168	exon</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>处理CpG_regions_myDiff25p.hyper.txt</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">qizhengyang@node1 bedtest]$ cat CpG_regions_myDiff25p.hyper.txt |cut -f1,2,3</span><br><span class="line">chr	start	end</span><br><span class="line">chr1	36001	36100</span><br><span class="line">chr1	101501	101600</span><br><span class="line">chr1	162601	162700</span><br><span class="line">chr1	386101	386200</span><br><span class="line">chr1	425401	425500</span><br><span class="line">chr1	435301	435400</span><br><span class="line">chr1	440601	440700</span><br><span class="line">chr1	440701	440800</span><br><span class="line">chr1	440801	440900</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>用bedtools工具进行注释</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[qizhengyang@node1 bedtest]$ bedtools intersect -a CpG.hyper.bed  -b  csi.bed -wa -wb | bedtools groupby -i - -g 1-3 -c 7 -o collapse &gt; result1.bed</span><br><span class="line">[qizhengyang@node1 bedtest]$ head result1.bed</span><br><span class="line">chr1	386101	386200	gene,mRNA,exon,three_prime_UTR,gene,mRNA,exon,three_prime_UTR,mRNA,exon,three_prime_UTR,mRNA,exon,three_prime_UTR</span><br><span class="line">chr1	501101	501200	gene,mRNA</span><br><span class="line">chr1	501201	501300	gene,mRNA</span><br><span class="line">chr1	501401	501500	gene,mRNA</span><br><span class="line">chr1	691601	691700	gene,mRNA</span><br><span class="line">chr1	723301	723400	gene,mRNA,exon,three_prime_UTR</span><br><span class="line">chr1	736701	736800	gene,mRNA,exon,three_prime_UTR</span><br><span class="line">chr1	758501	758600	gene,mRNA,mRNA,mRNA</span><br><span class="line">chr1	1643701	1643800	exon,three_prime_UTR,gene,mRNA</span><br><span class="line">chr1	2044401	2044500	gene,mRNA,mRNA,mRNA,mRNA</span><br></pre></td></tr></table></figure>
+<h3 id="bedtools-merge"><a href="#bedtools-merge" class="headerlink" title="bedtools merge"></a>bedtools merge</h3><p>案例三：-d 两个独立区域间距小于（等于）该值时将被合并为一个区域；-o collapse显示合并了哪些标签</p>
+<p><a href="https://anjingwd.github.io/AnJingwd.github.io/2017/08/19/bedtools%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E8%AF%A6%E8%A7%A3/" target="_blank" rel="noopener">https://anjingwd.github.io/AnJingwd.github.io/2017/08/19/bedtools%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E8%AF%A6%E8%A7%A3/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">chr1	36001	36100</span><br><span class="line">chr1	36101	36108</span><br><span class="line">chr1	162601	162700</span><br><span class="line">chr1	386101	386200</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bedtools merge -i test.merge -d 5 -c 1 -o count,collapse</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chr1	36001	36108	2	chr1,chr1</span><br><span class="line">chr1	162601	162700	1	chr1</span><br><span class="line">chr1	386101	386200	1	chr1</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 只处理前三列，不会处理第一行</span><br><span class="line">bedtools merge -i CpG_regions_myDiff25p.hyper.txt -d 5 -c 1 -o count,collapse &gt; CpG.merge.hyper.txt</span><br><span class="line">cat CpG.merge.hyper.txt |cut -f1,2,3 &gt; CpG.merge.hyper.bed</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> -b不需要考虑顺序，-c 7 代表 基因特征的这一列（应该是这个程序会把a、b文件合并）， -g 应该是a文件的列数</span><br><span class="line">bedtools intersect -a CpG.merge.hyper.bed  -b  Galaxy3-[GFF-to-BED_on_data_1].bed -wa -wb | bedtools groupby -i - -g 1-3 -c 10 -o collapse | less</span><br><span class="line"></span><br><span class="line">bedtools intersect -a CpG.merge.hyper.bed  -b  Galaxy4-\[GFF-to-BED_on_data_3\].bed -wa -wb | bedtools groupby -i - -g 1-3 -c 7 -o collapse &gt; result3.bed</span><br></pre></td></tr></table></figure>
+<p>CpG_regions_myDiff25p.hyper.txt</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">chr     start   end     strand  pvalue  qvalue  meth.diff</span><br><span class="line">chr1    36001   36100   *       7.64041300115147e-07    2.95924501404506e-05    26.027397260274</span><br><span class="line">chr1    101501  101600  *       7.9298876929699e-11     7.72182883208429e-09    33.7349397590361</span><br><span class="line">chr1    162601  162700  *       4.35900104458979e-16    1.09149763553095e-13    46.6709760827408</span><br><span class="line">chr1    386101  386200  *       1.168443361622e-08      7.19208543362641e-07    37.7489177489177</span><br><span class="line">chr1    425401  425500  *       6.76995294656392e-07    2.66176753139068e-05    39.3233082706767</span><br></pre></td></tr></table></figure>
+<p>Galaxy3-[GFF-to-BED_on_data_1].bed</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">chr4    17943   22804   gene    0       +</span><br><span class="line">chr4    17943   22804   mRNA    0       +</span><br><span class="line">chr4    17943   18472   five_prime_UTR  0       +</span><br><span class="line">chr4    17943   18544   exon    0       +</span><br><span class="line">chr4    18472   18544   CDS     0       +</span><br><span class="line">chr4    18917   19169   exon    0       +</span><br><span class="line">chr4    18917   19169   CDS     0       +</span><br><span class="line">chr4    19540   19817   exon    0       +</span><br><span class="line">chr4    19540   19817   CDS     0       +</span><br><span class="line">chr4    21013   21168   exon    0       +</span><br><span class="line">chr4    21013   21168   CDS     0       +</span><br><span class="line">chr4    22041   22804   exon    0       +</span><br><span class="line">chr4    22041   22182   CDS     0       +</span><br><span class="line">chr4    22182   22804   three_prime_UTR 0       +</span><br><span class="line">chr4    17943   22804   mRNA    0       +</span><br><span class="line">chr4    17943   18472   five_prime_UTR  0       +</span><br><span class="line">chr4    17943   18544   exon    0       +</span><br></pre></td></tr></table></figure>
+<hr>
+<p>流程：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">bedtools merge -i CpG_regions_myDiff25p.hyper.txt -d 5 -c 1 -o count,collapse &gt; CpG.merge.hyper.txt</span><br><span class="line"></span><br><span class="line"># 可以用CpG.merge.hyper.txt这个merge之后的文件，-c 9</span><br><span class="line">bedtools intersect -a CpG.merge.hyper.txt  -b  Galaxy4-\[GFF-to-BED_on_data_3\].bed -wa -wb | bedtools groupby -i - -g 1-3 -c 9 -o collapse | less</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">dos2unix csi.promoter.txt</span><br><span class="line">cut csi.promoter.txt -f1,3,4 &gt; csi.promoter.bed</span><br><span class="line">sed -i &apos;s/$/\tpromoter/g&apos; csi.promoter.bed</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cut Galaxy4-\[GFF-to-BED_on_data_3\].bed -f1,2,3,4 &gt; te.bed</span><br><span class="line"></span><br><span class="line"># -v OFS 指定输出分隔符</span><br><span class="line">cat Galaxy3-\[GFF-to-BED_on_data_1\].bed | awk -F&quot;\t&quot; -v OFS=&quot;\t&quot; &apos;$4==&quot;gene&quot;&#123;print $1,$2,$3,$4&#125;&apos; &gt; gene.bed</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cat te.bed gene.bed csi.promoter.bed &gt; csi.merge.bed</span><br><span class="line"></span><br><span class="line">bedtools intersect -a CpG.merge.hyper.txt  -b  csi.merge.bed -wa -wb | bedtools groupby -i - -g 1-3 -c 9 -o collapse &gt; CpG.annotation.txt</span><br></pre></td></tr></table></figure>
+<p>然后写python脚本清理信息</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">'DMR_annotation.txt'</span>,<span class="string">'w'</span>) <span class="keyword">as</span> a:</span><br><span class="line">    <span class="keyword">with</span> open(<span class="string">'CpG.annotation.txt'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f:</span><br><span class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">            line = line.strip().split()</span><br><span class="line">            <span class="keyword">if</span> <span class="string">'promoter'</span> <span class="keyword">in</span> line[<span class="number">3</span>]:</span><br><span class="line">                line = <span class="string">'\t'</span>.join(line[<span class="number">0</span>:<span class="number">3</span>]) + <span class="string">'\t'</span> + <span class="string">'promoter'</span> + <span class="string">'\n'</span></span><br><span class="line">            <span class="keyword">elif</span> <span class="string">'gene'</span> <span class="keyword">in</span> line[<span class="number">3</span>]:</span><br><span class="line">                line = <span class="string">'\t'</span>.join(line[<span class="number">0</span>:<span class="number">3</span>]) + <span class="string">'\t'</span> + <span class="string">'gene'</span> + <span class="string">'\n'</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                line = <span class="string">'\t'</span>.join(line[<span class="number">0</span>:<span class="number">3</span>]) + <span class="string">'\t'</span> + <span class="string">'TE'</span> + <span class="string">'\n'</span></span><br><span class="line">            print(line)</span><br><span class="line">            a.write(line)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">chr1	36001	36100	TE</span><br><span class="line"></span><br><span class="line">chr1	101501	101600	promoter</span><br><span class="line"></span><br><span class="line">chr1	162601	162700	TE</span><br><span class="line"></span><br><span class="line">chr1	386101	386200	gene</span><br><span class="line"></span><br><span class="line">chr1	435301	435400	TE</span><br><span class="line"></span><br><span class="line">chr1	440601	440900	TE</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2019/03/18/2019-3-18-本地化galaxy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qizhengyang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/18/2019-3-18-本地化galaxy/" itemprop="url">
+                  本地化galaxy
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-03-18 23:49:38" itemprop="dateCreated datePublished" datetime="2019-03-18T23:49:38+08:00">2019-03-18</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-03-20 23:55:21" itemprop="dateModified" datetime="2019-03-20T23:55:21+08:00">2019-03-20</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/毕业倒计时/" itemprop="url" rel="index"><span itemprop="name">毕业倒计时</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>安装的原因</strong></p>
+<p><a href="https://galaxyproject.github.io/training-material/topics/epigenetics/tutorials/methylation-seq/tutorial.html" target="_blank" rel="noopener">https://galaxyproject.github.io/training-material/topics/epigenetics/tutorials/methylation-seq/tutorial.html</a> </p>
+<p>安装最新的版本，第一次 sh run.sh出错。运行第二次，可以了。</p>
+<p><strong>centos7 本地化galaxy 要关闭防火墙</strong></p>
+<p><a href="https://www.cnblogs.com/moxiaoan/p/5683743.html" target="_blank" rel="noopener">https://www.cnblogs.com/moxiaoan/p/5683743.html</a></p>
+<p>服务器上localhost:8080，还是10.164.10.186:8080都能访问。我一开始想的是web服务器的问题。</p>
+<p>移除http服务，在自己电脑上访问不了Jbrowse(10.174.10.186)，服务器上能正常访问。所以想到了可能是防火墙的问题</p>
 <p><img src="/images/1552923854593.png" alt="1552923854593"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 调试 kill</span><br><span class="line">ps -ef |grep uwsgi</span><br><span class="line">kill &lt;第二列&gt;</span><br></pre></td></tr></table></figure>
+<p><a href="https://docs.galaxyproject.org/en/master/admin/framework_dependencies.html#conda" target="_blank" rel="noopener">https://docs.galaxyproject.org/en/master/admin/framework_dependencies.html#conda</a></p>
+<blockquote>
+<p><a href="https://conda.io/" target="_blank" rel="noopener">Conda</a> and <a href="https://packaging.python.org/tutorials/installing-packages/#creating-virtual-environments" target="_blank" rel="noopener">virtualenv</a> are incompatible, unless an adapted virtualenv_ from the conda-forge_ channel is used. Galaxy can create a virtualenv using the adapted virtualenv package. Once a valid <code>.venv</code>environment exists it will be used.</p>
+</blockquote>
+<p><a href="https://galaxyproject.github.io/training-material/topics/introduction/slides/introduction.html#2" target="_blank" rel="noopener">https://galaxyproject.github.io/training-material/topics/introduction/slides/introduction.html#2</a></p>
+<p><a href="https://galaxyproject.org/admin/get-galaxy/" target="_blank" rel="noopener">https://galaxyproject.org/admin/get-galaxy/</a></p>
+<p><a href="https://github.com/galaxyproject/galaxy" target="_blank" rel="noopener">https://github.com/galaxyproject/galaxy</a></p>
+<p><a href="https://docs.galaxyproject.org/en/release_19.01/admin/config.html" target="_blank" rel="noopener">https://docs.galaxyproject.org/en/release_19.01/admin/config.html</a></p>
+<p><a href="https://www.jianshu.com/p/a1f297eb4859" target="_blank" rel="noopener">https://www.jianshu.com/p/a1f297eb4859</a></p>
+<hr>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep uwsgi</span><br><span class="line">nohup sh run.sh &amp;&gt; run.log </span><br><span class="line"><span class="meta">#</span># 不是永久的</span><br><span class="line"><span class="meta">#</span> systemctl stop firewalld </span><br><span class="line">firewall-cmd --zone=public --add-port=8080/tcp --permanent </span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+<p>即使我把程序放到后台，但只要我关掉终端，网页就打不开</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup sh ~/software/galaxy/run.sh &amp;&gt; run.log &amp;</span><br></pre></td></tr></table></figure>
 
           
         
@@ -1791,169 +2021,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2019/03/03/2019-3-3-网页不能登入检查/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qizhengyang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/03/2019-3-3-网页不能登入检查/" itemprop="url">
-                  网页不能登入检查
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-03-03 20:38:50" itemprop="dateCreated datePublished" datetime="2019-03-03T20:38:50+08:00">2019-03-03</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-03-04 15:01:22" itemprop="dateModified" datetime="2019-03-04T15:01:22+08:00">2019-03-04</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>停电，IP又变了。<a href="http://10.164.6.4/" target="_blank" rel="noopener">http://10.164.6.4/</a></p>
-<p>下面的步骤，全要做一遍，才能登入网页。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 用root查看，才会显示进程信息。查看80端口是否被监听。</span><br><span class="line">netstat -ntpl</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 停止apache服务</span><br><span class="line">sudo systemctl stop httpd.service</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 启动nginx服务</span><br><span class="line">systemctl start  nginx.service</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 必须做</span><br><span class="line">sudo firewall-cmd --permanent --zone=public --add-service=http</span><br><span class="line">sudo firewall-cmd --permanent --zone=public --add-service=https</span><br><span class="line">sudo firewall-cmd --reload</span><br></pre></td></tr></table></figure>
-<p>如何查看防火墙是否允许http</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --query-service http               ##查看http服务是否支持，返回yes或者no</span><br><span class="line">firewall-cmd --add-service=http                 ##临时开放http服务</span><br><span class="line">firewall-cmd --add-service=http --permanent     ##永久开放http服务</span><br><span class="line">firewall-cmd --reload                           ##重启防火墙生效</span><br></pre></td></tr></table></figure>
-<p><a href="https://www.jianshu.com/p/7986bcab355c" target="_blank" rel="noopener">Centos7 yum配置Nginx</a></p>
-<p><a href="https://blog.csdn.net/fxbin123/article/details/79682597" target="_blank" rel="noopener">CentOS 7.4 firewall 开启http/https 服务</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1996,7 +2068,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">30</span>
+                    <span class="site-state-item-count">31</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

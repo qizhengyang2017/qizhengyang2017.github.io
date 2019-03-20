@@ -108,27 +108,25 @@
 
 
 
-  <meta name="description" content="Jbrowse：diagnostic message object response error 这种错误应该就是bam文件没有排序，或者没有建立索引。 貌似samtools sort 输出文件不能和输入文件一样，不然就没排序？这导致了后面的麻烦 2019-3-5 23:45:23：排完序之后会有输出   xx merge 受了下面内容的影响，以为是web 服务器问题  Apache Config">
-<meta name="keywords" content="Jbrowse">
+  <meta name="description" content="bed：chromStart从0开始 gff3：chromStart从1开始 https://cloud.tencent.com/developer/article/1078324 https://www.plob.org/article/3748.html A.bed 123456789chr1	69200	70000	TCGA-3C-AAAU-10A-01D-A41E-01	53225	0.0">
+<meta name="keywords" content="生物信息">
 <meta property="og:type" content="article">
-<meta property="og:title" content="set up a BAM file">
-<meta property="og:url" content="https://qizhengyang2017.github.io/2019/03/05/set-up-a-BAM-file/index.html">
+<meta property="og:title" content="DMR注释">
+<meta property="og:url" content="https://qizhengyang2017.github.io/2019/03/20/DMR注释/index.html">
 <meta property="og:site_name" content="Qizhengyang">
-<meta property="og:description" content="Jbrowse：diagnostic message object response error 这种错误应该就是bam文件没有排序，或者没有建立索引。 貌似samtools sort 输出文件不能和输入文件一样，不然就没排序？这导致了后面的麻烦 2019-3-5 23:45:23：排完序之后会有输出   xx merge 受了下面内容的影响，以为是web 服务器问题  Apache Config">
+<meta property="og:description" content="bed：chromStart从0开始 gff3：chromStart从1开始 https://cloud.tencent.com/developer/article/1078324 https://www.plob.org/article/3748.html A.bed 123456789chr1	69200	70000	TCGA-3C-AAAU-10A-01D-A41E-01	53225	0.0">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="f:/myblog/source/images/Ccle.png">
-<meta property="og:updated_time" content="2019-03-05T16:27:25.017Z">
+<meta property="og:updated_time" content="2019-03-20T15:57:59.683Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="set up a BAM file">
-<meta name="twitter:description" content="Jbrowse：diagnostic message object response error 这种错误应该就是bam文件没有排序，或者没有建立索引。 貌似samtools sort 输出文件不能和输入文件一样，不然就没排序？这导致了后面的麻烦 2019-3-5 23:45:23：排完序之后会有输出   xx merge 受了下面内容的影响，以为是web 服务器问题  Apache Config">
-<meta name="twitter:image" content="f:/myblog/source/images/Ccle.png">
+<meta name="twitter:title" content="DMR注释">
+<meta name="twitter:description" content="bed：chromStart从0开始 gff3：chromStart从1开始 https://cloud.tencent.com/developer/article/1078324 https://www.plob.org/article/3748.html A.bed 123456789chr1	69200	70000	TCGA-3C-AAAU-10A-01D-A41E-01	53225	0.0">
 
 
 
 
 
 
-  <link rel="canonical" href="https://qizhengyang2017.github.io/2019/03/05/set-up-a-BAM-file/"/>
+  <link rel="canonical" href="https://qizhengyang2017.github.io/2019/03/20/DMR注释/"/>
 
 
 
@@ -138,7 +136,7 @@
   };
 </script>
 
-  <title>set up a BAM file | Qizhengyang</title>
+  <title>DMR注释 | Qizhengyang</title>
   
 
 
@@ -338,7 +336,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2019/03/05/set-up-a-BAM-file/">
+    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2019/03/20/DMR注释/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -355,7 +353,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">set up a BAM file
+          <h2 class="post-title" itemprop="name headline">DMR注释
               
             
           </h2>
@@ -380,28 +378,34 @@
                 
               
 
-              <time title="Created: 2019-03-05 21:57:51" itemprop="dateCreated datePublished" datetime="2019-03-05T21:57:51+08:00">2019-03-05</time>
+              <time title="Created: 2019-03-20 23:56:19 / Modified: 23:57:59" itemprop="dateCreated datePublished" datetime="2019-03-20T23:56:19+08:00">2019-03-20</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-03-06 00:27:25" itemprop="dateModified" datetime="2019-03-06T00:27:25+08:00">2019-03-06</time>
               
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/毕业倒计时/" itemprop="url" rel="index"><span itemprop="name">毕业倒计时</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -430,52 +434,48 @@
       
 
       
-        <p>Jbrowse：diagnostic message object response error</p>
-<p><strong>这种错误应该就是bam文件没有排序，或者没有建立索引。</strong></p>
-<p><strong>貌似samtools sort 输出文件不能和输入文件一样，不然就没排序？</strong>这导致了后面的麻烦</p>
-<p>2019-3-5 23:45:23：排完序之后会有输出   xx merge</p>
-<p>受了下面内容的影响，以为是web 服务器问题</p>
-<blockquote>
-<h2 id="Apache-Configuration-Note"><a href="#Apache-Configuration-Note" class="headerlink" title="Apache Configuration Note"></a><a href="http://gmod.org/wiki/JBrowse_Configuration_Guide#Example_BAM_Alignments2_track_configuration" target="_blank" rel="noopener">Apache Configuration Note</a></h2><p>If you are using the Apache web server, please be aware that the module <code>mime_magic</code> can cause BAM files to be served incorrectly. Usually, the error in the web developer console will be something like “Not a BAM file”. Some packaged versions of Apache, particularly on Red Hat or CentOS-based systems, are configured with this module turned on by default. We recommend you deactivate this Apache module for the server or directory used to serve JBrowse files. If you do not want to deactivate this module for the entire server, try adding this line to your HTTPD config or .htaccess file:</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AddType application/octet-stream .bam .bami .bai</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 停止、开启服务，</span><br><span class="line">systemctl stop  nginx.service</span><br><span class="line">systemctl start  httpd.service</span><br><span class="line">netstat -ntpl</span><br><span class="line"></span><br><span class="line">/usr/bin/perl ../bin/add-bam-track.pl --label jhhbam --bam_url jhh.bam --in trackList.json</span><br></pre></td></tr></table></figure>
-<p><a href="http://10.164.6.4/JBrowse-1.16.3" target="_blank" rel="noopener">http://10.164.6.4/JBrowse-1.16.3</a></p>
-<h2 id="正确的操作"><a href="#正确的操作" class="headerlink" title="正确的操作"></a>正确的操作</h2><p><a href="http://gmod.org/wiki/JBrowse_FAQ#How_do_I_set_up_a_BAM_file.3F" target="_blank" rel="noopener">How do I set up a BAM file?</a>有bam、bigwig的perl脚本生成json格式的配置文件</p>
-<p>When you set up a BAM file in jbrowse, the best way to do it is as follows</p>
-<ol>
-<li>Put the BAM file and the BAM index (.bai) in your data directory (e.g. you downloaded jbrowse, and your did prepare-refseqs.pl, which created a data subfolder. Put your BAM file in there)</li>
-<li>Then use add-bam-track.pl like this: add-bam-track.pl –label mybam –bam_url mybam.bam –in data/trackList.json</li>
-<li>This will only create a simple section of configuration in your data directory’s trackList.json for the BAM file that will look like</li>
+        <p>bed：chromStart从0开始</p>
+<p>gff3：chromStart从1开始</p>
+<p><a href="https://cloud.tencent.com/developer/article/1078324" target="_blank" rel="noopener">https://cloud.tencent.com/developer/article/1078324</a></p>
+<p><a href="https://www.plob.org/article/3748.html" target="_blank" rel="noopener">https://www.plob.org/article/3748.html</a></p>
+<p>A.bed</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">chr1	69200	70000	TCGA-3C-AAAU-10A-01D-A41E-01	53225	0.0055</span><br><span class="line">chr1	95676511	95676518	TCGA-3C-AAAU-10A-01D-A41E-01	2	-1.6636</span><br><span class="line">chr1	95680124	167057183	TCGA-3C-AAAU-10A-01D-A41E-01	24886	0.0053</span><br><span class="line">chr1	167057495	167059336	TCGA-3C-AAAU-10A-01D-A41E-01	3	-1.0999</span><br><span class="line">chr1	167059760	181602002	TCGA-3C-AAAU-10A-01D-A41E-01	9213	-8.00E-04</span><br><span class="line">chr1	181603120	181609567	TCGA-3C-AAAU-10A-01D-A41E-01	6	-1.2009</span><br><span class="line">chr1	879511	894690	TCGA-3C-AAAU-10A-01D-A41E-01	12002	0.0055</span><br><span class="line">chr1	201474400	201474544	TCGA-3C-AAAU-10A-01D-A41E-01	2	-1.4235</span><br><span class="line">chr1	201475220	247813706	TCGA-3C-AAAU-10A-01D-A41E-01	29781	-4.00E-04</span><br></pre></td></tr></table></figure>
+<p>B.bed</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">chr1	69091	70008	OR4F5</span><br><span class="line">chr1	367640	368634	OR4F29</span><br><span class="line">chr1	621096	622034	OR4F16</span><br><span class="line">chr1	859308	879961	SAMD11</span><br><span class="line">chr1	879584	894689	NOC2L</span><br><span class="line">chr1	895967	901095	KLHL17</span><br><span class="line">chr1	901877	911245	PLEKHN1</span><br><span class="line">chr1	910584	917473	PERM1</span><br><span class="line">chr1	934342	935552	HES4</span><br><span class="line">chr1	936518	949921	ISG15</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bedtools intersect -a A.bed  -b  B.bed -wa -wb | bedtools groupby -i - -g 1-4 -c 10 -o collapse</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chr1	69200	70000	TCGA-3C-AAAU-10A-01D-A41E-01	OR4F5</span><br><span class="line">chr1	879511	894690	TCGA-3C-AAAU-10A-01D-A41E-01	SAMD11,NOC2L</span><br></pre></td></tr></table></figure>
+<p><strong>需要这样的一个文件</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">chr1	69091	70008	exon</span><br><span class="line">chr1	367640	368634	intron</span><br><span class="line">chr1	621096	622034	promoter</span><br><span class="line">chr1	859308	879961	intergenic</span><br><span class="line">....</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bedtools intersect -a CpG.hyper.bed  -b  csi.bed -wa -wb | bedtools groupby -i - -g 1-4 -c 10 -o collapse &gt; result.bed</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h2><ol>
+<li>用Galaxy 工具 gff-to-bed将gff3 文件转成bed，然后提取前四列</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   &quot;storeClass&quot; : &quot;JBrowse/Store/SeqFeature/BAM&quot;,</span><br><span class="line">   &quot;urlTemplate&quot; : &quot;mybam.bam&quot;,</span><br><span class="line">   &quot;label&quot; : &quot;mybam&quot;,</span><br><span class="line">   &quot;type&quot; : &quot;JBrowse/View/Track/Alignments2&quot;,</span><br><span class="line">   &quot;key&quot; : &quot;mybam&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>This basically just instructs JBrowse to fetch “mybam.bam” using the class that understands BAM data, “JBrowse/Store/SeqFeature/BAM”, and display it with the “Alignments2” tracktype. If this does not work please post to github or <a href="mailto:gmod-ajax@lists.sourceforge.net" target="_blank" rel="noopener">gmod-ajax@lists.sourceforge.net</a></p>
-<p>Other notes</p>
-<ul>
-<li>Don’t use bam-to-json.pl, it is old and converting your probably humongous next-gen-sequencing BAM into text json is unwieldy</li>
-<li>Your bam index should just be named the same as your BAM with .bai on the end</li>
-<li>The add-bam-track.pl does NOT copy the bam to your data directory for you, you put it there yourself, and specify the –bam_url appropriately</li>
-<li>baiUrlTemplate is unnecessary if your bai file is just your bam file with .bai added onto the end, in that case it is found automatically</li>
-</ul>
-<h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><p> <a href="http://quinlanlab.org/tutorials/samtools/samtools.html" target="_blank" rel="noopener">samtools使用</a></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">samtools view KL_3d_clean_filter.xRNAs.bam | less</span><br><span class="line">samtools sort KL_3d_clean_filter.xRNAs.bam -o KL_3d_clean_filter.xRNAs.sorted.bam </span><br><span class="line">samtools index KL_3d_clean_filter.xRNAs.sorted.bam</span><br></pre></td></tr></table></figure>
-<h3 id="bam生成配置文件"><a href="#bam生成配置文件" class="headerlink" title="bam生成配置文件"></a>bam生成配置文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 对样品生成 json 文件</span><br><span class="line">/usr/bin/perl ../bin/add-bam-track.pl --label mybam --bam_url HB-12-2_dedup.bam --in trackList.json</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 查看帮助，有各项参数的意思</span><br><span class="line">/usr/bin/perl bin/prepare-refseqs.pl --help</span><br><span class="line"></span><br><span class="line"># 添加key,即track显示的名称</span><br><span class="line">/usr/bin/perl bin/prepare-refseqs.pl --fasta /home/qi/JHH/siRNA/Cclementina_182_v1.fa --out Ccle --key Ccle.fasta</span><br><span class="line"></span><br><span class="line">/usr/bin/perl bin/flatfile-to-json.pl --gff /home/qi/JHH/siRNA/Cclementina_v1.0_gene_no_Cc_182.gff3 --trackType CanvasFeatures --trackLabel Ccle.gff3 --out Ccle</span><br></pre></td></tr></table></figure>
-<p>发现了 <a href="https://phytozome.jgi.doe.gov/jbrowse/index.html?data=genomes%2FCclementina%2F&amp;loc=scaffold_7%3A21098276..21102548&amp;tracks=Transcripts%2CAlt_Transcripts%2CPASA_assembly%2CBlastx_protein&amp;highlight=" target="_blank" rel="noopener">Cclementina</a> Jbrowse</p>
-<p><a href="https://www.citrusgenomedb.org/analysis/156" target="_blank" rel="noopener">download fasta</a></p>
-<blockquote>
-<p>–out <directory><br>        Data directory to process. Default ‘data/‘.</directory></p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 建立索引，搜索</span><br><span class="line">/usr/bin/perl bin/generate-names.pl --help</span><br><span class="line">/usr/bin/perl bin/generate-names.pl --out Ccle</span><br></pre></td></tr></table></figure>
-<p><a href="http://10.164.6.4/index.html?data=Ccle" target="_blank" rel="noopener">http://10.164.6.4/index.html?data=Ccle</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 生成bam的配置文件。配置文件中的路径只能写相对路径。要把文件移到相应的文件夹下</span><br><span class="line">for i in *.sorted.bam;do t=`echo $i | cut  -d _ -f 1,2`;/usr/bin/perl ../bin/add-bam-track.pl --label $t --bam_url $i --in trackList.json; done</span><br></pre></td></tr></table></figure>
-<p><img src="F:\myblog\source\images\Ccle.png" alt=""></p>
-<p> wig to bigwig</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install -c bioconda ucsc-wigtobigwig</span><br></pre></td></tr></table></figure>
-<p>现在我用conda安装软件，总是会碰到perssion denied的问题。明天再搞了。</p>
-<blockquote>
-<p>(base) [qi@localhost Ccle]$ ls ../bin<br>add-bam-track.pl  add-json.pl        biodb-to-json.pl  draw-basepair-track.pl  generate-names.pl  json2conf.pl   new-plugin.pl       remove-track.pl<br>add-bw-track.pl   add-track-json.pl  cpanm             flatfile-to-json.pl     jbdoc              maker2jbrowse  prepare-refseqs.pl  ucsc-to-json.pl</p>
-</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[qizhengyang@node1 bedtest]$ cat Galaxy3-\[GFF-to-BED_on_data_1\].bed | cut -f1,2,3,4 &gt; csi.bed</span><br><span class="line">[qizhengyang@node1 bedtest]$ head csi.bed</span><br><span class="line">chr4	17943	22804	gene</span><br><span class="line">chr4	17943	22804	mRNA</span><br><span class="line">chr4	17943	18472	five_prime_UTR</span><br><span class="line">chr4	17943	18544	exon</span><br><span class="line">chr4	18472	18544	CDS</span><br><span class="line">chr4	18917	19169	exon</span><br><span class="line">chr4	18917	19169	CDS</span><br><span class="line">chr4	19540	19817	exon</span><br><span class="line">chr4	19540	19817	CDS</span><br><span class="line">chr4	21013	21168	exon</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>处理CpG_regions_myDiff25p.hyper.txt</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">qizhengyang@node1 bedtest]$ cat CpG_regions_myDiff25p.hyper.txt |cut -f1,2,3</span><br><span class="line">chr	start	end</span><br><span class="line">chr1	36001	36100</span><br><span class="line">chr1	101501	101600</span><br><span class="line">chr1	162601	162700</span><br><span class="line">chr1	386101	386200</span><br><span class="line">chr1	425401	425500</span><br><span class="line">chr1	435301	435400</span><br><span class="line">chr1	440601	440700</span><br><span class="line">chr1	440701	440800</span><br><span class="line">chr1	440801	440900</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>用bedtools工具进行注释</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[qizhengyang@node1 bedtest]$ bedtools intersect -a CpG.hyper.bed  -b  csi.bed -wa -wb | bedtools groupby -i - -g 1-3 -c 7 -o collapse &gt; result1.bed</span><br><span class="line">[qizhengyang@node1 bedtest]$ head result1.bed</span><br><span class="line">chr1	386101	386200	gene,mRNA,exon,three_prime_UTR,gene,mRNA,exon,three_prime_UTR,mRNA,exon,three_prime_UTR,mRNA,exon,three_prime_UTR</span><br><span class="line">chr1	501101	501200	gene,mRNA</span><br><span class="line">chr1	501201	501300	gene,mRNA</span><br><span class="line">chr1	501401	501500	gene,mRNA</span><br><span class="line">chr1	691601	691700	gene,mRNA</span><br><span class="line">chr1	723301	723400	gene,mRNA,exon,three_prime_UTR</span><br><span class="line">chr1	736701	736800	gene,mRNA,exon,three_prime_UTR</span><br><span class="line">chr1	758501	758600	gene,mRNA,mRNA,mRNA</span><br><span class="line">chr1	1643701	1643800	exon,three_prime_UTR,gene,mRNA</span><br><span class="line">chr1	2044401	2044500	gene,mRNA,mRNA,mRNA,mRNA</span><br></pre></td></tr></table></figure>
+<h3 id="bedtools-merge"><a href="#bedtools-merge" class="headerlink" title="bedtools merge"></a>bedtools merge</h3><p>案例三：-d 两个独立区域间距小于（等于）该值时将被合并为一个区域；-o collapse显示合并了哪些标签</p>
+<p><a href="https://anjingwd.github.io/AnJingwd.github.io/2017/08/19/bedtools%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E8%AF%A6%E8%A7%A3/" target="_blank" rel="noopener">https://anjingwd.github.io/AnJingwd.github.io/2017/08/19/bedtools%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E8%AF%A6%E8%A7%A3/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">chr1	36001	36100</span><br><span class="line">chr1	36101	36108</span><br><span class="line">chr1	162601	162700</span><br><span class="line">chr1	386101	386200</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bedtools merge -i test.merge -d 5 -c 1 -o count,collapse</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chr1	36001	36108	2	chr1,chr1</span><br><span class="line">chr1	162601	162700	1	chr1</span><br><span class="line">chr1	386101	386200	1	chr1</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 只处理前三列，不会处理第一行</span><br><span class="line">bedtools merge -i CpG_regions_myDiff25p.hyper.txt -d 5 -c 1 -o count,collapse &gt; CpG.merge.hyper.txt</span><br><span class="line">cat CpG.merge.hyper.txt |cut -f1,2,3 &gt; CpG.merge.hyper.bed</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> -b不需要考虑顺序，-c 7 代表 基因特征的这一列（应该是这个程序会把a、b文件合并）， -g 应该是a文件的列数</span><br><span class="line">bedtools intersect -a CpG.merge.hyper.bed  -b  Galaxy3-[GFF-to-BED_on_data_1].bed -wa -wb | bedtools groupby -i - -g 1-3 -c 10 -o collapse | less</span><br><span class="line"></span><br><span class="line">bedtools intersect -a CpG.merge.hyper.bed  -b  Galaxy4-\[GFF-to-BED_on_data_3\].bed -wa -wb | bedtools groupby -i - -g 1-3 -c 7 -o collapse &gt; result3.bed</span><br></pre></td></tr></table></figure>
+<p>CpG_regions_myDiff25p.hyper.txt</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">chr     start   end     strand  pvalue  qvalue  meth.diff</span><br><span class="line">chr1    36001   36100   *       7.64041300115147e-07    2.95924501404506e-05    26.027397260274</span><br><span class="line">chr1    101501  101600  *       7.9298876929699e-11     7.72182883208429e-09    33.7349397590361</span><br><span class="line">chr1    162601  162700  *       4.35900104458979e-16    1.09149763553095e-13    46.6709760827408</span><br><span class="line">chr1    386101  386200  *       1.168443361622e-08      7.19208543362641e-07    37.7489177489177</span><br><span class="line">chr1    425401  425500  *       6.76995294656392e-07    2.66176753139068e-05    39.3233082706767</span><br></pre></td></tr></table></figure>
+<p>Galaxy3-[GFF-to-BED_on_data_1].bed</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">chr4    17943   22804   gene    0       +</span><br><span class="line">chr4    17943   22804   mRNA    0       +</span><br><span class="line">chr4    17943   18472   five_prime_UTR  0       +</span><br><span class="line">chr4    17943   18544   exon    0       +</span><br><span class="line">chr4    18472   18544   CDS     0       +</span><br><span class="line">chr4    18917   19169   exon    0       +</span><br><span class="line">chr4    18917   19169   CDS     0       +</span><br><span class="line">chr4    19540   19817   exon    0       +</span><br><span class="line">chr4    19540   19817   CDS     0       +</span><br><span class="line">chr4    21013   21168   exon    0       +</span><br><span class="line">chr4    21013   21168   CDS     0       +</span><br><span class="line">chr4    22041   22804   exon    0       +</span><br><span class="line">chr4    22041   22182   CDS     0       +</span><br><span class="line">chr4    22182   22804   three_prime_UTR 0       +</span><br><span class="line">chr4    17943   22804   mRNA    0       +</span><br><span class="line">chr4    17943   18472   five_prime_UTR  0       +</span><br><span class="line">chr4    17943   18544   exon    0       +</span><br></pre></td></tr></table></figure>
+<hr>
+<p>流程：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">bedtools merge -i CpG_regions_myDiff25p.hyper.txt -d 5 -c 1 -o count,collapse &gt; CpG.merge.hyper.txt</span><br><span class="line"></span><br><span class="line"># 可以用CpG.merge.hyper.txt这个merge之后的文件，-c 9</span><br><span class="line">bedtools intersect -a CpG.merge.hyper.txt  -b  Galaxy4-\[GFF-to-BED_on_data_3\].bed -wa -wb | bedtools groupby -i - -g 1-3 -c 9 -o collapse | less</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">dos2unix csi.promoter.txt</span><br><span class="line">cut csi.promoter.txt -f1,3,4 &gt; csi.promoter.bed</span><br><span class="line">sed -i &apos;s/$/\tpromoter/g&apos; csi.promoter.bed</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cut Galaxy4-\[GFF-to-BED_on_data_3\].bed -f1,2,3,4 &gt; te.bed</span><br><span class="line"></span><br><span class="line"># -v OFS 指定输出分隔符</span><br><span class="line">cat Galaxy3-\[GFF-to-BED_on_data_1\].bed | awk -F&quot;\t&quot; -v OFS=&quot;\t&quot; &apos;$4==&quot;gene&quot;&#123;print $1,$2,$3,$4&#125;&apos; &gt; gene.bed</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cat te.bed gene.bed csi.promoter.bed &gt; csi.merge.bed</span><br><span class="line"></span><br><span class="line">bedtools intersect -a CpG.merge.hyper.txt  -b  csi.merge.bed -wa -wb | bedtools groupby -i - -g 1-3 -c 9 -o collapse &gt; CpG.annotation.txt</span><br></pre></td></tr></table></figure>
+<p>然后写python脚本清理信息</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">'DMR_annotation.txt'</span>,<span class="string">'w'</span>) <span class="keyword">as</span> a:</span><br><span class="line">    <span class="keyword">with</span> open(<span class="string">'CpG.annotation.txt'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f:</span><br><span class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">            line = line.strip().split()</span><br><span class="line">            <span class="keyword">if</span> <span class="string">'promoter'</span> <span class="keyword">in</span> line[<span class="number">3</span>]:</span><br><span class="line">                line = <span class="string">'\t'</span>.join(line[<span class="number">0</span>:<span class="number">3</span>]) + <span class="string">'\t'</span> + <span class="string">'promoter'</span> + <span class="string">'\n'</span></span><br><span class="line">            <span class="keyword">elif</span> <span class="string">'gene'</span> <span class="keyword">in</span> line[<span class="number">3</span>]:</span><br><span class="line">                line = <span class="string">'\t'</span>.join(line[<span class="number">0</span>:<span class="number">3</span>]) + <span class="string">'\t'</span> + <span class="string">'gene'</span> + <span class="string">'\n'</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                line = <span class="string">'\t'</span>.join(line[<span class="number">0</span>:<span class="number">3</span>]) + <span class="string">'\t'</span> + <span class="string">'TE'</span> + <span class="string">'\n'</span></span><br><span class="line">            print(line)</span><br><span class="line">            a.write(line)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">chr1	36001	36100	TE</span><br><span class="line"></span><br><span class="line">chr1	101501	101600	promoter</span><br><span class="line"></span><br><span class="line">chr1	162601	162700	TE</span><br><span class="line"></span><br><span class="line">chr1	386101	386200	gene</span><br><span class="line"></span><br><span class="line">chr1	435301	435400	TE</span><br><span class="line"></span><br><span class="line">chr1	440601	440900	TE</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -496,7 +496,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Jbrowse/" rel="tag"># Jbrowse</a>
+            <a href="/tags/生物信息/" rel="tag"># 生物信息</a>
           
         </div>
       
@@ -509,8 +509,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/05/2019-3-5-hexo-next-主题-seo/" rel="next" title="hexo next 主题 seo">
-                <i class="fa fa-chevron-left"></i> hexo next 主题 seo
+              <a href="/2019/03/18/2019-3-18-本地化galaxy/" rel="next" title="本地化galaxy">
+                <i class="fa fa-chevron-left"></i> 本地化galaxy
               </a>
             
           </div>
@@ -518,10 +518,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/11/2019-3-11-做海报也不容易/" rel="prev" title="做海报也不容易">
-                做海报也不容易 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -697,7 +693,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Apache-Configuration-Note"><span class="nav-text">Apache Configuration Note</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正确的操作"><span class="nav-text">正确的操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#排序"><span class="nav-text">排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bam生成配置文件"><span class="nav-text">bam生成配置文件</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实践"><span class="nav-text">实践</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bedtools-merge"><span class="nav-text">bedtools merge</span></a></li></ol></li></ol></div>
             
 
           </div>
