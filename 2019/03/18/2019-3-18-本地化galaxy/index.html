@@ -117,7 +117,8 @@
 <meta property="og:description" content="安装的原因 https://galaxyproject.github.io/training-material/topics/epigenetics/tutorials/methylation-seq/tutorial.html  安装最新的版本，第一次 sh run.sh出错。运行第二次，可以了。 centos7 本地化galaxy 要关闭防火墙 https://www.cnblogs.com/">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://qizhengyang2017.github.io/images/1552923854593.png">
-<meta property="og:updated_time" content="2019-03-20T15:55:21.908Z">
+<meta property="og:image" content="https://qizhengyang2017.github.io/images/FireShot%20Capture%20005%20-%20Galaxy%20-%2010.164.10.186.png">
+<meta property="og:updated_time" content="2019-03-21T06:23:31.805Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="本地化galaxy">
 <meta name="twitter:description" content="安装的原因 https://galaxyproject.github.io/training-material/topics/epigenetics/tutorials/methylation-seq/tutorial.html  安装最新的版本，第一次 sh run.sh出错。运行第二次，可以了。 centos7 本地化galaxy 要关闭防火墙 https://www.cnblogs.com/">
@@ -397,7 +398,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-03-20 23:55:21" itemprop="dateModified" datetime="2019-03-20T23:55:21+08:00">2019-03-20</time>
+                <time title="Modified: 2019-03-21 14:23:31" itemprop="dateModified" datetime="2019-03-21T14:23:31+08:00">2019-03-21</time>
               
             
           </span>
@@ -470,6 +471,10 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep uwsgi</span><br><span class="line">nohup sh run.sh &amp;&gt; run.log </span><br><span class="line"><span class="meta">#</span># 不是永久的</span><br><span class="line"><span class="meta">#</span> systemctl stop firewalld </span><br><span class="line">firewall-cmd --zone=public --add-port=8080/tcp --permanent </span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
 <p>即使我把程序放到后台，但只要我关掉终端，网页就打不开</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup sh ~/software/galaxy/run.sh &amp;&gt; run.log &amp;</span><br></pre></td></tr></table></figure>
+<p>下次用的时候</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh ~/software/galaxy/run.sh</span><br></pre></td></tr></table></figure>
+<p>用法类似于 jypyter notebook</p>
+<p><img src="/images/FireShot Capture 005 - Galaxy - 10.164.10.186.png" alt="FireShot Capture 005 - Galaxy - 10.164.10.186"></p>
 
       
     </div>
