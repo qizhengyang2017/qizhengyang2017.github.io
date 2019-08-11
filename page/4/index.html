@@ -332,6 +332,293 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2018/11/03/集群上安装的R包/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qizhengyang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/03/集群上安装的R包/" itemprop="url">
+                  集群上安装的R包
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-11-03 09:58:13 / Modified: 10:03:04" itemprop="dateCreated datePublished" datetime="2018-11-03T09:58:13+08:00">2018-11-03</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>写了一个R script批量安装。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/11/03/集群上安装的R包/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2018/10/31/集群上安装R/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qizhengyang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/31/集群上安装R/" itemprop="url">
+                  集群上更新R并安装methylKit
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-10-31 09:54:17 / Modified: 11:25:20" itemprop="dateCreated datePublished" datetime="2018-10-31T09:54:17+08:00">2018-10-31</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>普通用户在集群上安装R<br><a href="https://blog.csdn.net/s_gy_zetrov/article/details/83117288?tdsourcetag=s_pctim_aiomsg" target="_blank" rel="noopener">主要的教程</a><br>里面有一些需要注意的，<br>安装bzip，<strong>要加入一个 -fPIC 到 CFLAG</strong> 。（在 Makefile中CFLAG=-fPIC -Wall -Winline -O2 -g…）<br>在R安装configure之前需要注意设置环境变量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LD_LIBRARY_PATH=/home02/qizhengyang/packages/lib</span><br><span class="line"><span class="built_in">export</span> CFLAGS=<span class="string">"-I/home02/qizhengyang/packages/include"</span></span><br><span class="line"><span class="built_in">export</span> LDFLAGS=<span class="string">"-L/home02/qizhengyang/packages/lib"</span></span><br></pre></td></tr></table></figure></p>
+<p>R安装完成之后<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> R_HOME=<span class="variable">$HOME</span>/packages/R</span><br><span class="line"><span class="built_in">export</span> R_LIBS=<span class="variable">$HOME</span>/packages/R/lib64/library</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">"<span class="variable">$R_HOME</span>/bin"</span>:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure></p>
+<p>最后 source ~/.bashrc</p>
+<p>装methyKit也是坑一堆。<br>我下了autoconf-2.69，<strong>libxml2-2.7.2</strong>。源码安装。./configure –prefix=/home02/qizhengyang/packages</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2018/08/17/局外人主旨/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -378,7 +665,7 @@
                 
               
 
-              <time title="Created: 2018-08-17 20:18:53" itemprop="dateCreated datePublished" datetime="2018-08-17T20:18:53+08:00">2018-08-17</time>
+              <time title="Created: 2018-08-17 21:18:53" itemprop="dateCreated datePublished" datetime="2018-08-17T21:18:53+08:00">2018-08-17</time>
             
 
             
@@ -395,7 +682,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-08-26 14:57:47" itemprop="dateModified" datetime="2018-08-26T14:57:47+08:00">2018-08-26</time>
+                <time title="Modified: 2018-08-26 14:57:48" itemprop="dateModified" datetime="2018-08-26T14:57:48+08:00">2018-08-26</time>
               
             
           </span>
@@ -530,7 +817,7 @@
                 
               
 
-              <time title="Created: 2018-07-14 10:37:06" itemprop="dateCreated datePublished" datetime="2018-07-14T10:37:06+08:00">2018-07-14</time>
+              <time title="Created: 2018-07-14 11:37:06" itemprop="dateCreated datePublished" datetime="2018-07-14T11:37:06+08:00">2018-07-14</time>
             
 
             
@@ -547,7 +834,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-08-27 19:19:13" itemprop="dateModified" datetime="2018-08-27T19:19:13+08:00">2018-08-27</time>
+                <time title="Modified: 2018-08-27 19:19:14" itemprop="dateModified" datetime="2018-08-27T19:19:14+08:00">2018-08-27</time>
               
             
           </span>
@@ -672,7 +959,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">32</span>
+                    <span class="site-state-item-count">34</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -742,7 +1029,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">21</span>
+                      
+                    
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

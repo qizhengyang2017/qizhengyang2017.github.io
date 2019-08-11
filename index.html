@@ -332,7 +332,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2019/07/18/test/">
+    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2019/08/11/oh-my-zsh/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -351,8 +351,8 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/18/test/" itemprop="url">
-                  test
+                <a class="post-title-link" href="/2019/08/11/oh-my-zsh/" itemprop="url">
+                  oh-my-zsh
                 </a>
               
             
@@ -378,9 +378,13 @@
                 
               
 
-              <time title="Created: 2019-07-18 21:07:13" itemprop="dateCreated datePublished" datetime="2019-07-18T21:07:13+08:00">2019-07-18</time>
+              <time title="Created: 2019-08-11 20:49:58 / Modified: 20:59:29" itemprop="dateCreated datePublished" datetime="2019-08-11T20:49:58+08:00">2019-08-11</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -414,7 +418,355 @@
       
         
           
+            <p>oh-my-zsh</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo $SHELL </span><br><span class="line">chsh -s /bin/zsh # 重启生效</span><br><span class="line"><span class="meta">#</span> 主题用了 ys</span><br></pre></td></tr></table></figure>
+<p>macOS<br>sed -i 报错<br>mac自带的sed和linux表现不一致， 需要安装gnu-sed</p>
+<p>macOS is a Unix, and not built on Linux. This can bite you when trying to write scripts which support both platforms.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install gnu-sed # gsed</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">for i in `ls`</span><br><span class="line">do</span><br><span class="line">t=`echo $i|awk -F '_' '&#123;print "1i&gt;"$1"_"$2&#125;'`</span><br><span class="line">gsed -i $t $i</span><br><span class="line">echo &gt;&gt; $i</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line">gsed -i '/^$/d' all.seq</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2019/08/05/单细胞测序/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qizhengyang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/05/单细胞测序/" itemprop="url">
+                  单细胞测序
+                </a>
+              
             
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-08-05 09:25:45 / Modified: 09:29:55" itemprop="dateCreated datePublished" datetime="2019-08-05T09:25:45+08:00">2019-08-05</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li>t-SNE算法是什么？</li>
+</ol>
+<p>可视化高维数据的一种算法。流形数据（manifold），像绳结一样的数据，虽然在高维空间中可分，但是在人眼所看到的低维空间中，绳结中的绳子是互相重叠的不可分的。t-SNE降维使高维数据在二维空间可分。t-SNE 运行极慢，PCA 则相对较快，因此更为一般的处理，尤其在展示（可视化）高维数据时，常常先用 PCA 进行降维，再使用 t-SNE。</p>
+<ol start="2">
+<li>什么是测序饱和度(sequencing saturation)，具体需要多少数据量才能达到饱和? </li>
+</ol>
+<p>饱和度计算具体可参考10X官方说明。饱和度代表了给定实验中文库复杂度的检出比例，具体受文库复杂度和测序深度的影响，不同细胞类型的RNA含量不同，若要达到饱和所需的测序深度也有差别，如PBMCs细胞一般相对较低的测序深度就能达到90%以上的饱和度。</p>
+<ol start="3">
+<li>什么是有效的 barcode (valid barcodes)?</li>
+</ol>
+<p>能匹配到 whitelist 的 barcode（里面有 737,000 个 barcodes）。它包括能够完全匹配的，也包括经过矫正之后能匹配的。</p>
+<ol start="4">
+<li>Fraction Reads in Cells是什么，有什么作用？</li>
+</ol>
+<p>与有效GEM（即含有细胞的GEM）相关联的reads，该值过低表示样本中可能有许多裂解的细胞或是死细胞。</p>
+<ol start="5">
+<li>细胞定义的操作步骤</li>
+</ol>
+<p>一是在差异基因结果中筛选marker基因，二是从marker基因入手，定位其所在主要细胞群。 软件 SingleR。</p>
+<ol start="6">
+<li>拟时（pseudotime）分析</li>
+</ol>
+<p>拟时分析适用于发育生物学中的发育轨迹研究，或者肿瘤微环境中免疫细胞状态的变化研究等。拟时分析推荐在细胞定义完成的基础上进行，有自己预设的起点、终点或者分化轨迹。Monocle是一款常用的拟时分析软件。</p>
+<hr>
+<ol>
+<li><p>建库过程中为什么要加TSO？</p>
+<p>The TSO adds a common 5’ sequence to full length cDNA that is used for downstream cDNA amplification.</p>
+</li>
+<li><p>read1 GC 抖动异常对后续分析有没有影响？</p>
+<p>10X cellranger在分析时read1只用到前26bp的序列信息，后面序列的信息不会对结果产生影响。</p>
+</li>
+<li><p>差异分析中的 Log2 Fold Change 是如何计算的？</p>
+<p>Log2 Fold Change表示的是在特定cluster中相对于其他所有细胞的平均UMI（标准化后）的比值。</p>
+</li>
+<li><p>Fraction Reads in Cells 是什么意思？</p>
+<p>The fraction of valid-barcode, confidently-mapped-to-transcriptome reads with cell-associated barcodes.</p>
+</li>
+</ol>
+<hr>
+<p>task1:<br>统计文件ReplicatedAcousticFeatures-ParkinsonDatabase.csv中空白行所在的行数，结果保存为blank_line.txt文件；</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">grep -n '^$' ReplicatedAcousticFeatures-ParkinsonDatabase.csv &gt; blank_line.txt</span><br><span class="line">grep -n '^\s$' ReplicatedAcousticFeatures-ParkinsonDatabase.csv &gt; blank_line.txt</span><br><span class="line">awk '/^$/&#123;print NR&#125;' ReplicatedAcousticFeatures-ParkinsonDatabase.csv</span><br><span class="line">sed -n '/^$/='  ReplicatedAcousticFeatures-ParkinsonDatabase.csv</span><br></pre></td></tr></table></figure>
+<p>task2:<br>保存文件ReplicatedAcousticFeatures-ParkinsonDatabase.csv中所有的非空行，结果保存为ReplicatedAcousticFeatures_ParkinsonDatabase_noblank.txt文件；</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -v '^$' ReplicatedAcousticFeatures-ParkinsonDatabase.csv &gt; ReplicatedAcousticFeatures_ParkinsonDatabase_noblank.txt</span><br></pre></td></tr></table></figure>
+<p>task3：<br>写一个shell脚本，判读nohup.out文件是不是软链接；</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if [ -L nohup.out ]</span><br><span class="line">then</span><br><span class="line">echo "it is a soft link."</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+<p>task4：<br>去除掉winequality-white.csv文件中的双引号，并将分隔符替换为”\t”,输出并以最后一列排序，将输出保存为winequality_white.tsv文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -e 's/""//g' -e 's/;/\t/g' winequality-white.csv &gt; winequality_white.tsv</span><br></pre></td></tr></table></figure>
+<p>task5：<br>对winequality_white.tsv文件的第二列进行求和，将结果保存为winequality_white_2.sum文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat winequality_white.tsv | awk '&#123;sum += $1&#125; END &#123;print sum&#125;' &gt; winequality_white_2.sum</span><br></pre></td></tr></table></figure>
+<p>task6：<br>对winequality_white.tsv文件的第4列求平均值，将结果保存为winequality_white_2.average文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat winequality_white.tsv | awk '&#123;sum += $4&#125; END &#123;print sum/(NR-1)&#125;' &gt; winequality_white_2.average</span><br></pre></td></tr></table></figure>
+<p>task7:<br>统计ReplicatedAcousticFeatures-ParkinsonDatabase_noblank.txt文件中，第一列出现的次数，表头可以不计入，报错为文件id_count.txt</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk -F "," 'NR &gt; 1 &#123;print $1&#125;' ReplicatedAcousticFeatures-ParkinsonDatabase.csv|sort|uniq -c|sort -n &gt; id_count.txt</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2019/08/04/2019-08-04-小脚本/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qizhengyang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/04/2019-08-04-小脚本/" itemprop="url">
+                  小脚本
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-08-04 13:25:15 / Modified: 16:32:48" itemprop="dateCreated datePublished" datetime="2019-08-04T13:25:15+08:00">2019-08-04</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="/documents/cds.html">jupyter notebook html</a><br>typora 会自动保存</p>
+<p>IP 是否被封 <a href="http://ping.chinaz.com/" target="_blank" rel="noopener">http://ping.chinaz.com/</a></p>
+<p>端口换成了 444。以后换端口，就445，446这样往上试</p>
+<p><a href="https://www.sinocalife.com/change-ports-to-prevent-ss-from-banning" target="_blank" rel="noopener">https://www.sinocalife.com/change-ports-to-prevent-ss-from-banning</a></p>
+<p>mac客户端在这里下 <a href="https://crifan.github.io/scientific_network_summary/website/server_client_mode/ss_client/client_mac.html" target="_blank" rel="noopener">https://crifan.github.io/scientific_network_summary/website/server_client_mode/ss_client/client_mac.html</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">print(os.getcwd())</span><br><span class="line">cid = <span class="string">''</span></span><br><span class="line">seq = <span class="string">''</span></span><br><span class="line">cds = &#123;&#125;</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'CDS1.fa'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">        <span class="keyword">if</span> line.startswith(<span class="string">'&gt;'</span>):</span><br><span class="line">            pattern = re.compile(<span class="string">r'&gt;.*.cds'</span>)</span><br><span class="line">            m = pattern.match(line)</span><br><span class="line">            tname = m.group()</span><br><span class="line">            <span class="keyword">if</span> tname != cid:</span><br><span class="line">                cds[cid] = seq</span><br><span class="line">                cid = tname</span><br><span class="line">                seq = <span class="string">''</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            seq += line.strip()</span><br><span class="line"><span class="comment"># print(cds)</span></span><br><span class="line"><span class="comment"># 有一个空的键和值</span></span><br><span class="line">outfile = open(<span class="string">'cds.fa'</span>, <span class="string">'w'</span>)</span><br><span class="line"><span class="keyword">for</span> key, value <span class="keyword">in</span> cds.items():</span><br><span class="line">    <span class="comment"># print(key + '\n' + value + '\n')</span></span><br><span class="line">    outfile.write(key + <span class="string">'\n'</span> + value + <span class="string">'\n'</span>)</span><br><span class="line">outfile.close()</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Users/zhengyangqi/我的文件/ZK-wang</span><br></pre></td></tr></table></figure>
+<p>​<br>​    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&gt;Pt1g020530.1.cds</span><br><span class="line">ATGGATGCTCCTTTGGCAGCTTGGCCATGGGATAACCTAGGCATGTTCAAGTATGTGCTGTATGGACCACTCGTCGGAAAAGCTTTGTACTCATGGGTTTATGAAGATAAACGAATTGAATATTGGTGCCTCCATATTCTGATCATCGCCGTGCTTAGAGGACTAATTCATATCTTTTGGAGCTCTTTCAGTAACATGCTTTTCCTTAATCGTACTCGCCAGATTAATCAACGGGGAGTCGATTTCAAGCAGATTGATAATGAATGGAACTGGGATAATTTCATTCTACTTCAAGCTGCAATTGCATCCATGGGCTATTACATCTTTCCATGCTCTGAAAGCCTTCCTCGATGGAACACAAAAGGATTTATTGCACTACTGATACTTCATGTGGCTGTTTCGGAGCCTTTATATTACGTTTTACACAGACATTTTCACAGAAATAAATACCTTTTCACCCATTACCATTCACTCCACCATTCATCTCCAGTACCACAAATTCCAACAGCTGGGCATGCAACATTATTGGAGCACATTGTATTAAGTTTCATCGTTGCAATTCCAATTCTCGGATCTTCTATCATCGGATATGGATCAATAAGCTTGATTTATGGCTATATTTTGATGTTTGATTTTCTAAGATGCCTGGGGCATTGCAATGTTGAAATTATTCCCTATCGGTGGTTCGAAACTTTCCCATTTCTTCGATATCTTCTTTATACACCCACGTACCACAGCCTGCACCACACTGAGAAGGACTCCAATTTCTGTCTCTTTATGCCTCTCTTTGATGCCCTGGGAAATACACTTAATAGCAAATCCTGGGAAGATCATAAGAAAATTACTTCAGCTTCTGGGGAAAATGTGAGGGTCCCGGATTTTGTTTTCCTAGCGCATGTGGTCGATGTAACAGCATCAATGCATCCACCGTTTATTTTGAGATCAGTAGCTTCATTGCCATTCTCACCAAAGCTCTTTTTGCTGCCTTTTTGGCCCATTGCATTTTCAGCAATCTTCGCTTTGTGGGCATGGTCTAAGACTTTTCTAATCAATTTCTACTGGCTTAGAGGCAGGTTGCACCAGACTTGGGCTGTACCTAGATATGGCTTTCAGTACTTCTTGCCATTTGCTCAAACGGGAATCAATAAGCAAATAGAGGATGCCATCCTAAGGGCTGATAGACTTGGGGTTAAGGTCCTTAGCCTTGCTGCATTGAATAAGAACGAAACACTAAATGGCGGTGGCACTCTTTTTGTTGACAAGCACCCCAACCTTAAAGTTAGAGTTGTGCATGGAAATACATTTACGGCTGCAGTTATTTTGAATGAGCTTCCAAAGGATGTTAAAGAAGTATTTTTAACAGGAGCTACTTCGAAGCTTGGAAGAGCGATTGCTCTTTATCTCTGCCGAAAAAGAGTTCGAGTACTGATGCTGACTCTATCAACAGAAAGATTCCAGAAAATTCAGAAAGAAGCACCTATAGACTGTCAAAACTACCTTGTTGAAGTGACAAAATACCAAGCAGCTCAACATTGCAAGACATGGATTGTTGGCAAATGGATCACACCAAGGGAGCAAAATTGGGCGCCGCCAGGAACGCATTTTCATCAGTTTGTTGTGCCACCAATATTGCATTTTAGAAGAGATTGCACTTACGGAGACCTTGCCGCCATGAGATTGCCTGACGATGTTGAAGGACTTGGAACTTGTGAGTACACCATGGACCGTGGAGTAGTTCATGCATGCCATGCGGGAGGTGTGGTTCATCTTTTAGAAGGATGGACTCACCATGAAGTTGGGGCAATTGATGTTGACAAGATCGATTTAGTGTGGGAAGCTGCACTCAAGCATGGCTTCAAGCCAGTATCAAGCCTCAGGAATCGTCAGATTTCATCATAA</span><br><span class="line"></span><br><span class="line">&gt;Pt3g041200.1.cds</span><br><span class="line">ATGGCTTCTAAACCAGGAATCCTCACCGAATGGCCATGGAAACCTCTTGGAAGCTATAAGCATGTGCTCCTGGCTCCATGGGCGATGCATAGCATATACTGTTTTATAGGGAGTAGAAAGAGTGAGCGAAACTATGCTTACTTCCTGATATTCCCTTTTCTGCTGCTGAGGATGCTTCATGACCAGATTTGGATTTCTCTTTCACGTTACCGAACAGCCAAAAGAAACAACAGGATCGTTGACAAGGCCATCGAATTCGACCAAGTTGACAGAGAAAGAGATTGGGATGACCAGATCGTGTTCAATGGACTGATATTCTATATAGTCCGCATGCTAATTCCTCCAAGTTATTCAAACCTGCCTCTCTGGAGAAGCGATGGTGTGATTCTTACGATTCTGATGCATATGGGTCCAGTAGAGTTTCTCTATTACTGGTTCCACAGAGCACTGCACCACCATTACCTCTACTCTCGCTACCATTCTCATCACCATTCTTCAATTGTCACAGAGCCCATTACTTCTGTGATTCATCCATTCGCCGAACACATTGTGTATTTCTTGCTCTTCGCAATACCACTGGGCACGACAGTGGTCCTCAAAAATGCTTCCATAGCATCTTTTGTTGGTTACATCATATACGTCGACTTCATGAACAACATGGGCCACTGTAACTTCGAGTTTGTCCCTATGTGGCTCTTCACCGTCTTTCCCCCTCTCAAGTTTCTTATGTATACGCCCTCGTATCACTCGCTGCACCACACTCAATTTCGGACCAACTACTCGCTATTTATGCCAATTTATGACTACATATACGGTACAATAGACAGAAGTTCAGATTCAGTGTACGAAAAATCACTAAAAAGATCAGGTGAAGAAGAAGAAGAATCAGCTGACGATGTGGACGTGGTACATCTAACGCATCTAACGACGCCGGAATCAATTTATCATCTGCGGATAGGATTTGCCTCCTTGGCATCAAAGCCCCATCGCTATACCTATACATTATCACAGTGGTATCTACAGCTGTTGTGGCCTTTCACAGCTTCTTGTTCTGTCCTTGTGAGTTGGATCTATGGCCGGACTTTTGTTTCAGAGAGCAACACTTTGGACAAACTCAAATTGCAAACCTGGGTGGTACCGAGGTACATTGTGCAATATAACTTGCCATGGAGAAGAGAAGCTATTAATAGCTTGATAGAAGAAGCCATATTAGAAGCAGATGCGAAAGGGGTAAAAGTTATAAGTCTAGGGCTTCTGAATCAGGGAGAGGAGCTTAACAGAAACGGAGAGATATACCTGGAAAGACACCCTAATAAGCTAAAAATCAAAGTGGTGGACGGAAGTAGCTTGGCAGCGGCGGTTGTGGTGAACAGCTTACCAAAAGCCACAGCCCACGTGCTTCTTAGAGGCACTGTTACCGCCAATAAGGTCGCTAACGCAGTTGCCTCATCTCTATGCCAAATGGGCATCAAGGTAGCCACGTTATGCAAGGACGATTATGAGAAGCTTAAGCTCAGGATCCCTGTGGAGGCTCAACATAATTTGGTCCTGTCAACAAGTTACGCTCACAGCACGAAGATTTGGTTAGTGGGAGGCAATTTGACAGGAAAGGAACAAGGAAGGGCACCAAAAGGCACAATATTCATTCCGTATACACAGATACCACCAAGGAAATTGCGGAAAGATTGCTTCTACCATTCGACTCCAGCAATGATAATTCCTCCCTCTTTAAATAACATGCATTCCTGTGAGAACTGGCTGGGAAGGAGGGTGATGAGTGCTTGGCGTATAGCTGGAATAATACATGCGTTGGAGGGATGGGATTTGAACGAGTGTGGGCAAACTATGTGCGACATCCACCAAGTTTGGCATGCCTCTCTCCGCCATGGATTCCGCCCTCTTTTCCATGTTGCTTGA</span><br><span class="line"></span><br><span class="line">&gt;Pt3g041200.2.cds</span><br><span class="line">ATGGCTTCTAAACCAGGAATCCTCACCGAATGGCCATGGAAACCTCTTGGAAGCTATAAGCATGTGCTCCTGGCTCCATGGGCGATGCATAGCATATACTGTTTTATAGGGAGTAGAAAGAGTGAGCGAAACTATGCTTACTTCCTGATATTCCCTTTTCTGCTGCTGAGGATGCTTCATGACCAGATTTGGATTTCTCTTTCACGTTACCGAACAGCCAAAAGAAACAACAGGATCGTTGACAAGGCCATCGAATTCGACCAAGTTGACAGAGAAAGAGATTGGGATGACCAGATCGTGTTCAATGGACTGATATTCTATATAGTCCGCATGCTAATTCCTCCAAGTTATTCAAACCTGCCTCTCTGGAGAAGCGATGGTGTGATTCTTACGATTCTGATGCATATGGGTCCAGTAGAGTTTCTCTATTACTGGTTCCACAGAGCACTGCACCACCATTACCTCTACTCTCGCTACCATTCTCATCACCATTCTTCAATTGTCACAGAGCCCATTACTTCTGTGATTCATCCATTCGCCGAACACATTGTGTATTTCTTGCTCTTCGCAATACCACTGGGCACGACAGTGGTCCTCAAAAATGCTTCCATAGCATCTTTTGTTGGTTACATCATATACGTCGACTTCATGAACAACATGGGCCACTGTAACTTCGAGTTTGTCCCTATGTGGCTCTTCACCGTCTTTCCCCCTCTCAAGTTTCTTATGTATACGCCCTCGTATCACTCGCTGCACCACACTCAATTTCGGACCAACTACTCGCTATTTATGCCAATTTATGACTACATATACGGTACAATAGACAGAAGTTCAGATTCAGTGTACGAAAAATCACTAAAAAGATCAGGTGAAGAAGAAGAAGAATCAGCTGACGATGTGGACGTGGTACATCTAACGCATCTAACGACGCCGGAATCAATTTATCATCTGCGGATAGGATTTGCCTCCTTGGCATCAAAGCCCCATCGCTATACCTATACATTATCACAGTGGTATCTACAGCTGTTGTGGCCTTTCACAGCTTCTTGTTCTGTCCTTGTGAGTTGGATCTATGGCCGGACTTTTGTTTCAGAGAGCAACACTTTGGACAAACTCAAATTGCAAACCTGGGTGGTACCGAGGTACATTGTGCAATATAACTTGCCATGGAGAAGAGAAGCTATTAATAGCTTGATAGAAGAAGCCATATTAGAAGCAGATGCGAAAGGGGTAAAAGTTATAAGTCTAGGGCTTCTGAATCAGGGAGAGGAGCTTAACAGAAACGGAGAGATATACCTGGAAAGACACCCTAATAAGCTAAAAATCAAAGTGGTGGACGGAAGTAGCTTGGCAGCGGCGGTTGTGGTGAACAGCTTACCAAAAGCCACAGCCCACGTGCTTCTTAGAGGCACTGTTACCGCCAATAAGGTCGCTAACGCAGTTGCCTCATCTCTATGCCAAATGGGCATCAAGGTAGCCACGTTATGCAAGGACGATTATGAGAAGCTTAAGCTCAGGATCCCTGTGGAGGCTCAACATAATTTGGTCCTGTCAACAAGTTACGCTCACAGCACGATTTGGTTAGTGGGAGGCAATTTGACAGGAAAGGAACAAGGAAGGGCACCAAAAGGCACAATATTCATTCCGTATACACAGATACCACCAAGGAAATTGCGGAAAGATTGCTTCTACCATTCGACTCCAGCAATGATAATTCCTCCCTCTTTAAATAACATGCATTCCTGTGAGAACTGGCTGGGAAGGAGGGTGATGAGTGCTTGGCGTATAGCTGGAATAATACATGCGTTGGAGGGATGGGATTTGAACGAGTGTGGGCAAACTATGTGCGACATCCACCAAGTTTGGCATGCCTCTCTCCGCCATGGATTCCGCCCTCTTTTCCATGTTGCTTGA</span><br><span class="line"></span><br><span class="line">&gt;Pt3g041210.1.cds</span><br><span class="line">ATGGCTTCGAAACCTGGATTTCTCACTGATTGGCCATGGACGCCTCTTGGAAACTTCAAGTACGTAGTATTGGCTCCTTGGATAATTCACAGCACGTACTCATTCATCGTAAAGGATGAGAAGGAGAGGGAGCTAGCCTACTTTATGATATTCCCATTGATGTTATGGAGAATGCTTCACAACCAGATATGGATCAGCTTTTCCCGTTACCGAACAGCCAAAGGCAGTAACAGAATCGTCGACAAGGCTATTGAATTCGAGCAAGTTGATAGAGAAAGAAATTGGGATGACCAAATAATATTCAACGGGATCCTGTTTTACGTATTCGTTAAAATAATTCCAGGCGCATCTCAAATGCCCATTTGGAGATTCGACGGTTTGATTCTCATAGCACTGCTGCATGCTGGTCCGGTGGAGTTCCTCTACTACTGGCTTCACAGAGCACTCCATCATCATTACCTTTACTCTCGCTACCATTCCCACCACCATTCCTCCATCGTCACTGAACCTATCACTTCTGTGATTCATCCATTTGCAGAGCACATAGCGTACTTCGCACTATTTGCAATACCATTGATTACACCATTGCTGAGTGGGATGGGCTCAATAGCATCCATATTCGGTTACCTCACTTACATAGATTTGATGAACAACATGGGTCACTGCAATTTCGAACTCATGCCCAGCTGCCTTCTCACCAACTTTCCTCCTCTCAAGTACCTCGTGTACACCGCGTCGTTCCACTCACTGCATCACACGCAATTCCGGACCAATTATTCGTTATTTATGCCCGTATACGATTACATATATGGCACCGTGGACAAAACTTCGGATGCATTATATGAAACTAGTCTAAAGAGACAGGAAGACTCGCCCGATGTTGTGCATCTCACGCACCTAACAACACCTGAATCAATCTACCATATGCGACTTGGTTTTGCCTCCATGGCGTCTAAGCCCCATGATCACCATACATCATCAAAGTGGTATATGTGGTTAATGTGGCCTGTCACAGTATGGTCCATGATGTTCACTTGGATTTATGGTCGTACCTTTGTGGTTGAGAGGAATCACCTTAATAAATTCAAACTACAGACTTGGGCAATTCCCAGATACAACTTTCAATATTTGTTGCTGCGGCAAAATGAATCGATCAATAGGTTGATTGAAGAAGCCATACTAGAAGCTGAGGAAAAAGGAGCTAAAGTGATAAGTCTAGGTCTCATGAATCAAGGAGAGGAGCTTAACTGTTATGGTGGGGTATTCGTGCACAAGCATCCTCAGCTTAAAATAAAGGTAGTGGACGGGAGTAGCTTAGCAGTAGCAGTAGTGATAAACAGCATACCAAAGGGAACAACACAAGTGGTCCTTAGAGGCGCTCTCACAAAGGTCGCTTATGCCATTGCCTTTGCCTTATGCCAAAAGGGCATCCAGGTTGTAACATTACGTGAGGATGAGCACGAGAAGCTTAGAAAATCGTTTGGGGCCAAATCTGAATGTAATAATTTGCTTCTCTCGAGAAGCTACTCCCAAAAGATATGGTTGGTGGGAAAAGGGCTGACTGAAGAAGAACAATCCAAGGCTAAAAAGGGAACAACCTTCATTCCTTTCTCACAGTTTCCACCAAACGATAAGAAAATACGTAAAGACTGTATGTACCATCTCACACCAGCAATGGCCGTTCCTGCTGATTTTGAGAATGTGGACTCGTGCGAGAATTGGTTGCCAAGAAGAGTGATGAGTGCATGGCGAATTGGGGGAATAGTGCATGCCTTGGAAGGATGGAACGAACACGAGTGTGGTTACGCCATCTCCAACATTCACAATGTTTGGGAAGCTGCTCTTCGACATGGCTTTCACCCTCTGACCGCTACCATTCTTACTCAATCCTATCCTATCTAG</span><br><span class="line"></span><br><span class="line">&gt;PtUn030220.1.cds</span><br><span class="line">ATGGCTTCGAAACCAGGAATTCTCACTGATTGGCCATGGACACCCCTTGGAAACTTTAAGTACGTAGTATTGGCTCCGTGGATCATCCACAGCACGTATTCATTCATGGTTAAGGATGAAAAGGAGAGGGACCTACTCAACTTTCTCATATTCCCGTTTCTATTATGGAGAATGCTTCACAACCAGATATGGATCAGCCTTTCCCGTTACCGAACAGCCAAAGGCCGTAACAGGATCGTCGACAAGCCTATTGAATTCGAGCAAGTCGACAGAGAGAGAAATTGGGACGACCAAATAATATTGAGTGGAATATTGTTTTACGTTGTTTTCGGCAAAATGCTTCCAGGCGGAACTCAGTTGCCCATTTGGAGATTAGATGGTGTAATTCTCATGGCACTTCTGCATGCTGGTCCGGTGGAGTTCGTCTACTACTGGCTTCACAGAGCACTCCATCATCATTACCTTTACTCTCGCTATCACTCCCATCACCATTCCTCTATCGTCACTGAACCTATCACTTCTGTTACTCATCCATTTGCTGAGCACATAGCATATTTCGTTCTATTTGCAACACCATTGATTACAACAGTGCTGACTGGGGCCGGGTCAATAATACTTGCCTTCGGCTACATCACTTACATAGACTTAATGAATAACATGGGTCACTGCAATTTCGAGCTCATACCTAAATGGCTTTTCACCATTTTTCCTCCTCTCAAGTACCTCATGTACACCCCTTCGTACCACTCACTGCATCATACGCAGTTCCGGGCGAATTACTCGTTATTCATGCCTTTATACGATTACTTATTCAGTACTGTCGACAAAACTTCGGATACATTATATGAAACCAGTCTCAAGAAACAGGATGATTCACTGGATGTTGTTTACCTCACACACCTGACAACGCCTGAATCAATCTATCATATGCGGCTTGGTTTGGCCTCATTGGCTTCTAAGCCCCATCACCATGCATCATCAGAGTGGTATAAGTGGTTGCTGTGGCCTGTCACGTTATTGTCAATGATGATCACTTGGATTTACGGCCGTACCTTTGTGGTTGAAAGGAATCGCCTTAATAAATTAAAACTACAGACTTGGGCGATATCCAAATACAATATGCAATACTTCTCGCAGCGGCAAAATGAATCGATCAATCGCTTGATTGAAGAAGCCATACTAGAAGCTGAGGAGAAAGGAGCCAGGGTGATAAGTCTAGGTCTCTTGAATCAAGGAGAGGAGCTTAACCGGTACGGTGGGCTCTTCGTGCACAAGAATCCTCAGCTTAAAATAAAGGTCGTGGATGGGAGTAGCTTAGCGGTGGCAGTACTAATAAACAGCATACCCGACGGAACAACCCAAGTGGTCATTAGAGGCATTCTCACTAAGGTTGCTTATGCCACTGCCTTTGCCTTATGCCAAAAGGGAATTCAGGTAGTAACTTTACGTGAGGATGAGCATGAGAAGCTTATTAGATCATTTGGGGGCAAATCTGAAAGTAAGAACTTGCTTGTTTCAAGGAGCTACTGCCAAAAGATATGGTTGGTGGGAAATGGACTGACTGAAGAAGAACAATCCAAGGCAGAAAGAGGAACAATTTTCGTTCCTTTCTCACAGTTCCCACCGGCGAAGAAAAGACGTAAAGACTGTACCTACCACCTCACACCAGCGATGGCCACTCCTGCTACTCTTGAGAATGTCGACGCCTGTGAGAATTGGTTACCAAGAAGGGTGATGAGTGCGTGGAGAATTGGGGGGATAGTGCATGCCTTGGAAGGATGGAATGAACACGAGTGTGGTTACACCATTTCCAACGTTGACACCGTCTGGGACGCTGCTCTTCGACATGGCTTTCTGCCTCTCACCATTCCAACTCAATCTTAA</span><br><span class="line"></span><br><span class="line">&gt;Pt6g016380.1.cds</span><br><span class="line">ATGGCTTCGAAACCAGGAATTCTCACTGATTGGCCATGGACACCCCTTGGAAACTTTAAGTACATAGTATTGGCTCCTTGGATCATCCACAGCACGTATTCATTCATGGTTAAGGATGAAAAGGAGAGGGACCTACTCAACTTTCTCATATTCCCGTTTCTATTATGGAGAATGCTTCACAACCAGATATGGATCAGCCTTTCCCGTTACCGAACAGCCAAAGGCCGTAACAGGATCGTCGACAAGCATATTGAATTCGAGCAAGTTGACAGAGAGAGAAATTGGGATGACCAAATAATATTGAGTGGGATATTGTTTTACATTATTTTCCGCAAAATGCTTCCAGGCAGAACTCAGTTGCCCATTTGGAGATTAGACGGTGTGATTCTCATGGCACTTCTGCATGCTGGTCCAGTGGAGTTCGTCTACTACTGGCTTCACAGAGCACTCCATCATCATTACCTTTACTCTCGTTATCACTCCCGTCACCATTCCTCAATCGTCACTGAACCTATCACTTCTGTTACTCATCCATTTGCTGAGCACATAGCATATTTCGTTCTATTTGCAACACCATTGATTACAACAGTGCTGACTGGGGCCGGGTCAATAGTACTTGCCTTCGGCTACATCACTTACATAGACTTAATGAATAACATGGGTCACTGCAATTTCGAGCTCATACCTAAATGGCTTTTCACCATTTTTCCTCCTCTCAAGTACCTCATGTACACCCCTTCGTTCCACTCACTGCATCATACGCAGTTCCGGGCGAATTACTCGTTATTCATGCCTTTATACGATTACTTATTCAGTACTGTCGACAAAACTTCGGATACATTATATGAAACCAGTCTCAAGAAACAGGAAGATTCACCGGATGTTGTTTACCTCACGCACCTGACAACACCTGAATCAATCTATCATATGCGGCTTGGTTTGGCCTCACTGGCTTCTAAGCCCCATCACCATGCATCATCAGAGTGGTATAAGTGGTTGCCGTGGCCTGTCACGTTATTGTCGATGATGATCACTTGGATTTATGGCCGTACCTTTGTGGTTGAAAGGAATCGCCTTAATAAATTAAAACTACAGACTTGGGCGATATCCAAATACAATATGCAATACTTCTCGCAGCGGCAAAATGAATCGATCAATCGCTTGATTGAAGAAGCCATACTAGAAGCTGAGGAGAAAGGAGCTAGGGTGATAACTCTAGGTCTCTTGAATCAAGGAGAGGAGCTTAACCGGTACGGTGGGCTCTTCGTGCACAAGAATCCTGAGCTTAAAATAAAGGTAGTGAATGGGAGTAGCTTAGCGGTGGCAGTACTGACAAACAGCATACCCGACGGAACAACCCAAGTGAGAGTTTCCATCATCAGCATATGTAACTTCTCCATCTTCAACATCCTTTTCGACACTAGGATTCTCATGATCTTCCGCATCCTCATCATCGATTTCCTCTTCAACAAGGGCAACCACCCTACGATTAGGAAACTCAGAATTGCTTATGTCACTGCCTTTGCCTTATGCCAAAAGGGAATTCAGGTAGTAACTTTACGTGAGGATGAGCATGAGAAGCTTATTAGATCATTTGGAGGCAAATCTGAAAGTAAGAACTTGCTTGTTTCAAGGAGCTACTGCCAAAAGATATGGTTGGTGGGAAATGGACTGACTGAAGAAGAACAATCTAAGGCAGAAAGAGGAACAACGTTCGTTCCTTTCTCACAGTTCCCACCGGCGAAGAAAAGACGTAAAGACTGTACCTACCACCTTACACCAGCGATGGGCACTCCTGCTACTCTTGGGAATGTCGACTCATGTGAGAATTGGTTACCAAGAAGGGTGATGAGTGCGTGGAGAATTGGGGGGATAGTGCATGCCTTGGGAGGATGGAATGAACACGACTGTGGTTACACCATTTCCAACGTTGACACCATCTGGGACGCTGCTTTTCATCATGGCTTTCTACCTCTCACCATTCTAACTCAATCTTAA</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">s = <span class="string">'&gt;Pt1g020530.1.cds.1'</span></span><br><span class="line">pattern = re.compile(<span class="string">r'&gt;.*.cds'</span>)</span><br><span class="line">m = pattern.match(s)</span><br><span class="line">m.group()</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&apos;&gt;Pt1g020530.1.cds&apos;</span><br></pre></td></tr></table></figure>
+
           
         
       
@@ -513,7 +865,7 @@
                 
               
 
-              <time title="Created: 2019-03-20 22:56:19 / Modified: 23:57:59" itemprop="dateCreated datePublished" datetime="2019-03-20T22:56:19+08:00">2019-03-20</time>
+              <time title="Created: 2019-03-20 23:56:19 / Modified: 23:58:00" itemprop="dateCreated datePublished" datetime="2019-03-20T23:56:19+08:00">2019-03-20</time>
             
 
             
@@ -712,7 +1064,7 @@
                 
               
 
-              <time title="Created: 2019-03-18 22:49:38" itemprop="dateCreated datePublished" datetime="2019-03-18T22:49:38+08:00">2019-03-18</time>
+              <time title="Created: 2019-03-18 23:49:38" itemprop="dateCreated datePublished" datetime="2019-03-18T23:49:38+08:00">2019-03-18</time>
             
 
             
@@ -729,7 +1081,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-03-27 23:51:44" itemprop="dateModified" datetime="2019-03-27T23:51:44+08:00">2019-03-27</time>
+                <time title="Modified: 2019-03-27 23:51:46" itemprop="dateModified" datetime="2019-03-27T23:51:46+08:00">2019-03-27</time>
               
             
           </span>
@@ -908,7 +1260,7 @@
                 
               
 
-              <time title="Created: 2019-03-17 20:31:30 / Modified: 21:32:30" itemprop="dateCreated datePublished" datetime="2019-03-17T20:31:30+08:00">2019-03-17</time>
+              <time title="Created: 2019-03-17 21:31:30 / Modified: 21:32:32" itemprop="dateCreated datePublished" datetime="2019-03-17T21:31:30+08:00">2019-03-17</time>
             
 
             
@@ -1056,7 +1408,7 @@
                 
               
 
-              <time title="Created: 2019-03-17 20:26:07 / Modified: 21:27:59" itemprop="dateCreated datePublished" datetime="2019-03-17T20:26:07+08:00">2019-03-17</time>
+              <time title="Created: 2019-03-17 21:26:07 / Modified: 21:28:00" itemprop="dateCreated datePublished" datetime="2019-03-17T21:26:07+08:00">2019-03-17</time>
             
 
             
@@ -1212,7 +1564,7 @@
                 
               
 
-              <time title="Created: 2019-03-11 19:42:41 / Modified: 20:54:36" itemprop="dateCreated datePublished" datetime="2019-03-11T19:42:41+08:00">2019-03-11</time>
+              <time title="Created: 2019-03-11 20:42:41 / Modified: 20:54:38" itemprop="dateCreated datePublished" datetime="2019-03-11T20:42:41+08:00">2019-03-11</time>
             
 
             
@@ -1357,7 +1709,7 @@
                 
               
 
-              <time title="Created: 2019-03-05 20:57:51" itemprop="dateCreated datePublished" datetime="2019-03-05T20:57:51+08:00">2019-03-05</time>
+              <time title="Created: 2019-03-05 21:57:51" itemprop="dateCreated datePublished" datetime="2019-03-05T21:57:51+08:00">2019-03-05</time>
             
 
             
@@ -1374,7 +1726,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-03-06 00:27:25" itemprop="dateModified" datetime="2019-03-06T00:27:25+08:00">2019-03-06</time>
+                <time title="Modified: 2019-03-06 00:27:26" itemprop="dateModified" datetime="2019-03-06T00:27:26+08:00">2019-03-06</time>
               
             
           </span>
@@ -1554,7 +1906,7 @@
                 
               
 
-              <time title="Created: 2019-03-05 14:26:54 / Modified: 17:36:37" itemprop="dateCreated datePublished" datetime="2019-03-05T14:26:54+08:00">2019-03-05</time>
+              <time title="Created: 2019-03-05 15:26:54 / Modified: 17:36:38" itemprop="dateCreated datePublished" datetime="2019-03-05T15:26:54+08:00">2019-03-05</time>
             
 
             
@@ -1680,337 +2032,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2019/03/05/2019-3-5-盖茨思考的东西/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qizhengyang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/05/2019-3-5-盖茨思考的东西/" itemprop="url">
-                  盖茨思考的东西
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-03-05 09:18:34" itemprop="dateCreated datePublished" datetime="2019-03-05T09:18:34+08:00">2019-03-05</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-03-11 20:41:16" itemprop="dateModified" datetime="2019-03-11T20:41:16+08:00">2019-03-11</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://www.technologyreview.com/search/?s=gates" target="_blank" rel="noopener">《麻省理工科技评论》</a></p>
-<p>盖茨列出 <a href="https://www.prnewswire.com/news-releases/mit-technology-review-partners-with-bill-gates-to-present-10-breakthrough-technologies-of-2019-300802754.html?tc=eml_cleartime" target="_blank" rel="noopener">10 项</a>改变世界的技术名单，大部分你也猜得到</p>
-<font color="gray">但它和 2018 年的名单有些不一样，因为盖茨也在成长。</font>
-
-<p>This year’s 10 Breakthrough Technologies fall into roughly three groups: <strong>climate change mitigation, healthcare, and AI</strong>. They are:</p>
-<ol>
-<li>Robot dexterity—robot hands that can learn to manipulate unfamiliar objects on their own</li>
-<li>New-wave nuclear power—both fission and fusion reactor designs that could help bring down carbon emissions</li>
-<li>Predicting preemies—a simple blood test to warn of a preterm birth, potentially saving many children’s lives</li>
-<li>Gut probe in a pill—a swallowable device that can image the digestive tract and even perform biopsies</li>
-<li>Custom cancer vaccines—a treatment that uses the body’s own immune system to target only tumor cells</li>
-<li>The cow-free burger—both plant-based and lab-grown meat alternatives that could drastically cut emissions from the food industry</li>
-<li>Carbon dioxide catcher—techniques for absorbing CO2 from the air and locking it away that may finally become economic</li>
-<li>An ECG on your wrist—the ability for people with heart conditions to continuously monitor their health and get early warnings of problems</li>
-<li>Sanitation without sewers—a self-contained toilet that could tackle disease and unpleasant living conditions in much of the developing world</li>
-<li>Smooth-talking AI assistants—new advances in natural language processing that make digital assistants capable of greater autonomy</li>
-</ol>
-<p>2017 年，盖茨投资了美国人造肉食品初创公司 Memphis Meats，更早前还投资过同类公司 Impossible Foods 。人造肉的意义在于，与传统畜牧业相比，它的肉类生产过程能够使用了传统畜牧业所需大约 1% 的土地和 10% 的水，减少对生态的损耗。<a href="https://www.qdaily.com/articles/61639.html" target="_blank" rel="noopener">^1</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2019/03/04/2019-3-4-浏览了好奇心日报/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qizhengyang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/04/2019-3-4-浏览了好奇心日报/" itemprop="url">
-                  浏览了好奇心日报
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-03-04 20:11:14" itemprop="dateCreated datePublished" datetime="2019-03-04T20:11:14+08:00">2019-03-04</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-03-11 20:41:44" itemprop="dateModified" datetime="2019-03-11T20:41:44+08:00">2019-03-11</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ol>
-<li><p><a href="https://www.bloomberg.com/news/articles/2019-03-01/wework-cuts-about-300-employees-ahead-of-a-hiring-binge" target="_blank" rel="noopener">在一轮招聘热潮之前，WeWork裁减了大约300名员工</a></p>
-</li>
-<li><p><a href="https://www.qdaily.com/articles/61608.html" target="_blank" rel="noopener">诞生 100 年后，塞林格还在守望我们对青春与童年的认知</a></p>
-</li>
-</ol>
-<blockquote>
-<p>1919 年元旦，塞林格出生于曼哈顿，是一个四口之家的小儿子。从一所中学退学后，他被送往福吉谷军事学院，也就是小说中赶走霍尔顿的学校的原型。1937 年至 1941 年，塞林格没有接受过什么正规教育。他随父亲在奥地利和波兰学着做生意，在德军占领前一周回到美国，上过夜校的写作课，试着给文艺界富有盛名的《纽约客》投稿。</p>
-<p>混乱于 1941 年结束，塞林格应征入伍，前往欧洲战场从事情报工作。1945 年，他因战争带来的精神问题入院。战后，他搬回纽约的父母家，继续写作。</p>
-<p>《麦田里的守望者》塑造了一个可爱的废物，但没有人会否认，这部小说为塞林格本人在文学界赢得了一席之地。这个地位之重要超出了当时人们的预期。包括厄普代克（John Updike）等文学偶像在内，同时代和晚辈的美国作家都深受塞林格的影响，至今仍活在“霍尔顿”不散的阴魂之下。</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2058,7 +2079,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">32</span>
+                    <span class="site-state-item-count">34</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -2128,7 +2149,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">21</span>
+                      
+                    
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
