@@ -332,6 +332,152 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2019/12/04/使用inferCNV分析单细胞转录组中拷贝数变异/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qizhengyang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/12/04/使用inferCNV分析单细胞转录组中拷贝数变异/" itemprop="url">
+                  使用inferCNV分析单细胞转录组中拷贝数变异
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-12-04 16:17:13 / Modified: 16:52:40" itemprop="dateCreated datePublished" datetime="2019-12-04T16:17:13+08:00">2019-12-04</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          inferCNV用与探索肿瘤单细胞RNA-seq数据，分析其中的体细胞大规模染色体拷贝数变化(copy number alterations, CNA), 例如整条染色体或大片段染色体的增加或丢失(gain or deletions)。工作原理是，以一组”正常”细胞作为参考，分析肿瘤基因组上各个位置
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/12/04/使用inferCNV分析单细胞转录组中拷贝数变异/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2019/08/11/oh-my-zsh/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -418,14 +564,18 @@
       
         
           
-            <p>oh-my-zsh</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo $SHELL </span><br><span class="line">chsh -s /bin/zsh # 重启生效</span><br><span class="line"><span class="meta">#</span> 主题用了 ys</span><br></pre></td></tr></table></figure>
-<p>macOS<br>sed -i 报错<br>mac自带的sed和linux表现不一致， 需要安装gnu-sed</p>
-<p>macOS is a Unix, and not built on Linux. This can bite you when trying to write scripts which support both platforms.</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install gnu-sed # gsed</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">for i in `ls`</span><br><span class="line">do</span><br><span class="line">t=`echo $i|awk -F '_' '&#123;print "1i&gt;"$1"_"$2&#125;'`</span><br><span class="line">gsed -i $t $i</span><br><span class="line">echo &gt;&gt; $i</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line">gsed -i '/^$/d' all.seq</span><br></pre></td></tr></table></figure>
-
-          
+          oh-my-zsh
+123echo $SHELL chsh -s /bin/zsh # 重启生效# 主题用了 ys
+macOSsed -i 报错mac自带的sed和linux表现不一致， 需要安装gnu-sed
+macOS is a Unix, and not built on Linux. Thi
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/11/oh-my-zsh/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -563,61 +713,18 @@
       
         
           
-            <ol>
-<li>t-SNE算法是什么？</li>
-</ol>
-<p>可视化高维数据的一种算法。流形数据（manifold），像绳结一样的数据，虽然在高维空间中可分，但是在人眼所看到的低维空间中，绳结中的绳子是互相重叠的不可分的。t-SNE降维使高维数据在二维空间可分。t-SNE 运行极慢，PCA 则相对较快，因此更为一般的处理，尤其在展示（可视化）高维数据时，常常先用 PCA 进行降维，再使用 t-SNE。</p>
-<ol start="2">
-<li>什么是测序饱和度(sequencing saturation)，具体需要多少数据量才能达到饱和? </li>
-</ol>
-<p>饱和度计算具体可参考10X官方说明。饱和度代表了给定实验中文库复杂度的检出比例，具体受文库复杂度和测序深度的影响，不同细胞类型的RNA含量不同，若要达到饱和所需的测序深度也有差别，如PBMCs细胞一般相对较低的测序深度就能达到90%以上的饱和度。</p>
-<ol start="3">
-<li>什么是有效的 barcode (valid barcodes)?</li>
-</ol>
-<p>能匹配到 whitelist 的 barcode（里面有 737,000 个 barcodes）。它包括能够完全匹配的，也包括经过矫正之后能匹配的。</p>
-<ol start="4">
-<li>Fraction Reads in Cells是什么，有什么作用？</li>
-</ol>
-<p>与有效GEM（即含有细胞的GEM）相关联的reads，该值过低表示样本中可能有许多裂解的细胞或是死细胞。</p>
-<ol start="5">
-<li>细胞定义的操作步骤</li>
-</ol>
-<p>一是在差异基因结果中筛选marker基因，二是从marker基因入手，定位其所在主要细胞群。 软件 SingleR。</p>
-<ol start="6">
-<li>拟时（pseudotime）分析</li>
-</ol>
-<p>拟时分析适用于发育生物学中的发育轨迹研究，或者肿瘤微环境中免疫细胞状态的变化研究等。拟时分析推荐在细胞定义完成的基础上进行，有自己预设的起点、终点或者分化轨迹。Monocle是一款常用的拟时分析软件。</p>
-<hr>
-<ol>
-<li><p>建库过程中为什么要加TSO？</p>
-<p>The TSO adds a common 5’ sequence to full length cDNA that is used for downstream cDNA amplification.</p>
-</li>
-<li><p>read1 GC 抖动异常对后续分析有没有影响？</p>
-<p>10X cellranger在分析时read1只用到前26bp的序列信息，后面序列的信息不会对结果产生影响。</p>
-</li>
-<li><p>差异分析中的 Log2 Fold Change 是如何计算的？</p>
-<p>Log2 Fold Change表示的是在特定cluster中相对于其他所有细胞的平均UMI（标准化后）的比值。</p>
-</li>
-<li><p>Fraction Reads in Cells 是什么意思？</p>
-<p>The fraction of valid-barcode, confidently-mapped-to-transcriptome reads with cell-associated barcodes.</p>
-</li>
-</ol>
-<hr>
-<p>task1:<br>统计文件ReplicatedAcousticFeatures-ParkinsonDatabase.csv中空白行所在的行数，结果保存为blank_line.txt文件；</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">grep -n '^$' ReplicatedAcousticFeatures-ParkinsonDatabase.csv &gt; blank_line.txt</span><br><span class="line">grep -n '^\s$' ReplicatedAcousticFeatures-ParkinsonDatabase.csv &gt; blank_line.txt</span><br><span class="line">awk '/^$/&#123;print NR&#125;' ReplicatedAcousticFeatures-ParkinsonDatabase.csv</span><br><span class="line">sed -n '/^$/='  ReplicatedAcousticFeatures-ParkinsonDatabase.csv</span><br></pre></td></tr></table></figure>
-<p>task2:<br>保存文件ReplicatedAcousticFeatures-ParkinsonDatabase.csv中所有的非空行，结果保存为ReplicatedAcousticFeatures_ParkinsonDatabase_noblank.txt文件；</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -v '^$' ReplicatedAcousticFeatures-ParkinsonDatabase.csv &gt; ReplicatedAcousticFeatures_ParkinsonDatabase_noblank.txt</span><br></pre></td></tr></table></figure>
-<p>task3：<br>写一个shell脚本，判读nohup.out文件是不是软链接；</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if [ -L nohup.out ]</span><br><span class="line">then</span><br><span class="line">echo "it is a soft link."</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
-<p>task4：<br>去除掉winequality-white.csv文件中的双引号，并将分隔符替换为”\t”,输出并以最后一列排序，将输出保存为winequality_white.tsv文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -e 's/""//g' -e 's/;/\t/g' winequality-white.csv &gt; winequality_white.tsv</span><br></pre></td></tr></table></figure>
-<p>task5：<br>对winequality_white.tsv文件的第二列进行求和，将结果保存为winequality_white_2.sum文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat winequality_white.tsv | awk '&#123;sum += $1&#125; END &#123;print sum&#125;' &gt; winequality_white_2.sum</span><br></pre></td></tr></table></figure>
-<p>task6：<br>对winequality_white.tsv文件的第4列求平均值，将结果保存为winequality_white_2.average文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat winequality_white.tsv | awk '&#123;sum += $4&#125; END &#123;print sum/(NR-1)&#125;' &gt; winequality_white_2.average</span><br></pre></td></tr></table></figure>
-<p>task7:<br>统计ReplicatedAcousticFeatures-ParkinsonDatabase_noblank.txt文件中，第一列出现的次数，表头可以不计入，报错为文件id_count.txt</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk -F "," 'NR &gt; 1 &#123;print $1&#125;' ReplicatedAcousticFeatures-ParkinsonDatabase.csv|sort|uniq -c|sort -n &gt; id_count.txt</span><br></pre></td></tr></table></figure>
           
+t-SNE算法是什么？
+
+可视化高维数据的一种算法。流形数据（manifold），像绳结一样的数据，虽然在高维空间中可分，但是在人眼所看到的低维空间中，绳结中的绳子是互相重叠的不可分的。t-SNE降维使高维数据在二维空间可分。t-SNE 运行极慢，PCA 则相对较快，因此更为一般的处理，尤其在展示
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/05/单细胞测序/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -755,19 +862,18 @@
       
         
           
-            <p><a href="/documents/cds.html">jupyter notebook html</a><br>typora 会自动保存</p>
-<p>IP 是否被封 <a href="http://ping.chinaz.com/" target="_blank" rel="noopener">http://ping.chinaz.com/</a></p>
-<p>端口换成了 444。以后换端口，就445，446这样往上试</p>
-<p><a href="https://www.sinocalife.com/change-ports-to-prevent-ss-from-banning" target="_blank" rel="noopener">https://www.sinocalife.com/change-ports-to-prevent-ss-from-banning</a></p>
-<p>mac客户端在这里下 <a href="https://crifan.github.io/scientific_network_summary/website/server_client_mode/ss_client/client_mac.html" target="_blank" rel="noopener">https://crifan.github.io/scientific_network_summary/website/server_client_mode/ss_client/client_mac.html</a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">print(os.getcwd())</span><br><span class="line">cid = <span class="string">''</span></span><br><span class="line">seq = <span class="string">''</span></span><br><span class="line">cds = &#123;&#125;</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'CDS1.fa'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">        <span class="keyword">if</span> line.startswith(<span class="string">'&gt;'</span>):</span><br><span class="line">            pattern = re.compile(<span class="string">r'&gt;.*.cds'</span>)</span><br><span class="line">            m = pattern.match(line)</span><br><span class="line">            tname = m.group()</span><br><span class="line">            <span class="keyword">if</span> tname != cid:</span><br><span class="line">                cds[cid] = seq</span><br><span class="line">                cid = tname</span><br><span class="line">                seq = <span class="string">''</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            seq += line.strip()</span><br><span class="line"><span class="comment"># print(cds)</span></span><br><span class="line"><span class="comment"># 有一个空的键和值</span></span><br><span class="line">outfile = open(<span class="string">'cds.fa'</span>, <span class="string">'w'</span>)</span><br><span class="line"><span class="keyword">for</span> key, value <span class="keyword">in</span> cds.items():</span><br><span class="line">    <span class="comment"># print(key + '\n' + value + '\n')</span></span><br><span class="line">    outfile.write(key + <span class="string">'\n'</span> + value + <span class="string">'\n'</span>)</span><br><span class="line">outfile.close()</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Users/zhengyangqi/我的文件/ZK-wang</span><br></pre></td></tr></table></figure>
-<p>​<br>​    </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&gt;Pt1g020530.1.cds</span><br><span class="line">ATGGATGCTCCTTTGGCAGCTTGGCCATGGGATAACCTAGGCATGTTCAAGTATGTGCTGTATGGACCACTCGTCGGAAAAGCTTTGTACTCATGGGTTTATGAAGATAAACGAATTGAATATTGGTGCCTCCATATTCTGATCATCGCCGTGCTTAGAGGACTAATTCATATCTTTTGGAGCTCTTTCAGTAACATGCTTTTCCTTAATCGTACTCGCCAGATTAATCAACGGGGAGTCGATTTCAAGCAGATTGATAATGAATGGAACTGGGATAATTTCATTCTACTTCAAGCTGCAATTGCATCCATGGGCTATTACATCTTTCCATGCTCTGAAAGCCTTCCTCGATGGAACACAAAAGGATTTATTGCACTACTGATACTTCATGTGGCTGTTTCGGAGCCTTTATATTACGTTTTACACAGACATTTTCACAGAAATAAATACCTTTTCACCCATTACCATTCACTCCACCATTCATCTCCAGTACCACAAATTCCAACAGCTGGGCATGCAACATTATTGGAGCACATTGTATTAAGTTTCATCGTTGCAATTCCAATTCTCGGATCTTCTATCATCGGATATGGATCAATAAGCTTGATTTATGGCTATATTTTGATGTTTGATTTTCTAAGATGCCTGGGGCATTGCAATGTTGAAATTATTCCCTATCGGTGGTTCGAAACTTTCCCATTTCTTCGATATCTTCTTTATACACCCACGTACCACAGCCTGCACCACACTGAGAAGGACTCCAATTTCTGTCTCTTTATGCCTCTCTTTGATGCCCTGGGAAATACACTTAATAGCAAATCCTGGGAAGATCATAAGAAAATTACTTCAGCTTCTGGGGAAAATGTGAGGGTCCCGGATTTTGTTTTCCTAGCGCATGTGGTCGATGTAACAGCATCAATGCATCCACCGTTTATTTTGAGATCAGTAGCTTCATTGCCATTCTCACCAAAGCTCTTTTTGCTGCCTTTTTGGCCCATTGCATTTTCAGCAATCTTCGCTTTGTGGGCATGGTCTAAGACTTTTCTAATCAATTTCTACTGGCTTAGAGGCAGGTTGCACCAGACTTGGGCTGTACCTAGATATGGCTTTCAGTACTTCTTGCCATTTGCTCAAACGGGAATCAATAAGCAAATAGAGGATGCCATCCTAAGGGCTGATAGACTTGGGGTTAAGGTCCTTAGCCTTGCTGCATTGAATAAGAACGAAACACTAAATGGCGGTGGCACTCTTTTTGTTGACAAGCACCCCAACCTTAAAGTTAGAGTTGTGCATGGAAATACATTTACGGCTGCAGTTATTTTGAATGAGCTTCCAAAGGATGTTAAAGAAGTATTTTTAACAGGAGCTACTTCGAAGCTTGGAAGAGCGATTGCTCTTTATCTCTGCCGAAAAAGAGTTCGAGTACTGATGCTGACTCTATCAACAGAAAGATTCCAGAAAATTCAGAAAGAAGCACCTATAGACTGTCAAAACTACCTTGTTGAAGTGACAAAATACCAAGCAGCTCAACATTGCAAGACATGGATTGTTGGCAAATGGATCACACCAAGGGAGCAAAATTGGGCGCCGCCAGGAACGCATTTTCATCAGTTTGTTGTGCCACCAATATTGCATTTTAGAAGAGATTGCACTTACGGAGACCTTGCCGCCATGAGATTGCCTGACGATGTTGAAGGACTTGGAACTTGTGAGTACACCATGGACCGTGGAGTAGTTCATGCATGCCATGCGGGAGGTGTGGTTCATCTTTTAGAAGGATGGACTCACCATGAAGTTGGGGCAATTGATGTTGACAAGATCGATTTAGTGTGGGAAGCTGCACTCAAGCATGGCTTCAAGCCAGTATCAAGCCTCAGGAATCGTCAGATTTCATCATAA</span><br><span class="line"></span><br><span class="line">&gt;Pt3g041200.1.cds</span><br><span class="line">ATGGCTTCTAAACCAGGAATCCTCACCGAATGGCCATGGAAACCTCTTGGAAGCTATAAGCATGTGCTCCTGGCTCCATGGGCGATGCATAGCATATACTGTTTTATAGGGAGTAGAAAGAGTGAGCGAAACTATGCTTACTTCCTGATATTCCCTTTTCTGCTGCTGAGGATGCTTCATGACCAGATTTGGATTTCTCTTTCACGTTACCGAACAGCCAAAAGAAACAACAGGATCGTTGACAAGGCCATCGAATTCGACCAAGTTGACAGAGAAAGAGATTGGGATGACCAGATCGTGTTCAATGGACTGATATTCTATATAGTCCGCATGCTAATTCCTCCAAGTTATTCAAACCTGCCTCTCTGGAGAAGCGATGGTGTGATTCTTACGATTCTGATGCATATGGGTCCAGTAGAGTTTCTCTATTACTGGTTCCACAGAGCACTGCACCACCATTACCTCTACTCTCGCTACCATTCTCATCACCATTCTTCAATTGTCACAGAGCCCATTACTTCTGTGATTCATCCATTCGCCGAACACATTGTGTATTTCTTGCTCTTCGCAATACCACTGGGCACGACAGTGGTCCTCAAAAATGCTTCCATAGCATCTTTTGTTGGTTACATCATATACGTCGACTTCATGAACAACATGGGCCACTGTAACTTCGAGTTTGTCCCTATGTGGCTCTTCACCGTCTTTCCCCCTCTCAAGTTTCTTATGTATACGCCCTCGTATCACTCGCTGCACCACACTCAATTTCGGACCAACTACTCGCTATTTATGCCAATTTATGACTACATATACGGTACAATAGACAGAAGTTCAGATTCAGTGTACGAAAAATCACTAAAAAGATCAGGTGAAGAAGAAGAAGAATCAGCTGACGATGTGGACGTGGTACATCTAACGCATCTAACGACGCCGGAATCAATTTATCATCTGCGGATAGGATTTGCCTCCTTGGCATCAAAGCCCCATCGCTATACCTATACATTATCACAGTGGTATCTACAGCTGTTGTGGCCTTTCACAGCTTCTTGTTCTGTCCTTGTGAGTTGGATCTATGGCCGGACTTTTGTTTCAGAGAGCAACACTTTGGACAAACTCAAATTGCAAACCTGGGTGGTACCGAGGTACATTGTGCAATATAACTTGCCATGGAGAAGAGAAGCTATTAATAGCTTGATAGAAGAAGCCATATTAGAAGCAGATGCGAAAGGGGTAAAAGTTATAAGTCTAGGGCTTCTGAATCAGGGAGAGGAGCTTAACAGAAACGGAGAGATATACCTGGAAAGACACCCTAATAAGCTAAAAATCAAAGTGGTGGACGGAAGTAGCTTGGCAGCGGCGGTTGTGGTGAACAGCTTACCAAAAGCCACAGCCCACGTGCTTCTTAGAGGCACTGTTACCGCCAATAAGGTCGCTAACGCAGTTGCCTCATCTCTATGCCAAATGGGCATCAAGGTAGCCACGTTATGCAAGGACGATTATGAGAAGCTTAAGCTCAGGATCCCTGTGGAGGCTCAACATAATTTGGTCCTGTCAACAAGTTACGCTCACAGCACGAAGATTTGGTTAGTGGGAGGCAATTTGACAGGAAAGGAACAAGGAAGGGCACCAAAAGGCACAATATTCATTCCGTATACACAGATACCACCAAGGAAATTGCGGAAAGATTGCTTCTACCATTCGACTCCAGCAATGATAATTCCTCCCTCTTTAAATAACATGCATTCCTGTGAGAACTGGCTGGGAAGGAGGGTGATGAGTGCTTGGCGTATAGCTGGAATAATACATGCGTTGGAGGGATGGGATTTGAACGAGTGTGGGCAAACTATGTGCGACATCCACCAAGTTTGGCATGCCTCTCTCCGCCATGGATTCCGCCCTCTTTTCCATGTTGCTTGA</span><br><span class="line"></span><br><span class="line">&gt;Pt3g041200.2.cds</span><br><span class="line">ATGGCTTCTAAACCAGGAATCCTCACCGAATGGCCATGGAAACCTCTTGGAAGCTATAAGCATGTGCTCCTGGCTCCATGGGCGATGCATAGCATATACTGTTTTATAGGGAGTAGAAAGAGTGAGCGAAACTATGCTTACTTCCTGATATTCCCTTTTCTGCTGCTGAGGATGCTTCATGACCAGATTTGGATTTCTCTTTCACGTTACCGAACAGCCAAAAGAAACAACAGGATCGTTGACAAGGCCATCGAATTCGACCAAGTTGACAGAGAAAGAGATTGGGATGACCAGATCGTGTTCAATGGACTGATATTCTATATAGTCCGCATGCTAATTCCTCCAAGTTATTCAAACCTGCCTCTCTGGAGAAGCGATGGTGTGATTCTTACGATTCTGATGCATATGGGTCCAGTAGAGTTTCTCTATTACTGGTTCCACAGAGCACTGCACCACCATTACCTCTACTCTCGCTACCATTCTCATCACCATTCTTCAATTGTCACAGAGCCCATTACTTCTGTGATTCATCCATTCGCCGAACACATTGTGTATTTCTTGCTCTTCGCAATACCACTGGGCACGACAGTGGTCCTCAAAAATGCTTCCATAGCATCTTTTGTTGGTTACATCATATACGTCGACTTCATGAACAACATGGGCCACTGTAACTTCGAGTTTGTCCCTATGTGGCTCTTCACCGTCTTTCCCCCTCTCAAGTTTCTTATGTATACGCCCTCGTATCACTCGCTGCACCACACTCAATTTCGGACCAACTACTCGCTATTTATGCCAATTTATGACTACATATACGGTACAATAGACAGAAGTTCAGATTCAGTGTACGAAAAATCACTAAAAAGATCAGGTGAAGAAGAAGAAGAATCAGCTGACGATGTGGACGTGGTACATCTAACGCATCTAACGACGCCGGAATCAATTTATCATCTGCGGATAGGATTTGCCTCCTTGGCATCAAAGCCCCATCGCTATACCTATACATTATCACAGTGGTATCTACAGCTGTTGTGGCCTTTCACAGCTTCTTGTTCTGTCCTTGTGAGTTGGATCTATGGCCGGACTTTTGTTTCAGAGAGCAACACTTTGGACAAACTCAAATTGCAAACCTGGGTGGTACCGAGGTACATTGTGCAATATAACTTGCCATGGAGAAGAGAAGCTATTAATAGCTTGATAGAAGAAGCCATATTAGAAGCAGATGCGAAAGGGGTAAAAGTTATAAGTCTAGGGCTTCTGAATCAGGGAGAGGAGCTTAACAGAAACGGAGAGATATACCTGGAAAGACACCCTAATAAGCTAAAAATCAAAGTGGTGGACGGAAGTAGCTTGGCAGCGGCGGTTGTGGTGAACAGCTTACCAAAAGCCACAGCCCACGTGCTTCTTAGAGGCACTGTTACCGCCAATAAGGTCGCTAACGCAGTTGCCTCATCTCTATGCCAAATGGGCATCAAGGTAGCCACGTTATGCAAGGACGATTATGAGAAGCTTAAGCTCAGGATCCCTGTGGAGGCTCAACATAATTTGGTCCTGTCAACAAGTTACGCTCACAGCACGATTTGGTTAGTGGGAGGCAATTTGACAGGAAAGGAACAAGGAAGGGCACCAAAAGGCACAATATTCATTCCGTATACACAGATACCACCAAGGAAATTGCGGAAAGATTGCTTCTACCATTCGACTCCAGCAATGATAATTCCTCCCTCTTTAAATAACATGCATTCCTGTGAGAACTGGCTGGGAAGGAGGGTGATGAGTGCTTGGCGTATAGCTGGAATAATACATGCGTTGGAGGGATGGGATTTGAACGAGTGTGGGCAAACTATGTGCGACATCCACCAAGTTTGGCATGCCTCTCTCCGCCATGGATTCCGCCCTCTTTTCCATGTTGCTTGA</span><br><span class="line"></span><br><span class="line">&gt;Pt3g041210.1.cds</span><br><span class="line">ATGGCTTCGAAACCTGGATTTCTCACTGATTGGCCATGGACGCCTCTTGGAAACTTCAAGTACGTAGTATTGGCTCCTTGGATAATTCACAGCACGTACTCATTCATCGTAAAGGATGAGAAGGAGAGGGAGCTAGCCTACTTTATGATATTCCCATTGATGTTATGGAGAATGCTTCACAACCAGATATGGATCAGCTTTTCCCGTTACCGAACAGCCAAAGGCAGTAACAGAATCGTCGACAAGGCTATTGAATTCGAGCAAGTTGATAGAGAAAGAAATTGGGATGACCAAATAATATTCAACGGGATCCTGTTTTACGTATTCGTTAAAATAATTCCAGGCGCATCTCAAATGCCCATTTGGAGATTCGACGGTTTGATTCTCATAGCACTGCTGCATGCTGGTCCGGTGGAGTTCCTCTACTACTGGCTTCACAGAGCACTCCATCATCATTACCTTTACTCTCGCTACCATTCCCACCACCATTCCTCCATCGTCACTGAACCTATCACTTCTGTGATTCATCCATTTGCAGAGCACATAGCGTACTTCGCACTATTTGCAATACCATTGATTACACCATTGCTGAGTGGGATGGGCTCAATAGCATCCATATTCGGTTACCTCACTTACATAGATTTGATGAACAACATGGGTCACTGCAATTTCGAACTCATGCCCAGCTGCCTTCTCACCAACTTTCCTCCTCTCAAGTACCTCGTGTACACCGCGTCGTTCCACTCACTGCATCACACGCAATTCCGGACCAATTATTCGTTATTTATGCCCGTATACGATTACATATATGGCACCGTGGACAAAACTTCGGATGCATTATATGAAACTAGTCTAAAGAGACAGGAAGACTCGCCCGATGTTGTGCATCTCACGCACCTAACAACACCTGAATCAATCTACCATATGCGACTTGGTTTTGCCTCCATGGCGTCTAAGCCCCATGATCACCATACATCATCAAAGTGGTATATGTGGTTAATGTGGCCTGTCACAGTATGGTCCATGATGTTCACTTGGATTTATGGTCGTACCTTTGTGGTTGAGAGGAATCACCTTAATAAATTCAAACTACAGACTTGGGCAATTCCCAGATACAACTTTCAATATTTGTTGCTGCGGCAAAATGAATCGATCAATAGGTTGATTGAAGAAGCCATACTAGAAGCTGAGGAAAAAGGAGCTAAAGTGATAAGTCTAGGTCTCATGAATCAAGGAGAGGAGCTTAACTGTTATGGTGGGGTATTCGTGCACAAGCATCCTCAGCTTAAAATAAAGGTAGTGGACGGGAGTAGCTTAGCAGTAGCAGTAGTGATAAACAGCATACCAAAGGGAACAACACAAGTGGTCCTTAGAGGCGCTCTCACAAAGGTCGCTTATGCCATTGCCTTTGCCTTATGCCAAAAGGGCATCCAGGTTGTAACATTACGTGAGGATGAGCACGAGAAGCTTAGAAAATCGTTTGGGGCCAAATCTGAATGTAATAATTTGCTTCTCTCGAGAAGCTACTCCCAAAAGATATGGTTGGTGGGAAAAGGGCTGACTGAAGAAGAACAATCCAAGGCTAAAAAGGGAACAACCTTCATTCCTTTCTCACAGTTTCCACCAAACGATAAGAAAATACGTAAAGACTGTATGTACCATCTCACACCAGCAATGGCCGTTCCTGCTGATTTTGAGAATGTGGACTCGTGCGAGAATTGGTTGCCAAGAAGAGTGATGAGTGCATGGCGAATTGGGGGAATAGTGCATGCCTTGGAAGGATGGAACGAACACGAGTGTGGTTACGCCATCTCCAACATTCACAATGTTTGGGAAGCTGCTCTTCGACATGGCTTTCACCCTCTGACCGCTACCATTCTTACTCAATCCTATCCTATCTAG</span><br><span class="line"></span><br><span class="line">&gt;PtUn030220.1.cds</span><br><span class="line">ATGGCTTCGAAACCAGGAATTCTCACTGATTGGCCATGGACACCCCTTGGAAACTTTAAGTACGTAGTATTGGCTCCGTGGATCATCCACAGCACGTATTCATTCATGGTTAAGGATGAAAAGGAGAGGGACCTACTCAACTTTCTCATATTCCCGTTTCTATTATGGAGAATGCTTCACAACCAGATATGGATCAGCCTTTCCCGTTACCGAACAGCCAAAGGCCGTAACAGGATCGTCGACAAGCCTATTGAATTCGAGCAAGTCGACAGAGAGAGAAATTGGGACGACCAAATAATATTGAGTGGAATATTGTTTTACGTTGTTTTCGGCAAAATGCTTCCAGGCGGAACTCAGTTGCCCATTTGGAGATTAGATGGTGTAATTCTCATGGCACTTCTGCATGCTGGTCCGGTGGAGTTCGTCTACTACTGGCTTCACAGAGCACTCCATCATCATTACCTTTACTCTCGCTATCACTCCCATCACCATTCCTCTATCGTCACTGAACCTATCACTTCTGTTACTCATCCATTTGCTGAGCACATAGCATATTTCGTTCTATTTGCAACACCATTGATTACAACAGTGCTGACTGGGGCCGGGTCAATAATACTTGCCTTCGGCTACATCACTTACATAGACTTAATGAATAACATGGGTCACTGCAATTTCGAGCTCATACCTAAATGGCTTTTCACCATTTTTCCTCCTCTCAAGTACCTCATGTACACCCCTTCGTACCACTCACTGCATCATACGCAGTTCCGGGCGAATTACTCGTTATTCATGCCTTTATACGATTACTTATTCAGTACTGTCGACAAAACTTCGGATACATTATATGAAACCAGTCTCAAGAAACAGGATGATTCACTGGATGTTGTTTACCTCACACACCTGACAACGCCTGAATCAATCTATCATATGCGGCTTGGTTTGGCCTCATTGGCTTCTAAGCCCCATCACCATGCATCATCAGAGTGGTATAAGTGGTTGCTGTGGCCTGTCACGTTATTGTCAATGATGATCACTTGGATTTACGGCCGTACCTTTGTGGTTGAAAGGAATCGCCTTAATAAATTAAAACTACAGACTTGGGCGATATCCAAATACAATATGCAATACTTCTCGCAGCGGCAAAATGAATCGATCAATCGCTTGATTGAAGAAGCCATACTAGAAGCTGAGGAGAAAGGAGCCAGGGTGATAAGTCTAGGTCTCTTGAATCAAGGAGAGGAGCTTAACCGGTACGGTGGGCTCTTCGTGCACAAGAATCCTCAGCTTAAAATAAAGGTCGTGGATGGGAGTAGCTTAGCGGTGGCAGTACTAATAAACAGCATACCCGACGGAACAACCCAAGTGGTCATTAGAGGCATTCTCACTAAGGTTGCTTATGCCACTGCCTTTGCCTTATGCCAAAAGGGAATTCAGGTAGTAACTTTACGTGAGGATGAGCATGAGAAGCTTATTAGATCATTTGGGGGCAAATCTGAAAGTAAGAACTTGCTTGTTTCAAGGAGCTACTGCCAAAAGATATGGTTGGTGGGAAATGGACTGACTGAAGAAGAACAATCCAAGGCAGAAAGAGGAACAATTTTCGTTCCTTTCTCACAGTTCCCACCGGCGAAGAAAAGACGTAAAGACTGTACCTACCACCTCACACCAGCGATGGCCACTCCTGCTACTCTTGAGAATGTCGACGCCTGTGAGAATTGGTTACCAAGAAGGGTGATGAGTGCGTGGAGAATTGGGGGGATAGTGCATGCCTTGGAAGGATGGAATGAACACGAGTGTGGTTACACCATTTCCAACGTTGACACCGTCTGGGACGCTGCTCTTCGACATGGCTTTCTGCCTCTCACCATTCCAACTCAATCTTAA</span><br><span class="line"></span><br><span class="line">&gt;Pt6g016380.1.cds</span><br><span class="line">ATGGCTTCGAAACCAGGAATTCTCACTGATTGGCCATGGACACCCCTTGGAAACTTTAAGTACATAGTATTGGCTCCTTGGATCATCCACAGCACGTATTCATTCATGGTTAAGGATGAAAAGGAGAGGGACCTACTCAACTTTCTCATATTCCCGTTTCTATTATGGAGAATGCTTCACAACCAGATATGGATCAGCCTTTCCCGTTACCGAACAGCCAAAGGCCGTAACAGGATCGTCGACAAGCATATTGAATTCGAGCAAGTTGACAGAGAGAGAAATTGGGATGACCAAATAATATTGAGTGGGATATTGTTTTACATTATTTTCCGCAAAATGCTTCCAGGCAGAACTCAGTTGCCCATTTGGAGATTAGACGGTGTGATTCTCATGGCACTTCTGCATGCTGGTCCAGTGGAGTTCGTCTACTACTGGCTTCACAGAGCACTCCATCATCATTACCTTTACTCTCGTTATCACTCCCGTCACCATTCCTCAATCGTCACTGAACCTATCACTTCTGTTACTCATCCATTTGCTGAGCACATAGCATATTTCGTTCTATTTGCAACACCATTGATTACAACAGTGCTGACTGGGGCCGGGTCAATAGTACTTGCCTTCGGCTACATCACTTACATAGACTTAATGAATAACATGGGTCACTGCAATTTCGAGCTCATACCTAAATGGCTTTTCACCATTTTTCCTCCTCTCAAGTACCTCATGTACACCCCTTCGTTCCACTCACTGCATCATACGCAGTTCCGGGCGAATTACTCGTTATTCATGCCTTTATACGATTACTTATTCAGTACTGTCGACAAAACTTCGGATACATTATATGAAACCAGTCTCAAGAAACAGGAAGATTCACCGGATGTTGTTTACCTCACGCACCTGACAACACCTGAATCAATCTATCATATGCGGCTTGGTTTGGCCTCACTGGCTTCTAAGCCCCATCACCATGCATCATCAGAGTGGTATAAGTGGTTGCCGTGGCCTGTCACGTTATTGTCGATGATGATCACTTGGATTTATGGCCGTACCTTTGTGGTTGAAAGGAATCGCCTTAATAAATTAAAACTACAGACTTGGGCGATATCCAAATACAATATGCAATACTTCTCGCAGCGGCAAAATGAATCGATCAATCGCTTGATTGAAGAAGCCATACTAGAAGCTGAGGAGAAAGGAGCTAGGGTGATAACTCTAGGTCTCTTGAATCAAGGAGAGGAGCTTAACCGGTACGGTGGGCTCTTCGTGCACAAGAATCCTGAGCTTAAAATAAAGGTAGTGAATGGGAGTAGCTTAGCGGTGGCAGTACTGACAAACAGCATACCCGACGGAACAACCCAAGTGAGAGTTTCCATCATCAGCATATGTAACTTCTCCATCTTCAACATCCTTTTCGACACTAGGATTCTCATGATCTTCCGCATCCTCATCATCGATTTCCTCTTCAACAAGGGCAACCACCCTACGATTAGGAAACTCAGAATTGCTTATGTCACTGCCTTTGCCTTATGCCAAAAGGGAATTCAGGTAGTAACTTTACGTGAGGATGAGCATGAGAAGCTTATTAGATCATTTGGAGGCAAATCTGAAAGTAAGAACTTGCTTGTTTCAAGGAGCTACTGCCAAAAGATATGGTTGGTGGGAAATGGACTGACTGAAGAAGAACAATCTAAGGCAGAAAGAGGAACAACGTTCGTTCCTTTCTCACAGTTCCCACCGGCGAAGAAAAGACGTAAAGACTGTACCTACCACCTTACACCAGCGATGGGCACTCCTGCTACTCTTGGGAATGTCGACTCATGTGAGAATTGGTTACCAAGAAGGGTGATGAGTGCGTGGAGAATTGGGGGGATAGTGCATGCCTTGGGAGGATGGAATGAACACGACTGTGGTTACACCATTTCCAACGTTGACACCATCTGGGACGCTGCTTTTCATCATGGCTTTCTACCTCTCACCATTCTAACTCAATCTTAA</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">s = <span class="string">'&gt;Pt1g020530.1.cds.1'</span></span><br><span class="line">pattern = re.compile(<span class="string">r'&gt;.*.cds'</span>)</span><br><span class="line">m = pattern.match(s)</span><br><span class="line">m.group()</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&apos;&gt;Pt1g020530.1.cds&apos;</span><br></pre></td></tr></table></figure>
-
-          
+          jupyter notebook htmltypora 会自动保存
+IP 是否被封 http://ping.chinaz.com/
+端口换成了 444。以后换端口，就445，446这样往上试
+https://www.sinocalife.com/change-ports-to-prevent-ss-
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/04/2019-08-04-小脚本/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -923,50 +1029,20 @@
       
         
           
-            <p>bed：chromStart从0开始</p>
-<p>gff3：chromStart从1开始</p>
-<p><a href="https://cloud.tencent.com/developer/article/1078324" target="_blank" rel="noopener">https://cloud.tencent.com/developer/article/1078324</a></p>
-<p><a href="https://www.plob.org/article/3748.html" target="_blank" rel="noopener">https://www.plob.org/article/3748.html</a></p>
-<p>A.bed</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">chr1	69200	70000	TCGA-3C-AAAU-10A-01D-A41E-01	53225	0.0055</span><br><span class="line">chr1	95676511	95676518	TCGA-3C-AAAU-10A-01D-A41E-01	2	-1.6636</span><br><span class="line">chr1	95680124	167057183	TCGA-3C-AAAU-10A-01D-A41E-01	24886	0.0053</span><br><span class="line">chr1	167057495	167059336	TCGA-3C-AAAU-10A-01D-A41E-01	3	-1.0999</span><br><span class="line">chr1	167059760	181602002	TCGA-3C-AAAU-10A-01D-A41E-01	9213	-8.00E-04</span><br><span class="line">chr1	181603120	181609567	TCGA-3C-AAAU-10A-01D-A41E-01	6	-1.2009</span><br><span class="line">chr1	879511	894690	TCGA-3C-AAAU-10A-01D-A41E-01	12002	0.0055</span><br><span class="line">chr1	201474400	201474544	TCGA-3C-AAAU-10A-01D-A41E-01	2	-1.4235</span><br><span class="line">chr1	201475220	247813706	TCGA-3C-AAAU-10A-01D-A41E-01	29781	-4.00E-04</span><br></pre></td></tr></table></figure>
-<p>B.bed</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">chr1	69091	70008	OR4F5</span><br><span class="line">chr1	367640	368634	OR4F29</span><br><span class="line">chr1	621096	622034	OR4F16</span><br><span class="line">chr1	859308	879961	SAMD11</span><br><span class="line">chr1	879584	894689	NOC2L</span><br><span class="line">chr1	895967	901095	KLHL17</span><br><span class="line">chr1	901877	911245	PLEKHN1</span><br><span class="line">chr1	910584	917473	PERM1</span><br><span class="line">chr1	934342	935552	HES4</span><br><span class="line">chr1	936518	949921	ISG15</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bedtools intersect -a A.bed  -b  B.bed -wa -wb | bedtools groupby -i - -g 1-4 -c 10 -o collapse</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chr1	69200	70000	TCGA-3C-AAAU-10A-01D-A41E-01	OR4F5</span><br><span class="line">chr1	879511	894690	TCGA-3C-AAAU-10A-01D-A41E-01	SAMD11,NOC2L</span><br></pre></td></tr></table></figure>
-<p><strong>需要这样的一个文件</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">chr1	69091	70008	exon</span><br><span class="line">chr1	367640	368634	intron</span><br><span class="line">chr1	621096	622034	promoter</span><br><span class="line">chr1	859308	879961	intergenic</span><br><span class="line">....</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bedtools intersect -a CpG.hyper.bed  -b  csi.bed -wa -wb | bedtools groupby -i - -g 1-4 -c 10 -o collapse &gt; result.bed</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h2><ol>
-<li>用Galaxy 工具 gff-to-bed将gff3 文件转成bed，然后提取前四列</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[qizhengyang@node1 bedtest]$ cat Galaxy3-\[GFF-to-BED_on_data_1\].bed | cut -f1,2,3,4 &gt; csi.bed</span><br><span class="line">[qizhengyang@node1 bedtest]$ head csi.bed</span><br><span class="line">chr4	17943	22804	gene</span><br><span class="line">chr4	17943	22804	mRNA</span><br><span class="line">chr4	17943	18472	five_prime_UTR</span><br><span class="line">chr4	17943	18544	exon</span><br><span class="line">chr4	18472	18544	CDS</span><br><span class="line">chr4	18917	19169	exon</span><br><span class="line">chr4	18917	19169	CDS</span><br><span class="line">chr4	19540	19817	exon</span><br><span class="line">chr4	19540	19817	CDS</span><br><span class="line">chr4	21013	21168	exon</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>处理CpG_regions_myDiff25p.hyper.txt</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">qizhengyang@node1 bedtest]$ cat CpG_regions_myDiff25p.hyper.txt |cut -f1,2,3</span><br><span class="line">chr	start	end</span><br><span class="line">chr1	36001	36100</span><br><span class="line">chr1	101501	101600</span><br><span class="line">chr1	162601	162700</span><br><span class="line">chr1	386101	386200</span><br><span class="line">chr1	425401	425500</span><br><span class="line">chr1	435301	435400</span><br><span class="line">chr1	440601	440700</span><br><span class="line">chr1	440701	440800</span><br><span class="line">chr1	440801	440900</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>用bedtools工具进行注释</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[qizhengyang@node1 bedtest]$ bedtools intersect -a CpG.hyper.bed  -b  csi.bed -wa -wb | bedtools groupby -i - -g 1-3 -c 7 -o collapse &gt; result1.bed</span><br><span class="line">[qizhengyang@node1 bedtest]$ head result1.bed</span><br><span class="line">chr1	386101	386200	gene,mRNA,exon,three_prime_UTR,gene,mRNA,exon,three_prime_UTR,mRNA,exon,three_prime_UTR,mRNA,exon,three_prime_UTR</span><br><span class="line">chr1	501101	501200	gene,mRNA</span><br><span class="line">chr1	501201	501300	gene,mRNA</span><br><span class="line">chr1	501401	501500	gene,mRNA</span><br><span class="line">chr1	691601	691700	gene,mRNA</span><br><span class="line">chr1	723301	723400	gene,mRNA,exon,three_prime_UTR</span><br><span class="line">chr1	736701	736800	gene,mRNA,exon,three_prime_UTR</span><br><span class="line">chr1	758501	758600	gene,mRNA,mRNA,mRNA</span><br><span class="line">chr1	1643701	1643800	exon,three_prime_UTR,gene,mRNA</span><br><span class="line">chr1	2044401	2044500	gene,mRNA,mRNA,mRNA,mRNA</span><br></pre></td></tr></table></figure>
-<h3 id="bedtools-merge"><a href="#bedtools-merge" class="headerlink" title="bedtools merge"></a>bedtools merge</h3><p>案例三：-d 两个独立区域间距小于（等于）该值时将被合并为一个区域；-o collapse显示合并了哪些标签</p>
-<p><a href="https://anjingwd.github.io/AnJingwd.github.io/2017/08/19/bedtools%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E8%AF%A6%E8%A7%A3/" target="_blank" rel="noopener">https://anjingwd.github.io/AnJingwd.github.io/2017/08/19/bedtools%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E8%AF%A6%E8%A7%A3/</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">chr1	36001	36100</span><br><span class="line">chr1	36101	36108</span><br><span class="line">chr1	162601	162700</span><br><span class="line">chr1	386101	386200</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bedtools merge -i test.merge -d 5 -c 1 -o count,collapse</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chr1	36001	36108	2	chr1,chr1</span><br><span class="line">chr1	162601	162700	1	chr1</span><br><span class="line">chr1	386101	386200	1	chr1</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 只处理前三列，不会处理第一行</span><br><span class="line">bedtools merge -i CpG_regions_myDiff25p.hyper.txt -d 5 -c 1 -o count,collapse &gt; CpG.merge.hyper.txt</span><br><span class="line">cat CpG.merge.hyper.txt |cut -f1,2,3 &gt; CpG.merge.hyper.bed</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> -b不需要考虑顺序，-c 7 代表 基因特征的这一列（应该是这个程序会把a、b文件合并）， -g 应该是a文件的列数</span><br><span class="line">bedtools intersect -a CpG.merge.hyper.bed  -b  Galaxy3-[GFF-to-BED_on_data_1].bed -wa -wb | bedtools groupby -i - -g 1-3 -c 10 -o collapse | less</span><br><span class="line"></span><br><span class="line">bedtools intersect -a CpG.merge.hyper.bed  -b  Galaxy4-\[GFF-to-BED_on_data_3\].bed -wa -wb | bedtools groupby -i - -g 1-3 -c 7 -o collapse &gt; result3.bed</span><br></pre></td></tr></table></figure>
-<p>CpG_regions_myDiff25p.hyper.txt</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">chr     start   end     strand  pvalue  qvalue  meth.diff</span><br><span class="line">chr1    36001   36100   *       7.64041300115147e-07    2.95924501404506e-05    26.027397260274</span><br><span class="line">chr1    101501  101600  *       7.9298876929699e-11     7.72182883208429e-09    33.7349397590361</span><br><span class="line">chr1    162601  162700  *       4.35900104458979e-16    1.09149763553095e-13    46.6709760827408</span><br><span class="line">chr1    386101  386200  *       1.168443361622e-08      7.19208543362641e-07    37.7489177489177</span><br><span class="line">chr1    425401  425500  *       6.76995294656392e-07    2.66176753139068e-05    39.3233082706767</span><br></pre></td></tr></table></figure>
-<p>Galaxy3-[GFF-to-BED_on_data_1].bed</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">chr4    17943   22804   gene    0       +</span><br><span class="line">chr4    17943   22804   mRNA    0       +</span><br><span class="line">chr4    17943   18472   five_prime_UTR  0       +</span><br><span class="line">chr4    17943   18544   exon    0       +</span><br><span class="line">chr4    18472   18544   CDS     0       +</span><br><span class="line">chr4    18917   19169   exon    0       +</span><br><span class="line">chr4    18917   19169   CDS     0       +</span><br><span class="line">chr4    19540   19817   exon    0       +</span><br><span class="line">chr4    19540   19817   CDS     0       +</span><br><span class="line">chr4    21013   21168   exon    0       +</span><br><span class="line">chr4    21013   21168   CDS     0       +</span><br><span class="line">chr4    22041   22804   exon    0       +</span><br><span class="line">chr4    22041   22182   CDS     0       +</span><br><span class="line">chr4    22182   22804   three_prime_UTR 0       +</span><br><span class="line">chr4    17943   22804   mRNA    0       +</span><br><span class="line">chr4    17943   18472   five_prime_UTR  0       +</span><br><span class="line">chr4    17943   18544   exon    0       +</span><br></pre></td></tr></table></figure>
-<hr>
-<p>流程：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">bedtools merge -i CpG_regions_myDiff25p.hyper.txt -d 5 -c 1 -o count,collapse &gt; CpG.merge.hyper.txt</span><br><span class="line"></span><br><span class="line"># 可以用CpG.merge.hyper.txt这个merge之后的文件，-c 9</span><br><span class="line">bedtools intersect -a CpG.merge.hyper.txt  -b  Galaxy4-\[GFF-to-BED_on_data_3\].bed -wa -wb | bedtools groupby -i - -g 1-3 -c 9 -o collapse | less</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">dos2unix csi.promoter.txt</span><br><span class="line">cut csi.promoter.txt -f1,3,4 &gt; csi.promoter.bed</span><br><span class="line">sed -i &apos;s/$/\tpromoter/g&apos; csi.promoter.bed</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cut Galaxy4-\[GFF-to-BED_on_data_3\].bed -f1,2,3,4 &gt; te.bed</span><br><span class="line"></span><br><span class="line"># -v OFS 指定输出分隔符</span><br><span class="line">cat Galaxy3-\[GFF-to-BED_on_data_1\].bed | awk -F&quot;\t&quot; -v OFS=&quot;\t&quot; &apos;$4==&quot;gene&quot;&#123;print $1,$2,$3,$4&#125;&apos; &gt; gene.bed</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cat te.bed gene.bed csi.promoter.bed &gt; csi.merge.bed</span><br><span class="line"></span><br><span class="line">bedtools intersect -a CpG.merge.hyper.txt  -b  csi.merge.bed -wa -wb | bedtools groupby -i - -g 1-3 -c 9 -o collapse &gt; CpG.annotation.txt</span><br></pre></td></tr></table></figure>
-<p>然后写python脚本清理信息</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">'DMR_annotation.txt'</span>,<span class="string">'w'</span>) <span class="keyword">as</span> a:</span><br><span class="line">    <span class="keyword">with</span> open(<span class="string">'CpG.annotation.txt'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f:</span><br><span class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">            line = line.strip().split()</span><br><span class="line">            <span class="keyword">if</span> <span class="string">'promoter'</span> <span class="keyword">in</span> line[<span class="number">3</span>]:</span><br><span class="line">                line = <span class="string">'\t'</span>.join(line[<span class="number">0</span>:<span class="number">3</span>]) + <span class="string">'\t'</span> + <span class="string">'promoter'</span> + <span class="string">'\n'</span></span><br><span class="line">            <span class="keyword">elif</span> <span class="string">'gene'</span> <span class="keyword">in</span> line[<span class="number">3</span>]:</span><br><span class="line">                line = <span class="string">'\t'</span>.join(line[<span class="number">0</span>:<span class="number">3</span>]) + <span class="string">'\t'</span> + <span class="string">'gene'</span> + <span class="string">'\n'</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                line = <span class="string">'\t'</span>.join(line[<span class="number">0</span>:<span class="number">3</span>]) + <span class="string">'\t'</span> + <span class="string">'TE'</span> + <span class="string">'\n'</span></span><br><span class="line">            print(line)</span><br><span class="line">            a.write(line)</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">chr1	36001	36100	TE</span><br><span class="line"></span><br><span class="line">chr1	101501	101600	promoter</span><br><span class="line"></span><br><span class="line">chr1	162601	162700	TE</span><br><span class="line"></span><br><span class="line">chr1	386101	386200	gene</span><br><span class="line"></span><br><span class="line">chr1	435301	435400	TE</span><br><span class="line"></span><br><span class="line">chr1	440601	440900	TE</span><br></pre></td></tr></table></figure>
-
-          
+          bed：chromStart从0开始
+gff3：chromStart从1开始
+https://cloud.tencent.com/developer/article/1078324
+https://www.plob.org/article/3748.html
+A.bed
+123456789chr1	
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/20/DMR注释/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1134,35 +1210,17 @@
       
         
           
-            <p><strong>安装的原因</strong></p>
-<p><a href="https://galaxyproject.github.io/training-material/topics/epigenetics/tutorials/methylation-seq/tutorial.html" target="_blank" rel="noopener">https://galaxyproject.github.io/training-material/topics/epigenetics/tutorials/methylation-seq/tutorial.html</a> </p>
-<p>安装最新的版本，第一次 sh run.sh出错。运行第二次，可以了。</p>
-<p><strong>centos7 本地化galaxy 要关闭防火墙</strong></p>
-<p><a href="https://www.cnblogs.com/moxiaoan/p/5683743.html" target="_blank" rel="noopener">https://www.cnblogs.com/moxiaoan/p/5683743.html</a></p>
-<p>服务器上localhost:8080，还是10.164.10.186:8080都能访问。我一开始想的是web服务器的问题。</p>
-<p>移除http服务，在自己电脑上访问不了Jbrowse(10.174.10.186)，服务器上能正常访问。所以想到了可能是防火墙的问题</p>
-<p><img src="/images/1552923854593.png" alt="1552923854593"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 调试 kill</span><br><span class="line">ps -ef |grep uwsgi</span><br><span class="line">kill &lt;第二列&gt;</span><br></pre></td></tr></table></figure>
-<p><a href="https://docs.galaxyproject.org/en/master/admin/framework_dependencies.html#conda" target="_blank" rel="noopener">https://docs.galaxyproject.org/en/master/admin/framework_dependencies.html#conda</a></p>
-<blockquote>
-<p><a href="https://conda.io/" target="_blank" rel="noopener">Conda</a> and <a href="https://packaging.python.org/tutorials/installing-packages/#creating-virtual-environments" target="_blank" rel="noopener">virtualenv</a> are incompatible, unless an adapted virtualenv_ from the conda-forge_ channel is used. Galaxy can create a virtualenv using the adapted virtualenv package. Once a valid <code>.venv</code>environment exists it will be used.</p>
-</blockquote>
-<p><a href="https://galaxyproject.github.io/training-material/topics/introduction/slides/introduction.html#2" target="_blank" rel="noopener">https://galaxyproject.github.io/training-material/topics/introduction/slides/introduction.html#2</a></p>
-<p><a href="https://galaxyproject.org/admin/get-galaxy/" target="_blank" rel="noopener">https://galaxyproject.org/admin/get-galaxy/</a></p>
-<p><a href="https://github.com/galaxyproject/galaxy" target="_blank" rel="noopener">https://github.com/galaxyproject/galaxy</a></p>
-<p><a href="https://docs.galaxyproject.org/en/release_19.01/admin/config.html" target="_blank" rel="noopener">https://docs.galaxyproject.org/en/release_19.01/admin/config.html</a></p>
-<p><a href="https://www.jianshu.com/p/a1f297eb4859" target="_blank" rel="noopener">https://www.jianshu.com/p/a1f297eb4859</a></p>
-<hr>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep uwsgi</span><br><span class="line">nohup sh run.sh &amp;&gt; run.log </span><br><span class="line"><span class="meta">#</span># 不是永久的</span><br><span class="line"><span class="meta">#</span> systemctl stop firewalld </span><br><span class="line">firewall-cmd --zone=public --add-port=8080/tcp --permanent </span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
-<p>即使我把程序放到后台，但只要我关掉终端，网页就打不开</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup sh ~/software/galaxy/run.sh &amp;&gt; run.log &amp;</span><br></pre></td></tr></table></figure>
-<p>下次用的时候</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh ~/software/galaxy/run.sh</span><br></pre></td></tr></table></figure>
-<p>用法类似于 jypyter notebook</p>
-<p>2019-3-27 23:50:53：exit退出终端没有问题</p>
-<p><img src="/images/1553701899477.png" alt="1553701899477"></p>
-
-          
+          安装的原因
+https://galaxyproject.github.io/training-material/topics/epigenetics/tutorials/methylation-seq/tutorial.html 
+安装最新的版本，第一次 sh run.sh出错。运行第二次，可以了。
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/18/2019-3-18-本地化galaxy/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1300,17 +1358,21 @@
       
         
           
-            <p>以后每周整理一次一些技术上的内容。<br>dplyr包的使用<br>用于整理数据<br>用到的函数：</p>
-<ol>
-<li>mutate()</li>
-<li>select()</li>
-<li>gather() 将宽数据格式变为长数据格</li>
-</ol>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 处理CpG region 文件</span></span><br><span class="line"><span class="keyword">library</span>(dplyr)</span><br><span class="line"><span class="keyword">library</span>(tidyr)</span><br><span class="line">setwd(<span class="string">"C:/Users/Administrator/Desktop/"</span>)</span><br><span class="line">df&lt;-read.table(<span class="string">"CpG_regions.txt"</span>,header = <span class="literal">T</span>)</span><br><span class="line">df1 &lt;- df %&gt;%</span><br><span class="line">	mutate(W = (numCs1 + numCs2 + numCs3 + numCs4) / (coverage1 + coverage2 + coverage3 + coverage4),</span><br><span class="line">		S = (numCs5 + numCs6 + numCs7 + numCs8) / (coverage5 + coverage6 + coverage7 + coverage8)) %&gt;%</span><br><span class="line">	select(-(strand:numTs8))</span><br><span class="line">df1_long &lt;- gather(df1,samples,level,W:S)</span><br><span class="line">ggplot(df1_long, aes(samples,level))+geom_violin(aes(color=samples))+geom_boxplot(width=<span class="number">0.2</span>,aes(color=samples))</span><br><span class="line"></span><br><span class="line">write.csv(df1,<span class="string">"cpg.csv"</span>,row.names = <span class="literal">F</span>, quote=<span class="literal">F</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 用配对双尾t检验检测是否有差异</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># gather</span></span><br><span class="line"><span class="comment"># https://www.cnblogs.com/shangfr/p/6110614.html</span></span><br></pre></td></tr></table></figure>
-<p>clusterProfiler使用</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">setwd(<span class="string">"C:/Users/Administrator/Desktop/"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">library</span>(org.Atair10.eg.db)</span><br><span class="line"><span class="keyword">library</span>(clusterProfiler)</span><br><span class="line">DEG_GENES&lt;-read.table(<span class="string">"up_yin.txt"</span>,header = <span class="literal">T</span>)</span><br><span class="line">DEG_GENES&lt;-as.character(DEG_GENES[,<span class="number">1</span>])</span><br><span class="line">org &lt;- org.Atair10.eg.db</span><br><span class="line"><span class="comment"># OrgDb要改，keyType改成"GID"</span></span><br><span class="line">ego_up &lt;-enrichGO(gene = DEG_GENES, </span><br><span class="line">                    OrgDb = org,</span><br><span class="line">                    keyType = <span class="string">"GID"</span>,</span><br><span class="line">                    ont = <span class="string">"BP"</span></span><br><span class="line">) </span><br><span class="line">dotplot(ego_up, showCategory=<span class="number">20</span>)</span><br><span class="line">write.csv(ego_up, <span class="string">"ego_up.csv"</span>, row.names = <span class="literal">F</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这个结果和原来的一样，organism http://www.genome.jp/kegg/catalog/org_list.html</span></span><br><span class="line">kegg_up = enrichKEGG(DEG_GENES, organism=<span class="string">"ath"</span>, pvalueCutoff=<span class="number">.1</span>)</span><br><span class="line">write.csv(kegg_up,<span class="string">"kegg_up.csv"</span>,row.names = <span class="literal">F</span>)</span><br></pre></td></tr></table></figure>
+          以后每周整理一次一些技术上的内容。dplyr包的使用用于整理数据用到的函数：
 
-          
+mutate()
+select()
+gather() 将宽数据格式变为长数据格
+
+123456789101112131415161718# 处理CpG region 文件library(dplyr)library(tid
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/17/2019-3-17-dplyr的使用以及clusterProfiler使用/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1448,25 +1510,24 @@
       
         
           
-            <h4 id="表达方式，应当「SHOULD」遵循《The-Element-of-Style》："><a href="#表达方式，应当「SHOULD」遵循《The-Element-of-Style》：" class="headerlink" title="表达方式，应当「SHOULD」遵循《The Element of Style》："></a>表达方式，应当「SHOULD」遵循《The Element of Style》：</h4><ul>
-<li>使段落成为文章的单元：一个段落只表达一个主题</li>
-<li>通常在每一段落开始要点题，在段落结尾要扣题</li>
-<li>使用主动语态</li>
-<li>陈述句中使用肯定说法</li>
-<li>删除不必要的词</li>
-<li>避免连续使用松散的句子</li>
-<li>使用相同的结构表达并列的意思</li>
-<li>将相关的词放在一起</li>
-<li>在总结中，要用同一种时态（这里指英文中的时态，中文不适用，所以可以不理会）</li>
-<li>将强调的词放在句末</li>
-</ul>
-<p><a href="https://github.com/fex-team/styleguide/blob/master/markdown.md" target="_blank" rel="noopener">https://github.com/fex-team/styleguide/blob/master/markdown.md</a></p>
-<h4 id="看文献的方法："><a href="#看文献的方法：" class="headerlink" title="看文献的方法："></a>看文献的方法：</h4><p>下面我想说，希望你们养成这样一个习惯，每周阅读CNS，你们知道CNS是什么意思，有人说是中枢神经系统（课堂上引起哄笑）。CNS是Cell、Nature、Science，CNS每周出一期，<strong>要养成一个习惯浏览一下目录</strong>。我经常会问自己，为什么这篇文章会发在CNS上，如果能坚持一个学期下来，你必定会有很大的收获。我这个习惯是在读研究生是养成的，<strong>每周我与几位同学一起网上浏览</strong>，这周CNS上发表了哪些文章，当然很多东西你不懂，偶尔一个东西你懂，你就会问它为什么可以发表在Nature、Science上，久而久之，你就养成两个习惯，<strong>一个是批判精神</strong>，很多已经发表在Nature、Science上的文章都有漏洞，所以要学会批判。过去我念书的时候，老师讲要是能找到论文的错误就及格了。有一次生化考试，内容是对一篇发表在Scientific American杂志上的一篇文章找错误，Scientific American的杂志往往是一个非常成熟的工作，一位非常有名的科学家写在这个杂志上的文章，我们的考试是对发表在这个杂志上的一篇综述找错，这篇文章写错了，叫大家找。结果大家傻了，这有名的大杂志怎么会有错误，所以就是要有批判精神。另一种你要养成<strong>欣赏别人做的好的工作</strong>，如到音乐厅去听音乐或到展览馆去欣赏艺术作品一样。其实做科学是很有趣的，政府出钱给你玩，你如同每天在听音乐，每天在看电影一样，哪有什么不开心的。</p>
-<p>在座的各位都是研究生，通过这堂课，要逐渐地培养自己对科学的欣赏能力。现在谈一谈怎样阅读科学文章。有谁能告诉我，你们是怎么读文章的（课堂上，有的说，先读题目和摘要；有的说先看材料和方法，再看结果；有的说先看结果），我在读研究生一年级的时候，一周上两堂分子生物学、两堂生化课。老师在每次讲课时都给我们开一个十几篇文章的目录，这些文章并不是短文章，每堂课前，我们先把文章拷贝好，然后用荧光笔把重要的内容画好。给我们上课的教授，教我们一个办法，是哈佛大学Walter Gilbert发明的，Gilbert因发明DNA序列测试法，得过诺贝尔奖。他在给本科生讲课时说，你们是怎样读Paper的，会读Paper是你一辈子受用的事情，这个Paper不能够先看序言、方法，然后结果，既花时间又给它牵着鼻子走，这是很可怕的。写文章的人就是要牵着你的鼻子看他的文章，让你去相信他写的东西，但你先不要去相信他，拿到文章后，<strong>先看题目、摘要，然后就去看图1</strong>，因为结果都在图里，不要借助任何帮助的情况下，先给图1下一个你自己的结论，然后再看图2，也下个结论，等到你把几个图都看完以后，在下个结论，然后去看文章，结果会发现你的结论经常与作者的结论不一样，两个不一样的结论，<strong>那总有一个是错的</strong>，这时再去看文章，是你的错，还是他的错，也许你没有看清楚，那是你的错，也许是他的解释错。这样的话，你的收获是很大的，而且速度也很快，不会被他牵着鼻子走。我评审文章一般不看讨论，因为有误导现象，专门领着你去上他的圈套，所以看Paper，首先了解他要探讨怎样一个问题，这是一个大框架，以及问题的重要性，假如是个吹毛求疵的小问题，Who cares。然后用实验的方法能否回答这个问题，如一个分子在细胞里是怎么动的，用光学显微镜是没法看的，这肯定是胡说八道。一篇文章一定有它的闪光的思想，如在一篇文章中有出人意料的新观点，而且新观点是否有实验结果来支持，如果实验结果没有支持新的观点，那样的文章要被拒绝。但是很多这样的文章也照样发表，所以你自己不一定要相信作者的观点，自己要有自己的想法。</p>
-<p>我在斯坦福大学有位熟人，我知道我的很多文章在他手里败下阵来。我问他，你是怎样审文章的，他告诉我，他评审有一个基本原则，文章到手，<strong>第一反应是拒绝</strong>，然后再到文章中去找，找到足够的证据来改变我的拒绝，我才考虑去接受，所以你的实验结果一定要用多种方法、从多种角度，反反复复来证明。这是对得起别人，也对得起你自己。不要过两天人家认为你的文章是错的，你会没面子的，所以结果一定要非常可靠。</p>
-<p>—— 来自微信</p>
-
-          
+          表达方式，应当「SHOULD」遵循《The Element of Style》：
+使段落成为文章的单元：一个段落只表达一个主题
+通常在每一段落开始要点题，在段落结尾要扣题
+使用主动语态
+陈述句中使用肯定说法
+删除不必要的词
+避免连续使用松散的句子
+使用相同的结构表达并列的意思
+将相关的词放在一起
+在
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/17/如何发表论文/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1616,14 +1677,21 @@
       
         
           
-            <ul>
-<li>第一天日期不对，”plant”莫名其妙变成”pant”</li>
-<li>第二天干吗在后面加了个“博士”，人家只是在读博士</li>
-<li>要跟审核的人讲清楚改了哪些地方</li>
-</ul>
-<p><img src="/images/jc250.png" alt=""></p>
+          
+第一天日期不对，”plant”莫名其妙变成”pant”
+第二天干吗在后面加了个“博士”，人家只是在读博士
+要跟审核的人讲清楚改了哪些地方
+
+
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/11/2019-3-11-做海报也不容易/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1773,241 +1841,18 @@
       
         
           
-            <p>Jbrowse：diagnostic message object response error</p>
-<p><strong>这种错误应该就是bam文件没有排序，或者没有建立索引。</strong></p>
-<p><strong>貌似samtools sort 输出文件不能和输入文件一样，不然就没排序？</strong>这导致了后面的麻烦</p>
-<p>2019-3-5 23:45:23：排完序之后会有输出   xx merge</p>
-<p>受了下面内容的影响，以为是web 服务器问题</p>
-<blockquote>
-<h2 id="Apache-Configuration-Note"><a href="#Apache-Configuration-Note" class="headerlink" title="Apache Configuration Note"></a><a href="http://gmod.org/wiki/JBrowse_Configuration_Guide#Example_BAM_Alignments2_track_configuration" target="_blank" rel="noopener">Apache Configuration Note</a></h2><p>If you are using the Apache web server, please be aware that the module <code>mime_magic</code> can cause BAM files to be served incorrectly. Usually, the error in the web developer console will be something like “Not a BAM file”. Some packaged versions of Apache, particularly on Red Hat or CentOS-based systems, are configured with this module turned on by default. We recommend you deactivate this Apache module for the server or directory used to serve JBrowse files. If you do not want to deactivate this module for the entire server, try adding this line to your HTTPD config or .htaccess file:</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AddType application/octet-stream .bam .bami .bai</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 停止、开启服务，</span><br><span class="line">systemctl stop  nginx.service</span><br><span class="line">systemctl start  httpd.service</span><br><span class="line">netstat -ntpl</span><br><span class="line"></span><br><span class="line">/usr/bin/perl ../bin/add-bam-track.pl --label jhhbam --bam_url jhh.bam --in trackList.json</span><br></pre></td></tr></table></figure>
-<p><a href="http://10.164.6.4/JBrowse-1.16.3" target="_blank" rel="noopener">http://10.164.6.4/JBrowse-1.16.3</a></p>
-<h2 id="正确的操作"><a href="#正确的操作" class="headerlink" title="正确的操作"></a>正确的操作</h2><p><a href="http://gmod.org/wiki/JBrowse_FAQ#How_do_I_set_up_a_BAM_file.3F" target="_blank" rel="noopener">How do I set up a BAM file?</a>有bam、bigwig的perl脚本生成json格式的配置文件</p>
-<p>When you set up a BAM file in jbrowse, the best way to do it is as follows</p>
-<ol>
-<li>Put the BAM file and the BAM index (.bai) in your data directory (e.g. you downloaded jbrowse, and your did prepare-refseqs.pl, which created a data subfolder. Put your BAM file in there)</li>
-<li>Then use add-bam-track.pl like this: add-bam-track.pl –label mybam –bam_url mybam.bam –in data/trackList.json</li>
-<li>This will only create a simple section of configuration in your data directory’s trackList.json for the BAM file that will look like</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   &quot;storeClass&quot; : &quot;JBrowse/Store/SeqFeature/BAM&quot;,</span><br><span class="line">   &quot;urlTemplate&quot; : &quot;mybam.bam&quot;,</span><br><span class="line">   &quot;label&quot; : &quot;mybam&quot;,</span><br><span class="line">   &quot;type&quot; : &quot;JBrowse/View/Track/Alignments2&quot;,</span><br><span class="line">   &quot;key&quot; : &quot;mybam&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>This basically just instructs JBrowse to fetch “mybam.bam” using the class that understands BAM data, “JBrowse/Store/SeqFeature/BAM”, and display it with the “Alignments2” tracktype. If this does not work please post to github or <a href="mailto:gmod-ajax@lists.sourceforge.net" target="_blank" rel="noopener">gmod-ajax@lists.sourceforge.net</a></p>
-<p>Other notes</p>
-<ul>
-<li>Don’t use bam-to-json.pl, it is old and converting your probably humongous next-gen-sequencing BAM into text json is unwieldy</li>
-<li>Your bam index should just be named the same as your BAM with .bai on the end</li>
-<li>The add-bam-track.pl does NOT copy the bam to your data directory for you, you put it there yourself, and specify the –bam_url appropriately</li>
-<li>baiUrlTemplate is unnecessary if your bai file is just your bam file with .bai added onto the end, in that case it is found automatically</li>
-</ul>
-<h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><p> <a href="http://quinlanlab.org/tutorials/samtools/samtools.html" target="_blank" rel="noopener">samtools使用</a></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">samtools view KL_3d_clean_filter.xRNAs.bam | less</span><br><span class="line">samtools sort KL_3d_clean_filter.xRNAs.bam -o KL_3d_clean_filter.xRNAs.sorted.bam </span><br><span class="line">samtools index KL_3d_clean_filter.xRNAs.sorted.bam</span><br></pre></td></tr></table></figure>
-<h3 id="bam生成配置文件"><a href="#bam生成配置文件" class="headerlink" title="bam生成配置文件"></a>bam生成配置文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 对样品生成 json 文件</span><br><span class="line">/usr/bin/perl ../bin/add-bam-track.pl --label mybam --bam_url HB-12-2_dedup.bam --in trackList.json</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 查看帮助，有各项参数的意思</span><br><span class="line">/usr/bin/perl bin/prepare-refseqs.pl --help</span><br><span class="line"></span><br><span class="line"># 添加key,即track显示的名称</span><br><span class="line">/usr/bin/perl bin/prepare-refseqs.pl --fasta /home/qi/JHH/siRNA/Cclementina_182_v1.fa --out Ccle --key Ccle.fasta</span><br><span class="line"></span><br><span class="line">/usr/bin/perl bin/flatfile-to-json.pl --gff /home/qi/JHH/siRNA/Cclementina_v1.0_gene_no_Cc_182.gff3 --trackType CanvasFeatures --trackLabel Ccle.gff3 --out Ccle</span><br></pre></td></tr></table></figure>
-<p>发现了 <a href="https://phytozome.jgi.doe.gov/jbrowse/index.html?data=genomes%2FCclementina%2F&amp;loc=scaffold_7%3A21098276..21102548&amp;tracks=Transcripts%2CAlt_Transcripts%2CPASA_assembly%2CBlastx_protein&amp;highlight=" target="_blank" rel="noopener">Cclementina</a> Jbrowse</p>
-<p><a href="https://www.citrusgenomedb.org/analysis/156" target="_blank" rel="noopener">download fasta</a></p>
-<blockquote>
-<p>–out <directory><br>        Data directory to process. Default ‘data/‘.</directory></p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 建立索引，搜索</span><br><span class="line">/usr/bin/perl bin/generate-names.pl --help</span><br><span class="line">/usr/bin/perl bin/generate-names.pl --out Ccle</span><br></pre></td></tr></table></figure>
-<p><a href="http://10.164.6.4/index.html?data=Ccle" target="_blank" rel="noopener">http://10.164.6.4/index.html?data=Ccle</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 生成bam的配置文件。配置文件中的路径只能写相对路径。要把文件移到相应的文件夹下</span><br><span class="line">for i in *.sorted.bam;do t=`echo $i | cut  -d _ -f 1,2`;/usr/bin/perl ../bin/add-bam-track.pl --label $t --bam_url $i --in trackList.json; done</span><br></pre></td></tr></table></figure>
-<p><img src="/images/Ccle.png" alt=""></p>
-<p> wig to bigwig</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install -c bioconda ucsc-wigtobigwig</span><br></pre></td></tr></table></figure>
-<p>现在我用conda安装软件，总是会碰到perssion denied的问题。明天再搞了。</p>
-<blockquote>
-<p>(base) [qi@localhost Ccle]$ ls ../bin<br>add-bam-track.pl  add-json.pl        biodb-to-json.pl  draw-basepair-track.pl  generate-names.pl  json2conf.pl   new-plugin.pl       remove-track.pl<br>add-bw-track.pl   add-track-json.pl  cpanm             flatfile-to-json.pl     jbdoc              maker2jbrowse  prepare-refseqs.pl  ucsc-to-json.pl</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2019/03/05/2019-3-5-hexo-next-主题-seo/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qizhengyang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/05/2019-3-5-hexo-next-主题-seo/" itemprop="url">
-                  hexo next 主题 seo
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-03-05 15:26:54 / Modified: 17:36:38" itemprop="dateCreated datePublished" datetime="2019-03-05T15:26:54+08:00">2019-03-05</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><strong>小结</strong></p>
-<ol>
-<li>seo 确实起作用</li>
-<li>抓取用的旧版</li>
-<li>robots.txt这个文件，经过测试，有无决定了seo是否起作用（<strong>2019-3-5 17:20:21：我也不确定</strong>，也许是写入索引需要一点时间）。（根目录下必须放，但第一次提交会报错，此时，将内容复制进去，点击第二个选项，再点击第三个。如果事先没有放，会报错，错误404）<ol>
-<li>hexo clean 会把robots.txt清理掉</li>
-<li>hexo d 不会重新提交robots.txt</li>
-</ol>
-</li>
-<li>抓取此网址及其直接链接？（前者可以月提交500次，<a href="https://www.inkwp.com/crawl-or-remove-website-content-immediately/" target="_blank" rel="noopener">后者月之能提交10次</a>，区别就是点后者提交能一并提交他的子目录。）</li>
-</ol>
-<p><strong>Google抓取</strong></p>
-<ol>
-<li><p>添加属性并输入你的网站</p>
-</li>
-<li><p>下载HTML文件并放入网站文件中使其可以访问</p>
-</li>
-<li><p>robots.txt测试工具。首先我们需要将网站地图robots.txt加入网站的根目录文件中。它会告诉<a href="https://www.wordpresshy.com/tag/%e6%90%9c%e7%b4%a2%e5%bc%95%e6%93%8e" target="_blank" rel="noopener">搜索引擎</a>哪些页面可以抓取，哪些页面不能抓取。</p>
-</li>
-<li><p>站点地图，我们进入站点地图，全选页面然后进行提交。</p>
-<p>*这里需要注意的是，我们在修改网站信息后，站点地图的内容不会自动进行更新。所以养成良好的习惯，定期在网站更新后对站点地图进行重新提交，有助于你的网站快速被收录。</p>
-</li>
-<li><p>google抓取工具。该工具可以帮助你了解谷歌的网页抓取机器人是否有访问你网站中的网页，呈现出来的样子，及是否有被禁止的网页。</p>
-<ol>
-<li>输入链接后点击抓取预览，请求编入索引</li>
-<li>选择第二个抓取此网址及其直接链接</li>
-</ol>
-</li>
-</ol>
-<p><strong>不明白的地方：搜索界面的时间。可能是编入索引这一步的问题。暂时这样吧。</strong></p>
-<p>第一次抓取</p>
-<p><img src="/images/四小时前是什么意思.PNG" alt=""></p>
-<p>第二次抓取<br><img src="/images/时间1.PNG" alt=""></p>
-<p><strong>抓取此网址及其直接链接起作用了</strong></p>
-<p>一开始，搜索结果又没有我的信息了。</p>
-<p>我听完报告回来，一切都正常了。连我的Twitter都有了，seo真实博大精深，没有精力深究了（可能是之前我在站点或主题的配置文件添加了社交网站，搜了一下并没有），我也很奇怪。时间是对的。</p>
-<p><img src="/images/mytwitter.PNG" alt=""></p>
-<p>听报告送书啦《作物功能基因组学》</p>
-<p>听报告的时候感觉ipad拍照像素很低</p>
-<p><img src="/images/1551778299122.png" alt="1551778299122"></p>
-<p>2019-3-5 17:36:19 又试一次，twitter没有了</p>
-<p><img src="/images/1551778542302.png" alt="1551778542302"></p>
-<p>怪了！</p>
-<p><strong>参考</strong></p>
-<p><a href="https://www.cmwonderland.com/2018/05/05/search-engine/" target="_blank" rel="noopener">https://www.cmwonderland.com/2018/05/05/search-engine/</a></p>
-<p><a href="https://hoxis.github.io/Hexo+Next%20SEO%E4%BC%98%E5%8C%96.html" target="_blank" rel="noopener">https://hoxis.github.io/Hexo+Next%20SEO%E4%BC%98%E5%8C%96.html</a></p>
-<p><a href="https://www.wordpresshy.com/20029" target="_blank" rel="noopener">https://www.wordpresshy.com/20029</a></p>
-<p><a href="https://www.inkwp.com/crawl-or-remove-website-content-immediately/" target="_blank" rel="noopener">https://www.inkwp.com/crawl-or-remove-website-content-immediately/</a></p>
-
-          
+          Jbrowse：diagnostic message object response error
+这种错误应该就是bam文件没有排序，或者没有建立索引。
+貌似samtools sort 输出文件不能和输入文件一样，不然就没排序？这导致了后面的麻烦
+2019-3-5 23:45:23：排完序之后会有输
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/05/set-up-a-BAM-file/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2091,7 +1936,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">34</span>
+                    <span class="site-state-item-count">35</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

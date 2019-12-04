@@ -332,6 +332,165 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2018/11/03/集群上安装DESeq2遇到的困难及解决办法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qizhengyang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/03/集群上安装DESeq2遇到的困难及解决办法/" itemprop="url">
+                  集群上安装DESeq2遇到的困难及解决办法
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-11-03 22:18:08" itemprop="dateCreated datePublished" datetime="2018-11-03T22:18:08+08:00">2018-11-03</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-11-04 13:18:14" itemprop="dateModified" datetime="2018-11-04T13:18:14+08:00">2018-11-04</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+BiocManager::install(“DESeq2”, version = “3.8”)报错，错误内容：configure: WARNING: Only g++ version 4.7.2 or greater can be used with RcppArmadillo.configure
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/11/03/集群上安装DESeq2遇到的困难及解决办法/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://qizhengyang2017.github.io/2018/11/03/集群上安装的R包/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -562,12 +721,15 @@
       
         
           
-            <p>普通用户在集群上安装R<br><a href="https://blog.csdn.net/s_gy_zetrov/article/details/83117288?tdsourcetag=s_pctim_aiomsg" target="_blank" rel="noopener">主要的教程</a><br>里面有一些需要注意的，<br>安装bzip，<strong>要加入一个 -fPIC 到 CFLAG</strong> 。（在 Makefile中CFLAG=-fPIC -Wall -Winline -O2 -g…）<br>在R安装configure之前需要注意设置环境变量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LD_LIBRARY_PATH=/home02/qizhengyang/packages/lib</span><br><span class="line"><span class="built_in">export</span> CFLAGS=<span class="string">"-I/home02/qizhengyang/packages/include"</span></span><br><span class="line"><span class="built_in">export</span> LDFLAGS=<span class="string">"-L/home02/qizhengyang/packages/lib"</span></span><br></pre></td></tr></table></figure></p>
-<p>R安装完成之后<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> R_HOME=<span class="variable">$HOME</span>/packages/R</span><br><span class="line"><span class="built_in">export</span> R_LIBS=<span class="variable">$HOME</span>/packages/R/lib64/library</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">"<span class="variable">$R_HOME</span>/bin"</span>:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure></p>
-<p>最后 source ~/.bashrc</p>
-<p>装methyKit也是坑一堆。<br>我下了autoconf-2.69，<strong>libxml2-2.7.2</strong>。源码安装。./configure –prefix=/home02/qizhengyang/packages</p>
-
-          
+          普通用户在集群上安装R主要的教程里面有一些需要注意的，安装bzip，要加入一个 -fPIC 到 CFLAG 。（在 Makefile中CFLAG=-fPIC -Wall -Winline -O2 -g…）在R安装configure之前需要注意设置环境变量123LD_LIBRARY_PATH=/hom
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/31/集群上安装R/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -717,9 +879,16 @@
       
         
           
-            <p>1937年8月<br>一个男人，在人们通常视为人生大事的地方（婚姻、社会地位等等）寻找人生，然后某天在翻阅一本时装目录的时候，突然了解到他对自己人生亦即时装目录上鼓吹的那种人生是何其无所谓。</p>
+          1937年8月一个男人，在人们通常视为人生大事的地方（婚姻、社会地位等等）寻找人生，然后某天在翻阅一本时装目录的时候，突然了解到他对自己人生亦即时装目录上鼓吹的那种人生是何其无所谓。
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/08/17/局外人主旨/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -869,13 +1038,16 @@
       
         
           
-            <p>第四章，“乔伊斯中等身高，他把眼睛用坏了。在那最后一晚，喝醉了，和乔伊斯在一起，他不断引用埃德加·基内的话：‘思维清晰、生命绚丽如战争时一样。’我知道我没有把这句话彻底弄清楚。等你见到他，他会提到三年前被打断的谈话。能见到我们这个时代伟大的作家真让人高兴。”<br>这段话越发让我觉得我看的不是一部小说。</p>
-<p>查了维基百科</p>
-<blockquote>
-<p><em>Green Hills of Africa</em> is a 1935 work of nonfiction by American writer Ernest Hemingway.</p>
-</blockquote>
-
-          
+          第四章，“乔伊斯中等身高，他把眼睛用坏了。在那最后一晚，喝醉了，和乔伊斯在一起，他不断引用埃德加·基内的话：‘思维清晰、生命绚丽如战争时一样。’我知道我没有把这句话彻底弄清楚。等你见到他，他会提到三年前被打断的谈话。能见到我们这个时代伟大的作家真让人高兴。”这段话越发让我觉得我看的不是一部小说。
+查
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/14/非洲的青山/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -959,7 +1131,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">34</span>
+                    <span class="site-state-item-count">35</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
