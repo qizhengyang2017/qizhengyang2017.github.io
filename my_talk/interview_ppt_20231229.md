@@ -31,13 +31,13 @@ style: |
 
 2012 - 2016, HZAU, Bachelor's Degree
 
-![bg right:40% w:400](./figs/image10.png)
+![bg right:40% w:400](./figs/IMG_6587.JPG)
 
 ---
 # Background
 
-- Cotton contains 45 diploids with 8 karyotypes (A-G and K) and 7 allopolyploids (AD)
-- Only four species were domesticated as cultivated cottons (A1, A2, AD1 and AD2)
+- Cotton contains 45 diploids and 7 allopolyploids (AD)
+- 4 species were domesticated as cultivars (A1, A2, AD1 and AD2)
 
 ![w:1000 center](./figs/image11.png)
 
@@ -57,7 +57,7 @@ style: |
 
 ![w:900 center](./figs/cb_title.png)
 
-I completed most of the figures and wrote the paper
+I performed data analysis and wrote the manuscript.
 
 ---
 
@@ -66,19 +66,19 @@ I completed most of the figures and wrote the paper
 1. Performed two complementary GWAS method
 2. Detect prevalent epistatic interactions
 
-![w:900 center](./figs/sgwas_hgwas.png)
+![w:1100 center](./figs/gwas_epistasis.png)
 
 ---
 
 # What I have learnt
 
-the main approaches for studying complex traits
+The main approaches for studying complex traits
 - GWAS and linkage mapping
 - IBD inference
 - heritability
 - epistasis
 
-![bg right:40% w:450](./figs/book.jpg)
+![bg right:40% w:300](./figs/book.jpg)
 
 ---
 
@@ -86,7 +86,7 @@ the main approaches for studying complex traits
 
 ![w:1000 center](./figs/ng_title.png)
 
-Contribution: figs5,6
+Contribution: 1/3 analysis tasks (figs5,6)
 
 ---
 
@@ -103,16 +103,16 @@ Contribution: figs5,6
 # Why perform eQTL analysis?
 
 
-- provide a reliable molecular link between DNA variants and complex phenotypes
-- prioritize causal genes at GWAS loci 
+- Provide a reliable molecular link between DNA variants and complex phenotypes
+- Prioritize causal genes at GWAS loci 
 ![bg right:40% h:500](./figs/image19.png)
 
 ---
 
-# eQTL hotspot
+# Networking of genes
 
-- a regulatory hotspot overlapped with a FL-related QTL (FL5)
-- the genes were enriched in the biological processes plant-type cell wall organization and protein transport
+- A regulatory hotspot overlapped with a GWAS locus of FL
+- The 52 genes regulated by the hotspot were involved in the processes of plant-type cell wall organization and protein transport
 
 ![bg right:40% h:500](./figs/image15.png)
 
@@ -120,10 +120,10 @@ Contribution: figs5,6
 
 # Why A genome has spinnable fibers?
 
-- syntenic analysis of functional genes
-- An example showing two tandem duplication genes for FL 
+- Performed syntenic analysis of 195 putative functional genes
+- The left figure serves as an example, illustrating the PAV of two tandem duplication genes was associated with fiber evolution
 
-![bg right:43% w:500](./figs/synteny.png)
+![bg right:40% w:500](./figs/synteny.png)
 
 
 ---
@@ -132,7 +132,7 @@ Contribution: figs5,6
 
 ![w:1000 center](./figs/ng_title2.png)
 
-Contribution: part of figs.2,3, and entire fig.6
+Contribution: 1/3 analysis tasks (part of figs.2,3, and entire fig.6)
 
 ---
 
@@ -140,33 +140,33 @@ Contribution: part of figs.2,3, and entire fig.6
 
 ![w:800 center](./figs/tetraploid_twas.png)
 
-Conduct GWAS of fiber quality and found 18 QTLs
-Perform TWAS and found 1255 genes associated with fiber quality
+- Conducted GWAS of fiber quality and found 18 QTLs
+- Performed TWAS and found 1255 genes associated with fiber quality
 
 
 ---
 
-# cotton breeding strategy
+# Cotton breeding strategy
 
 ![w:800 center](./figs/tetraploid_breeding.png)
 
-- we can further improve fiber quality by targeting one of the less favourably expressed gene in the homologous gene pairs.
+- We can further improve fiber quality by targeting one of the less favourably expressed gene in the homologous gene pairs.
 
 ---
 # What I have learnt
 
 Post-GWAS analysis
-- prioritization of variants in the non-coding regions
+- Prioritization of variants in the non-coding regions
 - Construction of GS model
 
 ---
 
 # Two more projects
 
-- domestication
-- pan-genome of 75 accessions 
+- Domestication/breeding history of upland cotton
+- Pan-genome analysis of 75 accessions (15 diploids and 60 tetraploids)
 
-![bg right:60% w:600](./figs/3D_pca.png)
+![bg right:45% w:500](./figs/3D_pca.png)
 
 ---
 
@@ -179,13 +179,27 @@ Post-GWAS analysis
 
 # Future research interests
 
-- employ a state-of-the-art multiomics approach to understand the evolution of interestiong phenotypes in cucurbits
-- perform mGWAS, eQTL as well as functional case-studies to decipher the genetic basis of key agronomic traits in cucurbits
+- Understand the evolution of interesting phenotypes by employing a state-of-the art multi-omics approach
+- Deciper the genetics basis of key agronomic traits by using statistical genetics and functional case-studies
+
+
+---
+
+
+# Acknowledgement
+
+- National Key Laboratory of Crop Genetic Improvement
+- High-performance computing platform in HZAU
+- Dr. Wang's research group
+
+![w:500 center](./figs/group.png)
 
 
 ---
 
 <!-- _class: lead -->
 
-# END.
+# Thanks
+qizhengyang17@qq.com
+
 
