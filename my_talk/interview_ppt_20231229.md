@@ -75,10 +75,8 @@ I performed data analysis and wrote the manuscript.
 The main approaches for studying complex traits
 - GWAS and linkage mapping
 - IBD inference
-- heritability
-- epistasis
-
-![bg right:40% w:300](./figs/book.jpg)
+- genome-wide epistasis analysis
+- heritability and the breeder’s equation 
 
 ---
 
@@ -156,8 +154,9 @@ Contribution: 1/3 analysis tasks (part of figs.2,3, and entire fig.6)
 # What I have learnt
 
 Post-GWAS analysis
-- Prioritization of variants in the non-coding regions
-- Construction of GS model
+- Inferring Causal Associations between Genes and Disease via the Mapping of Expression Quantitative Trait Loci
+- Inferring gene regulatory networks
+- Construction of genomic prediction model
 
 ---
 
@@ -170,10 +169,12 @@ Post-GWAS analysis
 
 ---
 
-# Summary
+# Skills
 
 - I know many details about quantitative genetics.
 - I am good at bioinformtics workflow construction and downstream analysis.
+
+![w:800 center](./figs/breeder_equation.jpg)
 
 ---
 
