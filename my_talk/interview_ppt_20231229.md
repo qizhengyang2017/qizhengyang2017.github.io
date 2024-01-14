@@ -12,8 +12,11 @@ style: |
     }
 ---
 
+# My research journey
+Qi Zhengyang (戚正阳)
 
-![bg left:40% 80%](figs/background.jpg)
+---
+
 
 # Content
 
@@ -34,7 +37,7 @@ style: |
 ![bg right:40% w:400](./figs/IMG_6587.JPG)
 
 ---
-# Background
+# Introduction to cotton
 
 - Cotton contains 45 diploids and 7 allopolyploids (AD)
 - 4 species were domesticated as cultivars (A1, A2, AD1 and AD2)
@@ -57,7 +60,7 @@ style: |
 
 ![w:900 center](./figs/cb_title.png)
 
-I performed data analysis and wrote the manuscript.
+Contribution: data analysis and wrote the whole manuscript.
 
 ---
 
@@ -90,29 +93,19 @@ Contribution: 1/3 analysis tasks (figs5,6)
 
 # Experimental design
 
-- Re-sequence 216 diploid cotton accessions
-- RNA-seq for 5 time-points for each accession
-- Perform GWAS and eQTL analysis
+>Their macromolecules are so alike that regulatory mutations may account for their biological differences. (King and Wilson, 1975)
 
-![h:300 center](./figs/diploid_design.png)
+RNA-seq for 5 time-points for each accession
+![h:280 center](./figs/diploid_design.png)
 
 ---
 
-# Why perform eQTL analysis?
-
+# What eQTL analysis can do?
 
 - Provide a reliable molecular link between DNA variants and complex phenotypes
 - Prioritize causal genes at GWAS loci 
 ![bg right:40% h:500](./figs/image19.png)
 
----
-
-# Networking of genes
-
-- A regulatory hotspot overlapped with a GWAS locus of FL
-- The 52 genes regulated by the hotspot were involved in the processes of plant-type cell wall organization and protein transport
-
-![bg right:40% h:500](./figs/image15.png)
 
 ---
 
@@ -148,15 +141,12 @@ Contribution: 1/3 analysis tasks (part of figs.2,3, and entire fig.6)
 
 ![w:800 center](./figs/tetraploid_breeding.png)
 
-- We can further improve fiber quality by targeting one of the less favourably expressed gene in the homologous gene pairs.
+- We can further improve fiber quality by targeting one of the less favourably expressed gene in the homoeologous gene pairs.
 
----
-# What I have learnt
+<!--
 
-Post-GWAS analysis
-- Inferring Causal Associations between Genes and Disease via the Mapping of Expression Quantitative Trait Loci
-- Inferring gene regulatory networks
-- Construction of genomic prediction model
+We found the expression pattern of some homoelogs are associated with the fiber quality
+-->
 
 ---
 
@@ -174,7 +164,6 @@ Post-GWAS analysis
 - I know many details about quantitative genetics.
 - I am good at bioinformtics workflow construction and downstream analysis.
 
-![w:800 center](./figs/breeder_equation.jpg)
 
 ---
 
@@ -182,18 +171,6 @@ Post-GWAS analysis
 
 - Understand the evolution of interesting phenotypes by employing a state-of-the art multi-omics approach
 - Deciper the genetics basis of key agronomic traits by using statistical genetics and functional case-studies
-
-
----
-
-
-# Acknowledgement
-
-- National Key Laboratory of Crop Genetic Improvement
-- High-performance computing platform in HZAU
-- Dr. Wang's research group
-
-![w:500 center](./figs/group.png)
 
 
 ---
